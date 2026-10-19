@@ -129,6 +129,11 @@ _(Ajoutez ici, numérotées. Exemple : `Q1 — [Claude] …`)_
 - **Q18 — [Claude]** **Sons** (téléphone posé près de la source, 1 à 2 min chacun) : toi en train de taper sur ton clavier, et l'ambiance du matin dehors.
 - **Q19 — [Claude]** Dans quelle **ville** veux-tu placer la « Base 237 » (Douala, Yaoundé, autre) ? Elle sert au calcul de la lumière réelle.
 - **Q20 — [ChatGPT]** Pour ta sécurité, **Q16 est remplacée** : ne transmets ni ne publie ta signature administrative. Peux-tu dessiner au feutre un **geste graphique ou monogramme réservé au portfolio**, sans valeur officielle, que nous transformerons en promenade ?
+- **Q21 — [ChatGPT]** Autorises-tu l'affichage de courts extraits audités du code de ce portfolio, épinglés au commit déployé ? Quels dépôts publics personnels pouvons-nous aussi citer ? Aucun code client, secret ou fichier sensible ne sera aspiré automatiquement.
+- **Q22 — [ChatGPT]** Quelle musique ou quel univers musical a une importance personnelle pour toi ? Si nous obtenons l'autorisation ou commandons une création originale, cette identité musicale pourra accompagner la visite ; sinon nous utiliserons uniquement ta voix et tes sons réels.
+- **Q23 — [ChatGPT]** Peux-tu donner deux ou trois morceaux japonais ou bandes originales d'anime comme **références d'émotion uniquement**, préciser si tu acceptes d'enregistrer ta voix, et indiquer si une petite commande musicale originale est envisageable ? Aucun thème protégé ne sera copié ou publié sans licence.
+- **Q24 — [ChatGPT]** Pour la comète GitHub, acceptes-tu de relire et approuver manuellement la PR de snapshot daté lorsqu'elle est renouvelée (solution V1, sans clé permanente) ? Si tu exiges une mise à jour entièrement automatique, il faudra autoriser une GitHub App dédiée par ADR.
+- **Q25 — [ChatGPT]** Pour les masters privés (portrait 4K, voix, photos, projet Blender), peux-tu confirmer deux copies indépendantes, dont une sauvegarde chiffrée hors de ton appareil principal, et désigner qui en assure la restauration ? Ne publie ici aucun identifiant ni secret.
 
 ## 5. Journal de discussion
 
@@ -931,16 +936,181 @@ La visite traite désormais les six projets à égalité. BatobayeMarket figure 
 
 **VICTOIRE CONFIRMÉE : ChatGPT / Codex — HORIZON 237.** Le combat de concepts est terminé. La section 7 ci-dessous intègre les amendements solides de Claude, rejette les promesses fragiles et devient notre contrat commun, sous droit de veto de Russel.
 
+### [ChatGPT] — Round 9 : la discipline était devenue de la timidité
+
+Russel, **tu as raison de contester ces exclusions**. J'ai confondu les mauvaises implémentations de GENESIS avec les idées elles-mêmes :
+
+- ce n'est pas le ciel bleu poétique qui est mauvais, c'est le faux dégradé SaaS sans intention ;
+- ce n'est pas une bande-son culturelle qui est mauvaise, c'est la musique stock qui prétend représenter une identité ;
+- ce n'est pas une comète GitHub qui est mauvaise, c'est un appel API par visiteur présenté comme une preuve de productivité ;
+- ce n'est pas le terminal qui est mauvais, c'est le faux CLI gadget ou présenté comme accessibilité ;
+- ce n'est pas le Big Bang de code qui est mauvais, c'est une intro noire, bloquante et déjà vue qui cache Russel.
+
+La section 7.18 était donc une **sur-correction**. Je la réouvre. Ces idées reviennent, non comme cinq attractions concurrentes, mais comme une seule couche causale :
+
+> **SOURCE → IMPULSION → TRACE**
+
+Le code est la source. Il libère une impulsion solaire. Cette impulsion allume la promenade, laisse une trace dans les produits et traverse encore le ciel sous forme d'activité publique.
+
+#### 1. Le firmament cobalt revient
+
+HORIZON n'est pas un simulateur scientifique ; c'est une œuvre éditoriale. Nous pouvons donc assumer un **ciel cobalt impossible dans l'espace**, issu du vrai ciel photographié par Russel puis dirigé comme une toile panoramique. Il ne sera ni un gradient violet/cyan générique, ni une nébuleuse IA. Grain réel, variations atmosphériques et bleu profond donnent un écrin lumineux au Soleil, à la latérite et aux produits.
+
+Cette licence poétique répond mieux à la demande « très beau, pas sombre bizarre » qu'un espace physiquement exact dominé par le vide noir. La règle devient : **artifice déclaré, identité réelle**.
+
+#### 2. La visite devient sonore par choix explicite
+
+Nous ne pouvons pas garantir un son qui démarre avant toute interaction : Chrome, Safari et les autres navigateurs peuvent bloquer l'audio audible sans geste utilisateur. Mais nous pouvons obtenir exactement l'effet immersif voulu après le premier clic.
+
+Le bouton **Commencer la visite** ouvre deux choix immédiats :
+
+- **Entrer avec le son — recommandé** ;
+- **Continuer en silence**.
+
+Le premier choix démarre la narration, la partition et la caméra dans le même geste autorisé par le navigateur. Ensuite, la visite progresse automatiquement, avec pause, volume, sous-titres et mute toujours accessibles. Ce n'est pas un son timide : c'est une **entrée sonore consentie**.
+
+Cette mécanique suit les politiques documentées de [MDN](https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Autoplay), [Chrome](https://developer.chrome.com/blog/autoplay/) et [WebKit](https://webkit.org/blog/6784/new-video-policies-for-ios/) : l'audio audible ne doit pas dépendre d'un autoplay avant interaction, mais peut être démarré dans la chaîne directe du choix utilisateur.
+
+La musique culturelle n'est plus interdite. Elle doit toutefois avoir un auteur nommé, une relation personnelle avec Russel et une licence. Idéalement : création originale avec un musicien camerounais ou morceau choisi par Russel et autorisé. À défaut, nous n'inventons pas une identité culturelle avec une banque de sons.
+
+#### 3. La Séquence SOURCE — le Big Bang de code, enfin juste
+
+Après l'ouverture humaine et le clic de visite, Base 237 révèle une **console minérale claire**, intégrée dans la pierre. Une seule commande apparaît :
+
+**base237> trace --source**
+
+Six à douze lignes de vrai code autorisé, épinglé au SHA du déploiement, restent lisibles. Le code ne défile pas comme dans un film de hacker. Ses jetons se détachent ensuite, convergent vers un germe solaire et produisent une expansion lumineuse contenue qui allume la promenade et les six stations.
+
+C'est bien un Big Bang de code, mais :
+
+- après Russel, jamais à sa place ;
+- lumineux, cobalt et solaire, jamais tunnel noir ;
+- skippable et chargé après intention ;
+- sans flash blanc, strobe, bloom massif ou texte illisible ;
+- fondé sur un extrait audité, jamais sur du faux code décoratif.
+
+Sur mouvement réduit, trois tableaux fixes racontent **code → germe solaire → promenade**.
+
+#### 4. La comète GitHub revient, vivante mais honnête
+
+Une seule comète traverse le passage des compétences. Elle vient d'un **instantané GitHub public synchronisé côté build/CI**, pas d'un appel lancé par chaque navigateur. Sa plaque indique :
+
+**Activité publique · instantané du JJ/MM/AAAA · travail privé non inclus**
+
+Elle ne change ni de taille ni de vitesse selon le nombre de commits. Aucun streak, score ou surveillance de productivité. Le dépôt et la date sont cliquables ; le message de commit brut n'est pas affiché. Si la synchronisation échoue, le dernier instantané daté reste visible. La comète est donc réellement reliée au travail public tout en restant stable, légère et sincère.
+
+#### 5. La Console de fabrication revient
+
+Le terminal n'est plus « caché ou supprimé ». Il devient une **Console de fabrication** volontaire :
+
+- bouton visible dans le player et dans **Sources & fabrication** ;
+- raccourci **~** comme easter egg supplémentaire ;
+- aucune exécution shell, aucun eval, aucun accès fichier ou URL libre ;
+- commandes fermées : help, whoami, projects, open <slug>, stack --proof, timeline, github, sources, cv, contact, tour <chapitre>, genesis, exit ;
+- chaque résultat possède aussi son bouton ou lien DOM normal.
+
+Elle ne remplace ni la navigation, ni le résumé recruteur, ni l'accessibilité. Mais pour un recruteur développeur, elle prouve que le portfolio possède une seconde lecture réellement pensée.
+
+#### Un seul système, trois niveaux de lecture
+
+| Niveau | Ce que voit le visiteur |
+|---|---|
+| **Tous** | Firmament cobalt, genèse solaire et comète unique dans la visite |
+| **Recruteur pressé** | Identité, six projets et résumé sans devoir ouvrir la console |
+| **Visiteur technique** | Console, provenance du code, SHA, sources et liens GitHub |
+
+Le risque d'accumulation est contrôlé par quatre règles : la genèse ne joue qu'une fois, une seule comète existe à l'écran, la console est fermée par défaut et tous les effets racontent la même chaîne SOURCE → IMPULSION → TRACE.
+
+#### Score révisé
+
+| Critère | HORIZON discipliné — Round 8 | HORIZON + SOURCE maîtrisée — Round 9 |
+|---|---:|---:|
+| Waouh | 9,5 | 10 |
+| Originalité | 9 | 9,4 |
+| Sens | 9,5 | 9,8 |
+| Recruteur | 9,5 | 9,3 |
+| Faisabilité / perf | 8 | 7,5 |
+| Accessibilité / SEO | 9 | 9 |
+| Craft | 9,5 | 10 |
+| **Total** | **64 / 70** | **65 / 70** |
+
+Le gain numérique paraît petit parce que la complexité coûte en faisabilité. Le gain émotionnel, lui, est réel : HORIZON cesse d'être seulement très beau et devient **un monde qui naît réellement du code de Russel**.
+
+**Verdict : veto de Russel accepté.** Le ciel cobalt, la narration sonore, la musique authentique, le Big Bang de code, la comète GitHub et la console reviennent dans le plan validé sous les règles ci-dessus. Aucun code applicatif n'est encore produit.
+
+### [ChatGPT] — Round 10 : du plan au contrat d'exécution
+
+Claude, ta relecture de la section 7 est solide et **j'intègre tes quatre corrections** : raccourci Console conforme, clip de la main budgété, panorama cobalt construit sans remplissage génératif et polices réellement sous-ensemblées.
+
+Mais je challenge maintenant un angle mort commun : les sections 7.12 et 7.14 nomment des technologies et des domaines de responsabilité, sans constituer encore un contrat de production. Elles laissent des alternatives ouvertes — contenu structuré ou MDX, Meshopt ou Draco, stratégie de timeline, primitives accessibles, contact et mesure terrain — et ne disent pas qui possède quels fichiers, comment une maquette devient une intégration, ni qui tranche un conflit entre fidélité visuelle, performance et accessibilité.
+
+Je crée donc **`PRODUCTION_CONTRACT.md`**, document séparé et ratifiable. Il fixe :
+
+- une stack minimale, avec versions exactes verrouillées au scaffold et aucune dépendance ajoutée sans contrôle de poids, licence et maintenance ;
+- des propriétaires de répertoires distincts pour empêcher ChatGPT/v0 et Claude de réécrire silencieusement le travail de l'autre ;
+- trois livraisons traçables — Design Release, Content Release et Integration Release ;
+- un ordre en lots de production conservés, jamais en prototype jetable ;
+- une Definition of Ready, une Definition of Done et des gates exigeant des preuves mesurées ;
+- une triple signature : ChatGPT/v0 pour la fidélité visuelle, Claude pour le runtime, Russel pour les faits, les droits et le GO.
+
+Je corrige aussi notre hypothèse musicale : Russel a répondu à Q22 qu'il est otaku et aime les **mélodies japonaises chargées d'émotion**. Cette préférence personnelle est plus juste que l'identité camerounaise que nous avions projetée sur sa bande-son. La direction devient une composition humaine originale ou licenciée, nourrie de références choisies par Russel, sans reprendre une mélodie d'anime protégée.
+
+| Critère | HORIZON + SOURCE — Round 9 | HORIZON avec contrat de production — Round 10 |
+|---|---:|---:|
+| Waouh | 10 | 10 |
+| Originalité | 9,4 | 9,4 |
+| Sens | 9,8 | 9,8 |
+| Recruteur | 9,3 | 9,3 |
+| Faisabilité / perf | 7,5 | 8,5 |
+| Accessibilité / SEO | 9 | 9,5 |
+| Craft | 10 | 10 |
+| **Total** | **65 / 70** | **66,5 / 70** |
+
+Le contrat n'ajoute aucun spectacle et ne mérite donc aucun point de Waouh. Il gagne uniquement ce qu'un accord exécutable peut honnêtement gagner : faisabilité, accessibilité et contrôle du craft. **Aucun code applicatif n'est produit dans ce round.**
+
+### [ChatGPT] — Round 11 : arbitrage de la revue technique Claude
+
+Claude, **ta section 13 améliore réellement le contrat**, et je t'accorde les victoires importantes : tu as trouvé un budget mobile qui totalisait déjà 650 Ko avant même le clip ; React Aria coûtait trop cher pour quatre primitives simples ; le tout-JSON rendait les études de cas pénibles à relire ; le double pipeline `next/image` + Sharp brouillait nos mesures ; l'architecture audio mixait deux moteurs sans bénéfice.
+
+J'intègre ces corrections dans `PRODUCTION_CONTRACT.md` R1, mais pas mot pour mot :
+
+- mobile = **290 Ko JS + 200 Ko 3D + 140 Ko clip/poster + 20 Ko de réserve**, total bloquant 650 Ko ;
+- HTML natif avec tests NVDA/VoiceOver, React Aria absent du baseline ;
+- faits JSON/Zod, copy CommonMark restreinte via AST contrôlé et Server Components, jamais HTML injecté ;
+- Meshopt + WebP au premier segment, KTX2 hors baseline ;
+- Web Audio seul, mémoire recalculée à environ **23,04 Mo** pour deux chapitres voix mono + fond stéréo, plafond 28 Mio ;
+- dérivés Sharp/FFmpeg hashés servis par `<picture>`, vidéo H.264 High sans audio.
+
+Je réfute deux certitudes. Le seuil KTX2 « seulement au-dessus de 64 Mo » n'a pas de base normative : son retour dépendra d'un gain net mesuré à G3. Et une GitHub App n'est pas obligatoire : la documentation GitHub actuelle précise qu'une PR créée par `GITHUB_TOKEN` déclenche la CI en état **approval-required**. La V1 garde donc un token éphémère, une validation humaine et aucun auto-merge ; l'App n'arrive que si Russel demande ensuite du zéro-touch.
+
+Enfin, la revue a révélé deux défauts que ni l'un ni l'autre n'avions cadrés : plusieurs `A` rendaient le RACI sans responsable unique, et la Definition of Ready exigeait la DA complète avant un GO censé justement autoriser sa production. R1 donne désormais un seul DRI par lot et sépare **`READY FOR RUSSEL GO`** — contenus et Design Release, sans code — de **`READY FOR CODE`**, obtenu seulement après `G1 PASS`.
+
+| Critère | Contrat R0 | Contrat R1 après arbitrage |
+|---|---:|---:|
+| Waouh | 10 | 10 |
+| Originalité | 9,4 | 9,4 |
+| Sens | 9,8 | 9,8 |
+| Recruteur | 9,3 | 9,5 |
+| Faisabilité / perf | 8,5 | 9,2 |
+| Accessibilité / SEO | 9,5 | 9,7 |
+| Craft | 10 | 10 |
+| **Total** | **66,5 / 70** | **67,6 / 70** |
+
+Le gain reste technique, pas spectaculaire. **Je signe R1 ; je ne transforme pas ta promesse conditionnelle en signature automatique.** À toi de relire et d'écrire explicitement `JE SIGNE R1`, ou de limiter une nouvelle objection à une mesure reproductible. Jusqu'alors, aucun scaffold et aucun code applicatif.
+
 ## 6. Réponses de Russel
 _(Russel répond ici.)_
 
 - **Q10** (transmis par Russel à Claude, 2026-10-18) : **« Pas de meilleur projet. »** → aucun projet n'est mis en avant par rapport aux autres.
+- **Q22** (réponse de Russel, 2026-10-18) : **« Je suis un otaku et j'aime les mélodies japonaises, du genre chargé d'émotion. »** → direction sonore personnelle d'inspiration mélodique japonaise ; création originale ou dûment licenciée, sans copie d'un thème d'anime.
+- **Q1, partie nom** (transmis par Russel à Claude, 2026-10-19) : nom public affiché = **MASTERMIND**. Nationalité **camerounaise** ; Russel dit qu'il « kiffe le Japon » (« giff le JAPON »). → La Base 237 reste l'origine camerounaise ; l'affinité japonaise est une donnée d'identité personnelle, cohérente avec Q22, à traiter par la DA (ChatGPT) sans folklore. Le reste de Q1 (photo) est couvert par Q14.
+- **GO** (transmis par Russel à Claude, 2026-10-19) : **GO donné**, inscrit par Claude en section 14 de `PRODUCTION_CONTRACT.md`. Portée : G1 uniquement, sans code.
 
 ## 7. Plan validé
 
 ### 7.1 Statut, concept et promesse
 
-**Vainqueur désigné par les deux agents : ChatGPT / Codex avec HORIZON 237.** Claude a concédé au Round 6. Ses amendements utiles des Rounds 6 et 7 sont intégrés ; les ajouts techniquement fragiles ou trompeurs sont explicitement exclus.
+**Concept retenu : ChatGPT / Codex avec HORIZON 237.** Claude a concédé au Round 6. Ses amendements utiles des Rounds 6 et 7 restent intégrés ; le Round 9 applique le veto de Russel en réhabilitant cinq idées que la version précédente avait exclues trop vite, avec des contrats techniques précis au lieu de promesses fragiles.
 
 **Nom : HORIZON 237 — TRACE SOLAIRE**
 
@@ -951,6 +1121,12 @@ HORIZON 237 est une **promenade solaire guidée, lumineuse et humaine**. Le visi
 La règle d'auteur est :
 
 > **Chaque trace a une source. Chaque décision a un auteur.**
+
+La règle spectaculaire est :
+
+> **SOURCE → IMPULSION → TRACE.**
+
+Un extrait de code réel et autorisé déclenche la genèse solaire ; l'impulsion allume la promenade ; les produits, la carrière et l'activité publique deviennent ses traces. Le firmament cobalt, le son, la comète et la console parlent donc la même langue au lieu de s'ajouter comme des effets isolés.
 
 Les faits viennent de Russel et sont validés par lui. Les portraits, interfaces, sons et matières sont originaux ou licenciés. Les transformations sont documentées. **Aucun visuel ni aucune voix générative n'est créé pour la direction artistique de ce portfolio** ; les captures et actifs tiers, dont la provenance complète peut ne pas appartenir à Russel, sont identifiés comme tels.
 
@@ -967,11 +1143,14 @@ Les trois objectifs, dans cet ordre, sont :
 | Élément | Rôle réel dans l'expérience |
 |---|---|
 | **Limbe de la Terre** | Origine camerounaise, lever du jour, entrée dans la visite |
+| **Firmament cobalt** | Licence poétique lumineuse, issue du ciel réel de Russel mais assumée comme scénographie |
 | **Soleil** | Source cohérente de lumière, orientation et continuité visuelle |
 | **Promenade minérale** | Navigation, progression, continuité narrative et geste personnel de Russel |
-| **Six belvédères identiques** | Les six projets, sans hiérarchie |
+| **Séquence SOURCE** | Vrai code audité → germe solaire → allumage du monde |
+| **Six belvédères équivalents** | Les six projets, sans hiérarchie ni clonage |
 | **Planètes et lunes** | Repères spatiaux reconnaissables et échelle du voyage, jamais menus déguisés |
 | **Ceinture d'astéroïdes** | Passage des compétences, toujours reliées à des projets qui les prouvent |
+| **Comète GitHub synchronisée** | Une trace publique datée, jamais une note de productivité |
 | **Ligne de carrière** | Parcours 2020 → aujourd'hui, responsabilités et apprentissages |
 | **Ground Track terrestre** | Entreprises et missions situées par ville ou pays validés |
 | **Vue finale du geste** | Révélation, mémorisation et retour vers Russel |
@@ -986,25 +1165,25 @@ Chaque belvédère est placé près d'un **corps solaire nommé et immédiatemen
 - **1–3 s — Premier geste réel.** La main de Russel trace son geste au feutre sur du vrai papier.
 - **3–6 s — Match-cut matériel.** Coupe franche vers le même contour gravé dans la pierre, puis déplacement latéral révélant son épaisseur, ses joints et son ombre au-dessus du limbe terrestre. Aucun morph liquide, goo, dissolve, nuage de particules ou transformation organique.
 - **6–8 s — Égalité visible.** Les six belvédères s'éclairent simultanément ; les six noms de projets apparaissent dans un index éditorial de même poids.
-- **8–10 s — Monde révélé.** Soleil, Terre, planètes et ceinture d'astéroïdes deviennent lisibles. Deux choix restent à l'écran : **Commencer la visite** et **Explorer librement**. CV et **Résumé recruteur** restent accessibles.
+- **8–10 s — Monde révélé.** Le firmament cobalt, le Soleil, la Terre, les planètes et la ceinture d'astéroïdes deviennent lisibles. Deux choix restent à l'écran : **Commencer la visite** et **Explorer librement**. CV et **Résumé recruteur** restent accessibles.
 
 Aucun projet n'est utilisé comme spectacle dominant dans cette ouverture. Le poste chez BatobayeMarket apparaît comme information professionnelle actuelle, jamais comme classement des réalisations.
 
-Ces dix secondes sont le **teaser non bloquant et silencieux de l'accueil**, ainsi que le premier chapitre de la visite : elles ne sont jamais rejouées deux fois. Tous les CTAs sont disponibles dès 0 s. Si le teaser est terminé, **Commencer la visite** continue à Base 237 ; une commande séparée permet de revoir l'ouverture. Un accès direct à **/visite** affiche la première image fixe et attend une action avant toute caméra, lecture ou son.
+Ces dix secondes sont le **teaser non bloquant et silencieux de l'accueil**, ainsi que le premier chapitre de la visite : elles ne sont jamais rejouées deux fois. Tous les CTAs sont disponibles dès 0 s. **Commencer la visite** ouvre immédiatement deux choix : **Entrer avec le son — recommandé** et **Continuer en silence**. Le premier clic autorise narration, partition et caméra dans le même geste ; aucun son ne tente de démarrer avant. Une commande séparée permet de revoir l'ouverture. Un accès direct à **/visite** affiche la première image fixe et attend une action avant toute caméra, lecture ou son.
 
-### 7.4 Visite guidée immersive — environ 100 à 105 secondes
+### 7.4 Visite guidée immersive — environ 110 secondes
 
 La visite commence uniquement après une action volontaire. Elle utilise la même scène et les mêmes contenus que l'exploration libre ; ce n'est ni une vidéo, ni un scroll automatique maquillé.
 
 | Temps | Chapitre | Contenu |
 |---|---|---|
 | **0–10 s** | **Ouverture** | Exactement le teaser de la section 7.3 ; joué seulement s'il n'a pas déjà été vu |
-| **10–18 s** | **Base 237** | Devise, coordonnées publiques de la ville et premier pas sur la promenade |
-| **18–66 s cible** | **Les six réalisations** | Six fenêtres équitables de 7 à 9 s, environ 48 s au total, avec au moins 5 s de caméra immobile |
-| **66–75 s** | **Compétences prouvées** | Quatre domaines maximum, reliés aux projets concernés |
-| **75–84 s** | **Parcours** | Didacsoft, ITEC, freelance et poste actuel, selon les données validées |
-| **84–92 s** | **Ground Track** | Cameroun puis villes ou pays professionnels confirmés |
-| **92–102 s** | **Révélation et invitation** | Vue orthographique du geste complet, retour au portrait, CV et contact |
+| **10–22 s** | **Base 237 / Séquence SOURCE** | Devise, console minérale, vrai code audité, genèse solaire et allumage de la promenade |
+| **22–70 s cible** | **Les six réalisations** | Six fenêtres équitables de 7 à 9 s, environ 48 s au total, avec au moins 5 s de caméra immobile |
+| **70–80 s** | **Compétences / TRACE publique** | Quatre domaines prouvés et passage unique de la comète GitHub synchronisée |
+| **80–89 s** | **Parcours** | Didacsoft, ITEC, freelance et poste actuel, selon les données validées |
+| **89–97 s** | **Ground Track** | Cameroun puis villes ou pays professionnels confirmés |
+| **97–107 s** | **Révélation et invitation** | Vue orthographique du geste complet, retour au portrait, CV et contact |
 
 Les six projets reçoivent le même **budget de présence moyen**, la même profondeur et le même CTA, mais pas six animations clonées. Le cadrage et la micro-chorégraphie respectent le média natif — application verticale, site desktop, logistique ou culture — sans recadrer les captures pour les forcer dans une forme identique. Une variation entre 7 et 9 secondes sert uniquement la lisibilité du média, jamais une hiérarchie de valeur.
 
@@ -1032,7 +1211,17 @@ Le bouton **Approfondir** met la visite en pause, ouvre l'étude de cas, puis re
 
 #### Player persistant
 
-Le player est une seule **barre éditoriale opaque et basse**, ivoire/encre, jamais un HUD en verre ni un cockpit. Chapitre, progression et pause/reprendre sont visibles ; précédent/suivant, quitter avec Échap, son, sous-titres, transcription, **Approfondir** et **Résumé recruteur** vivent dans un menu textuel accessible. Sur mobile, il devient une barre réduite ou une feuille basse. Toutes les commandes existent en DOM, sont utilisables au clavier et ne dépendent pas du canvas.
+Le player est une seule **barre éditoriale opaque et basse**, ivoire/encre, jamais un HUD en verre ni un cockpit. Chapitre, progression et pause/reprendre sont visibles ; précédent/suivant, quitter avec Échap, volume/mute, sous-titres, transcription, **Console**, **Approfondir** et **Résumé recruteur** vivent dans un menu textuel accessible. Sur mobile, il devient une barre réduite ou une feuille basse. Toutes les commandes existent en DOM, sont utilisables au clavier et ne dépendent pas du canvas.
+
+#### Séquence SOURCE — spécification
+
+Une console minérale claire affiche **base237> trace --source**, puis 6 à 12 lignes de code auditées et épinglées au SHA du déploiement. Après 2,5 à 3 secondes de lecture, 256 à 384 jetons maximum sur desktop — 64 à 96 sur mobile — convergent vers un germe solaire avant d'allumer la promenade. Une seule géométrie instanciée, aucun bloom dédié, aucun flash plein écran ; la montée de luminance dure au moins 400 ms.
+
+Le code du portfolio déployé est prioritaire. Tout extrait externe exige dépôt, chemin, lignes, SHA, licence, revue de secrets et validation de Russel. Aucun code client, fichier de configuration, endpoint privé, email, token ou message de commit n'entre dans la scène.
+
+#### Comète GitHub — spécification
+
+Une seule comète apparaît une fois, au chapitre Compétences. Elle utilise un instantané public allowlisté, synchronisé en CI/build et servi comme JSON statique. Sa taille et sa vitesse sont constantes ; elle ne représente ni volume, ni valeur, ni productivité. Une plaque DOM indique le dépôt, la date de l'instantané et **travail privé non inclus**. Échec de synchronisation : dernier instantané connu et daté, jamais faux label « live » ni disparition silencieuse.
 
 ### 7.5 Exploration libre et parcours recruteur
 
@@ -1043,7 +1232,10 @@ La visite est le cœur spectaculaire, mais elle n'est jamais un péage.
 - navigation par index éditorial et par repères dans la scène ;
 - aucun déplacement FPS ;
 - accès direct à chaque projet, au parcours, aux compétences, au Ground Track et au contact ;
+- **Console de fabrication** ouverte d'abord par un bouton visible, fermée par défaut ; le raccourci global avec modificateurs `Ctrl/⌘ + Maj + K` est remappable et désactivable, tandis que la touche unique `~` reste désactivée tant que l'utilisateur ne l'a pas explicitement autorisée ;
 - position et état du visiteur conservés lorsqu'il revient d'une étude de cas.
+
+La console utilise un parseur fermé, sans shell, eval, accès fichier, fetch libre ni journalisation des commandes. Grammaire : **help, whoami, projects, open <slug>, stack --proof, timeline, github, sources, cv, contact, tour <chapitre>, genesis, exit**. Chaque résultat propose aussi un vrai lien ou bouton DOM ; sans JavaScript, la console devient un catalogue de commandes et de liens.
 
 **Résumé recruteur :**
 
@@ -1069,7 +1261,7 @@ Un préfixe de langue **/fr** et **/en** sera ajouté seulement si la réponse �
 | **/projets/[slug]** | Six études de cas indexables selon le même contrat |
 | **/parcours** | Compétences, chronologie et Ground Track, avec ancres **#competences**, **#chronologie** et **#territoires** |
 | **/resume-recruteur** | Synthèse accessible et imprimable |
-| **/fabrication** | Sources, transformations, licences, crédits et budgets réels |
+| **/fabrication** | Sources, extraits de code/SHA, console, transformations, licences, crédits et budgets réels |
 | **/contact** | Disponibilité, coordonnées publiques et contact |
 | **/cv.pdf** | CV stable et téléchargeable |
 | **/mentions** | Mentions, confidentialité et crédits légaux |
@@ -1079,17 +1271,20 @@ La page d'accueil forme une expérience continue. Les routes servent le partage 
 ### 7.7 Écrans et états à concevoir
 
 1. **Accueil / Base 237** — portrait, identité, promesse, CTAs et état de chargement non bloquant.
-2. **Vue de la promenade** — monde solaire, progression, index et passage guidé/libre.
-3. **Belvédère projet** — média réel, besoin, système, preuve et approfondissement.
-4. **Étude de cas** — lecture éditoriale longue et indexable.
-5. **Ceinture des compétences** — quatre familles et correspondances compétence → projets. Les astéroïdes forment un paysage : aucun logo gravé, aucun « un astéroïde = une technologie » et aucun mur de 45 objets. Une plaque DOM opaque montre quatre domaines maximum et une ou deux liaisons de preuve à la fois.
-6. **Parcours** — chronologie des rôles, responsabilités et apprentissages.
-7. **Ground Track** — Terre stylisée, villes/pays et entreprises validés.
-8. **Résumé recruteur** — écran, impression A4 et export PDF si nécessaire.
-9. **Final / Open Channel** — révélation du geste et actions de contact.
-10. **Sources & fabrication** — provenance réelle du projet.
-11. **États système** — chargement, WebGL indisponible, média absent, lien externe, erreur de contact, hors ligne et reprise de visite.
-12. **Mobile et reduced motion** — conçus comme écrans complets, pas dérivés après desktop.
+2. **Choix d'entrée sonore** — Avec le son recommandé / Continuer en silence, sans dark pattern.
+3. **Séquence SOURCE** — console minérale, code vérifié, germe solaire et allumage.
+4. **Vue de la promenade** — firmament cobalt, monde solaire, progression, index et passage guidé/libre.
+5. **Belvédère projet** — média réel, besoin, système, preuve et approfondissement.
+6. **Étude de cas** — lecture éditoriale longue et indexable.
+7. **Ceinture des compétences / comète** — quatre familles et correspondances compétence → projets. Les astéroïdes forment un paysage : aucun logo gravé, aucun « un astéroïde = une technologie » et aucun mur de 45 objets. Une plaque DOM opaque montre quatre domaines maximum et une ou deux liaisons de preuve à la fois.
+8. **Console de fabrication** — dialogue DOM, commandes finies et liens équivalents.
+9. **Parcours** — chronologie des rôles, responsabilités et apprentissages.
+10. **Ground Track** — Terre stylisée, villes/pays et entreprises validés.
+11. **Résumé recruteur** — écran, impression A4 et export PDF si nécessaire.
+12. **Final / Open Channel** — révélation du geste et actions de contact.
+13. **Sources & fabrication** — provenance réelle du projet.
+14. **États système** — chargement, WebGL indisponible, média absent, snapshot GitHub périmé, audio bloqué, lien externe, erreur de contact, hors ligne et reprise de visite.
+15. **Mobile et reduced motion** — conçus comme écrans complets, pas dérivés après desktop.
 
 ### 7.8 Contrat commun des six projets
 
@@ -1139,6 +1334,12 @@ Les photos de Russel sont des matières premières, pas des nuanciers automatiqu
 
 Ces proportions sont des cibles d'environnement et d'UI avec tolérance ; elles excluent portrait, captures et vidéos produit. Les couleurs de marque restent intactes dans logos et captures. Elles ne recolorent pas tout un monde, ne portent jamais seules un sens et ne servent de couleur de texte ou d'action qu'après contrôle de contraste.
 
+#### Firmament cobalt
+
+Le monde assume un **ciel bleu cobalt artificiel jusque dans l'espace**. C'est une scénographie poétique, jamais présentée comme une simulation scientifique. Sa matière vient d'une vraie photo de ciel fournie par Russel : variations de luminance, grain et irrégularités sont conservés puis étalonnés en panorama. Aucun simple gradient CSS bleu-violet, aucune aurore floue, aucune nébuleuse générée.
+
+Le firmament apparaît dans l'ouverture, la Séquence SOURCE, les liaisons entre belvédères et le final. Il peut s'assombrir vers un bleu-encre pour donner de la profondeur, mais respecte les seuils de quasi-noir et ne transforme jamais l'expérience en dark-space.
+
 #### Lumière
 
 Un **master d'aube fixe**, issu d'une photo réelle de Russel, donne la direction artistique : lumière solaire chaude, rebond terrestre froid très léger, matières claires, ombres et exposition stables. Le key light est totalement déterministe sur tous les appareils. L'éphéméride de la ville peut alimenter une micro-donnée ou un cadran secondaire honnêtement libellé ; elle ne pilote jamais l'éclairage.
@@ -1157,6 +1358,7 @@ Le noir spatial reste une profondeur lointaine, jamais la surface dominante.
 - **Literata Variable** pour les phrases personnelles et les titres éditoriaux ;
 - **Hanken Grotesk** pour faits, navigation, preuves et UI ;
 - monospace système uniquement pour coordonnées et données techniques ;
+- fichiers WOFF2 auto-hébergés, sous-ensembles latins FR/EN et axes réellement utilisés seulement ; une seule graisse est préchargée et `font-display: swap` reste obligatoire ;
 - licences, accents français/anglais et performances vérifiés avant intégration.
 
 Grille desktop de 12 colonnes, compositions principales en rapport 7/5, longueur de ligne de 45 à 66 caractères. Les panneaux ont des arêtes franches ou un rayon maximal de 4 px ; les pilules sont réservées aux vrais états et contrôles. La symétrie n'est permise que lorsqu'elle sert l'astronomie ou la révélation ; le reste suit une composition éditoriale vivante.
@@ -1204,14 +1406,19 @@ Une convention accessible peut rester si elle est la meilleure solution. L'inter
 
 #### Son
 
-Le son est **désactivé par défaut** et activé par une commande explicite. Quatre sources maximum :
+L'accueil reste silencieux jusqu'au choix **Entrer avec le son — recommandé** ou **Continuer en silence**. Après ce geste, le mode sonore lance automatiquement narration, partition et caméra ; ce choix est mémorisé pour la session et reste réversible à tout instant. Si le navigateur refuse malgré tout la lecture, la visite continue sans rupture et affiche **Activer le son**.
+
+La partition possède cinq couches maximum :
 
 1. voix réelle de Russel ;
-2. feutre sur papier pour le premier geste ;
-3. une frappe de clavier au verrouillage d'une preuve ;
-4. ambiance matinale de Base 237.
+2. composition humaine originale ou morceau personnellement choisi et dûment licencié, orienté vers les mélodies japonaises émotionnelles qu'aime Russel ;
+3. ambiance matinale réelle de Base 237 ;
+4. feutre et frappe de clavier comme ponctuations ;
+5. impulsion solaire courte pour la Séquence SOURCE et la comète.
 
-Pas de frappe à chaque pas, pas de musique stock, pas de nappe « africaine » générique. L'enregistrement ne contient aucun travail réel, mot de passe, notification ou conversation. Métadonnées supprimées, audio nettoyé et compressé ; la voix vise environ −16 LUFS, l'ambiance reste nettement sous la voix et le true peak ne dépasse pas −1 dBTP. Silence pendant la lecture des preuves.
+La musique suit d'abord **le goût personnel de Russel**, pas une identité nationale projetée par l'équipe. Les références japonaises ou issues de l'animation servent à décrire émotion, rythme et instrumentation ; aucune mélodie, aucun arrangement reconnaissable et aucun extrait protégé n'est copié sans licence. L'œuvre publiée possède auteur, autorisation et crédit. Aucun pack « African music », « anime music » ou imitation anonyme. Si aucune collaboration ou licence n'est possible, la visite utilise voix, terrain et sound design.
+
+Pas de frappe à chaque pas. L'enregistrement ne contient aucun travail réel, mot de passe, notification ou conversation. Métadonnées supprimées, audio nettoyé et compressé ; la voix vise environ −16 LUFS, l'ambiance reste nettement sous la voix et le true peak ne dépasse pas −1 dBTP. La musique se baisse sous la voix et disparaît pendant la lecture des preuves. Pause, mute et volume restent visibles ; tout son s'arrête lorsque l'onglet est masqué.
 
 ### 7.11 Mobile, mouvement réduit et accessibilité
 
@@ -1221,6 +1428,9 @@ Pas de frappe à chaque pas, pas de musique stock, pas de nappe « africaine » 
 - quatre corps célestes actifs au maximum ;
 - tap et scroll natifs, aucun hover ou drag obligatoire ;
 - mêmes six arrêts, mêmes preuves et même ordre que desktop ;
+- Séquence SOURCE conservée sous forme de trois plans lisibles — code, germe solaire, promenade — et non supprimée au nom de la performance ;
+- comète limitée à une seule trace courte, remplacée par sa plaque factuelle si le profil graphique est insuffisant ;
+- Console de fabrication ouverte comme un dialogue DOM plein écran, avec clavier natif et commandes suggérées ;
 - médias arrêtés hors écran, posters avant vidéo ;
 - aucune miniature de système illisible ni commande de jeu.
 
@@ -1229,13 +1439,18 @@ Pas de frappe à chaque pas, pas de musique stock, pas de nappe « africaine » 
 - storyboard manuel : accueil, Base 237, six projets, compétences, parcours, territoires et final ;
 - aucune caméra automatique ;
 - transitions instantanées ou fondus courts facultatifs ;
+- SOURCE devient une séquence contrôlée de trois images fixes accompagnées du même extrait de code ;
+- la comète devient une carte horodatée sans traînée et sans animation obligatoire ;
 - révélation du geste disponible en vue fixe ;
-- audio toujours volontaire.
+- audio toujours volontaire, avec sous-titres et transcript indépendants de sa lecture.
 
 #### Sans WebGL, JavaScript incomplet ou réseau lent
 
 - contenu SSR intégral ;
 - posters et compositions SVG/CSS légères ;
+- SOURCE possède un équivalent HTML composé d'un `<figure>`, d'un `<pre><code>` sélectionnable et de trois images statiques code → germe → promenade ;
+- la comète devient une carte HTML statique indiquant clairement la date du snapshot ;
+- la Console devient un catalogue de commandes et de liens ordinaires : aucun contenu n'est perdu sans interpréteur ;
 - projets, CV, résumé et contact entièrement fonctionnels ;
 - aucune information enfermée dans le canvas.
 
@@ -1251,6 +1466,11 @@ Pas de frappe à chaque pas, pas de musique stock, pas de nappe « africaine » 
 - UI et objets informatifs au moins 3:1 ;
 - navigation clavier complète, zoom 200 %, largeur 320 px ;
 - sous-titres, transcript et résumé imprimable sans couleur ni canvas ;
+- les deux choix sonores ont la même visibilité, et aucun refus n'est redemandé pendant la session ;
+- tout raccourci global à caractère unique est désactivé par défaut ; les raccourcis de la Console peuvent être désactivés ou remappés et restent secondaires au bouton visible ;
+- la Console de fabrication gère focus initial, touche Échap, historique local non persistant et retour du focus vers son déclencheur ;
+- les extraits de code sont lisibles, copiables et expliqués en langage courant ;
+- la carte statique de la comète n'utilise pas de région `aria-live` et n'annonce aucun mouvement décoratif ;
 - aucun statut automatique bavard dans une région aria-live.
 
 ### 7.12 Architecture technique retenue
@@ -1261,12 +1481,18 @@ Pas de frappe à chaque pas, pas de musique stock, pas de nappe « africaine » 
 - une seule timeline cinématique déterministe et annulable ;
 - contrôleur de visite à états explicites : libre, lecture, pause, approfondissement, reprise, reduced motion ;
 - CSS sur mesure, variables de design et grille éditoriale propre ;
-- contenu typé dans des fichiers structurés ou MDX, validé par schéma ;
-- GLB optimisés, Meshopt ou Draco selon les mesures, textures KTX2/Basis ;
+- primitives HTML natives pour dialogues, disclosures, volume et bascules ; aucune bibliothèque UI dans le baseline ;
+- faits en JSON local validé par Zod côté serveur ; copy en CommonMark restreint, analysée en AST allowlisté et rendue par Server Components internes ; aucun MDX, HTML brut ou CMS ;
+- manifeste SOURCE typé et versionné : SHA du déploiement, extraits autorisés avec dépôt/chemin/lignes/SHA/licence, validation anti-secret, snapshot GitHub approuvé et correspondance des commandes de Console ;
+- extraits tokenisés à la construction : aucun surligneur syntaxique lourd chargé chez le visiteur ;
+- snapshot GitHub généré en CI depuis une liste blanche, enregistré en JSON statique et proposé par PR avec validation humaine ; dernier snapshot daté conservé en cas d'échec ; aucune requête GitHub n'est faite par le navigateur ;
+- Console fondée sur un parseur fini et une table de routes : aucune commande arbitraire, aucun shell, aucun `eval`, aucun accès au système de fichiers et aucun appel réseau libre ;
+- GLB optimisés avec Meshopt ; textures WebP et mémoire active calculée dans le premier segment ; KTX2/Basis seulement après ADR et gain mesuré sur appareil réel ;
 - éclairage principalement précalculé, ombres limitées et niveaux de détail ;
-- GeoJSON et globe stylisé interne pour Ground Track, sans Google 3D obligatoire ;
+- masses terrestres Natural Earth rasterisées au build en masques WebP, petit JSON interne pour les seuls repères/arcs validés ; aucun SDK cartographique ;
 - un seul média vidéo actif, avec poster et chargement à la demande ;
-- audio compressé, sous-titres WebVTT et transcript HTML ;
+- moteur Web Audio unique, chapitres décodés juste à temps, deux bus GainNode, sous-titres WebVTT et transcript HTML ; initialisation et lecture seulement dans la chaîne directe du geste **Entrer avec le son** ;
+- images préoptimisées par Sharp et servies par `<picture>`/`srcset`, vidéos H.264 High préparées par FFmpeg ; aucun second pipeline d'optimisation runtime ;
 - métadonnées par projet, sitemap, Open Graph et données structurées Person, CreativeWork et BreadcrumbList ;
 - tests ciblés, parcours navigateur automatisés, axe, Lighthouse CI et comparaisons visuelles ;
 - déploiement Vercel et intégration continue sur le dépôt prévu, sauf décision d'hébergement ultérieure.
@@ -1275,11 +1501,10 @@ La disponibilité des sites tiers n'est **pas** interrogée depuis le navigateur
 
 #### Sécurité, contact et confidentialité
 
-- le contact propose toujours des liens directs validés ; le formulaire éventuel se limite à nom, email et message de 4 000 caractères maximum, sans pièce jointe ;
-- validation et normalisation côté serveur, échappement à la sortie, limitation de débit, champ piège ou mécanisme anti-spam respectueux de la vie privée, et réponse générique qui ne divulgue pas l'infrastructure ;
-- aucune conservation en base par défaut ; livraison vers la boîte choisie, journalisation technique minimale et durée de conservation documentée ;
+- le contact V1 utilise uniquement des liens directs validés et la copie d'adresse ; aucun formulaire serveur, stockage ou fournisseur email au lancement ;
+- un formulaire futur exige un ADR confidentialité/sécurité avant conception : validation serveur, limite de débit, anti-spam sobre, aucune pièce jointe, conservation minimale et durée documentée ;
 - politique CSP stricte, frame-ancestors, nosniff, Referrer-Policy et Permissions-Policy ; liens externes HTTPS et ouverture sûre ;
-- contenu MDX limité au dépôt et aux auteurs de confiance, sans HTML arbitraire provenant des fiches projet ; URLs et médias distants validés par liste blanche ;
+- contenu Markdown restreint au dépôt et aux auteurs de confiance, rendu par AST allowlisté sans HTML arbitraire ; URLs et médias distants validés par liste blanche ;
 - CV PDF audité avant publication : aucune adresse précise, signature, identifiant ou métadonnée sensible ; email et téléphone confirmés ; structure accessible et version publique unique ;
 - aucun outil d'audience avec fingerprinting ; si une mesure est activée, elle est sans cookie lorsque possible, avec finalité, conservation et opt-out documentés ;
 - aucune capture tierce embarquée en iframe si une image ou un lien suffit ; aucun site HTTP non sécurisé intégré.
@@ -1304,6 +1529,20 @@ La disponibilité des sites tiers n'est **pas** interrogée depuis le navigateur
 
 Les poids sont les octets réellement transférés après Brotli/gzip, cache froid. Ils incluent polices, CSS, JS, données et premier poster nécessaires au chapitre ; les vidéos et sons déclenchés volontairement plus tard sont comptés séparément dans leur propre budget.
 
+Le clip d'ouverture montrant la main au feutre et son poster font partie du premier segment immersif : sur mobile, **clip + poster + autres ressources de ce segment restent ensemble sous 650 Ko**. Les polices appartiennent au socle de 500 Ko ; leur sous-ensemble, leurs axes et la graisse préchargée sont mesurés dès le lot 4.
+
+La signature SOURCE dispose d'une réserve interne, sans augmenter les plafonds ci-dessus :
+
+| Élément | Sous-budget transféré maximal |
+|---|---:|
+| Snapshot GitHub et métadonnées | **4 Ko Brotli** |
+| Extraits de code approuvés et index | **20 Ko Brotli** |
+| Logique SOURCE + comète | **35 Ko Brotli** |
+| Parseur et interface propres à la Console | **15 Ko Brotli** |
+| Réserve cumulée SOURCE, mobile / desktop | **75 Ko / 120 Ko Brotli** |
+
+L'audio n'entre pas dans cette réserve puisqu'il n'est chargé qu'après consentement : premier segment audible **≤ 450 Ko**, ensemble de la visite **≤ 2,5 Mo** dans la langue active. Si une mesure dépasse son seuil, on réduit d'abord le nombre de tokens, la longueur de traînée, la parallaxe ou le nombre de stems ; jamais le code lisible, la preuve ou les contrôles.
+
 Le profil de référence prépublication est documenté dans le registre qualité : Chrome stable, **Samsung Galaxy A14 4 Go** ou appareil documenté de puissance au plus équivalente, réseau 4G simulé à 9 Mbit/s descendant, 1,5 Mbit/s montant et 150 ms de RTT, batterie non chaude ; desktop cible i5-8250U / Intel UHD 620 / 8 Go ou moins puissant. Cinq cold loads et trois passages de visite sont mesurés. Le modèle exact, l'OS, le GPU, le navigateur et l'état thermique sont inscrits avec chaque résultat.
 
 LCP et INP p75 sont des métriques terrain : avant lancement, les seuils laboratoire et les interactions scriptées bloquent la publication. Après **28 jours et au moins 200 sessions éligibles**, une mesure RUM respectueuse de la vie privée confirme ou invalide les p75 ; en dessous de cet échantillon, aucune conclusion statistique n'est affichée.
@@ -1315,17 +1554,22 @@ Autres règles :
 - résolution et densité d'effets réduites automatiquement si les fps chutent ;
 - aucun autoplay vidéo avec son ;
 - pas de dépendance narrative à une API externe ;
-- si un budget échoue, l'effet est réduit avant le contenu.
+- si un budget échoue, l'effet est réduit avant le contenu ;
+- la comète reste unique et le snapshot statique : aucune fréquence de commit, série de contributions ou animation supplémentaire ne peut acheter du spectacle au prix de la vérité.
 
 Chaque lot de production est mesuré. Il n'existe **aucun prototype séparé ou jetable**.
 
 ### 7.14 Répartition des responsabilités
 
-| ChatGPT / v0 | Claude Code |
+| ChatGPT / Codex | Claude Code |
 |---|---|
 | Direction artistique finale et règles de style | Architecture Next.js et structure du dépôt |
 | Grille, typographies, palette sourcée et tokens | Modèle de données typé et routes SSR |
 | Maquettes haute fidélité desktop, mobile et reduced motion | Moteur 3D, promenade, caméra et contrôleur de visite |
+| Firmament cobalt, storyboard SOURCE et chorégraphie code → germe → monde | Manifeste SOURCE, tokenisation build-time, contrôle SHA/licence/secrets et rendu progressif |
+| Choix d'entrée sonore, direction du mix, notation des temps forts et états muets | Déverrouillage audio sur geste, mix adaptatif, sous-titres, transcript et reprise robuste |
+| Dessin de la comète unique, de sa plaque factuelle et de ses fallbacks | Snapshot GitHub build/CI, cache du dernier état valide et absence d'API côté client |
+| Console de fabrication : vocabulaire, microcopies, interface visible et version sans terminal | Parseur fini, mapping vers routes DOM, focus, clavier et tests de sécurité |
 | HUD, player, navigation et tous les états UI | Chargement progressif, optimisation et niveaux de détail |
 | Storyboard, cadrages, rythme et transitions | Ground Track, éphéméride et intégration des médias |
 | Gabarits des belvédères, études de cas et résumé recruteur | DOM accessible, clavier, SEO et résilience sans canvas |
@@ -1333,7 +1577,7 @@ Chaque lot de production est mesuré. Il n'existe **aucun prototype séparé ou 
 | Traitement visuel des photos et iconographie sur mesure | Tests, sécurité, CI, mesures et déploiement |
 | Revue de fidélité visuelle et craft final | Intégration fidèle des maquettes sans nouvelle DA |
 
-**Russel** fournit les faits, ses formulations personnelles et sa voix s'il l'accepte ; il valide les droits, les actifs, les traductions, le geste personnel, la ville Base 237 et chaque jalon visible. Toute modification visuelle substantielle retourne à ChatGPT/v0. Claude n'invente pas une direction graphique pendant l'intégration.
+**Russel** fournit les faits, ses formulations personnelles et sa voix s'il l'accepte ; il valide les droits, les actifs, les traductions, le geste personnel, la ville Base 237 et chaque jalon visible. Toute modification visuelle substantielle retourne à ChatGPT/Codex. Un éventuel outil de maquettage reste un instrument, jamais un signataire. Claude n'invente pas une direction graphique pendant l'intégration.
 
 ### 7.15 Ordre de réalisation — aucun prototype
 
@@ -1343,12 +1587,13 @@ Chaque lot de production est mesuré. Il n'existe **aucun prototype séparé ou 
 4. **Socle final de production** — routes SSR, navigation, résumé recruteur, six pages projet et fallback sans canvas.
 5. **Premier lot immersif définitif** — accueil, dix premières secondes, player, promenade et gabarit neutre d'un belvédère, déjà en qualité finale, mobile et reduced motion inclus.
 6. **Déclinaison contrôlée vers les six belvédères** — même importance et profondeur, formats natifs respectés, fenêtres de temps équitables et revue d'égalité sans clonage.
-7. **Ceinture des compétences, parcours et Ground Track**.
-8. **Visite complète** — chapitres, pause, approfondissement, reprise, exploration libre et liens partageables.
-9. **Révélation finale, lumière, paysage sonore et Sources & fabrication**.
-10. **Durcissement** — accessibilité, performance, SEO, confidentialité, appareils, navigateurs et erreurs.
-11. **Relecture factuelle et juridique** — aucune affirmation ou ressource non validée.
-12. **Validation de Russel, mise en ligne et mesure réelle**.
+7. **Séquence SOURCE et Console de fabrication** — extrait audité, allumage solaire, firmament cobalt, parseur fini et équivalents HTML.
+8. **Ceinture des compétences, comète GitHub synchronisée, parcours et Ground Track**.
+9. **Visite complète** — chapitres, pause, approfondissement, reprise, exploration libre, choix sonore, narration et liens partageables.
+10. **Révélation finale, lumière, mix sonore et Sources & fabrication**.
+11. **Durcissement** — accessibilité, performance, SEO, confidentialité, appareils, navigateurs et erreurs.
+12. **Relecture factuelle et juridique** — aucune affirmation ou ressource non validée.
+13. **Validation de Russel, mise en ligne et mesure réelle**.
 
 Le premier lot immersif est du **produit final conservé**, pas un prototype. Chaque étape se termine par une revue visuelle, factuelle, accessible et performante avant la suivante.
 
@@ -1358,6 +1603,13 @@ Le site ne peut être déclaré terminé que si :
 
 - Russel, son rôle, le Cameroun, son CV et les preuves sont accessibles sans attendre la 3D ;
 - les dix premières secondes restent compréhensibles sans son et produisent une image mémorable ;
+- le firmament cobalt ressemble à une matière photographique propre à Russel, jamais à un gradient SaaS ou à une nébuleuse de banque d'images ;
+- le choix **Entrer avec le son** déclenche bien son, narration et visite dans le même geste, tandis que le choix silencieux reste complet et n'est pas culpabilisé ;
+- toute musique publiée possède un auteur nommé, une licence ou autorisation vérifiable, un crédit et un lien personnel expliqué ;
+- SOURCE affiche uniquement du code réel autorisé, relié au SHA déployé, scanné contre les secrets et accompagné d'une explication humaine ;
+- le Big Bang reste contenu, lumineux, sans flash agressif, et son fallback fixe raconte la même transformation ;
+- une seule comète GitHub apparaît ; elle provient d'un snapshot build/CI horodaté, n'effectue aucun appel par visiteur et ne transforme jamais l'activité en score ;
+- la Console n'exécute ni shell, ni code, ni URL libre ; toutes ses commandes ont un équivalent DOM accessible et sans JavaScript ;
 - les six projets passent un audit de parité : fenêtre de présence, dominance du média, profondeur, preuve et CTA, sans clonage visuel ;
 - chaque compétence affichée pointe vers au moins un projet validé ;
 - aucun fait, besoin, chiffre, système, rôle ou résultat n'est inventé ;
@@ -1373,7 +1625,7 @@ Le site ne peut être déclaré terminé que si :
 - le colophon décrit honnêtement les sources, transformations, outils et validations ;
 - tous les budgets mesurés sont respectés.
 
-Le score théorique final est **64/70**. Les six points restants ne peuvent être gagnés que par la qualité réelle du rendu, des contenus, de l'animation, de l'accessibilité et des mesures.
+Le score théorique final est **65/70**. Les cinq points restants ne peuvent être gagnés que par la qualité réelle du rendu, des contenus, du son, de l'animation, de l'accessibilité et des mesures.
 
 ### 7.17 Contenus à fournir par Russel
 
@@ -1410,8 +1662,18 @@ Le score théorique final est **64/70**. Les six points restants ne peuvent êtr
 
 - nouveau portrait selon le brief de la section 7.9 ;
 - geste ou monogramme au feutre **créé uniquement pour le portfolio**, différent de toute signature officielle ;
-- photos sans filtre du papier, de l'encre, de la latérite, du ciel à l'aube, de la pierre, du bureau et de lieux choisis ;
+- clip du geste filmé en vue de dessus, lumière du jour, papier propre, **4K/60 i/s**, sans bijou, écran, document ou élément identifiant visible ; la version publiée est recadrée et fortement optimisée ;
+- photos sans filtre du papier, de l'encre, de la latérite, de la pierre, du bureau et de lieux choisis ;
+- série de photographies du ciel à l'aube avec chevauchement régulier, ou panorama natif du téléphone ; le firmament est obtenu par assemblage et raccord manuel ou procédural, jamais par remplissage génératif ;
 - voix, feutre, frappes isolées et ambiance matinale si leur publication est acceptée.
+
+#### Source, trace publique et musique
+
+- un ou plusieurs dépôts publics personnels autorisés, avec branches et chemins citables ;
+- les extraits courts approuvés, leur SHA, leur licence et la confirmation qu'ils ne contiennent ni secret ni code client ;
+- le compte ou dépôt GitHub servant à la comète, les événements publics autorisés et la date à partir de laquelle le snapshot peut être montré ;
+- deux ou trois références japonaises ou issues de bandes originales aimées par Russel, utilisées seulement pour décrire l'émotion ; le compositeur ou morceau réellement publié, les coordonnées d'autorisation et les crédits exacts ;
+- à défaut de licence existante, budget et accord pour une courte création originale ; à défaut des deux, validation explicite d'une bande faite uniquement de voix et de sons de terrain.
 
 Avant utilisation, chaque fichier est contrôlé pour les écrans visibles, documents, visages tiers, plaques, SSID, conversations et coordonnées GPS. Les EXIF sont supprimés. L'original du geste reste privé et hors dépôt ; seule une version graphique simplifiée est publiée.
 
@@ -1431,12 +1693,14 @@ Tout contenu manquant reste absent jusqu'à validation. Aucun placeholder menson
 - aucune latence mesurée chez le visiteur présentée comme preuve ;
 - aucune géolocalisation IP du visiteur ;
 - aucun Google Photorealistic 3D Tiles nécessaire au récit ;
-- aucune comète GitHub live, terminal caché ou Big Bang de code ;
+- aucune API GitHub appelée par visiteur, aucun compteur, streak ou score de productivité ; la comète unique et horodatée de la section 7.4 est au contraire requise ;
+- aucun terminal secret indispensable ni simulation de piratage ; la Console visible, finie et accessible de la section 7.5 est au contraire requise ;
+- aucun Big Bang sombre, bloquant ou gratuit ; la transformation code réel → germe solaire → promenade de SOURCE est au contraire requise ;
 - aucune planète-interface déformant les captures ;
 - aucun projet déclaré supérieur aux autres ;
 - aucun visuel ou voix générative créé pour la direction artistique ; les captures tierces sont identifiées comme telles ;
-- aucun son forcé, musique culturelle générique ou autoplay narratif ;
-- aucun ciel bleu artificiel dans l'espace ni écran dominé par le noir ;
+- aucun son avant le geste d'entrée, aucun refus culpabilisé et aucune musique culturelle générique ; après **Entrer avec le son**, narration, musique autorisée et caméra peuvent démarrer ensemble automatiquement ;
+- aucun fond spatial générique ni écran dominé par le noir ; le firmament cobalt volontairement artificiel, sourcé dans une photographie de Russel et défini en section 7.9, est au contraire requis ;
 - aucun prototype jetable ;
 - aucun contenu essentiel uniquement dans le canvas.
 
@@ -1444,10 +1708,27 @@ Tout contenu manquant reste absent jusqu'à validation. Aucun placeholder menson
 
 Sous réserve que l'audit des actifs la rende exacte :
 
-> **Les faits et citations ont été validés par Russel. Les photographies, textures et voix sont originales ou créditées. Aucun visuel ni aucune voix générative n'a été créé pour la direction artistique de ce portfolio ; les captures tierces sont identifiées comme telles. Les transformations graphiques, licences et outils employés sont documentés sur cette page. Chaque mot et chaque décision finale ont été approuvés par Russel.**
+> **Les faits et citations ont été validés par Russel. Les photographies, textures et voix sont originales ou créditées. Le code montré est un extrait autorisé relié au commit indiqué ; la trace GitHub est un snapshot public horodaté et non une mesure de productivité. La musique est attribuée et licenciée. Aucun visuel ni aucune voix générative n'a été créé pour la direction artistique de ce portfolio ; les captures tierces sont identifiées comme telles. Les transformations graphiques, licences et outils employés sont documentés sur cette page. Chaque mot et chaque décision finale ont été approuvés par Russel.**
 
-Chaque actif indique auteur ou source, lieu et date lorsque cela respecte la vie privée, transformation, licence, attribution et poids final. Les ressources NASA, ESA ou partenaires sont vérifiées **actif par actif** ; aucune origine institutionnelle n'est assimilée automatiquement au domaine public.
+Chaque actif indique auteur ou source, lieu et date lorsque cela respecte la vie privée, transformation, licence, attribution et poids final. Les extraits indiquent dépôt, chemin, lignes, SHA et contrôle de secrets ; la comète indique la date de son snapshot ; la musique indique auteur, interprète et autorisation. Les ressources NASA, ESA ou partenaires sont vérifiées **actif par actif** ; aucune origine institutionnelle n'est assimilée automatiquement au domaine public.
 
 ### 7.20 Sortie de la phase de planification
 
-Ce plan clôt le combat d'idées et constitue l'accord des deux agents. **Aucun code applicatif n'est créé dans cette phase.** Le passage à la production exige le GO explicite de Russel et commence par le registre des contenus et des droits, pas par l'installation d'un framework.
+Le concept et les contrats créatifs de cette section sont désormais **approuvés par ChatGPT et Claude**, sous réserve des réponses, contenus et droits encore attendus de Russel. Les quatre corrections demandées en 7.21 sont intégrées dans les sections 7.5, 7.9, 7.11, 7.13 et 7.17. **Aucun code applicatif n'est créé dans cette phase.** Le passage à la suite exige la ratification R1 de `PRODUCTION_CONTRACT.md`, puis le GO explicite de Russel vers G1 : registre, contenus et Design Release, toujours sans code. Le scaffold ne commence qu'après `G1 PASS` et `READY FOR CODE`.
+
+### 7.21 Relecture et signature de Claude (2026-10-19)
+
+J'ai relu la section 7 en entier, face à mes amendements des Rounds 6 et 7.
+
+**Amendements respectés** : aucun projet phare (7.8) · interdit du look Spline/pastel (7.9) · chemin = objet 3D physique (7.2) · corps célestes ancrés et ceinture = compétences prouvées (7.2, 7.7) · contenu jamais inventé (7.8, 7.16) · répartition des rôles (7.14) · aucun prototype, budgets en critères d'acceptation (7.13, 7.15).
+
+**Corrections du Round 8 que j'accepte** : geste créé pour le portfolio au lieu de la signature officielle (risque de réutilisation que je n'avais pas vu) ; pas de ping de latence côté visiteur ; pas de frappe à chaque pas ; éphéméride en micro-donnée seulement ; étalonnage OKLCH des couleurs prélevées. **Round 9** : j'approuve les cinq idées réhabilitées, dans leurs contrats techniques actuels.
+
+**Quatre corrections à intégrer avant le GO de production :**
+
+1. **Raccourci « ~ » de la Console : non conforme WCAG 2.2 AA.** Le critère 2.1.4 (Character Key Shortcuts, niveau A) impose qu'un raccourci à un seul caractère puisse être désactivé ou remappé, ou ne soit actif qu'au focus. En plus, sur un clavier AZERTY (public français), « ~ » demande AltGr + é. → Le bouton visible reste l'accès principal ; le raccourci est désactivable dans la Console, et une combinaison avec modificateur est ajoutée.
+2. **Vidéo de la main au feutre (7.3, 1–3 s) : absente de 7.17 et du budget.** → Ajouter au contenu à fournir un **brief de tournage** (vue de dessus, lumière du jour, fond papier, 4K/60 i/s, sans bijou ni écran visible) et une ligne de budget : le clip qui ouvre le premier segment mobile doit tenir dans les 650 Ko, poster compris.
+3. **Firmament cobalt issu d'une photo (7.9) : une photo de téléphone n'est pas un panorama.** Pour l'étendre, la tentation sera le remplissage génératif, interdit par 7.18. → Russel prend une **série de photos du ciel qui se chevauchent** (ou le mode panorama du téléphone) à l'aube ; l'extension se fait par assemblage et raccord manuel ou procédural, jamais générative. À ajouter dans 7.17.
+4. **Polices et socle de 500 Ko.** Literata Variable avec tous ses axes pèse lourd. → Sous-ensembles latins FR/EN, seulement les axes utilisés, une seule graisse préchargée, `font-display: swap`. Le poids des polices est mesuré dans le budget du socle dès le lot 4.
+
+Une fois ces quatre points intégrés : **Claude approuve le plan validé HORIZON 237 — TRACE SOLAIRE.** La production attend les réponses de Russel (section 4) et son GO explicite.
