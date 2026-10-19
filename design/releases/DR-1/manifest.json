@@ -1,0 +1,73 @@
+{
+  "release": "DR-1-C0",
+  "name": "HORIZON 237 — TRACE SOLAIRE",
+  "date": "2026-10-19",
+  "dri": "ChatGPT / Codex",
+  "status": "BLOCKED_SOURCE",
+  "readyForCode": false,
+  "hashAlgorithm": "sha256",
+  "files": [
+    {
+      "path": "design/releases/DR-1/README.md",
+      "sha256": "9f5007918af887ec85877fc5434005a0725bce997bb5cb1b45c41de4f2069669"
+    },
+    {
+      "path": "design/releases/DR-1/01_DIRECTION_ARTISTIQUE.md",
+      "sha256": "20f6b73bcd020be060c28631c3efc44de85be1a8bc1f9de972f71d558718aa6e"
+    },
+    {
+      "path": "design/releases/DR-1/02_STORYBOARD_VISITE.md",
+      "sha256": "69cec155c721df137708457d5b485527da6ffc0b08bfc89816822aecf2508694"
+    },
+    {
+      "path": "design/releases/DR-1/03_ECRANS_ETATS.md",
+      "sha256": "b5dbc396a4828433ead93547a49338c315eeb3c7a82ba0f4aeed7a81be9d6106"
+    },
+    {
+      "path": "design/releases/DR-1/04_MOUVEMENT_SON_ACCESSIBILITE.md",
+      "sha256": "07d32486781da573f54049b6fc1183c0a9f66587e6aa2d87f61d6f887a7aac75"
+    },
+    {
+      "path": "design/releases/DR-1/05_ACTIFS_DROITS.md",
+      "sha256": "c41c3af42f11892bda03347d62ca5b482a9e9401ffa31973e7bcdcc08d1e452b"
+    },
+    {
+      "path": "design/releases/DR-1/06_HANDOFF_G1.md",
+      "sha256": "d1eff3eb95f4055ab585390c7b7e7ef0688385d1c273597e5da882098b7b47e2"
+    },
+    {
+      "path": "design/releases/DR-1/07_BUDGETS_PREUVES.md",
+      "sha256": "9bcd0b220931ddc32f5c52eb3cebfbb1623d6eef25756fb5bbe96844ecb9f05e"
+    },
+    {
+      "path": "design/contracts/tokens.json",
+      "sha256": "eb66b7a4647445d2b5fd41fe9e62870e837504e40ea94dc18def9826d1575f7b"
+    },
+    {
+      "path": "assets/registry.json",
+      "sha256": "77ce20aeb127752285d8c4d8178b2963e312bade65a92eda7ebdb578d52fd961"
+    }
+  ],
+  "sourceDependencies": [
+    {
+      "path": "PRODUCTION_CONTRACT.md",
+      "sha256": "71790f98781b6baa357786f73f04a5b5abb40a6c8ad1c39006a6ed0a15e2815f"
+    },
+    {
+      "path": "DISCUSSION.md",
+      "sha256": "e619415fd2e6d84fe3087b7a4756ffc878b6da7a4203a5a89c8f4443c6f6e19c"
+    },
+    {
+      "path": "docs/collecte/G1_COLLECTE.md",
+      "sha256": "341350e620c0341ff7318630ded3c44b20d9eafe8123cadbf68e0f9e1d988506"
+    }
+  ],
+  "verification": {
+    "jsonSyntax": "PASS",
+    "dtcg2025_10Schema": "PASS",
+    "trailingWhitespace": "PASS",
+    "applicationCodeAdded": false,
+    "inventedColorValues": false,
+    "openBlockingReservations": 12
+  }
+}

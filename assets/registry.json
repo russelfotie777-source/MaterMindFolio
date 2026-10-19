@@ -1,0 +1,48 @@
+{
+  "version": "G1-R0",
+  "date": "2026-10-19",
+  "status": "open",
+  "policy": "No private master path, GPS coordinate, sensitive EXIF field or backup location is stored here. A SHA-256 proves file integrity, not publication rights.",
+  "assets": [
+    {
+      "id": "H237-POR-REF-001",
+      "type": "portrait-reference",
+      "dimensions": {
+        "width": 1923,
+        "height": 2560,
+        "unit": "px"
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "d7dbd7d9790c4d21cb93cb7cbf59383111a9a4d3755d494c228b6523aada488f"
+      },
+      "source": {
+        "kind": "provided-by-owner",
+        "author": "pending-confirmation",
+        "captureDate": "pending-confirmation"
+      },
+      "rights": {
+        "status": "RIGHTS_PENDING",
+        "publication": "forbidden-until-explicit-approval"
+      },
+      "design": {
+        "status": ["REFERENCE_ONLY", "REJECTED_DESIGN"],
+        "heroApproval": false,
+        "reason": "A new portrait is required by the DR-1 capture brief."
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "No EXIF or GPS metadata detected; JFIF and file metadata only.",
+        "auditedAt": "2026-10-19"
+      },
+      "transformations": [],
+      "derivatives": [],
+      "visas": {
+        "russelRights": "pending",
+        "chatgptDesign": "rejected-as-final-portrait",
+        "claudePublication": "not-requested"
+      },
+      "integrityVerifiedAt": "2026-10-19"
+    }
+  ]
+}
