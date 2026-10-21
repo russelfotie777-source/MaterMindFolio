@@ -4,7 +4,10 @@
 
 .produits {
   display: grid;
-  gap: var(--space-4) var(--grid-desktop-gutter);
+  gap: var(--space-6) var(--grid-desktop-gutter);
+  margin-block-end: 0;
+  padding: 0;
+  list-style: none;
 }
 
 @media (min-width: 768px) {
@@ -15,8 +18,8 @@
 
 .produits li {
   display: grid;
+  align-content: start;
   gap: var(--space-1);
-  margin: 0;
 }
 
 .produits li span {

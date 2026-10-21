@@ -63,7 +63,7 @@ export default function ResumeRecruteur() {
 
           <section className={`${page.rubrique} ${styles.projets}`}>
             <h2>Six produits</h2>
-            <ol className={`${page.liste} ${styles.produits}`}>
+            <ol className={styles.produits}>
               {projets.map((projet) => (
                 <li key={projet.slug}>
                   <Link className={page.fort} href={`/projets/${projet.slug}`}>
