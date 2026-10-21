@@ -55,6 +55,10 @@ const nextConfig: NextConfig = {
         source: '/fonts/:file(dm-sans-fr-[0-9a-f]{8}\\.woff2)',
         headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
       },
+      {
+        source: '/media/approved/:file([a-z0-9-]+-[0-9a-f]{8}\\.(?:avif|webp))',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
     ];
   },
 };

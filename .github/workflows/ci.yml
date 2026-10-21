@@ -37,6 +37,8 @@ jobs:
       - run: pnpm lint
       - run: pnpm format
       - run: pnpm tokens:check
+      - name: Dérivés d'images conformes à leur manifeste
+        run: pnpm media:check
       - name: Build en deux passes (CSP) et garde des chunks clients
         run: pnpm build
       - run: pnpm exec playwright install --with-deps chromium firefox webkit

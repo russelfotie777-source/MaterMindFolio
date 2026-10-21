@@ -1,0 +1,181 @@
+{
+  "portrait-buste": {
+    "registre": "H237-POR-CUT-001",
+    "credit": "Photo fournie par Russel ; fond retiré avec Magnific, visage, main et corps inchangés.",
+    "genere": false,
+    "largeur": 1859,
+    "hauteur": 1325,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 480,
+          "hauteur": 342,
+          "chemin": "/media/approved/portrait-buste-480-efd44961.avif",
+          "octets": 6900,
+          "sha256": "efd4496160985ce40c90151bf3ac9c43aa0f0516f53f344fb20081243c4ecef4"
+        },
+        {
+          "largeur": 768,
+          "hauteur": 547,
+          "chemin": "/media/approved/portrait-buste-768-d5c21a50.avif",
+          "octets": 12245,
+          "sha256": "d5c21a508716f9b78b79f2ea21e79432d77c2027b5ac8265b83bcb318cfd1b2c"
+        },
+        {
+          "largeur": 1080,
+          "hauteur": 770,
+          "chemin": "/media/approved/portrait-buste-1080-1992aac5.avif",
+          "octets": 18828,
+          "sha256": "1992aac5b20e0b95feaf87733bd3726654e60f6d111db8cb3f540f5fe14b3b91"
+        },
+        {
+          "largeur": 1280,
+          "hauteur": 912,
+          "chemin": "/media/approved/portrait-buste-1280-0544be62.avif",
+          "octets": 22929,
+          "sha256": "0544be628876336249a517389bf62abd8b429da73229190bd96d06cfa17955f9"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 480,
+          "hauteur": 342,
+          "chemin": "/media/approved/portrait-buste-480-e456a864.webp",
+          "octets": 11684,
+          "sha256": "e456a864c7223de60cb4832fe9b6070b9e6289c2af0b9fe658243defb3f183db"
+        },
+        {
+          "largeur": 768,
+          "hauteur": 547,
+          "chemin": "/media/approved/portrait-buste-768-77ca48b9.webp",
+          "octets": 21064,
+          "sha256": "77ca48b9644c05097bcec53a17587de0acf7cb5a34bcfb47ed5be57913a7c710"
+        },
+        {
+          "largeur": 1080,
+          "hauteur": 770,
+          "chemin": "/media/approved/portrait-buste-1080-b0442f0e.webp",
+          "octets": 33374,
+          "sha256": "b0442f0e2882461fc6ca8c12fb0e434badc22020d5e55fe4ce717f05b49dfeb9"
+        },
+        {
+          "largeur": 1280,
+          "hauteur": 912,
+          "chemin": "/media/approved/portrait-buste-1280-bf5815a0.webp",
+          "octets": 41900,
+          "sha256": "bf5815a00014e198cfef2f437c3d274ee627a1b613a65ad6c054131111bfc45e"
+        }
+      ]
+    }
+  },
+  "aube-paysage": {
+    "registre": "H237-DECOR-DAWN-001-M4X",
+    "credit": "Image générée avec Magnific — direction et sélection : Russel / HORIZON 237.",
+    "genere": true,
+    "largeur": 5760,
+    "hauteur": 2880,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 1280,
+          "hauteur": 640,
+          "chemin": "/media/approved/aube-paysage-1280-f68f617c.avif",
+          "octets": 21739,
+          "sha256": "f68f617c1ea52ef1adf1548e31db7b785d3131ab11092020f44c39d6d63f0183"
+        },
+        {
+          "largeur": 1920,
+          "hauteur": 960,
+          "chemin": "/media/approved/aube-paysage-1920-724a9ea4.avif",
+          "octets": 46005,
+          "sha256": "724a9ea43df8b1cf8cc1a216b987fc60f1907e35059911fff055ee040ccdef92"
+        },
+        {
+          "largeur": 2560,
+          "hauteur": 1280,
+          "chemin": "/media/approved/aube-paysage-2560-000e2f71.avif",
+          "octets": 74216,
+          "sha256": "000e2f710921fccab2bb1ba70f35c95adad681b5a4d5edcbfac646f3b64d6c82"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 1280,
+          "hauteur": 640,
+          "chemin": "/media/approved/aube-paysage-1280-1eabd5ec.webp",
+          "octets": 22344,
+          "sha256": "1eabd5ec47ef79c94660a9c0dc01dba0fb17c5c6b84da0bf0b3b08530f8c9264"
+        },
+        {
+          "largeur": 1920,
+          "hauteur": 960,
+          "chemin": "/media/approved/aube-paysage-1920-e9ea65df.webp",
+          "octets": 44052,
+          "sha256": "e9ea65dfd6d6a572f902d1abd90bdd9714f08e4826c8ece4c5b47f2e5138cfbc"
+        },
+        {
+          "largeur": 2560,
+          "hauteur": 1280,
+          "chemin": "/media/approved/aube-paysage-2560-3a58ebd2.webp",
+          "octets": 71004,
+          "sha256": "3a58ebd26cde734f3dc99f45eebbbd870fafd0ddee4bcd20c6bf8a74576a6b33"
+        }
+      ]
+    }
+  },
+  "aube-vertical": {
+    "registre": "H237-DECOR-DAWN-001-M4X",
+    "credit": "Image générée avec Magnific — direction et sélection : Russel / HORIZON 237.",
+    "genere": true,
+    "largeur": 1600,
+    "hauteur": 2880,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 480,
+          "hauteur": 864,
+          "chemin": "/media/approved/aube-vertical-480-57f9eae3.avif",
+          "octets": 12202,
+          "sha256": "57f9eae3e84b5345dfdd2ee69cc3e3e88fedb002e63f170a38a9a08897971df1"
+        },
+        {
+          "largeur": 768,
+          "hauteur": 1382,
+          "chemin": "/media/approved/aube-vertical-768-b1fc8006.avif",
+          "octets": 25339,
+          "sha256": "b1fc80069b52d7e6ff581dadfb043d1af846f8c8dc5c48860a8dc98d45876376"
+        },
+        {
+          "largeur": 1080,
+          "hauteur": 1944,
+          "chemin": "/media/approved/aube-vertical-1080-ff735612.avif",
+          "octets": 42223,
+          "sha256": "ff7356124dfab7a1dfed1effc48c8c1dcf9128b42e63425ab6564b7ee99cf8db"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 480,
+          "hauteur": 864,
+          "chemin": "/media/approved/aube-vertical-480-5ae9728d.webp",
+          "octets": 13976,
+          "sha256": "5ae9728db43143ebb3695cb72e6c0709b275ccaca1f587287ea5c8e37d682e41"
+        },
+        {
+          "largeur": 768,
+          "hauteur": 1382,
+          "chemin": "/media/approved/aube-vertical-768-4300dcd2.webp",
+          "octets": 26732,
+          "sha256": "4300dcd2ef2eaeb97780f2cfecbd9d6cf2b9e57dbbe1b229c70847b831ebab58"
+        },
+        {
+          "largeur": 1080,
+          "hauteur": 1944,
+          "chemin": "/media/approved/aube-vertical-1080-e4c4ab8e.webp",
+          "octets": 44096,
+          "sha256": "e4c4ab8e641fe514859458c39e6b19ebeddb72d6499308f8e1bbea1928613d91"
+        }
+      ]
+    }
+  }
+}

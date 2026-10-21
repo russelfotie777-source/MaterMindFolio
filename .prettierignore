@@ -8,5 +8,6 @@ decor-candidats/
 captures-projets/
 pnpm-lock.yaml
 .next/
-# Fichier généré par scripts/tokens.ts
+# Fichiers générés par scripts/tokens.ts et scripts/media.ts
 src/styles/tokens.css
+src/lib/media/derives.json
