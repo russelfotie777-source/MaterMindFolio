@@ -34,6 +34,8 @@ jobs:
       - name: Audit de production, sans exception
         run: pnpm audit --prod --audit-level high
       - run: pnpm typecheck
+      - name: Tests unitaires (allowlist de la copy)
+        run: pnpm test:unit
       - run: pnpm lint
       - run: pnpm format
       - run: pnpm tokens:check
