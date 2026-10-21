@@ -1,0 +1,236 @@
+{
+  "schemaVersion": "project-facts/1",
+  "slug": "ziris",
+  "contentRelease": {
+    "id": "CR-0",
+    "status": "approved",
+    "russelVisa": "2026-10-20"
+  },
+  "sources": [
+    {
+      "id": "russel-2026-10-19",
+      "kind": "owner-declaration",
+      "label": "Réponses de Russel dans la fiche de collecte G1",
+      "checkedAt": "2026-10-19"
+    },
+    {
+      "id": "site-etablissements",
+      "kind": "public-check",
+      "label": "Contrôle public de la version Établissements",
+      "url": "https://ziris.vercel.app/",
+      "checkedAt": "2026-10-19"
+    },
+    {
+      "id": "site-entreprises",
+      "kind": "public-check",
+      "label": "Contrôle public de la vitrine Entreprises",
+      "url": "https://ziris-app.alwaysdata.net/vitrine/index",
+      "checkedAt": "2026-10-19"
+    }
+  ],
+  "facts": {
+    "name": {
+      "value": "ZIRIS",
+      "sources": [
+        "russel-2026-10-19",
+        "site-etablissements"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "ZIRIS (Russel et Amadou Mendouga)",
+      "note": "Les deux sites écrivent « Ziris » ; casse à valider."
+    },
+    "links": {
+      "value": [
+        {
+          "kind": "site",
+          "label": "ZIRIS Établissements",
+          "url": "https://ziris.vercel.app/"
+        },
+        {
+          "kind": "site",
+          "label": "ZIRIS Entreprises",
+          "url": "https://ziris-app.alwaysdata.net/vitrine/index"
+        }
+      ],
+      "sources": [
+        "site-etablissements",
+        "site-entreprises"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "ZIRIS (Russel et Amadou Mendouga)"
+    },
+    "status": {
+      "value": {
+        "code": "live",
+        "label": "SaaS en développement actif, déjà proposé à la vente"
+      },
+      "sources": [
+        "russel-2026-10-19",
+        "site-entreprises"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "ZIRIS (Russel et Amadou Mendouga)"
+    },
+    "period": {
+      "value": {
+        "start": "2026-06",
+        "end": null,
+        "ongoing": true,
+        "approximate": true
+      },
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)",
+      "note": "Début calculé depuis « je le développe depuis 4 mois »."
+    },
+    "organization": {
+      "value": {
+        "name": "ZIRIS",
+        "relation": "co-owned-product",
+        "city": "Douala",
+        "country": "Cameroun"
+      },
+      "sources": [
+        "russel-2026-10-19",
+        "site-entreprises"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "ZIRIS (Russel et Amadou Mendouga)"
+    },
+    "role": {
+      "value": "Co-propriétaire et développeur des versions Établissements et Entreprises",
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)"
+    },
+    "personalScope": {
+      "value": [
+        "Versions Établissements et Entreprises, développées en parallèle avec Amadou Mendouga",
+        "Intégration Anthropic côté administration Établissements : inscriptions et imports massifs d'étudiants depuis des formats variés, préparation des emplois du temps, traitement d'informations"
+      ],
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)"
+    },
+    "team": {
+      "value": {
+        "size": 2,
+        "members": [
+          {
+            "name": "Amadou Mendouga",
+            "contribution": "Co-propriétaire ; intégration Groq de la version Entreprises"
+          }
+        ]
+      },
+      "sources": [
+        "russel-2026-10-19",
+        "site-entreprises"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "ZIRIS (Russel et Amadou Mendouga)"
+    },
+    "platforms": {
+      "value": [
+        "web",
+        "web-admin"
+      ],
+      "sources": [
+        "site-etablissements",
+        "site-entreprises"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "ZIRIS (Russel et Amadou Mendouga)",
+      "note": "La vitrine annonce une application mobile ; nature à confirmer."
+    },
+    "stack": {
+      "value": [
+        "Next.js (Établissements, sur Vercel)",
+        "Hébergement alwaysdata (Entreprises)",
+        "Anthropic (Établissements)",
+        "Groq (Entreprises)"
+      ],
+      "sources": [
+        "russel-2026-10-19",
+        "site-etablissements",
+        "site-entreprises"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "ZIRIS (Russel et Amadou Mendouga)",
+      "note": "Hébergements observés publiquement ; reste de la stack à documenter."
+    },
+    "proofs": {
+      "value": [
+        {
+          "kind": "live-url",
+          "label": "Version Établissements : pointage, emploi du temps et suivi de présence",
+          "url": "https://ziris.vercel.app/",
+          "checkedAt": "2026-10-19"
+        },
+        {
+          "kind": "live-url",
+          "label": "Version Entreprises : pointage par téléphone, suivi des présences, paie, offres publiques",
+          "url": "https://ziris-app.alwaysdata.net/vitrine/index",
+          "checkedAt": "2026-10-19"
+        }
+      ],
+      "sources": [
+        "site-etablissements",
+        "site-entreprises"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "ZIRIS (Russel et Amadou Mendouga)",
+      "note": "La vitrine Entreprises indique « Conçu par Amadou Mendouga »."
+    },
+    "rights": {
+      "value": {
+        "grantedBy": "Russel et Amadou Mendouga, co-propriétaires",
+        "form": "co-owner-agreement",
+        "scope": [
+          "name",
+          "logo",
+          "screenshots",
+          "video"
+        ],
+        "restrictions": [
+          "Présenter ZIRIS comme un produit co-développé",
+          "Ne pas attribuer à Russel seul ce que la vitrine crédite à Amadou Mendouga"
+        ]
+      },
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "ZIRIS (Russel et Amadou Mendouga)"
+    },
+    "confidential": {
+      "value": [
+        "Données d'étudiants, d'employés ou de clients",
+        "Secrets, contrats et code privé non autorisé"
+      ],
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "private",
+      "rightsOwner": "ZIRIS (Russel et Amadou Mendouga)"
+    }
+  }
+}

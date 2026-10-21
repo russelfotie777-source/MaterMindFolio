@@ -1,0 +1,200 @@
+{
+  "schemaVersion": "project-facts/1",
+  "slug": "fast-shipping-logistics",
+  "contentRelease": {
+    "id": "CR-0",
+    "status": "approved",
+    "russelVisa": "2026-10-20"
+  },
+  "sources": [
+    {
+      "id": "russel-2026-10-18",
+      "kind": "owner-declaration",
+      "label": "Brief initial de Russel (« pour une agence française »)",
+      "checkedAt": "2026-10-18"
+    },
+    {
+      "id": "russel-2026-10-19",
+      "kind": "owner-declaration",
+      "label": "Réponses de Russel dans la fiche de collecte G1",
+      "checkedAt": "2026-10-19"
+    },
+    {
+      "id": "site-public",
+      "kind": "public-check",
+      "label": "Contrôle du site public",
+      "url": "https://fast-shipping-logistics.com",
+      "checkedAt": "2026-10-19"
+    }
+  ],
+  "facts": {
+    "name": {
+      "value": "Fast Shipping logistique",
+      "sources": [
+        "site-public"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Fast Shipping logistique",
+      "note": "Graphie du site public ; nom officiel à valider."
+    },
+    "links": {
+      "value": [
+        {
+          "kind": "site",
+          "label": "fast-shipping-logistics.com",
+          "url": "https://fast-shipping-logistics.com"
+        }
+      ],
+      "sources": [
+        "site-public"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Fast Shipping logistique"
+    },
+    "status": {
+      "value": {
+        "code": "live",
+        "label": "Site en ligne"
+      },
+      "sources": [
+        "site-public"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Fast Shipping logistique"
+    },
+    "period": {
+      "value": {
+        "start": "2025-06",
+        "end": "2025-06",
+        "ongoing": false,
+        "approximate": false
+      },
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)",
+      "note": "Réalisé en un mois."
+    },
+    "organization": {
+      "value": {
+        "name": "Fast Shipping logistique",
+        "relation": "client",
+        "country": "France"
+      },
+      "sources": [
+        "russel-2026-10-18",
+        "site-public"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Fast Shipping logistique",
+      "note": "Agence française ; ville à préciser."
+    },
+    "role": {
+      "value": "Développeur des fonctions métier, à partir d'un thème acheté",
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)"
+    },
+    "personalScope": {
+      "value": [
+        "Suivi de colis",
+        "Demande de devis",
+        "Back-office",
+        "Traductions du site"
+      ],
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)"
+    },
+    "platforms": {
+      "value": [
+        "web",
+        "web-admin"
+      ],
+      "sources": [
+        "russel-2026-10-19",
+        "site-public"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Fast Shipping logistique"
+    },
+    "stack": {
+      "value": [
+        "PHP",
+        "Bootstrap",
+        "jQuery"
+      ],
+      "sources": [
+        "site-public"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Fast Shipping logistique",
+      "note": "Observation publique ; à confirmer."
+    },
+    "proofs": {
+      "value": [
+        {
+          "kind": "live-url",
+          "label": "Site en ligne, en 9 langues, avec suivi de colis et devis",
+          "url": "https://fast-shipping-logistics.com",
+          "checkedAt": "2026-10-19"
+        }
+      ],
+      "sources": [
+        "site-public"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Fast Shipping logistique",
+      "note": "L'accueil affiche encore du contenu de démonstration du thème : à nettoyer avant que le portfolio y renvoie."
+    },
+    "rights": {
+      "value": {
+        "grantedBy": "Russel (MASTERMIND)",
+        "form": "russel-declaration",
+        "scope": [
+          "name",
+          "logo",
+          "screenshots",
+          "video",
+          "metrics"
+        ],
+        "restrictions": [
+          "Aucune autorisation nommée de l'agence"
+        ]
+      },
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)"
+    },
+    "confidential": {
+      "value": [
+        "Données des clients et des envois"
+      ],
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "private",
+      "rightsOwner": "Fast Shipping logistique",
+      "note": "Valeur de protection proposée par Claude."
+    }
+  }
+}
