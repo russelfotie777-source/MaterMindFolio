@@ -3,6 +3,7 @@
     "registre": "H237-POR-CUT-001",
     "credit": "Photo fournie par Russel ; fond retiré avec Magnific, visage, main et corps inchangés.",
     "genere": false,
+    "alt": null,
     "largeur": 1859,
     "hauteur": 1325,
     "fichiers": {
@@ -72,6 +73,7 @@
     "registre": "H237-DECOR-DAWN-001-M4X",
     "credit": "Image générée avec Magnific — direction et sélection : Russel / HORIZON 237.",
     "genere": true,
+    "alt": null,
     "largeur": 5760,
     "hauteur": 2880,
     "fichiers": {
@@ -127,6 +129,7 @@
     "registre": "H237-DECOR-DAWN-001-M4X",
     "credit": "Image générée avec Magnific — direction et sélection : Russel / HORIZON 237.",
     "genere": true,
+    "alt": null,
     "largeur": 1600,
     "hauteur": 2880,
     "fichiers": {
@@ -174,6 +177,496 @@
           "chemin": "/media/approved/aube-vertical-1080-e4c4ab8e.webp",
           "octets": 44096,
           "sha256": "e4c4ab8e641fe514859458c39e6b19ebeddb72d6499308f8e1bbea1928613d91"
+        }
+      ]
+    }
+  },
+  "fast-shipping-logistics-bureau": {
+    "registre": "H237-PROJ-FAST-D",
+    "credit": "Capture réelle du site public ; accord déclaré par Russel, sans autorisation nommée de l’agence.",
+    "genere": false,
+    "alt": "Page de suivi Fast Shipping avec camion en couverture, champ de numéro de colis et explication des mises à jour.",
+    "largeur": 1542,
+    "hauteur": 964,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 768,
+          "hauteur": 480,
+          "chemin": "/media/approved/fast-shipping-logistics-bureau-768-c179c17d.avif",
+          "octets": 16788,
+          "sha256": "c179c17d4784f399432563e36304b87946395e40aec22cfc85ecaa0fdcc6c47b"
+        },
+        {
+          "largeur": 1080,
+          "hauteur": 675,
+          "chemin": "/media/approved/fast-shipping-logistics-bureau-1080-853e1af3.avif",
+          "octets": 25574,
+          "sha256": "853e1af3960968d7f41c774c1ae04c03e9da8c0bd32c810af07d6983557b5fbb"
+        },
+        {
+          "largeur": 1440,
+          "hauteur": 900,
+          "chemin": "/media/approved/fast-shipping-logistics-bureau-1440-19755ddf.avif",
+          "octets": 36824,
+          "sha256": "19755ddf90db75552e327c9230803293e55964f7ec82e42d0b0e5d5cecf85321"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 768,
+          "hauteur": 480,
+          "chemin": "/media/approved/fast-shipping-logistics-bureau-768-a8f1b710.webp",
+          "octets": 20576,
+          "sha256": "a8f1b71087334f1a63c0437797ab6d66d9994c532e3200e440511597992e8d21"
+        },
+        {
+          "largeur": 1080,
+          "hauteur": 675,
+          "chemin": "/media/approved/fast-shipping-logistics-bureau-1080-7b8fab3a.webp",
+          "octets": 33120,
+          "sha256": "7b8fab3add11235f241866035ce214204869826112dcf596db0f12336a616251"
+        },
+        {
+          "largeur": 1440,
+          "hauteur": 900,
+          "chemin": "/media/approved/fast-shipping-logistics-bureau-1440-186d9781.webp",
+          "octets": 47614,
+          "sha256": "186d9781179141a6456d972ab186d514ea172e99c277da38b625538a481605d5"
+        }
+      ]
+    }
+  },
+  "fast-shipping-logistics-mobile": {
+    "registre": "H237-PROJ-FAST-M",
+    "credit": "Capture réelle du site public ; accord déclaré par Russel, sans autorisation nommée de l’agence.",
+    "genere": false,
+    "alt": "Version mobile du suivi Fast Shipping avec champ de numéro de colis et accès aux étapes d’assistance.",
+    "largeur": 390,
+    "hauteur": 844,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 390,
+          "hauteur": 844,
+          "chemin": "/media/approved/fast-shipping-logistics-mobile-390-489436d2.avif",
+          "octets": 13984,
+          "sha256": "489436d281e5e3b071a7e9584b213242eedfe665abbf9657543368b6fff847b6"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 390,
+          "hauteur": 844,
+          "chemin": "/media/approved/fast-shipping-logistics-mobile-390-d15af61d.webp",
+          "octets": 20844,
+          "sha256": "d15af61d3d6f8af8a6d38c341a1c136d1bb38d9e63c67deb1cf63cf36700476b"
+        }
+      ]
+    }
+  },
+  "batobaye-market-bureau": {
+    "registre": "H237-PROJ-BATO-D",
+    "credit": "Capture réelle de l’administration, indicateurs internes masqués ; permission verbale du PDG de BatobayeMarket.",
+    "genere": false,
+    "alt": "Tableau de bord sombre de l’administration Batobaye Market montrant commandes, alertes de stock et indicateurs masqués.",
+    "largeur": 1496,
+    "hauteur": 935,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 768,
+          "hauteur": 480,
+          "chemin": "/media/approved/batobaye-market-bureau-768-8d78d0e4.avif",
+          "octets": 11386,
+          "sha256": "8d78d0e40acac65d3d51029f0603196e50ee5f68c30c8759c5683f1eb0207164"
+        },
+        {
+          "largeur": 1080,
+          "hauteur": 675,
+          "chemin": "/media/approved/batobaye-market-bureau-1080-c4624647.avif",
+          "octets": 18164,
+          "sha256": "c4624647ca5ab6d5168d214baad60a400fbe686e17bffde91e1636900fd172d2"
+        },
+        {
+          "largeur": 1440,
+          "hauteur": 900,
+          "chemin": "/media/approved/batobaye-market-bureau-1440-1a83a46c.avif",
+          "octets": 25768,
+          "sha256": "1a83a46c5125f84f449c2d0c86809ead19dac74c2d9a7403d5b4428ec638a12e"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 768,
+          "hauteur": 480,
+          "chemin": "/media/approved/batobaye-market-bureau-768-0fb50d0f.webp",
+          "octets": 14572,
+          "sha256": "0fb50d0f592e3f6e525e0782882ef01add3280f1b90693b394c8165f24479ff4"
+        },
+        {
+          "largeur": 1080,
+          "hauteur": 675,
+          "chemin": "/media/approved/batobaye-market-bureau-1080-fdc3b777.webp",
+          "octets": 24208,
+          "sha256": "fdc3b7774ba229d1b7b10ac2c683e29a275d672cf4e17eccc348fe178d5ee518"
+        },
+        {
+          "largeur": 1440,
+          "hauteur": 900,
+          "chemin": "/media/approved/batobaye-market-bureau-1440-29370b8a.webp",
+          "octets": 36410,
+          "sha256": "29370b8a664c702bcbbb21c7060be11f519719186c0fb01427882fe214490d6b"
+        }
+      ]
+    }
+  },
+  "batobaye-market-mobile": {
+    "registre": "H237-PROJ-BATO-M",
+    "credit": "Capture réelle du catalogue public ; permission verbale du PDG de BatobayeMarket.",
+    "genere": false,
+    "alt": "Catalogue mobile Batobaye Market ouvert sur la catégorie Électroménager avec produits, prix et disponibilité.",
+    "largeur": 390,
+    "hauteur": 844,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 390,
+          "hauteur": 844,
+          "chemin": "/media/approved/batobaye-market-mobile-390-1506b5ad.avif",
+          "octets": 20399,
+          "sha256": "1506b5ad6eae94ec9a67cb085e516839b45249c33b721f1afa2c4f73e92a664e"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 390,
+          "hauteur": 844,
+          "chemin": "/media/approved/batobaye-market-mobile-390-ee9b400d.webp",
+          "octets": 33972,
+          "sha256": "ee9b400d53e34e43291935d8d59595786b4837fca3e22d0324132cc3d79d943b"
+        }
+      ]
+    }
+  },
+  "mboamarkets-bureau": {
+    "registre": "H237-PROJ-MBOA-D",
+    "credit": "Capture réelle du site public ; permission verbale du PDG de la maison mère, BatobayeMarket.",
+    "genere": false,
+    "alt": "Storefront MBoa Market présentant les produits de la semaine, leurs prix publics et l’action de commande.",
+    "largeur": 1518,
+    "hauteur": 949,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 768,
+          "hauteur": 480,
+          "chemin": "/media/approved/mboamarkets-bureau-768-bda5ce05.avif",
+          "octets": 25583,
+          "sha256": "bda5ce05a86be577c58532c6e3470d8cf757feb470f7a3114e0280b91e2f5964"
+        },
+        {
+          "largeur": 1080,
+          "hauteur": 675,
+          "chemin": "/media/approved/mboamarkets-bureau-1080-cd4fff7e.avif",
+          "octets": 39375,
+          "sha256": "cd4fff7eb32431708dc250ef87538950920e98c61f0f73569f90475ce38d02da"
+        },
+        {
+          "largeur": 1440,
+          "hauteur": 900,
+          "chemin": "/media/approved/mboamarkets-bureau-1440-88b86e3f.avif",
+          "octets": 57444,
+          "sha256": "88b86e3fb378e2f1362f88226684764a4ede0b15b8a124d42f5723960a4295ff"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 768,
+          "hauteur": 480,
+          "chemin": "/media/approved/mboamarkets-bureau-768-ecc95ff3.webp",
+          "octets": 35696,
+          "sha256": "ecc95ff3a509ed0dd5b68de388498993763ce9ff88220b19a5187d29a5e5d404"
+        },
+        {
+          "largeur": 1080,
+          "hauteur": 675,
+          "chemin": "/media/approved/mboamarkets-bureau-1080-127121a1.webp",
+          "octets": 53980,
+          "sha256": "127121a1303156f8c0fd92af98c899eab3a3ecba988452ab139d827b5e153943"
+        },
+        {
+          "largeur": 1440,
+          "hauteur": 900,
+          "chemin": "/media/approved/mboamarkets-bureau-1440-899e413c.webp",
+          "octets": 80202,
+          "sha256": "899e413c9588f66859ed04d2bd74c576c0ed0edb4117c372709257a240b21b51"
+        }
+      ]
+    }
+  },
+  "mboamarkets-mobile": {
+    "registre": "H237-PROJ-MBOA-M",
+    "credit": "Capture réelle du site public ; permission verbale du PDG de la maison mère, BatobayeMarket.",
+    "genere": false,
+    "alt": "Version mobile MBoa Market avec recherche, navigation par catégories, produit vedette et accès WhatsApp.",
+    "largeur": 390,
+    "hauteur": 844,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 390,
+          "hauteur": 844,
+          "chemin": "/media/approved/mboamarkets-mobile-390-576de143.avif",
+          "octets": 17212,
+          "sha256": "576de143165e6d0d363955579d02a5527b29f844e33f7d347f7c59d83faa1d18"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 390,
+          "hauteur": 844,
+          "chemin": "/media/approved/mboamarkets-mobile-390-bbbbef28.webp",
+          "octets": 26844,
+          "sha256": "bbbbef2895bafa6a933d8eb0446566faa8633d9362cfe909481d89db3f46091f"
+        }
+      ]
+    }
+  },
+  "ziris-bureau": {
+    "registre": "H237-PROJ-ZIRIS-VITRINE-001",
+    "credit": "Capture réelle de la vitrine publique ; accord des co-propriétaires, Russel et Amadou Mendouga.",
+    "genere": false,
+    "alt": "Vitrine publique de ZIRIS Entreprises : recherche, promesse principale, tarif à partir de 40 000 FCFA par mois et essai gratuit.",
+    "largeur": 1440,
+    "hauteur": 900,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 768,
+          "hauteur": 480,
+          "chemin": "/media/approved/ziris-bureau-768-d1af0cb2.avif",
+          "octets": 17216,
+          "sha256": "d1af0cb2ba86282aeae67bd2a6a90d08253115c0715c743743a35ade54f72bca"
+        },
+        {
+          "largeur": 1080,
+          "hauteur": 675,
+          "chemin": "/media/approved/ziris-bureau-1080-0a08ebba.avif",
+          "octets": 27279,
+          "sha256": "0a08ebba4d7f62d5db8f6eebe14205a114740ddbcbd00c2cee78858622fb1373"
+        },
+        {
+          "largeur": 1440,
+          "hauteur": 900,
+          "chemin": "/media/approved/ziris-bureau-1440-43dd77e4.avif",
+          "octets": 34787,
+          "sha256": "43dd77e4bf51052329ed4231dafedba80d55ceac8f888d51ecdc251445bc0a22"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 768,
+          "hauteur": 480,
+          "chemin": "/media/approved/ziris-bureau-768-3aaa51ec.webp",
+          "octets": 22108,
+          "sha256": "3aaa51ecb94356cddf5badd6c4a3339c6d0a1a5108f31b39926680639f2f1a54"
+        },
+        {
+          "largeur": 1080,
+          "hauteur": 675,
+          "chemin": "/media/approved/ziris-bureau-1080-55f1dc64.webp",
+          "octets": 34932,
+          "sha256": "55f1dc64c265c9ac3149ada2cff20e6626681ddf5ef551a34fee32580ca57b5f"
+        },
+        {
+          "largeur": 1440,
+          "hauteur": 900,
+          "chemin": "/media/approved/ziris-bureau-1440-3630e786.webp",
+          "octets": 48912,
+          "sha256": "3630e78624e783ba4ecd0a9480b02d2713cb3ccd6d3738e68ed9e83bd99eedc4"
+        }
+      ]
+    }
+  },
+  "ziris-mobile": {
+    "registre": "H237-PROJ-ZIRIS-VITRINE-001",
+    "credit": "Capture réelle de la vitrine publique ; accord des co-propriétaires, Russel et Amadou Mendouga.",
+    "genere": false,
+    "alt": "Version mobile de la vitrine ZIRIS Entreprises avec recherche, promesse principale, tarif et bouton d’essai gratuit.",
+    "largeur": 390,
+    "hauteur": 844,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 390,
+          "hauteur": 844,
+          "chemin": "/media/approved/ziris-mobile-390-de89879a.avif",
+          "octets": 20078,
+          "sha256": "de89879aa3d52946105d648eeace322927d79d33f748715c7b1a19db345828b2"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 390,
+          "hauteur": 844,
+          "chemin": "/media/approved/ziris-mobile-390-ca0954ed.webp",
+          "octets": 27440,
+          "sha256": "ca0954ed118ea69d285631e27892ad3ec1757f417a73570ee8c3f63ff1beaf22"
+        }
+      ]
+    }
+  },
+  "shopitech-bureau": {
+    "registre": "H237-PROJ-SHOP-D",
+    "credit": "Capture réelle de la beta publique ; autorisation de Shopitech déclarée.",
+    "genere": false,
+    "alt": "Catalogue desktop Shopitech consacré aux équipements réseau, avec produits populaires, filtres et grille de produits.",
+    "largeur": 1203,
+    "hauteur": 752,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 768,
+          "hauteur": 480,
+          "chemin": "/media/approved/shopitech-bureau-768-9ab7aade.avif",
+          "octets": 18815,
+          "sha256": "9ab7aadea62bd5d5f1d9d364cac89d809ea8bf02857b1e2139a7813183969cf6"
+        },
+        {
+          "largeur": 1080,
+          "hauteur": 675,
+          "chemin": "/media/approved/shopitech-bureau-1080-0d20054d.avif",
+          "octets": 30112,
+          "sha256": "0d20054d9044f849693d3730276fcf398512baf05d8f0345355724cca36699ad"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 768,
+          "hauteur": 480,
+          "chemin": "/media/approved/shopitech-bureau-768-94750e40.webp",
+          "octets": 26478,
+          "sha256": "94750e4021970e7c1809498f5baa2c8542be99c008df0e988f6572ac378e081b"
+        },
+        {
+          "largeur": 1080,
+          "hauteur": 675,
+          "chemin": "/media/approved/shopitech-bureau-1080-81cee071.webp",
+          "octets": 41200,
+          "sha256": "81cee0718fb95ef2f79afa5f57d335a0155e3efe4c0f795f7f72822212eb13c7"
+        }
+      ]
+    }
+  },
+  "shopitech-mobile": {
+    "registre": "H237-PROJ-SHOP-M",
+    "credit": "Capture réelle de la beta publique ; autorisation de Shopitech déclarée.",
+    "genere": false,
+    "alt": "Accueil mobile Shopitech avec recherche, produit vedette et grille colorée des familles techniques.",
+    "largeur": 400,
+    "hauteur": 866,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 390,
+          "hauteur": 844,
+          "chemin": "/media/approved/shopitech-mobile-390-c44fe29b.avif",
+          "octets": 27260,
+          "sha256": "c44fe29b9e5e8be290b60837607f9a585989656dd5a7b1a95a727e93ef4cc747"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 390,
+          "hauteur": 844,
+          "chemin": "/media/approved/shopitech-mobile-390-771b95b6.webp",
+          "octets": 36510,
+          "sha256": "771b95b6584058d74364b47d7b327edc507970088515cab65866bb9795a32eff"
+        }
+      ]
+    }
+  },
+  "artvibe-cameroun-bureau": {
+    "registre": "H237-PROJ-ART-D",
+    "credit": "Capture réelle de la plateforme publique ; autorisation de SAM BIAI déclarée.",
+    "genere": false,
+    "alt": "Accueil ArtVibeCamer présentant la scène des talents camerounais, les disciplines et l’action d’inscription.",
+    "largeur": 1442,
+    "hauteur": 901,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 768,
+          "hauteur": 480,
+          "chemin": "/media/approved/artvibe-cameroun-bureau-768-4e201cbb.avif",
+          "octets": 27788,
+          "sha256": "4e201cbb5c12e7d2d5db4995cc3d474c0852b000d7f647c4f7e5cb6092136c4d"
+        },
+        {
+          "largeur": 1080,
+          "hauteur": 675,
+          "chemin": "/media/approved/artvibe-cameroun-bureau-1080-577136a0.avif",
+          "octets": 41710,
+          "sha256": "577136a06bcd796df71a24f44a8cb2d1f294a85d4efc721f901ccdb3ae87f111"
+        },
+        {
+          "largeur": 1440,
+          "hauteur": 900,
+          "chemin": "/media/approved/artvibe-cameroun-bureau-1440-463ca12d.avif",
+          "octets": 55803,
+          "sha256": "463ca12d86c72bd62e9b40f44b5a77ec1ef551a383f4273b17cb8ee746b8c8cf"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 768,
+          "hauteur": 480,
+          "chemin": "/media/approved/artvibe-cameroun-bureau-768-f7aa6172.webp",
+          "octets": 37334,
+          "sha256": "f7aa61721e65e174023900e9cd11feed324104f51ce48b82da1672d77e0ffa43"
+        },
+        {
+          "largeur": 1080,
+          "hauteur": 675,
+          "chemin": "/media/approved/artvibe-cameroun-bureau-1080-69419a3a.webp",
+          "octets": 56738,
+          "sha256": "69419a3a638838dcc89fdd562b74fa7249c7d3d368618377f6606520fc8db152"
+        },
+        {
+          "largeur": 1440,
+          "hauteur": 900,
+          "chemin": "/media/approved/artvibe-cameroun-bureau-1440-06151269.webp",
+          "octets": 80106,
+          "sha256": "06151269e909c190893db0b7f804b9c8144bc6b8e004eaf59a4af51edc2a9d48"
+        }
+      ]
+    }
+  },
+  "artvibe-cameroun-mobile": {
+    "registre": "H237-PROJ-ART-M",
+    "credit": "Capture réelle de la plateforme publique ; autorisation de SAM BIAI déclarée.",
+    "genere": false,
+    "alt": "Accueil mobile ArtVibeCamer avec la promesse culturelle, les disciplines et le bouton d’inscription d’un talent.",
+    "largeur": 390,
+    "hauteur": 844,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 390,
+          "hauteur": 844,
+          "chemin": "/media/approved/artvibe-cameroun-mobile-390-2699cff9.avif",
+          "octets": 24197,
+          "sha256": "2699cff9a541bfa87b5a2a01518fad5ca49d625c5735281d1195b6dd4f5eca94"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 390,
+          "hauteur": 844,
+          "chemin": "/media/approved/artvibe-cameroun-mobile-390-a29808b7.webp",
+          "octets": 36414,
+          "sha256": "a29808b758b6e2a6e7e41c42b6edcb1713bd71b065ca9095b0809e0b722ed8f8"
         }
       ]
     }
