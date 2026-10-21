@@ -20,3 +20,30 @@ Build, CSP, SEO, clavier, axe, et poids JS / CSS / polices / en-têtes mesurés.
 | 8 | Polices DM Sans auto-hébergées, sous-ensemble français, une graisse préchargée | ≤ 100 Ko |
 | 9 | Tests : Playwright sur Chromium, WebKit et Firefox, `@axe-core/playwright`, CSP sur toutes les routes | CI verte |
 | 10 | Mesures et IR-0 : poids transférés à froid, captures aux viewports de la DR-1 | dossier `docs/quality/` et visa Codex |
+
+## Suivi
+
+| # | État au 21 octobre 2026 | Preuve |
+|---:|---|---|
+| 1 | fait | `pnpm install --frozen-lockfile`, une seule version de React |
+| 2 | fait, ADR-003 | zéro violation CSP sur les 16 routes testées (pages, six études de cas, 404), îlot de `/contact` hydraté |
+| 3 | fait | `pnpm tokens:check` |
+| 4 | fait | build en échec sur un fait requis privé ou une release en `draft` (deux essais) ; faits privés facultatifs omis ; garde « aucun module serveur dans les chunks clients » dans `scripts/build.ts`, essayée avec Zod importé dans un îlot |
+| 5 | fait, sauf `/cv.pdf` | HTML complet sans JavaScript, `title`, description et URL canonique par route, `sitemap.xml`, `robots.txt`, 404 réelle sur un slug inconnu |
+| 6 | en cours | lien d'évitement, en-tête, `main`, pied de page ; parcours clavier à prouver par Playwright (étape 9) |
+| 7 | à faire | dérivés d'actifs à publier |
+| 8 | à faire | sous-ensemble DM Sans |
+| 9 | à faire | |
+| 10 | à faire | aucun débordement horizontal à 320, 390 et 1440 px (sonde CDP locale) |
+
+### Textes attendus de `content/copy/` (Codex rédige, Russel valide)
+
+Les pages n'affichent que des faits validés et des libellés d'interface. Les phrases éditoriales des vues de contrôle restent absentes jusqu'à leur Content Release : accroche de l'accueil (A01), phrase du parcours (A09), phrase de chaque étude de cas (A06), phrase de Sources & fabrication (A13), phrases de la visite sans WebGL (A04), phrase finale (A12).
+
+### Libellés d'interface à confirmer par Codex à l'IR-0
+
+Repris des vues de contrôle : « Aller au contenu », « Commencer la visite », « Explorer librement », « Registre des six projets », « Étude de cas · 01 / 06 », « Périmètre validé », « Preuve publique », « Parcours · dates validées », « Résumé recruteur », « Poste actuel », « Six produits », « Imprimer cette page », « Copier l'adresse », « Sources & fabrication ».
+
+Proposés par Claude, faute de vue : navigation « Projets · Résumé · Contact » (le CV la rejoindra), pied de page « Visite · Parcours · Sources & fabrication · Mentions légales · GitHub », titres « Six stations », « Parcours », « Me contacter », « Sources des faits », « Mentions légales », rubriques « Décisions » et « Repères », pages d'erreur (« Page introuvable », « Cette page n'a pas pu s'afficher », « Le site n'a pas pu s'afficher ») et descriptions des métadonnées. Les mentions légales (hébergeur Vercel, absence de cookie, de mesure d'audience et de formulaire) décrivent le runtime ; Russel les valide avant la production.
+
+Absents en attendant leur source : les quatre domaines prouvés du résumé recruteur (aucun fait validé ne relie encore domaine et projets), le média de chaque projet, le portrait détouré et le favicon (variante du monogramme à dériver par Codex, `08_MONOGRAMME_TRACE_237.md`).
