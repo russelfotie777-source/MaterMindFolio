@@ -1,12 +1,61 @@
 {
-  "version": "G1-R0",
-  "date": "2026-10-19",
-  "status": "open",
-  "policy": "No private master path, GPS coordinate, sensitive EXIF field or backup location is stored here. A SHA-256 proves file integrity, not publication rights.",
+  "version": "G1-R5",
+  "date": "2026-10-21",
+  "status": "c3-2-approved-by-russel",
+  "policy": "No private master path, GPS coordinate, sensitive EXIF field or backup location is stored here. A SHA-256 proves file integrity, not publication rights. Any owner-approved exception is identified explicitly and is not generalized to another asset. Generated images are labelled as such and never described as photographs.",
   "assets": [
     {
+      "id": "H237-MONOGRAM-001",
+      "type": "vector-monogram",
+      "dimensions": {
+        "width": 960,
+        "height": 360,
+        "unit": "svg-viewbox"
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "a6066cd0eae15e9a4f329911bcf4c216b6c3324c271d646cda6321f104e576b4"
+      },
+      "source": {
+        "kind": "original-vector",
+        "author": "ChatGPT / Codex",
+        "creationDate": "2026-10-19",
+        "path": "design/releases/DR-1/assets/trace-237-monogram.svg"
+      },
+      "rights": {
+        "status": "APPROVED_SOURCE",
+        "publication": "allowed-for-horizon-237",
+        "basis": "Created on Russel's explicit delegation for this portfolio; no third-party asset embedded."
+      },
+      "design": {
+        "status": [
+          "FINAL_SOURCE",
+          "MONOCHROME"
+        ],
+        "heroApproval": true,
+        "reason": "Replaces the filmed hand gesture and carries the opening-to-horizon match-cut."
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "No raster image, font, script, filter or external reference embedded.",
+        "auditedAt": "2026-10-19"
+      },
+      "transformations": [
+        "stroke-reveal-animation-without-shape-deformation",
+        "semantic-token-recoloring",
+        "small-size-derivative-after-legibility-test"
+      ],
+      "derivatives": [],
+      "visas": {
+        "russelRights": "delegated-to-agents-2026-10-19",
+        "chatgptDesign": "approved-source",
+        "claudePublication": "pending-feasibility-visa"
+      },
+      "integrityVerifiedAt": "2026-10-21"
+    },
+    {
       "id": "H237-POR-REF-001",
-      "type": "portrait-reference",
+      "type": "portrait-final",
       "dimensions": {
         "width": 1923,
         "height": 2560,
@@ -18,31 +67,1401 @@
       },
       "source": {
         "kind": "provided-by-owner",
-        "author": "pending-confirmation",
-        "captureDate": "pending-confirmation"
+        "author": "not-documented",
+        "captureDate": "not-documented"
       },
       "rights": {
-        "status": "RIGHTS_PENDING",
-        "publication": "forbidden-until-explicit-approval"
+        "status": "OWNER_APPROVED_EXCEPTION",
+        "publication": "allowed-for-horizon-237",
+        "basis": "Russel explicitly selected this file as the final portrait and accepted its continued presence in Git on 2026-10-19."
       },
       "design": {
-        "status": ["REFERENCE_ONLY", "REJECTED_DESIGN"],
+        "status": [
+          "ORIGINAL_SOURCE_OF_CUTOUT"
+        ],
         "heroApproval": false,
-        "reason": "A new portrait is required by the DR-1 capture brief."
+        "constraints": [
+          "Keep facial features unchanged.",
+          "Use only honest crop, exposure, white-balance, contrast and compression adjustments.",
+          "Do not use this image as the sole source of the brand palette."
+        ]
       },
       "metadataAudit": {
         "status": "PASS",
         "result": "No EXIF or GPS metadata detected; JFIF and file metadata only.",
         "auditedAt": "2026-10-19"
       },
-      "transformations": [],
+      "transformations": [
+        "honest-crop-without-generative-fill",
+        "resize",
+        "metadata-strip",
+        "webp-compression"
+      ],
+      "derivatives": [
+        {
+          "id": "H237-POR-CUT-001",
+          "path": "design/magnific__background__71841.png",
+          "status": "C3_FINAL_CUTOUT"
+        }
+      ],
+      "visas": {
+        "russelRights": "approved-2026-10-19",
+        "chatgptDesign": "accepted-under-owner-direction-with-quality-constraints",
+        "claudePublication": "original-not-published-cutout-used"
+      },
+      "integrityVerifiedAt": "2026-10-21"
+    },
+    {
+      "id": "H237-PROJ-ZIRIS-VITRINE-001",
+      "type": "public-product-interface-capture",
+      "dimensions": {
+        "width": 1440,
+        "height": 900,
+        "unit": "px",
+        "scope": "desktop-capture"
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "0569d0620d4c965d68c612e6999e883d0c3792a3008019445e2db7c63620ba03",
+        "scope": "temporary-png-capture-before-derivation"
+      },
+      "source": {
+        "kind": "public-url-capture",
+        "title": "ZIRIS Entreprises — vitrine",
+        "author": "ZIRIS, produit co-développé par Russel et Amadou Mendouga",
+        "captureDate": "2026-10-20",
+        "url": "https://ziris-app.alwaysdata.net/vitrine/index"
+      },
+      "rights": {
+        "status": "APPROVED_SOURCE",
+        "publication": "allowed-for-horizon-237",
+        "basis": "Russel declared the co-owners' agreement on 2026-10-19; the portfolio must preserve co-development attribution and never expose private product data."
+      },
+      "design": {
+        "status": [
+          "REAL_PRODUCT_MEDIA",
+          "C3_2_APPROVED_BY_RUSSEL_2026-10-21"
+        ],
+        "heroApproval": false,
+        "constraints": [
+          "Keep ZIRIS attributed as a co-developed product.",
+          "Use only the public storefront and no authenticated or client data.",
+          "Keep the violet as a project-local accent."
+        ]
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Public storefront only; no authenticated or personal data observed. WebP derivatives contain no EXIF or GPS.",
+        "auditedAt": "2026-10-20"
+      },
+      "transformations": [
+        "browser-capture-at-1440x900-and-390x844",
+        "metadata-strip",
+        "webp-compression"
+      ],
+      "derivatives": [
+        {
+          "path": "design/releases/DR-1/assets/source-derivatives/ziris-enterprise-desktop-1440.webp",
+          "dimensions": "1440x900",
+          "bytes": 56326,
+          "sha256": "a7986eca9c2b67c3a150b0bc0a6d25e7916e3e02c8ba60c87242eb492a2e4b77",
+          "status": "C3_DESIGN_PROOF"
+        },
+        {
+          "path": "design/releases/DR-1/assets/source-derivatives/ziris-enterprise-mobile-390.webp",
+          "dimensions": "390x844",
+          "bytes": 31860,
+          "sha256": "4f0dcc16fe617a348606cb7df960fdc0725f05fb55f28c2d877107b70647bcc3",
+          "status": "C3_DESIGN_PROOF"
+        }
+      ],
+      "visas": {
+        "russelRights": "declared-approved-2026-10-19",
+        "chatgptDesign": "used-in-c3-moodframes",
+        "claudePublication": "derivatives-verified-2026-10-21"
+      },
+      "integrityVerifiedAt": "2026-10-21"
+    },
+    {
+      "id": "H237-DECOR-DAWN-001",
+      "type": "generated-decor-environment",
+      "dimensions": {
+        "width": 1440,
+        "height": 720,
+        "unit": "px",
+        "scope": "generated-source"
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "b73fbc11bbb51eca08a2e1d6dd60ae8782e756864914926883361569fd79b0b0",
+        "scope": "generated-source-as-downloaded"
+      },
+      "source": {
+        "kind": "generated-image",
+        "tool": "Magnific",
+        "model": "not-documented",
+        "account": "Russel (MASTERMIND)",
+        "generationDate": "2026-10-20",
+        "variant": "82050",
+        "prompt": "docs/collecte/DIRECTION_IMAGES_DECOR.md#1",
+        "path": "decor-candidats/magnific__equirectangular-360-panorama-21-japanese-dawn-seen__82050.png"
+      },
+      "rights": {
+        "status": "OWNER_DECLARED_LICENSE",
+        "publication": "allowed-for-horizon-237",
+        "basis": "Russel declared on 2026-10-20 that his own Magnific plan covers this use and that the images he supplied are to be used.",
+        "publicCredit": "Image générée avec Magnific — direction et sélection : Russel / HORIZON 237"
+      },
+      "design": {
+        "status": [
+          "VISUAL_APPROVED_BY_RUSSEL_2026-10-20",
+          "C3_SOURCE"
+        ],
+        "heroApproval": true,
+        "role": "ouverture et lumière de l'aube",
+        "constraints": [
+          "Cylindrical backdrop with the horizon re-levelled at eye height; not a true equirectangular panorama.",
+          "Zenith stars come from the 3D scene."
+        ]
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "PNG without EXIF, GPS or embedded provenance metadata; provenance kept in this registry.",
+        "auditedAt": "2026-10-20"
+      },
+      "transformations": [
+        "deterministic-lanczos-4x-upscale-with-light-sharpening",
+        "metadata-strip",
+        "srgb-png-export"
+      ],
+      "derivatives": [
+        {
+          "id": "H237-DECOR-DAWN-001-M4X",
+          "path": "design/releases/DR-1/assets/c3-upscaled/c3-dawn-fuji-upscaled.png",
+          "dimensions": "5760x2880",
+          "bytes": 10260279,
+          "sha256": "be11540eb0206c1b8cca3d5394dedea39ee9bdbe67f17fc73ef45a7d38a29b4e",
+          "status": "C3_REVIEW_MASTER_NOT_FOR_WEB"
+        }
+      ],
+      "visas": {
+        "russelRights": "declared-approved-2026-10-20",
+        "chatgptDesign": "used-in-c3-moodframes",
+        "claudePublication": "web-derivatives-measured-not-produced"
+      },
+      "integrityVerifiedAt": "2026-10-21"
+    },
+    {
+      "id": "H237-DECOR-WISTERIA-001",
+      "type": "generated-decor-environment",
+      "dimensions": {
+        "width": 1440,
+        "height": 720,
+        "unit": "px",
+        "scope": "generated-source"
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "99adf105e24a59a175c18392bd02459cfcd2f26e107ec86b9584982dbb6d5139",
+        "scope": "generated-source-as-downloaded"
+      },
+      "source": {
+        "kind": "generated-image",
+        "tool": "Magnific",
+        "model": "not-documented",
+        "account": "Russel (MASTERMIND)",
+        "generationDate": "2026-10-20",
+        "variant": "82051",
+        "prompt": "docs/collecte/DIRECTION_IMAGES_DECOR.md#2",
+        "path": "decor-candidats/magnific__night-photograph-of-ancient-japanese-wisteria-trel__82051.png"
+      },
+      "rights": {
+        "status": "OWNER_DECLARED_LICENSE",
+        "publication": "allowed-for-horizon-237",
+        "basis": "Russel declared on 2026-10-20 that his own Magnific plan covers this use and that the images he supplied are to be used.",
+        "publicCredit": "Image générée avec Magnific — direction et sélection : Russel / HORIZON 237"
+      },
+      "design": {
+        "status": [
+          "VISUAL_APPROVED_BY_RUSSEL_2026-10-20",
+          "C3_SOURCE"
+        ],
+        "heroApproval": false,
+        "role": "chapitre nocturne et profondeur violette",
+        "constraints": [
+          "Calm left zone reserved for text."
+        ]
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "PNG without EXIF, GPS or embedded provenance metadata; provenance kept in this registry.",
+        "auditedAt": "2026-10-20"
+      },
+      "transformations": [
+        "deterministic-lanczos-4x-upscale-with-light-sharpening",
+        "metadata-strip",
+        "srgb-png-export"
+      ],
+      "derivatives": [
+        {
+          "id": "H237-DECOR-WISTERIA-001-M4X",
+          "path": "design/releases/DR-1/assets/c3-upscaled/c3-wisteria-upscaled.png",
+          "dimensions": "5760x2880",
+          "bytes": 14251196,
+          "sha256": "3ef2658644a0ac60f4aa01bb9b807f9d367dec6f4625f191433225c0cb74b2c6",
+          "status": "C3_REVIEW_MASTER_NOT_FOR_WEB"
+        }
+      ],
+      "visas": {
+        "russelRights": "declared-approved-2026-10-20",
+        "chatgptDesign": "used-in-c3-moodframes",
+        "claudePublication": "web-derivatives-measured-not-produced"
+      },
+      "integrityVerifiedAt": "2026-10-21"
+    },
+    {
+      "id": "H237-DECOR-BAMBOO-001",
+      "type": "generated-decor-environment",
+      "dimensions": {
+        "width": 1440,
+        "height": 720,
+        "unit": "px",
+        "scope": "generated-source"
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "f581c698b5a1254792dfde93009ba0a5dc7a061af48c8cf5bc48aa546e76d4a4",
+        "scope": "generated-source-as-downloaded"
+      },
+      "source": {
+        "kind": "generated-image",
+        "tool": "Magnific",
+        "model": "not-documented",
+        "account": "Russel (MASTERMIND)",
+        "generationDate": "2026-10-20",
+        "variant": "8238",
+        "prompt": "docs/collecte/DIRECTION_IMAGES_DECOR.md#3-v2",
+        "path": "decor-candidats/magnific__arashiyama-bamboo-forest-at-deep-blueviolet-dusk-s__8238.png"
+      },
+      "rights": {
+        "status": "OWNER_DECLARED_LICENSE",
+        "publication": "allowed-for-horizon-237",
+        "basis": "Russel declared on 2026-10-20 that his own Magnific plan covers this use and that the images he supplied are to be used.",
+        "publicCredit": "Image générée avec Magnific — direction et sélection : Russel / HORIZON 237"
+      },
+      "design": {
+        "status": [
+          "VISUAL_APPROVED_BY_RUSSEL_2026-10-20",
+          "C3_SOURCE"
+        ],
+        "heroApproval": false,
+        "role": "transition végétale et chemin",
+        "constraints": [
+          "Text only on opaque panels.",
+          "Soften the fluorescent green patch at grading."
+        ]
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "PNG without EXIF, GPS or embedded provenance metadata; provenance kept in this registry.",
+        "auditedAt": "2026-10-20"
+      },
+      "transformations": [
+        "deterministic-lanczos-4x-upscale-with-light-sharpening",
+        "metadata-strip",
+        "srgb-png-export"
+      ],
+      "derivatives": [
+        {
+          "id": "H237-DECOR-BAMBOO-001-M4X",
+          "path": "design/releases/DR-1/assets/c3-upscaled/c3-bamboo-upscaled.png",
+          "dimensions": "5760x2880",
+          "bytes": 14013438,
+          "sha256": "4e01535a334f7dcbfd99a0895a77a8cdd78c5dece56c53c6ce474d12d37d6878",
+          "status": "C3_REVIEW_MASTER_NOT_FOR_WEB"
+        }
+      ],
+      "visas": {
+        "russelRights": "declared-approved-2026-10-20",
+        "chatgptDesign": "used-in-c3-moodframes",
+        "claudePublication": "web-derivatives-measured-not-produced"
+      },
+      "integrityVerifiedAt": "2026-10-21"
+    },
+    {
+      "id": "H237-DECOR-LAKE-001",
+      "type": "generated-decor-environment",
+      "dimensions": {
+        "width": 1440,
+        "height": 720,
+        "unit": "px",
+        "scope": "generated-source"
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "bd45c1024aea5bb03e90a9cc52e8028b3da125ba0e4289bdaeaecb6ffe78496d",
+        "scope": "generated-source-as-downloaded"
+      },
+      "source": {
+        "kind": "generated-image",
+        "tool": "Magnific",
+        "model": "not-documented",
+        "account": "Russel (MASTERMIND)",
+        "generationDate": "2026-10-20",
+        "variant": "8239",
+        "prompt": "docs/collecte/DIRECTION_IMAGES_DECOR.md#4-v2",
+        "path": "decor-candidats/magnific__mirrorcalm-japanese-mountain-lake-one-minute-after__8239.png"
+      },
+      "rights": {
+        "status": "OWNER_DECLARED_LICENSE",
+        "publication": "allowed-for-horizon-237",
+        "basis": "Russel declared on 2026-10-20 that his own Magnific plan covers this use and that the images he supplied are to be used.",
+        "publicCredit": "Image générée avec Magnific — direction et sélection : Russel / HORIZON 237"
+      },
+      "design": {
+        "status": [
+          "VISUAL_APPROVED_BY_RUSSEL_2026-10-20",
+          "C3_SOURCE"
+        ],
+        "heroApproval": false,
+        "role": "révélation solaire",
+        "constraints": [
+          "The functional sun and trace are rendered in 3D."
+        ]
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "PNG without EXIF, GPS or embedded provenance metadata; provenance kept in this registry.",
+        "auditedAt": "2026-10-20"
+      },
+      "transformations": [
+        "deterministic-lanczos-4x-upscale-with-light-sharpening",
+        "metadata-strip",
+        "srgb-png-export"
+      ],
+      "derivatives": [
+        {
+          "id": "H237-DECOR-LAKE-001-M4X",
+          "path": "design/releases/DR-1/assets/c3-upscaled/c3-lake-fuji-upscaled.png",
+          "dimensions": "5760x2880",
+          "bytes": 11100790,
+          "sha256": "0b009e33b92055c5f6c5ba1f91be53f990b5de3119344af8d6248f5d49f9db3b",
+          "status": "C3_REVIEW_MASTER_NOT_FOR_WEB"
+        }
+      ],
+      "visas": {
+        "russelRights": "declared-approved-2026-10-20",
+        "chatgptDesign": "used-in-c3-moodframes",
+        "claudePublication": "web-derivatives-measured-not-produced"
+      },
+      "integrityVerifiedAt": "2026-10-21"
+    },
+    {
+      "id": "H237-DECOR-STARS-001",
+      "type": "generated-decor-environment",
+      "dimensions": {
+        "width": 1280,
+        "height": 720,
+        "unit": "px",
+        "scope": "generated-source"
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "e31c5512f10166d53362d679f076711ec4eb12b122161fa29479ab7b6689aefb",
+        "scope": "generated-source-as-downloaded"
+      },
+      "source": {
+        "kind": "generated-image",
+        "tool": "Magnific",
+        "model": "not-documented",
+        "account": "Russel (MASTERMIND)",
+        "generationDate": "2026-10-20",
+        "variant": "71838",
+        "prompt": "docs/collecte/DIRECTION_IMAGES_DECOR.md#5-v2",
+        "path": "decor-candidats/magnific__astrophotography-of-a-clear-night-above-mount-fuji__71838.png"
+      },
+      "rights": {
+        "status": "OWNER_DECLARED_LICENSE",
+        "publication": "allowed-for-horizon-237",
+        "basis": "Russel declared on 2026-10-20 that his own Magnific plan covers this use and that the images he supplied are to be used.",
+        "publicCredit": "Image générée avec Magnific — direction et sélection : Russel / HORIZON 237"
+      },
+      "design": {
+        "status": [
+          "VISUAL_APPROVED_BY_RUSSEL_2026-10-20",
+          "C3_SOURCE"
+        ],
+        "heroApproval": false,
+        "role": "final et fond du portrait",
+        "constraints": [
+          "Sharp stars are rendered as 3D points over a softened photo; the upscaled star field is too soft at 100 %."
+        ]
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "PNG without EXIF, GPS or embedded provenance metadata; provenance kept in this registry.",
+        "auditedAt": "2026-10-20"
+      },
+      "transformations": [
+        "deterministic-lanczos-4x-upscale-with-light-sharpening",
+        "metadata-strip",
+        "srgb-png-export"
+      ],
+      "derivatives": [
+        {
+          "id": "H237-DECOR-STARS-001-M4X",
+          "path": "design/releases/DR-1/assets/c3-upscaled/c3-starry-fuji-upscaled.png",
+          "dimensions": "5120x2880",
+          "bytes": 13252419,
+          "sha256": "e4e62fd2193c6867fe94774fab316470341be040b6429659548d39d2d51118c7",
+          "status": "C3_REVIEW_MASTER_NOT_FOR_WEB"
+        }
+      ],
+      "visas": {
+        "russelRights": "declared-approved-2026-10-20",
+        "chatgptDesign": "used-in-c3-moodframes",
+        "claudePublication": "web-derivatives-measured-not-produced"
+      },
+      "integrityVerifiedAt": "2026-10-21"
+    },
+    {
+      "id": "H237-MAT-BASALT-001",
+      "type": "generated-material-colour",
+      "dimensions": {
+        "width": 1280,
+        "height": 720,
+        "unit": "px",
+        "scope": "generated-source"
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "03de6db6df0f45aca232a3f9c08a57676e6c44b8de250e1b06c898308292137e",
+        "scope": "generated-source-as-downloaded"
+      },
+      "source": {
+        "kind": "generated-image",
+        "tool": "Magnific",
+        "model": "not-documented",
+        "account": "Russel (MASTERMIND)",
+        "generationDate": "2026-10-20",
+        "variant": "71840",
+        "prompt": "docs/collecte/DIRECTION_IMAGES_DECOR.md#6-v3",
+        "path": "decor-candidats/magnific__one-single-continuous-photograph-of-a-natural-dark__71840.png"
+      },
+      "rights": {
+        "status": "OWNER_DECLARED_LICENSE",
+        "publication": "allowed-for-horizon-237",
+        "basis": "Russel declared on 2026-10-20 that his own Magnific plan covers this use and that the images he supplied are to be used.",
+        "publicCredit": "Image générée avec Magnific — direction et sélection : Russel / HORIZON 237"
+      },
+      "design": {
+        "status": [
+          "VISUAL_APPROVED_BY_RUSSEL_2026-10-20",
+          "C3_SOURCE"
+        ],
+        "heroApproval": false,
+        "role": "couleur et détail du basalte",
+        "constraints": [
+          "Colour reference only: square crop avoiding the diagonal crack, tileable edges, lift value to about 30 %.",
+          "Normal and roughness maps come from a CC0 PBR set or from the scene code."
+        ]
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "PNG without EXIF, GPS or embedded provenance metadata; provenance kept in this registry.",
+        "auditedAt": "2026-10-20"
+      },
+      "transformations": [
+        "deterministic-lanczos-4x-upscale-with-light-sharpening",
+        "metadata-strip",
+        "srgb-png-export"
+      ],
+      "derivatives": [
+        {
+          "id": "H237-MAT-BASALT-001-M4X",
+          "path": "design/releases/DR-1/assets/c3-upscaled/c3-basalt-upscaled.png",
+          "dimensions": "5120x2880",
+          "bytes": 14024953,
+          "sha256": "fa180e4c0db47861b2919e2b51747b62394d3cb52da05849321d75e03606c5c0",
+          "status": "C3_REVIEW_MASTER_NOT_FOR_WEB"
+        }
+      ],
+      "visas": {
+        "russelRights": "declared-approved-2026-10-20",
+        "chatgptDesign": "used-in-c3-moodframes",
+        "claudePublication": "web-derivatives-measured-not-produced"
+      },
+      "integrityVerifiedAt": "2026-10-21"
+    },
+    {
+      "id": "H237-POR-CUT-001",
+      "type": "portrait-cutout-final",
+      "dimensions": {
+        "width": 1923,
+        "height": 2560,
+        "unit": "px"
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "a0345f9bfc43bf3eba2efc360da1cb23926faa2b91b5908cf58753973a9a92d4"
+      },
+      "source": {
+        "kind": "derived-from-owner-photo",
+        "parent": "H237-POR-REF-001",
+        "tool": "Magnific background removal",
+        "date": "2026-10-20",
+        "path": "design/magnific__background__71841.png"
+      },
+      "rights": {
+        "status": "OWNER_APPROVED_EXCEPTION",
+        "publication": "allowed-for-horizon-237",
+        "basis": "Russel chose this cutout for the site on 2026-10-20; face, pose and hand unchanged."
+      },
+      "design": {
+        "status": [
+          "FINAL_BY_OWNER_DECISION",
+          "FACE_UNCHANGED"
+        ],
+        "heroApproval": true,
+        "constraints": [
+          "Remove the pink cast and the red reflection on the finger by honest grading only.",
+          "Lit by the 3D scene (violet rim, dawn key); declared as an artistic composition in the colophon."
+        ]
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "RGBA PNG, subject alpha 254, no EXIF or GPS.",
+        "auditedAt": "2026-10-20"
+      },
+      "transformations": [
+        "background-removal",
+        "honest-white-balance-pending",
+        "alpha-webp-or-avif-derivative-pending"
+      ],
       "derivatives": [],
       "visas": {
-        "russelRights": "pending",
-        "chatgptDesign": "rejected-as-final-portrait",
-        "claudePublication": "not-requested"
+        "russelRights": "approved-2026-10-20",
+        "chatgptDesign": "used-in-c3-moodframes",
+        "claudePublication": "lcp-derivative-measured-31-kb-webp-960"
       },
-      "integrityVerifiedAt": "2026-10-19"
+      "integrityVerifiedAt": "2026-10-21"
+    },
+    {
+      "id": "H237-POR-COMP-REF-001",
+      "type": "generated-portrait-composition-reference",
+      "dimensions": {
+        "width": 960,
+        "height": 1280,
+        "unit": "px"
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "1de3a9a183b737aaf2fb144c3fd71269be8bfb02e50a784026f623de94e3a4b7"
+      },
+      "source": {
+        "kind": "generated-image",
+        "parent": "H237-POR-REF-001",
+        "tool": "Magnific",
+        "generationDate": "2026-10-20",
+        "prompt": "docs/collecte/DIRECTION_IMAGES_DECOR.md#7",
+        "path": "design/magnific__keep-the-person-exactly-as-in-the-original-photo-s__71842.png"
+      },
+      "rights": {
+        "status": "REFERENCE_ONLY",
+        "publication": "forbidden-on-site",
+        "basis": "Kept as a lighting reference; possible later share image after upscale and reduced green band."
+      },
+      "design": {
+        "status": [
+          "REFERENCE_ONLY"
+        ],
+        "heroApproval": false
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Identity compared side by side with the original: eyes, nose, brows, hand and watch unchanged.",
+        "auditedAt": "2026-10-20"
+      },
+      "transformations": [],
+      "derivatives": [],
+      "integrityVerifiedAt": "2026-10-21"
+    },
+    {
+      "id": "H237-TYPE-DMSANS-PREVIEW",
+      "type": "design-preview-variable-font",
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d"
+      },
+      "source": {
+        "kind": "official-google-fonts-file",
+        "author": "The DM Sans Project Authors",
+        "url": "https://github.com/google/fonts/tree/main/ofl/dmsans",
+        "path": "design/releases/DR-1/assets/type-previews/DM-Sans-opsz-wght.ttf"
+      },
+      "rights": {
+        "status": "APPROVED_SOURCE",
+        "license": "SIL Open Font License 1.1",
+        "publication": "design-proof-only",
+        "licenseFile": {
+          "path": "design/releases/DR-1/assets/type-previews/OFL-DM-Sans.txt",
+          "sha256": "9af36190332437f5ecd09974de43c1f7c77a310a996cdd8ceb25628b458840e1"
+        }
+      },
+      "design": {
+        "status": [
+          "C3_SINGLE_FAMILY",
+          "PRODUCTION_SUBSET_PENDING"
+        ],
+        "heroApproval": false,
+        "constraints": [
+          "Production subset measured on 2026-10-20: 31.4 KB WOFF2 for opsz 9–40 and wght 400–600, French Latin set."
+        ]
+      },
+      "transformations": [],
+      "derivatives": [],
+      "integrityVerifiedAt": "2026-10-21"
+    },
+    {
+      "id": "H237-PROJ-FAST-D",
+      "type": "public-product-interface-capture",
+      "dimensions": {
+        "width": 1904,
+        "height": 964,
+        "unit": "px",
+        "scope": "cropped-capture"
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "38b804c0018f77308baa801a2600bc116a41d9d8b5ce230aaea706b3d788accc",
+        "scope": "capture-cropped-by-claude-before-derivation"
+      },
+      "source": {
+        "kind": "owner-provided-screen-capture",
+        "project": "fast-shipping-logistics",
+        "author": "Russel (MASTERMIND)",
+        "captureDate": "2026-10-20",
+        "path": "captures-projets/fastshipping-suivi-desktop.png"
+      },
+      "rights": {
+        "status": "APPROVED_SOURCE",
+        "publication": "allowed-for-horizon-237",
+        "basis": "Rights recorded in the approved CR-0: Russel (MASTERMIND) (russel-declaration).",
+        "restrictions": [
+          "Aucune autorisation nommée de l'agence"
+        ]
+      },
+      "design": {
+        "status": [
+          "REAL_PRODUCT_MEDIA",
+          "C3_2_APPROVED_BY_RUSSEL_2026-10-21"
+        ],
+        "heroApproval": false
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Browser chrome, notifications and personal data removed; WebP derivative without EXIF, GPS or XMP.",
+        "auditedAt": "2026-10-21"
+      },
+      "transformations": [
+        "browser-or-device-chrome-removed",
+        "resize-1440x900",
+        "webp"
+      ],
+      "derivatives": [
+        {
+          "id": "H237-PROJ-FAST-D-W",
+          "path": "design/releases/DR-1/assets/project-media/fast-shipping-tracking-desktop-1440.webp",
+          "dimensions": "1440x900",
+          "bytes": 47548,
+          "sha256": "8157d1b2a15cca34f47be4c7c327b750b3a19854cb87123fc311160f44b0c57c",
+          "status": "C3_2_DESIGN_PROOF"
+        }
+      ],
+      "visas": {
+        "russelRights": "approved-in-cr0-2026-10-20",
+        "chatgptDesign": "used-in-c3-2-control-views",
+        "claudePublication": "derivative-verified-2026-10-21"
+      },
+      "integrityVerifiedAt": "2026-10-21"
+    },
+    {
+      "id": "H237-PROJ-FAST-M",
+      "type": "public-product-interface-capture",
+      "dimensions": {
+        "width": 390,
+        "height": 844,
+        "unit": "px",
+        "scope": "cropped-capture"
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "285b29de9d6835d965c7bcac85c8eb46b5d5a102dd130d19bac01d53cd73f8f4",
+        "scope": "capture-cropped-by-claude-before-derivation"
+      },
+      "source": {
+        "kind": "owner-provided-screen-capture",
+        "project": "fast-shipping-logistics",
+        "author": "Russel (MASTERMIND)",
+        "captureDate": "2026-10-20",
+        "path": "captures-projets/fastshipping-suivi-mobile.png"
+      },
+      "rights": {
+        "status": "APPROVED_SOURCE",
+        "publication": "allowed-for-horizon-237",
+        "basis": "Rights recorded in the approved CR-0: Russel (MASTERMIND) (russel-declaration).",
+        "restrictions": [
+          "Aucune autorisation nommée de l'agence"
+        ]
+      },
+      "design": {
+        "status": [
+          "REAL_PRODUCT_MEDIA",
+          "C3_2_APPROVED_BY_RUSSEL_2026-10-21"
+        ],
+        "heroApproval": false
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Browser chrome, notifications and personal data removed; WebP derivative without EXIF, GPS or XMP.",
+        "auditedAt": "2026-10-21"
+      },
+      "transformations": [
+        "browser-or-device-chrome-removed",
+        "resize-390x844",
+        "webp"
+      ],
+      "derivatives": [
+        {
+          "id": "H237-PROJ-FAST-M-W",
+          "path": "design/releases/DR-1/assets/project-media/fast-shipping-tracking-mobile-390.webp",
+          "dimensions": "390x844",
+          "bytes": 20844,
+          "sha256": "d15af61d3d6f8af8a6d38c341a1c136d1bb38d9e63c67deb1cf63cf36700476b",
+          "status": "C3_2_DESIGN_PROOF"
+        }
+      ],
+      "visas": {
+        "russelRights": "approved-in-cr0-2026-10-20",
+        "chatgptDesign": "used-in-c3-2-control-views",
+        "claudePublication": "derivative-verified-2026-10-21"
+      },
+      "integrityVerifiedAt": "2026-10-21"
+    },
+    {
+      "id": "H237-PROJ-BATO-D",
+      "type": "product-admin-capture",
+      "dimensions": {
+        "width": 1920,
+        "height": 935,
+        "unit": "px",
+        "scope": "cropped-capture"
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "2cdd5ea71d183182049a90d7df535a9d589a5198bcc44b5bbaf1d4c870349540",
+        "scope": "capture-cropped-by-claude-before-derivation"
+      },
+      "source": {
+        "kind": "owner-provided-screen-capture",
+        "project": "batobaye-market",
+        "author": "Russel (MASTERMIND)",
+        "captureDate": "2026-10-20",
+        "path": "captures-projets/batobaye-admin-desktop.png"
+      },
+      "rights": {
+        "status": "APPROVED_SOURCE",
+        "publication": "allowed-for-horizon-237",
+        "basis": "Rights recorded in the approved CR-0: PDG de BatobayeMarket (verbal).",
+        "restrictions": [
+          "Masquer le numéro de téléphone visible sur la capture de connexion",
+          "Retirer l'interface du navigateur par recadrage"
+        ]
+      },
+      "design": {
+        "status": [
+          "REAL_PRODUCT_MEDIA",
+          "C3_2_APPROVED_BY_RUSSEL_2026-10-21"
+        ],
+        "heroApproval": false
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Browser chrome, notifications and personal data removed; WebP derivative without EXIF, GPS or XMP.",
+        "auditedAt": "2026-10-21"
+      },
+      "transformations": [
+        "browser-chrome-and-admin-url-removed",
+        "business-metrics-and-badges-blurred",
+        "resize-1440x900",
+        "webp"
+      ],
+      "derivatives": [
+        {
+          "id": "H237-PROJ-BATO-D-W",
+          "path": "design/releases/DR-1/assets/project-media/batobaye-admin-desktop-1440.webp",
+          "dimensions": "1440x900",
+          "bytes": 36304,
+          "sha256": "da9c85b168688538860e44faa7070040206c6dfd8df253aedfb2ed8cac2a4f19",
+          "status": "C3_2_DESIGN_PROOF"
+        }
+      ],
+      "visas": {
+        "russelRights": "approved-in-cr0-2026-10-20",
+        "chatgptDesign": "used-in-c3-2-control-views",
+        "claudePublication": "derivative-verified-2026-10-21"
+      },
+      "integrityVerifiedAt": "2026-10-21"
+    },
+    {
+      "id": "H237-PROJ-BATO-M",
+      "type": "public-product-interface-capture",
+      "dimensions": {
+        "width": 390,
+        "height": 844,
+        "unit": "px",
+        "scope": "cropped-capture"
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "64ecaf2e297ac73e6e8f7cd92e63a9e747e3f16d0ab6f8a682af7c19a0171b6d",
+        "scope": "capture-cropped-by-claude-before-derivation"
+      },
+      "source": {
+        "kind": "owner-provided-screen-capture",
+        "project": "batobaye-market",
+        "author": "Russel (MASTERMIND)",
+        "captureDate": "2026-10-20",
+        "path": "captures-projets/batobaye-categorie-mobile.png"
+      },
+      "rights": {
+        "status": "APPROVED_SOURCE",
+        "publication": "allowed-for-horizon-237",
+        "basis": "Rights recorded in the approved CR-0: PDG de BatobayeMarket (verbal).",
+        "restrictions": [
+          "Masquer le numéro de téléphone visible sur la capture de connexion",
+          "Retirer l'interface du navigateur par recadrage"
+        ]
+      },
+      "design": {
+        "status": [
+          "REAL_PRODUCT_MEDIA",
+          "C3_2_APPROVED_BY_RUSSEL_2026-10-21"
+        ],
+        "heroApproval": false
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Browser chrome, notifications and personal data removed; WebP derivative without EXIF, GPS or XMP.",
+        "auditedAt": "2026-10-21"
+      },
+      "transformations": [
+        "browser-or-device-chrome-removed",
+        "resize-390x844",
+        "webp"
+      ],
+      "derivatives": [
+        {
+          "id": "H237-PROJ-BATO-M-W",
+          "path": "design/releases/DR-1/assets/project-media/batobaye-category-mobile-390.webp",
+          "dimensions": "390x844",
+          "bytes": 33972,
+          "sha256": "ee9b400d53e34e43291935d8d59595786b4837fca3e22d0324132cc3d79d943b",
+          "status": "C3_2_DESIGN_PROOF"
+        }
+      ],
+      "visas": {
+        "russelRights": "approved-in-cr0-2026-10-20",
+        "chatgptDesign": "used-in-c3-2-control-views",
+        "claudePublication": "derivative-verified-2026-10-21"
+      },
+      "integrityVerifiedAt": "2026-10-21"
+    },
+    {
+      "id": "H237-PROJ-MBOA-D",
+      "type": "public-product-interface-capture",
+      "dimensions": {
+        "width": 1904,
+        "height": 949,
+        "unit": "px",
+        "scope": "cropped-capture"
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "207b18bfa82c85bd32245df8477a2678dd5bb0cdace39d73d8686467f1df6197",
+        "scope": "capture-cropped-by-claude-before-derivation"
+      },
+      "source": {
+        "kind": "owner-provided-screen-capture",
+        "project": "mboamarkets",
+        "author": "Russel (MASTERMIND)",
+        "captureDate": "2026-10-20",
+        "path": "captures-projets/mboamarkets-semaine-desktop.png"
+      },
+      "rights": {
+        "status": "APPROVED_SOURCE",
+        "publication": "allowed-for-horizon-237",
+        "basis": "Rights recorded in the approved CR-0: PDG de BatobayeMarket (maison mère) (verbal).",
+        "restrictions": []
+      },
+      "design": {
+        "status": [
+          "REAL_PRODUCT_MEDIA",
+          "C3_2_APPROVED_BY_RUSSEL_2026-10-21"
+        ],
+        "heroApproval": false
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Browser chrome, notifications and personal data removed; WebP derivative without EXIF, GPS or XMP.",
+        "auditedAt": "2026-10-21"
+      },
+      "transformations": [
+        "browser-or-device-chrome-removed",
+        "resize-1440x900",
+        "webp"
+      ],
+      "derivatives": [
+        {
+          "id": "H237-PROJ-MBOA-D-W",
+          "path": "design/releases/DR-1/assets/project-media/mboa-market-desktop-1440.webp",
+          "dimensions": "1440x900",
+          "bytes": 79406,
+          "sha256": "9b840a897c0c51d7a9279cddfc8c6200149bedbae2eceaf88df7df572c32d5ae",
+          "status": "C3_2_DESIGN_PROOF"
+        }
+      ],
+      "visas": {
+        "russelRights": "approved-in-cr0-2026-10-20",
+        "chatgptDesign": "used-in-c3-2-control-views",
+        "claudePublication": "derivative-verified-2026-10-21"
+      },
+      "integrityVerifiedAt": "2026-10-21"
+    },
+    {
+      "id": "H237-PROJ-MBOA-M",
+      "type": "public-product-interface-capture",
+      "dimensions": {
+        "width": 390,
+        "height": 844,
+        "unit": "px",
+        "scope": "cropped-capture"
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "b39c2e17236658adf8576d22c31f0669a8bd22d4ce95a0af4a71ca2c23409e71",
+        "scope": "capture-cropped-by-claude-before-derivation"
+      },
+      "source": {
+        "kind": "owner-provided-screen-capture",
+        "project": "mboamarkets",
+        "author": "Russel (MASTERMIND)",
+        "captureDate": "2026-10-20",
+        "path": "captures-projets/mboamarkets-accueil-mobile.png"
+      },
+      "rights": {
+        "status": "APPROVED_SOURCE",
+        "publication": "allowed-for-horizon-237",
+        "basis": "Rights recorded in the approved CR-0: PDG de BatobayeMarket (maison mère) (verbal).",
+        "restrictions": []
+      },
+      "design": {
+        "status": [
+          "REAL_PRODUCT_MEDIA",
+          "C3_2_APPROVED_BY_RUSSEL_2026-10-21"
+        ],
+        "heroApproval": false
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Browser chrome, notifications and personal data removed; WebP derivative without EXIF, GPS or XMP.",
+        "auditedAt": "2026-10-21"
+      },
+      "transformations": [
+        "browser-or-device-chrome-removed",
+        "resize-390x844",
+        "webp"
+      ],
+      "derivatives": [
+        {
+          "id": "H237-PROJ-MBOA-M-W",
+          "path": "design/releases/DR-1/assets/project-media/mboa-market-mobile-390.webp",
+          "dimensions": "390x844",
+          "bytes": 26844,
+          "sha256": "bbbbef2895bafa6a933d8eb0446566faa8633d9362cfe909481d89db3f46091f",
+          "status": "C3_2_DESIGN_PROOF"
+        }
+      ],
+      "visas": {
+        "russelRights": "approved-in-cr0-2026-10-20",
+        "chatgptDesign": "used-in-c3-2-control-views",
+        "claudePublication": "derivative-verified-2026-10-21"
+      },
+      "integrityVerifiedAt": "2026-10-21"
+    },
+    {
+      "id": "H237-PROJ-SHOP-D",
+      "type": "public-product-interface-capture",
+      "dimensions": {
+        "width": 1904,
+        "height": 752,
+        "unit": "px",
+        "scope": "cropped-capture"
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "e84ccd7ce05d368e44d19eec5c2690528773d2b482cef5b1b56086d3697d8203",
+        "scope": "capture-cropped-by-claude-before-derivation"
+      },
+      "source": {
+        "kind": "owner-provided-screen-capture",
+        "project": "shopitech",
+        "author": "Russel (MASTERMIND)",
+        "captureDate": "2026-10-20",
+        "path": "captures-projets/shopitech-accueil-desktop.png"
+      },
+      "rights": {
+        "status": "APPROVED_SOURCE",
+        "publication": "allowed-for-horizon-237",
+        "basis": "Rights recorded in the approved CR-0: Shopitech (unspecified).",
+        "restrictions": []
+      },
+      "design": {
+        "status": [
+          "REAL_PRODUCT_MEDIA",
+          "C3_2_APPROVED_BY_RUSSEL_2026-10-21"
+        ],
+        "heroApproval": false
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Browser chrome, notifications and personal data removed; WebP derivative without EXIF, GPS or XMP.",
+        "auditedAt": "2026-10-21"
+      },
+      "transformations": [
+        "browser-chrome-app-popup-and-status-link-removed",
+        "resize-1440x900",
+        "webp"
+      ],
+      "derivatives": [
+        {
+          "id": "H237-PROJ-SHOP-D-W",
+          "path": "design/releases/DR-1/assets/project-media/shopitech-desktop-1440.webp",
+          "dimensions": "1440x900",
+          "bytes": 57302,
+          "sha256": "a806f2596d60ac857f0b2f2e487aefe245507cde5dd4189b7f29eabd2e49b864",
+          "status": "C3_2_DESIGN_PROOF"
+        }
+      ],
+      "visas": {
+        "russelRights": "approved-in-cr0-2026-10-20",
+        "chatgptDesign": "used-in-c3-2-control-views",
+        "claudePublication": "derivative-verified-2026-10-21"
+      },
+      "integrityVerifiedAt": "2026-10-21"
+    },
+    {
+      "id": "H237-PROJ-SHOP-M",
+      "type": "public-product-interface-capture",
+      "dimensions": {
+        "width": 400,
+        "height": 866,
+        "unit": "px",
+        "scope": "cropped-capture"
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "c8be53faea5f84bf8be1db85984961a4fb15277e2b3da51f82defff92a26cfa2",
+        "scope": "capture-cropped-by-claude-before-derivation"
+      },
+      "source": {
+        "kind": "owner-provided-screen-capture",
+        "project": "shopitech",
+        "author": "Russel (MASTERMIND)",
+        "captureDate": "2026-10-20",
+        "path": "captures-projets/shopitech-accueil-mobile.png"
+      },
+      "rights": {
+        "status": "APPROVED_SOURCE",
+        "publication": "allowed-for-horizon-237",
+        "basis": "Rights recorded in the approved CR-0: Shopitech (unspecified).",
+        "restrictions": []
+      },
+      "design": {
+        "status": [
+          "REAL_PRODUCT_MEDIA",
+          "C3_2_APPROVED_BY_RUSSEL_2026-10-21"
+        ],
+        "heroApproval": false
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Browser chrome, notifications and personal data removed; WebP derivative without EXIF, GPS or XMP.",
+        "auditedAt": "2026-10-21"
+      },
+      "transformations": [
+        "browser-or-device-chrome-removed",
+        "resize-390x844",
+        "webp"
+      ],
+      "derivatives": [
+        {
+          "id": "H237-PROJ-SHOP-M-W",
+          "path": "design/releases/DR-1/assets/project-media/shopitech-mobile-390.webp",
+          "dimensions": "390x844",
+          "bytes": 36778,
+          "sha256": "94c191bf4866cf52ecbdbe673cfb1346eaac1bf41f3fd55e8fa2403c9e42113b",
+          "status": "C3_2_DESIGN_PROOF"
+        }
+      ],
+      "visas": {
+        "russelRights": "approved-in-cr0-2026-10-20",
+        "chatgptDesign": "used-in-c3-2-control-views",
+        "claudePublication": "derivative-verified-2026-10-21"
+      },
+      "integrityVerifiedAt": "2026-10-21"
+    },
+    {
+      "id": "H237-PROJ-ART-D",
+      "type": "public-product-interface-capture",
+      "dimensions": {
+        "width": 1904,
+        "height": 901,
+        "unit": "px",
+        "scope": "cropped-capture"
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "707a2ab22c57b8633d1cdbfe3f9f0c41e36a7907375d83b5f44860d90288c673",
+        "scope": "capture-cropped-by-claude-before-derivation"
+      },
+      "source": {
+        "kind": "owner-provided-screen-capture",
+        "project": "artvibe-cameroun",
+        "author": "Russel (MASTERMIND)",
+        "captureDate": "2026-10-20",
+        "path": "captures-projets/artvibecamer-accueil-desktop.png"
+      },
+      "rights": {
+        "status": "APPROVED_SOURCE",
+        "publication": "allowed-for-horizon-237",
+        "basis": "Rights recorded in the approved CR-0: SAM BIAI (unspecified).",
+        "restrictions": [
+          "Logo du sponsor Zamara montré seulement tel qu'il apparaît sur le site, jamais isolé"
+        ]
+      },
+      "design": {
+        "status": [
+          "REAL_PRODUCT_MEDIA",
+          "C3_2_APPROVED_BY_RUSSEL_2026-10-21"
+        ],
+        "heroApproval": false
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Browser chrome, notifications and personal data removed; WebP derivative without EXIF, GPS or XMP.",
+        "auditedAt": "2026-10-21"
+      },
+      "transformations": [
+        "browser-or-device-chrome-removed",
+        "resize-1440x900",
+        "webp"
+      ],
+      "derivatives": [
+        {
+          "id": "H237-PROJ-ART-D-W",
+          "path": "design/releases/DR-1/assets/project-media/artvibecamer-desktop-1440.webp",
+          "dimensions": "1440x900",
+          "bytes": 80332,
+          "sha256": "3be08ca3d3c26da0bcbcd30d2711f16ef201e9cc91692ab2866975743d777bc9",
+          "status": "C3_2_DESIGN_PROOF"
+        }
+      ],
+      "visas": {
+        "russelRights": "approved-in-cr0-2026-10-20",
+        "chatgptDesign": "used-in-c3-2-control-views",
+        "claudePublication": "derivative-verified-2026-10-21"
+      },
+      "integrityVerifiedAt": "2026-10-21"
+    },
+    {
+      "id": "H237-PROJ-ART-M",
+      "type": "public-product-interface-capture",
+      "dimensions": {
+        "width": 390,
+        "height": 844,
+        "unit": "px",
+        "scope": "cropped-capture"
+      },
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "f3020401c7e04d5b45cc6492b5fc0749bc5886e3df56961ccba9d6e612c88580",
+        "scope": "capture-cropped-by-claude-before-derivation"
+      },
+      "source": {
+        "kind": "owner-provided-screen-capture",
+        "project": "artvibe-cameroun",
+        "author": "Russel (MASTERMIND)",
+        "captureDate": "2026-10-20",
+        "path": "captures-projets/artvibecamer-accueil-mobile.png"
+      },
+      "rights": {
+        "status": "APPROVED_SOURCE",
+        "publication": "allowed-for-horizon-237",
+        "basis": "Rights recorded in the approved CR-0: SAM BIAI (unspecified).",
+        "restrictions": [
+          "Logo du sponsor Zamara montré seulement tel qu'il apparaît sur le site, jamais isolé"
+        ]
+      },
+      "design": {
+        "status": [
+          "REAL_PRODUCT_MEDIA",
+          "C3_2_APPROVED_BY_RUSSEL_2026-10-21"
+        ],
+        "heroApproval": false
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Browser chrome, notifications and personal data removed; WebP derivative without EXIF, GPS or XMP.",
+        "auditedAt": "2026-10-21"
+      },
+      "transformations": [
+        "browser-or-device-chrome-removed",
+        "resize-390x844",
+        "webp"
+      ],
+      "derivatives": [
+        {
+          "id": "H237-PROJ-ART-M-W",
+          "path": "design/releases/DR-1/assets/project-media/artvibecamer-mobile-390.webp",
+          "dimensions": "390x844",
+          "bytes": 36414,
+          "sha256": "a29808b758b6e2a6e7e41c42b6edcb1713bd71b065ca9095b0809e0b722ed8f8",
+          "status": "C3_2_DESIGN_PROOF"
+        }
+      ],
+      "visas": {
+        "russelRights": "approved-in-cr0-2026-10-20",
+        "chatgptDesign": "used-in-c3-2-control-views",
+        "claudePublication": "derivative-verified-2026-10-21"
+      },
+      "integrityVerifiedAt": "2026-10-21"
+    }
+  ],
+  "retired": [
+    {
+      "id": "H237-SKY-ATM-001",
+      "type": "real-photograph-environment-reference",
+      "source": {
+        "kind": "external-real-photograph",
+        "title": "Qwantani Dawn",
+        "author": "Greg Zaal (photography); Jarod Guest (processing)",
+        "publicationDate": "2025",
+        "location": "Qwantani, South Africa",
+        "url": "https://polyhaven.com/a/qwantani_dawn"
+      },
+      "previousRights": "APPROVED_SOURCE",
+      "retiredAt": "2026-10-20",
+      "reason": "C2 sky replaced by the C3 Japanese decor (Russel, 2026-10-20)."
+    },
+    {
+      "id": "H237-SKY-CMR-001",
+      "type": "real-photograph-cameroon-reference",
+      "source": {
+        "kind": "external-real-photograph",
+        "title": "Sunrise in the Bwiteva, Cameroon",
+        "author": "Nkwi Cyril",
+        "captureDate": "2024-11-24",
+        "location": "Bwiteva, Cameroon",
+        "url": "https://commons.wikimedia.org/wiki/File:Sunrise_in_the_Bwiteva,_Cameroon.jpg"
+      },
+      "previousRights": "APPROVED_SOURCE",
+      "retiredAt": "2026-10-20",
+      "reason": "Russel removed Cameroon landscapes from the visual world on 2026-10-20; facts unchanged."
+    },
+    {
+      "id": "H237-PLACE-DLA-001",
+      "type": "real-photograph-douala-panorama",
+      "source": {
+        "kind": "external-real-photograph",
+        "title": "Panorama Douala",
+        "author": "Guaka",
+        "captureDate": "2014-12",
+        "location": "Douala, Cameroon",
+        "url": "https://commons.wikimedia.org/wiki/File:Panorama-Douala-20141203_154218-PANO.jpg"
+      },
+      "previousRights": "APPROVED_SOURCE",
+      "retiredAt": "2026-10-20",
+      "reason": "Russel removed Douala imagery on 2026-10-20; derivative deleted from the repository."
+    },
+    {
+      "id": "H237-MAT-LAT-001",
+      "type": "real-photograph-laterite-reference",
+      "source": {
+        "kind": "external-real-photograph",
+        "title": "Laterite stone",
+        "author": "Steve Kally",
+        "captureDate": "2023-02-17",
+        "location": "Nigeria",
+        "url": "https://commons.wikimedia.org/wiki/File:Laterite_stone.jpg"
+      },
+      "previousRights": "APPROVED_SOURCE",
+      "retiredAt": "2026-10-20",
+      "reason": "Laterite removed with the Douala imagery on 2026-10-20."
+    },
+    {
+      "id": "H237-MAT-STONE-001",
+      "type": "real-photograph-light-stone-reference",
+      "source": {
+        "kind": "external-real-photograph",
+        "title": "White stone texture (01)",
+        "author": "M0tty",
+        "captureDate": "2014-03-05",
+        "url": "https://commons.wikimedia.org/wiki/File:White_stone_texture_(01).jpg"
+      },
+      "previousRights": "APPROVED_SOURCE",
+      "retiredAt": "2026-10-20",
+      "reason": "Replaced by H237-MAT-BASALT-001 in C3."
+    },
+    {
+      "id": "H237-MAT-PAPER-001",
+      "type": "real-photograph-paper-reference",
+      "source": {
+        "kind": "external-real-photograph",
+        "title": "Wrinkled Paper Texture",
+        "author": "D. Sharon Pruitt / Pink Sherbet Photography",
+        "captureDate": "2011-12-15",
+        "url": "https://commons.wikimedia.org/wiki/File:Wrinkled_Paper_Texture_Free_Creative_Commons_(6816216700).jpg"
+      },
+      "previousRights": "APPROVED_SOURCE",
+      "retiredAt": "2026-10-20",
+      "reason": "Paper surface dropped by the C3 dark living direction."
+    },
+    {
+      "id": "H237-TYPE-LITERATA-PREVIEW",
+      "type": "design-preview-variable-font",
+      "source": {
+        "kind": "official-google-fonts-file",
+        "author": "The Literata Project Authors",
+        "url": "https://github.com/google/fonts/tree/main/ofl/literata",
+        "path": "design/releases/DR-1/assets/type-previews/Literata-opsz-wght.ttf"
+      },
+      "previousRights": "APPROVED_SOURCE",
+      "retiredAt": "2026-10-20",
+      "reason": "C3 uses DM Sans as its single family (Russel, 2026-10-20)."
+    },
+    {
+      "id": "H237-TYPE-HANKEN-PREVIEW",
+      "type": "design-preview-variable-font",
+      "source": {
+        "kind": "official-google-fonts-file",
+        "author": "The Hanken Grotesk Project Authors",
+        "url": "https://github.com/google/fonts/tree/main/ofl/hankengrotesk",
+        "path": "design/releases/DR-1/assets/type-previews/HankenGrotesk-wght.ttf"
+      },
+      "previousRights": "APPROVED_SOURCE",
+      "retiredAt": "2026-10-20",
+      "reason": "C3 uses DM Sans as its single family (Russel, 2026-10-20)."
     }
   ]
 }

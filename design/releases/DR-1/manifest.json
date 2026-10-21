@@ -1,73 +1,1037 @@
 {
-  "release": "DR-1-C0",
+  "release": "DR-1-C3.2",
   "name": "HORIZON 237 — TRACE SOLAIRE",
-  "date": "2026-10-19",
+  "date": "2026-10-21",
   "dri": "ChatGPT / Codex",
-  "status": "BLOCKED_SOURCE",
-  "readyForCode": false,
+  "manifestIssuedBy": "Claude Code, à la demande de Russel et du handoff C3.2 (06_HANDOFF_G1.md)",
+  "status": "G1_PASS_READY_FOR_CODE",
+  "readyForCode": true,
   "hashAlgorithm": "sha256",
   "files": [
     {
       "path": "design/releases/DR-1/README.md",
-      "sha256": "9f5007918af887ec85877fc5434005a0725bce997bb5cb1b45c41de4f2069669"
+      "sha256": "7f89a5371f6a0aa2dfc334323a23ee1487df78ff48343fa1378799bcb65d3bec"
     },
     {
       "path": "design/releases/DR-1/01_DIRECTION_ARTISTIQUE.md",
-      "sha256": "20f6b73bcd020be060c28631c3efc44de85be1a8bc1f9de972f71d558718aa6e"
+      "sha256": "b2326a8e952ea540f1ebc0f7d55aff766e647b41d3656763e3f60c1766ef92f1"
     },
     {
       "path": "design/releases/DR-1/02_STORYBOARD_VISITE.md",
-      "sha256": "69cec155c721df137708457d5b485527da6ffc0b08bfc89816822aecf2508694"
+      "sha256": "00cf0217ef8db6592085e4d6e0daecabc20ed4181e646c6b921e31ea38112fe0"
     },
     {
       "path": "design/releases/DR-1/03_ECRANS_ETATS.md",
-      "sha256": "b5dbc396a4828433ead93547a49338c315eeb3c7a82ba0f4aeed7a81be9d6106"
+      "sha256": "3460766268c8eb6a41ca13a7ccbea7ea081a4dccdb19c47a79b4303533566a60"
     },
     {
       "path": "design/releases/DR-1/04_MOUVEMENT_SON_ACCESSIBILITE.md",
-      "sha256": "07d32486781da573f54049b6fc1183c0a9f66587e6aa2d87f61d6f887a7aac75"
+      "sha256": "f83aaaf2db0f4552b7b2cccd21747cb04a6b91f127355e6153b5ac84997f788a"
     },
     {
       "path": "design/releases/DR-1/05_ACTIFS_DROITS.md",
-      "sha256": "c41c3af42f11892bda03347d62ca5b482a9e9401ffa31973e7bcdcc08d1e452b"
+      "sha256": "3af3b40e11fee001a3f7191e39fd2423a4d89c34a2a187792147d8444c24384f"
     },
     {
       "path": "design/releases/DR-1/06_HANDOFF_G1.md",
-      "sha256": "d1eff3eb95f4055ab585390c7b7e7ef0688385d1c273597e5da882098b7b47e2"
+      "sha256": "b81c5c33b049fff2a71d02cd3a3a153f0ab3a0ee00838e15db1ac5e85a5ba0d8"
     },
     {
       "path": "design/releases/DR-1/07_BUDGETS_PREUVES.md",
-      "sha256": "9bcd0b220931ddc32f5c52eb3cebfbb1623d6eef25756fb5bbe96844ecb9f05e"
+      "sha256": "a05976798193c851916330a7577df943122c2e65ea13e74150b5d55457ccf60c"
+    },
+    {
+      "path": "design/releases/DR-1/08_MONOGRAMME_TRACE_237.md",
+      "sha256": "8fb34b8e98aae9d66b54995a2594c6622adf8d475a0c865120321f10284e68e0"
+    },
+    {
+      "path": "design/releases/DR-1/09_SOURCE_KIT_REEL.md",
+      "sha256": "a2f521cd4f748134bcec5ebcdcb24fccf98be133463071105e6595254b92bd51"
+    },
+    {
+      "path": "design/releases/DR-1/11_MOODFRAMES_C3.md",
+      "sha256": "f99cb75a8a55d68580333ab96fb7f07a735fd46e5a832bc853b201e9ebca5380"
+    },
+    {
+      "path": "design/releases/DR-1/12_MEDIAS_PROJETS_C3.md",
+      "sha256": "490e7d76a7afa59efb572305164a2808e41f0d954fc1610fa91ac150e8957017"
+    },
+    {
+      "path": "design/releases/DR-1/13_CONTROLE_65_VUES_C3.md",
+      "sha256": "184d90ae9ec6b146789f5f38042918fc78f1551fbea51c9c4715c641384dbc19"
     },
     {
       "path": "design/contracts/tokens.json",
-      "sha256": "eb66b7a4647445d2b5fd41fe9e62870e837504e40ea94dc18def9826d1575f7b"
+      "sha256": "cfc249b4abe18255768feee52d78653e31ee9a873fe72fa42c6c21708baf9168"
     },
     {
       "path": "assets/registry.json",
-      "sha256": "77ce20aeb127752285d8c4d8178b2963e312bade65a92eda7ebdb578d52fd961"
+      "sha256": "72d9852b96cf2d7e5b513eda9fb1d5e19a51a3e1d2081c23c91459298a6cad88"
+    },
+    {
+      "path": "design/releases/DR-1/assets/trace-237-monogram.svg",
+      "sha256": "a6066cd0eae15e9a4f329911bcf4c216b6c3324c271d646cda6321f104e576b4"
+    },
+    {
+      "path": "design/releases/DR-1/assets/source-derivatives/ziris-enterprise-desktop-1440.webp",
+      "sha256": "a7986eca9c2b67c3a150b0bc0a6d25e7916e3e02c8ba60c87242eb492a2e4b77"
+    },
+    {
+      "path": "design/releases/DR-1/assets/source-derivatives/ziris-enterprise-mobile-390.webp",
+      "sha256": "4f0dcc16fe617a348606cb7df960fdc0725f05fb55f28c2d877107b70647bcc3"
+    },
+    {
+      "path": "design/releases/DR-1/assets/project-media/CONTACT-SHEET-PROJETS-C3.webp",
+      "sha256": "431e2a862ac8fa8a9aaedefd3fac3da4690cb36e142580c69caf31591aa03400"
+    },
+    {
+      "path": "design/releases/DR-1/assets/project-media/artvibecamer-desktop-1440.webp",
+      "sha256": "3be08ca3d3c26da0bcbcd30d2711f16ef201e9cc91692ab2866975743d777bc9"
+    },
+    {
+      "path": "design/releases/DR-1/assets/project-media/artvibecamer-mobile-390.webp",
+      "sha256": "a29808b758b6e2a6e7e41c42b6edcb1713bd71b065ca9095b0809e0b722ed8f8"
+    },
+    {
+      "path": "design/releases/DR-1/assets/project-media/batobaye-admin-desktop-1440.webp",
+      "sha256": "da9c85b168688538860e44faa7070040206c6dfd8df253aedfb2ed8cac2a4f19"
+    },
+    {
+      "path": "design/releases/DR-1/assets/project-media/batobaye-category-mobile-390.webp",
+      "sha256": "ee9b400d53e34e43291935d8d59595786b4837fca3e22d0324132cc3d79d943b"
+    },
+    {
+      "path": "design/releases/DR-1/assets/project-media/fast-shipping-tracking-desktop-1440.webp",
+      "sha256": "8157d1b2a15cca34f47be4c7c327b750b3a19854cb87123fc311160f44b0c57c"
+    },
+    {
+      "path": "design/releases/DR-1/assets/project-media/fast-shipping-tracking-mobile-390.webp",
+      "sha256": "d15af61d3d6f8af8a6d38c341a1c136d1bb38d9e63c67deb1cf63cf36700476b"
+    },
+    {
+      "path": "design/releases/DR-1/assets/project-media/mboa-market-desktop-1440.webp",
+      "sha256": "9b840a897c0c51d7a9279cddfc8c6200149bedbae2eceaf88df7df572c32d5ae"
+    },
+    {
+      "path": "design/releases/DR-1/assets/project-media/mboa-market-mobile-390.webp",
+      "sha256": "bbbbef2895bafa6a933d8eb0446566faa8633d9362cfe909481d89db3f46091f"
+    },
+    {
+      "path": "design/releases/DR-1/assets/project-media/shopitech-desktop-1440.webp",
+      "sha256": "a806f2596d60ac857f0b2f2e487aefe245507cde5dd4189b7f29eabd2e49b864"
+    },
+    {
+      "path": "design/releases/DR-1/assets/project-media/shopitech-mobile-390.webp",
+      "sha256": "94c191bf4866cf52ecbdbe673cfb1346eaac1bf41f3fd55e8fa2403c9e42113b"
+    },
+    {
+      "path": "design/releases/DR-1/assets/c3-upscaled/c3-bamboo-upscaled.png",
+      "sha256": "4e01535a334f7dcbfd99a0895a77a8cdd78c5dece56c53c6ce474d12d37d6878"
+    },
+    {
+      "path": "design/releases/DR-1/assets/c3-upscaled/c3-basalt-upscaled.png",
+      "sha256": "fa180e4c0db47861b2919e2b51747b62394d3cb52da05849321d75e03606c5c0"
+    },
+    {
+      "path": "design/releases/DR-1/assets/c3-upscaled/c3-dawn-fuji-upscaled.png",
+      "sha256": "be11540eb0206c1b8cca3d5394dedea39ee9bdbe67f17fc73ef45a7d38a29b4e"
+    },
+    {
+      "path": "design/releases/DR-1/assets/c3-upscaled/c3-lake-fuji-upscaled.png",
+      "sha256": "0b009e33b92055c5f6c5ba1f91be53f990b5de3119344af8d6248f5d49f9db3b"
+    },
+    {
+      "path": "design/releases/DR-1/assets/c3-upscaled/c3-starry-fuji-upscaled.png",
+      "sha256": "e4e62fd2193c6867fe94774fab316470341be040b6429659548d39d2d51118c7"
+    },
+    {
+      "path": "design/releases/DR-1/assets/c3-upscaled/c3-wisteria-upscaled.png",
+      "sha256": "3ef2658644a0ac60f4aa01bb9b807f9d367dec6f4625f191433225c0cb74b2c6"
+    },
+    {
+      "path": "design/releases/DR-1/assets/type-previews/DM-Sans-opsz-wght.ttf",
+      "sha256": "8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d"
+    },
+    {
+      "path": "design/releases/DR-1/assets/type-previews/OFL-DM-Sans.txt",
+      "sha256": "9af36190332437f5ecd09974de43c1f7c77a310a996cdd8ceb25628b458840e1"
+    },
+    {
+      "path": "design/releases/DR-1/moodframes-c3/CONTACT-SHEET-C3.webp",
+      "sha256": "30f7a7a52c4db77cc40541eac9647fefec87e9118fdb5ab9c79a28d3d8d69711"
+    },
+    {
+      "path": "design/releases/DR-1/moodframes-c3/MF-01-ACCUEIL-DESKTOP.png",
+      "sha256": "e665f4ea78fa5298460f67aa980d06e56153ae25fe641d231ef378591f439c3b"
+    },
+    {
+      "path": "design/releases/DR-1/moodframes-c3/MF-01-ACCUEIL-DESKTOP.svg",
+      "sha256": "3c7abfc21867b7a81bbfaf8c5c70fa912c7f5d82beedbc5e482cbf8025385eb0"
+    },
+    {
+      "path": "design/releases/DR-1/moodframes-c3/MF-02-ACCUEIL-MOBILE.png",
+      "sha256": "e8f938de4512063040de71b62b074408cc1b5bb041765606a4a8445dfadddc96"
+    },
+    {
+      "path": "design/releases/DR-1/moodframes-c3/MF-02-ACCUEIL-MOBILE.svg",
+      "sha256": "46d8c1c66931dbc4fb8cbac0f71566c6e753ea5784db6b6aa696f9fef2d1dfa4"
+    },
+    {
+      "path": "design/releases/DR-1/moodframes-c3/MF-03-RACCORD-3S.png",
+      "sha256": "e6a0c05702a8bab893a137201bd4ed1b6cbd2960dbc641d4c788a3bbaad55fe0"
+    },
+    {
+      "path": "design/releases/DR-1/moodframes-c3/MF-03-RACCORD-3S.svg",
+      "sha256": "fc5146ec64dc362206b2de03db16e8674190c6a676fef351ee6a75f11bd46551"
+    },
+    {
+      "path": "design/releases/DR-1/moodframes-c3/MF-04-REVELATION-DESKTOP.png",
+      "sha256": "d5986d3ded64277eac12d4c65aa36dbf506c3fa2260e1201b1559a2c4550eb1e"
+    },
+    {
+      "path": "design/releases/DR-1/moodframes-c3/MF-04-REVELATION-DESKTOP.svg",
+      "sha256": "f83f9a8c00bfc5f632897e9d01cb0785d6f9ecc46a26967010af7a72a80038c0"
+    },
+    {
+      "path": "design/releases/DR-1/moodframes-c3/MF-05-REVELATION-MOBILE.png",
+      "sha256": "3743be791cb645d5d7b30764b05745e5041dbcdb6abbd762c8837c717fa0ef3e"
+    },
+    {
+      "path": "design/releases/DR-1/moodframes-c3/MF-05-REVELATION-MOBILE.svg",
+      "sha256": "df3eca32772a2f7472a4b7e89faa63c658cce9d562fdac3d785cfbdd6f09c34c"
+    },
+    {
+      "path": "design/releases/DR-1/moodframes-c3/MF-06-BELVEDERE-ZIRIS-DESKTOP.png",
+      "sha256": "464e85f59cef27be18568effa920472f1b9cae84bc07c6c60eff334056a4d23b"
+    },
+    {
+      "path": "design/releases/DR-1/moodframes-c3/MF-06-BELVEDERE-ZIRIS-DESKTOP.svg",
+      "sha256": "38ad05073d1e0190a879262606a5f840cc333089d4d2d495f9bc79cc6aa4d73a"
+    },
+    {
+      "path": "design/releases/DR-1/moodframes-c3/MF-07-BELVEDERE-ZIRIS-MOBILE.png",
+      "sha256": "85be7cec1e6430a34741e7d75ebc3cee0bd942467f50d5a7a969c8d37456ad5a"
+    },
+    {
+      "path": "design/releases/DR-1/moodframes-c3/MF-07-BELVEDERE-ZIRIS-MOBILE.svg",
+      "sha256": "4b562295632ea36735955297c04ffa9d2b657ef4fffdad80b6a6e8ba62b20100"
+    },
+    {
+      "path": "design/releases/DR-1/moodframes-c3/MF-08-FINAL-MONOGRAMME-PORTRAIT.png",
+      "sha256": "f55808a33caf383313fbca42e2bc7cc7a4fdec9f93c510583481983b322d7424"
+    },
+    {
+      "path": "design/releases/DR-1/moodframes-c3/MF-08-FINAL-MONOGRAMME-PORTRAIT.svg",
+      "sha256": "4e03389af43254d950630304dfe05f7987832c8b5bac9cbfe44b09fdfb3b1066"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A01-01-accueil-desktop.png",
+      "sha256": "4a6a70734a3b8f98fa779a721cf07472cbcde86395919d07e1f6c545b7dbe33a"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A01-01-accueil-desktop.svg",
+      "sha256": "e0bd22c21513a013e41d62894ab59cc6229ae956250295bfe377e216850d129b"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A01-02-accueil-mobile.png",
+      "sha256": "654bbf64283762908e326801aaf071fd0dd94fade1f56d9fd0bb8f694bddf036"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A01-02-accueil-mobile.svg",
+      "sha256": "88f6f5d6063bec3ef936eaeecf21d9e78f81ef177fc4215779f4480c45c611f2"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A02-01-choix-sonore-desktop.png",
+      "sha256": "ca5a99f68f2cd3ab0cdc863dc74f51978664f223a16eb7bc72c19c7ce107edbc"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A02-01-choix-sonore-desktop.svg",
+      "sha256": "8abedd579c02fa62c49d75d64a476110c464582056f0b1682bcadd5b6f293d92"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A02-02-choix-sonore-mobile.png",
+      "sha256": "cd6012236aaec8319b2bf5b7ca70ef403a875c09bb20d87fb9cf8e5a24dde0a9"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A02-02-choix-sonore-mobile.svg",
+      "sha256": "50f3d84ed2f9aad56b6ff9823caa4dddab9d1613b25e2a93fa0af81cf6f9b3a5"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A03-01-source-desktop.png",
+      "sha256": "c3d0c22993b5bf2621b120abfc42ed6d98d63cc28313f10bfb554a98ac65265a"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A03-01-source-desktop.svg",
+      "sha256": "2dc653c86b47a165802bd723f2ffc929792267689b13cd4465886cfdfcb90abc"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A03-02-source-mobile.png",
+      "sha256": "f0fb49f6fbdc71df534faffff39de09a5dc37f3cb5b81cab3224d90d37c4c566"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A03-02-source-mobile.svg",
+      "sha256": "1fffded1370cb06c0c189aef510b25bf09f304f7916d21b670952d71da494e6f"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A03-03-source-reduced.png",
+      "sha256": "4f670c167fc384ce4b3de75e35c5d848ddd0b1a5f23b5af4f0323b3fd9186076"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A03-03-source-reduced.svg",
+      "sha256": "e6a935dabc381839c371dc4ce5d6190a7b0564c35993c483f3e4ef854d372f7e"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A03-04-source-no-webgl.png",
+      "sha256": "1ca9756ca93bf9c475131fb813dada23220b9b284950e103c1d2f482fa3ec5d5"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A03-04-source-no-webgl.svg",
+      "sha256": "46f0e41e10dc0a560239df929bd5c9bcfc16792be4310ee3d4d070b74134ce93"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A04-01-promenade-desktop.png",
+      "sha256": "450f3e6b2074d7b92efcb00afbd3fcb95b20669d65ea19e7acced43e68dce9b5"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A04-01-promenade-desktop.svg",
+      "sha256": "1c6653496516fa37fed7cf9367e13a4cfcf7c9dbc7d94d1ba879cdfd3a30c062"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A04-02-promenade-mobile.png",
+      "sha256": "2456f0e1943ba7e13e4e99951d515063c84c1d2db7767016c7eb394578c179d5"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A04-02-promenade-mobile.svg",
+      "sha256": "ef89b35f1ef223545aff8d27779bbf47835b95e81962f58ebe9e272e537aab7a"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A04-03-promenade-reduced.png",
+      "sha256": "c049513acf37eafaf2009e49779f6955719f212233c4a5147ac6e9ca2b1bdffe"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A04-03-promenade-reduced.svg",
+      "sha256": "300156b58a115797a2f9a3ed78689b832cbc7d4773381be0cde57684cc12ea32"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A04-04-promenade-no-webgl.png",
+      "sha256": "41ebfdb0472fbd9bdd2c53768b622910fd15616f40d57f1bbdfa7ca8b9ee8bd7"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A04-04-promenade-no-webgl.svg",
+      "sha256": "1b0779836afb907995ba095959484df43a5cf530753ca185cd20e54836f9a110"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A05-01-belvedere-neutre-desktop.png",
+      "sha256": "e53e2bf0eba2ed4dc26775035e13e197b89698163a33eaea8c010efd7fea9e23"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A05-01-belvedere-neutre-desktop.svg",
+      "sha256": "d2284d263fdf65584a5e70eaba918e27441c4ff88d6a41cb31de3f88983f30af"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A05-02-belvedere-neutre-mobile.png",
+      "sha256": "4bdd93ff6a9ee2168f68e6c4926d243590aac34fe325d870a976fd1440d44885"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A05-02-belvedere-neutre-mobile.svg",
+      "sha256": "b32eb468f267c2171c5b0c120aa1da27a8c8f9ce9312ce9e27d5da791a382f46"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A05-03-belvedere-neutre-reduced.png",
+      "sha256": "0ea1050e7fdd8b773492cd0f41a6dc4d1250683c8e2ece564b6e6e38d4052a67"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A05-03-belvedere-neutre-reduced.svg",
+      "sha256": "7e20e63cb681919fc3d48c44fb381e79ff0b8d3185fac7851acdeef3508b044f"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A05-04-belvedere-neutre-no-webgl.png",
+      "sha256": "dec9a4a73d14a6d5ca46057e93a38c3b00288f6bcf7147f9f1fdabccb2252187"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A05-04-belvedere-neutre-no-webgl.svg",
+      "sha256": "c55a0b4f163be934e197d5e378cd4e37b7dca5e79535170ae16b7b48ea415ed3"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A06-01-etude-de-cas-desktop.png",
+      "sha256": "693bba4a2fd5d072a04114573a07af0f39e023b919db5fb8524c5dbe5b72d0a0"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A06-01-etude-de-cas-desktop.svg",
+      "sha256": "d234d7196dffd208aa80b5d99aacbe66ec84c8853e626a1fe950abb4c43bfe46"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A06-02-etude-de-cas-mobile.png",
+      "sha256": "e13ce044162b2b4e58788fe826440ba76de224270365bafde67d482d40a10302"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A06-02-etude-de-cas-mobile.svg",
+      "sha256": "820638bd814511001aa6552d689e054536b913b2f3b40bc87b42bc874a283d8c"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A06-03-etude-de-cas-print.png",
+      "sha256": "3294f9ca128e1dc4bedd3177d2140951f44ff47d2380f29a1aef57f8bc3d38ac"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A06-03-etude-de-cas-print.svg",
+      "sha256": "94f6fd2aba2f4f53d462aecda2d64074475dd4e3c9bf7713feb9ef1ee9be8aa3"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A07-01-competences-comete-desktop.png",
+      "sha256": "c7f96ff16f994d12d3315a4e8d1c32780f5626d1ddad4af040bb90fdb030cf78"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A07-01-competences-comete-desktop.svg",
+      "sha256": "e0946e86058144884f6e7397f2d7053ee8c42d590ea157d80389f862990e21fd"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A07-02-competences-comete-mobile.png",
+      "sha256": "8c7238e48ad1622ac25faaac1a553ea6926c549382e2aa5a7bc696676400b840"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A07-02-competences-comete-mobile.svg",
+      "sha256": "2eddd53caf0de7f38e1ee103c3426a43317eaa053d0fc480df3da1b6a2626dcf"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A07-03-competences-comete-reduced.png",
+      "sha256": "3d5044e6b8f7ec1674a93f2cc468e8909b06faa504740c420ecfd2fe0608840a"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A07-03-competences-comete-reduced.svg",
+      "sha256": "f0ceabd71f6dadecc340b662c8c0533fd6903e78e40e54276ff39736b9292d2a"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A07-04-competences-comete-no-webgl.png",
+      "sha256": "92d4fd233f520ec1717b16a691e7c857a6753d57f5026578d6392fa8726edae8"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A07-04-competences-comete-no-webgl.svg",
+      "sha256": "ff0166bc62430223ea480bff3eb34f742bbfb2df771d5b1abe5b3f8437ad5b9d"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A08-01-console-desktop.png",
+      "sha256": "65b2aea0499cf201150fcfbfcf948cb2f6769c470a854ee15c538b3027b5b23b"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A08-01-console-desktop.svg",
+      "sha256": "59c28718ac8dc65510daa7ae44e73d9b5a667bdcc4dc95268d71058942149a32"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A08-02-console-mobile.png",
+      "sha256": "d2ddece8a5f77c1d77f64792b136348419e6c19c9598a1a3c676e74f6d465867"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A08-02-console-mobile.svg",
+      "sha256": "0da11aba6a123a137f97663969c26e86876d92b2ec9bd8052225d4915e3d26fa"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A08-03-console-no-js.png",
+      "sha256": "8cd069df7ec1d2c5704f5cc8eb613c83d240aa4c8f14f76c16cb09449f97a2a2"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A08-03-console-no-js.svg",
+      "sha256": "253e5af16bcc1b44a3fc049fe0a152fd361398d0ca838cafd299cf6929641159"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A09-01-parcours-desktop.png",
+      "sha256": "df021cb22b90168843b63ad990068bdfc237136ea26a14927e393897fc1ee8df"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A09-01-parcours-desktop.svg",
+      "sha256": "73ab301134b2cc964b9044be271b234116036d8b6290f61a213ed0a42458d8a0"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A09-02-parcours-mobile.png",
+      "sha256": "09fbcc8a08daa364020b90136d58720bfc21bc3f08110abb611a1dc272dd5bc6"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A09-02-parcours-mobile.svg",
+      "sha256": "92287b3cdaa2df1732d76ee64781fc2045c42a6c65165cde9a47444d0e985ead"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A10-01-ground-track-desktop.png",
+      "sha256": "07601647c8d276636465754b54f0024c4b278e6447241db7dff75b81bb36614c"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A10-01-ground-track-desktop.svg",
+      "sha256": "887c9905187adb29b23a6bcdc26e39e821c35ff06abcc9bf5b78d19efe2f5237"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A10-02-ground-track-mobile.png",
+      "sha256": "a584c4a4966eb36a24e28af275867734fb5926ab18049d27dd36a38a5d8971f5"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A10-02-ground-track-mobile.svg",
+      "sha256": "77a024377850f45f5769ad552e575b0bf58c53560f20fdbeba553169f363023f"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A10-03-ground-track-reduced.png",
+      "sha256": "a0d37a143379b334d57779352e28b36631ee860b79cd660ccdf59f2991f2fe74"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A10-03-ground-track-reduced.svg",
+      "sha256": "c836f004094ea5fdd9deb651329b3dba4f1b0cdb502332d6f31018cc03073984"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A10-04-ground-track-no-webgl.png",
+      "sha256": "9c95e1143d9bfeca3ce3a068ecd311b879a308dd7abd4c3c630591ce659bc3b2"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A10-04-ground-track-no-webgl.svg",
+      "sha256": "977d504eebbb18352f759f5db993a4f16dc7ea42fabcebadc6117b4bb08337b3"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A11-01-resume-recruteur-desktop.png",
+      "sha256": "197cdf1d9a9dbe4c7ad1e8fd3dd935641791dc1288a8191b58223b9fcec3c7dc"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A11-01-resume-recruteur-desktop.svg",
+      "sha256": "11aa8551f86e5bba820764920e827cf01c661746f436f4a9b2976222fdca0690"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A11-02-resume-recruteur-mobile.png",
+      "sha256": "8f1d2331a6b94b12260a7b19110a55f43f6c41891ff35beb6322a448b3d607d3"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A11-02-resume-recruteur-mobile.svg",
+      "sha256": "00f00c4600f889aca38ebde420c178dbcb51a352fd69eca4b4d5173758a0c62a"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A11-03-resume-recruteur-print.png",
+      "sha256": "811db4a7e67c92e4edc42a019326068b4a450ddf00f19191d07f3fcedf17bd96"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A11-03-resume-recruteur-print.svg",
+      "sha256": "7663e5825ebc1ca636cbbe227b9d2295ee70a51465d4c772037a262b563ac46e"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A12-01-final-desktop.png",
+      "sha256": "65e48faf8ca70e257d2ec789f981ed51489c9fc6db73472770167a9045b99841"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A12-01-final-desktop.svg",
+      "sha256": "d5b75dddf775046a9b3c149d68047153687370677e8cefefc8cc1c8e284bbbe2"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A12-02-final-mobile.png",
+      "sha256": "ebc8b8aacfe50a333b09092614aaa0298b2444fbd7f38f6064569c6c05b753d7"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A12-02-final-mobile.svg",
+      "sha256": "45f758286cbbee334ca8c7f282f06ce0cd8c0ddcdea2285afb2319709dbc0b0e"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A12-03-final-reduced.png",
+      "sha256": "937e27b4bb0c7b36032918a042863c0e2e6532c053f3fa2b8407e2856c5a8c48"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A12-03-final-reduced.svg",
+      "sha256": "6825db08fc981367c2facaf1a9e1adffe2c6751bad0735128fdfd0aaa6e7ff8c"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A12-04-final-no-webgl.png",
+      "sha256": "ef5398102d5a1feaab6526d9d304b401452f81c66900135b48ad0dc769331242"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A12-04-final-no-webgl.svg",
+      "sha256": "4dac34322b55edfdbcfaa5a90ab4acae44e66367daad6efd2e426d838c7d8dd3"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A13-01-sources-fabrication-desktop.png",
+      "sha256": "3d308616256d759ad6ab8630da51913f8a49933c55a824fbcf90cacbaee5ee38"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A13-01-sources-fabrication-desktop.svg",
+      "sha256": "88f49ea624edef10222ded7b07d8cc2161447917f3fb12fb89ec18c1ca38d458"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A13-02-sources-fabrication-mobile.png",
+      "sha256": "d46e2706f5b5952f5b5941af5bbc1124d35624fbfaaeb070d5e0202d5af66d86"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A13-02-sources-fabrication-mobile.svg",
+      "sha256": "33c126c8a24c79f53b258783f153245a30ec90b4c1b3f594413123db7e622ddb"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-01-etat-loading-desktop.png",
+      "sha256": "58436c677bb469d35b9514b02974335baf72f5b385038fa413642e4a82c96a75"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-01-etat-loading-desktop.svg",
+      "sha256": "46c6577cf4b6d176c8f6cfa946648bdbf237bb8f60792cad7a332e4511066159"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-02-etat-loading-mobile.png",
+      "sha256": "3e067394ec007a05308882987d1fed3668bf0248101ba03ab80fb177ef812816"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-02-etat-loading-mobile.svg",
+      "sha256": "a16688b479e23c2ba0e4fb692ea585029f8624d12d094faae0a49ac716faf8e8"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-03-etat-optional-absent-desktop.png",
+      "sha256": "2f0262b6f20b9b8b9c9854749d4d754b592b13dc4e4ce3f80dbbd04c069ec4da"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-03-etat-optional-absent-desktop.svg",
+      "sha256": "adc9d9886976bdf8c298198c25ab8531775675c12fe68bd37c1669a3acfc797e"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-04-etat-optional-absent-mobile.png",
+      "sha256": "9d7a08a08d01ef1433914b31dc0a2fa2d3f78adfc71b0dd97a3ea419f876b362"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-04-etat-optional-absent-mobile.svg",
+      "sha256": "98e9f9ea891e1ab4904fc87e31473e5d47004b6e155f29f8128d17887ffadf71"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-05-etat-immersive-error-desktop.png",
+      "sha256": "b67e614622f70caa21f05cb48990a63bbeafe26d35ceea89638ce3bb2916cf15"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-05-etat-immersive-error-desktop.svg",
+      "sha256": "463484d94fb9bf89389e2b8da13bc3c5a5bc5621bd854f68ed54ca20e954c06f"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-06-etat-immersive-error-mobile.png",
+      "sha256": "4cd25b8b8ffbe2716910d21f5675b9f7ee5aebd24b5f0f8dbb0af9f8ec69baff"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-06-etat-immersive-error-mobile.svg",
+      "sha256": "8b98007e453993c2f73252afb31576a517cf6c046acf7a150089bcdc18fb7f58"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-07-etat-webgl-unavailable-desktop.png",
+      "sha256": "ae980723366469a501eb7c3ca1691261ae18d27004867c94ba363f37b295e7fd"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-07-etat-webgl-unavailable-desktop.svg",
+      "sha256": "96c73303a1921ccd1b6edcf559ed9027bb61656fb16f31736484edb52aa1acc3"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-08-etat-webgl-unavailable-mobile.png",
+      "sha256": "3be2ecb121cf5895714439144896ce204feaa3f964423b058206ed34c67f6f5b"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-08-etat-webgl-unavailable-mobile.svg",
+      "sha256": "b7774bbcb2e4923becab18c5b54828dc30658b11a913c382eaa06d62e7a3705d"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-09-etat-media-absent-desktop.png",
+      "sha256": "6338a804337721ddd4ce2bd9816b7008f911a8e47a786ecb67435fe4a4290c38"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-09-etat-media-absent-desktop.svg",
+      "sha256": "75f854d17f42a785cabfdbd3faf0c1ece280a1e16b09b505cbfabc51e42b512b"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-10-etat-media-absent-mobile.png",
+      "sha256": "ce427e72ff4b2d097091f18fc3882712346d4d41a2f567cf4b9c69ce4a5181a8"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-10-etat-media-absent-mobile.svg",
+      "sha256": "571c6063fe01ed6d901e5aa7dbcbdc5a0269e440bdd20067c6d5bc7b97b885b3"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-11-etat-snapshot-stale-desktop.png",
+      "sha256": "c42531f7e66cca3c360b9515220f145fc3f912e5f37df6b499a93d2934573d37"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-11-etat-snapshot-stale-desktop.svg",
+      "sha256": "6504cf560866b86f195d42f88976ebf70eabcc64aaf4b703a42c28bcdd33f782"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-12-etat-snapshot-stale-mobile.png",
+      "sha256": "d8cb605c8aa1ba6aa93efe1c3d294b5cc8c5cca73cc7cf72ed161cc0f4143cf8"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-12-etat-snapshot-stale-mobile.svg",
+      "sha256": "93f0ebbe154111ef2923634bfaf7ba4d074ad20d429f3823c896db13fba68654"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-13-etat-audio-blocked-desktop.png",
+      "sha256": "58baead598e13dd2d08fe96f8ce07c9ff94ff23eaf36dea790d18c38358c9b2a"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-13-etat-audio-blocked-desktop.svg",
+      "sha256": "beefb4cdb84f4db52ebb2acb5a8a05567f1890b7ea45f287b2916ccd5d58d910"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-14-etat-audio-blocked-mobile.png",
+      "sha256": "d005fee81df0c48707b7ebe3197d75658ec22e2dff77aace07fa6c115b9be195"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-14-etat-audio-blocked-mobile.svg",
+      "sha256": "62da4ca154e7c8b5892da310d0c9851e5c12d979a5b3dd2d253c9d38e865f6b3"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-15-etat-external-link-desktop.png",
+      "sha256": "d4cc6e24c917f5698171d3dae0338549ac38a818d4bda505039061059330e47a"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-15-etat-external-link-desktop.svg",
+      "sha256": "dcd5a59b992add9d65d40a72aa31b3e7e1552d3d94f15c37d961da8767159af0"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-16-etat-external-link-mobile.png",
+      "sha256": "1ccc8827eafe94c80374799ef0a40a5ca3e91414b19910638fcc0789a783c3e6"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-16-etat-external-link-mobile.svg",
+      "sha256": "9ec8ef55a50929dada70aa4d0e759dad53d752be1e7085f169f1be5eaf3b6b85"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-17-etat-contact-failure-desktop.png",
+      "sha256": "6759feb8509f95eb9df6a47812943503c7a4b511e73e9ef67e0d74adcffffa01"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-17-etat-contact-failure-desktop.svg",
+      "sha256": "04ad41f9750c8c356ff6083b6fe3720e14b5c8cc833010a4946dddfeefefb9e1"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-18-etat-contact-failure-mobile.png",
+      "sha256": "6a1612fa25f34542978854b99cb7605fa4b12bbe37abeea26cd51c98584d607a"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-18-etat-contact-failure-mobile.svg",
+      "sha256": "e95ed30c2d7eb166ad6be33d6c1ace028abedbf9e9aad8bf8e06c0276f44fa40"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-19-etat-offline-desktop.png",
+      "sha256": "224dc935979556ff07d617ec52c192bf934ce329e3d2696425868097460563d7"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-19-etat-offline-desktop.svg",
+      "sha256": "2b67fa5b31cffc4cf276a8a49b4c753e4791dd1c2a37d5c2c55bb1326d00a20c"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-20-etat-offline-mobile.png",
+      "sha256": "3571744d53ef6b265786dc67084549994fd22c3f5f046b2dba5885fb0cc69b53"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-20-etat-offline-mobile.svg",
+      "sha256": "5bdee54d060c6d4aaa37ac96b45a6086e217b5f6dec01f289d8296bb197f3103"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-21-etat-resume-desktop.png",
+      "sha256": "78f309d1cea86eaae62c579d81899f6e8fab8d00f395b4e24acca91b879673e2"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-21-etat-resume-desktop.svg",
+      "sha256": "23ec137f5fd26a1983dea579821e4ff470a9ecb9bc25ae54006a10b839c19c51"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-22-etat-resume-mobile.png",
+      "sha256": "8851638bca1b87daa9a947f887c78fb94aa1846f0d455bbae67a64083b8f41b6"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A14-22-etat-resume-mobile.svg",
+      "sha256": "6b123dd94d0f79de283666d5ceaf773419ef982b25847d0e6628bd97c7e18ab6"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A15-01-sequence-mobile.png",
+      "sha256": "835ed61422ff31b697e7e8f451ab69ccc5d41f90f0ede66b088b5d2c3ce6e41b"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A15-01-sequence-mobile.svg",
+      "sha256": "2b7ac3b5cc4200e65af582ab801f01c43c56a791587b86d5a9e33461df048c0f"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A15-02-sequence-reduced.png",
+      "sha256": "cad6f8f22cc9e501565d76601b751bcb2e31b0579bac64f1665262de9a0cb9b1"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/A15-02-sequence-reduced.svg",
+      "sha256": "2d3a9c6afe0c9678a71c169de6f87e4414f459f268259dd56df9ce2d2bb70bf7"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/INDEX-65-C3.svg",
+      "sha256": "74e423e3065653d556e4014e013c5eeaeaea0100f391d65e8e2992e1a7c19995"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/INDEX-65-C3.webp",
+      "sha256": "a4c1321cb2577968b518a6313938ab0b2257d0134e59996fb8905752dfdeeb1f"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/PARITE-BELVEDERES-C3.svg",
+      "sha256": "483b4663b2266cd7b487cc6a9b62a54c5de9df48b4b3a9e44e889bc3983c4814"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/PARITE-BELVEDERES-C3.webp",
+      "sha256": "d3192b8732c735994b37e59274a6c2ef8c1687cd4d06d62996117259746f11f4"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/PARITE-ETUDES-CAS-C3.svg",
+      "sha256": "363c75fc4ee2964770e4fc1bae720ddb6b248205537de349559750eeb209889a"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/PARITE-ETUDES-CAS-C3.webp",
+      "sha256": "f2ddb5f608d7e545570617a4845f1ed85beae8d3f1f540ae2d074f341ceef58f"
+    },
+    {
+      "path": "design/releases/DR-1/control-views-c3/inventory.json",
+      "sha256": "3f54f662b2b7a9a8cb0152f98db4c36c3e3aa9bfc06b0af6dd277bc257478f8e"
     }
   ],
   "sourceDependencies": [
     {
       "path": "PRODUCTION_CONTRACT.md",
-      "sha256": "71790f98781b6baa357786f73f04a5b5abb40a6c8ad1c39006a6ed0a15e2815f"
+      "sha256": "ba472aa0548882331c4819a0361495431659d40401f7bebebc594694ab5caf5b"
     },
     {
       "path": "DISCUSSION.md",
-      "sha256": "e619415fd2e6d84fe3087b7a4756ffc878b6da7a4203a5a89c8f4443c6f6e19c"
+      "sha256": "f4506ced300f75cea1698451ede8572f7b02e7b2856622bfae828cd5483f970a"
     },
     {
       "path": "docs/collecte/G1_COLLECTE.md",
-      "sha256": "341350e620c0341ff7318630ded3c44b20d9eafe8123cadbf68e0f9e1d988506"
+      "sha256": "ff11f3244f0bf7ca55904ba2ced1a5f257d2b67bd2b88870579f8c7057a956e5"
+    },
+    {
+      "path": "docs/collecte/SOURCES_JAPON_CANDIDATS.md",
+      "sha256": "9ef2b110ac3128ceab014c855435f05778759116bdf509e007b2d9fbc9458797"
+    },
+    {
+      "path": "docs/collecte/COULEURS_REFERENCES_RUSSEL.md",
+      "sha256": "59d6378d48a6e6137121f66aa3f0f18d059bb6c13a5ae06b4aa960d113ab1a30"
+    },
+    {
+      "path": "docs/collecte/DIRECTION_IMAGES_DECOR.md",
+      "sha256": "3480638b30f2cb08adc07053e84d0292fe9b5888a00938ae009d5f08f3a2f353"
+    },
+    {
+      "path": "docs/collecte/REVUE_DECOR_CANDIDATS.md",
+      "sha256": "5fda0338fdfa80848e89d8787578c615cdb24f36543720aa4c4f6492b987cc2c"
+    },
+    {
+      "path": "docs/collecte/BRIEF_CODEX_C3.md",
+      "sha256": "da7d5aa588b63a172370da1090e35b8fcf31897c007ecaa91f0b4fc72df3f40b"
+    },
+    {
+      "path": "docs/architecture/SCHEMAS_G1.md",
+      "sha256": "6d924694b6514977f147a12f3d0053f9847af2685e2416ddfcd6b099be0227c2"
+    },
+    {
+      "path": "docs/architecture/schemas/fact.schema.json",
+      "sha256": "42b9b50a5000203b82353d6122549d220380c7e0fdc6f79aa7d42eec667e2781"
+    },
+    {
+      "path": "docs/architecture/schemas/profile-facts.schema.json",
+      "sha256": "5dd32c916f9474c3aa2a5b329193e47e9527e6ef8b9e79e24fd13195045df92d"
+    },
+    {
+      "path": "docs/architecture/schemas/project-copy.schema.json",
+      "sha256": "e9cb91af75f409855efc7773a27d1e51780aa3c7a8453b91d49994c727d56860"
+    },
+    {
+      "path": "docs/architecture/schemas/project-facts.schema.json",
+      "sha256": "3d54a630e0ebf1b996d469d88d846124e5440f74e2a2931ae5f270600de3fb8d"
+    },
+    {
+      "path": "docs/content-release/CR-0/APERCU.md",
+      "sha256": "fad44435260a41b0731758229656c2b991ec4018026b966c47dd61ab54fcdc0e"
+    },
+    {
+      "path": "docs/content-release/CR-0/artvibe-cameroun.facts.json",
+      "sha256": "6a72a23418ed0cfed2e76c10a53b6b2cb6cc5ae32e8ac41d8ee9baffd3436f38"
+    },
+    {
+      "path": "docs/content-release/CR-0/batobaye-market.facts.json",
+      "sha256": "a196df74ea0576c482618d5a3e7da57de36490b5a21dad4ad325cd26c0613a29"
+    },
+    {
+      "path": "docs/content-release/CR-0/fast-shipping-logistics.facts.json",
+      "sha256": "c8b47698a596d408fff5de159cb3834d620637438e14c10ef9ecc2ed6721d30a"
+    },
+    {
+      "path": "docs/content-release/CR-0/mboamarkets.facts.json",
+      "sha256": "3eb066a990b6246767c1f41e4c5d823ec757ad386d0d474e7e5c9a70c7729b2d"
+    },
+    {
+      "path": "docs/content-release/CR-0/profile.facts.json",
+      "sha256": "58efa9564e88d3ce1dd93f535f75df011ff8f5f6bbab2df35432e1c132b86ebc"
+    },
+    {
+      "path": "docs/content-release/CR-0/shopitech.facts.json",
+      "sha256": "a6ded002aa8be1fa4aebe3752fc43a7cdf536e4e73c037809f5160b13fd1f19a"
+    },
+    {
+      "path": "docs/content-release/CR-0/ziris.facts.json",
+      "sha256": "823394ae272aa77bdb15d04bb3e956c0d732a09004a726d5990032f2289e3751"
+    },
+    {
+      "path": "docs/cv/MASTERMIND_CV_FR_CANDIDAT.md",
+      "sha256": "491168136685fb78d1431b0468a5130b6f4e4a757456ace7b1e425e149b8d4f7"
+    },
+    {
+      "path": "decor-candidats/README.md",
+      "sha256": "b6cfdc25938000b6eb781154708a8b58fc65d86c726edd28140a297528f99c8d"
+    },
+    {
+      "path": "decor-candidats/magnific__arashiyama-bamboo-forest-at-deep-blueviolet-dusk-s__8238.png",
+      "sha256": "f581c698b5a1254792dfde93009ba0a5dc7a061af48c8cf5bc48aa546e76d4a4"
+    },
+    {
+      "path": "decor-candidats/magnific__astrophotography-of-a-clear-night-above-mount-fuji__71838.png",
+      "sha256": "e31c5512f10166d53362d679f076711ec4eb12b122161fa29479ab7b6689aefb"
+    },
+    {
+      "path": "decor-candidats/magnific__equirectangular-360-panorama-21-japanese-dawn-seen__82050.png",
+      "sha256": "b73fbc11bbb51eca08a2e1d6dd60ae8782e756864914926883361569fd79b0b0"
+    },
+    {
+      "path": "decor-candidats/magnific__mirrorcalm-japanese-mountain-lake-one-minute-after__8239.png",
+      "sha256": "bd45c1024aea5bb03e90a9cc52e8028b3da125ba0e4289bdaeaecb6ffe78496d"
+    },
+    {
+      "path": "decor-candidats/magnific__night-photograph-of-ancient-japanese-wisteria-trel__82051.png",
+      "sha256": "99adf105e24a59a175c18392bd02459cfcd2f26e107ec86b9584982dbb6d5139"
+    },
+    {
+      "path": "decor-candidats/magnific__one-single-continuous-photograph-of-a-natural-dark__71840.png",
+      "sha256": "03de6db6df0f45aca232a3f9c08a57676e6c44b8de250e1b06c898308292137e"
+    },
+    {
+      "path": "captures-projets/README.md",
+      "sha256": "165d0dfd8d4f3874cd2ef5964ff28f57d26b85111063cfcaead73cde63562b2b"
+    },
+    {
+      "path": "captures-projets/artvibecamer-accueil-desktop.png",
+      "sha256": "707a2ab22c57b8633d1cdbfe3f9f0c41e36a7907375d83b5f44860d90288c673"
+    },
+    {
+      "path": "captures-projets/artvibecamer-accueil-mobile.png",
+      "sha256": "f3020401c7e04d5b45cc6492b5fc0749bc5886e3df56961ccba9d6e612c88580"
+    },
+    {
+      "path": "captures-projets/artvibecamer-candidats-mobile.png",
+      "sha256": "dd9100439a03dd208ffa7c2424f24f731dfb71d6711855c6cbd08a2b28c01d09"
+    },
+    {
+      "path": "captures-projets/batobaye-admin-desktop.png",
+      "sha256": "2cdd5ea71d183182049a90d7df535a9d589a5198bcc44b5bbaf1d4c870349540"
+    },
+    {
+      "path": "captures-projets/batobaye-app-accueil-mobile.png",
+      "sha256": "c9d98a6957652d4b20cce40d02974719859ffe4cc526a2e35c1f2a51c86d45bf"
+    },
+    {
+      "path": "captures-projets/batobaye-categorie-mobile.png",
+      "sha256": "64ecaf2e297ac73e6e8f7cd92e63a9e747e3f16d0ab6f8a682af7c19a0171b6d"
+    },
+    {
+      "path": "captures-projets/batobaye-googleplay-fiche-mobile.png",
+      "sha256": "ccd8b6bee44bb2d40103bd3859cc5b8b890e88d7442aeade8bf3d2b59dbb432f"
+    },
+    {
+      "path": "captures-projets/batobaye-produit-mobile.png",
+      "sha256": "5a3dd1f62b0f5ed401428f1fe5e49c32eb4dc75394903b163480c44c260e9f24"
+    },
+    {
+      "path": "captures-projets/fastshipping-accueil-mobile.png",
+      "sha256": "2cff84618cfa5f062ddf366ee669dcc5c25c8f149de57c77dfbbc1be1425b25a"
+    },
+    {
+      "path": "captures-projets/fastshipping-suivi-desktop.png",
+      "sha256": "38b804c0018f77308baa801a2600bc116a41d9d8b5ce230aaea706b3d788accc"
+    },
+    {
+      "path": "captures-projets/fastshipping-suivi-mobile.png",
+      "sha256": "285b29de9d6835d965c7bcac85c8eb46b5d5a102dd130d19bac01d53cd73f8f4"
+    },
+    {
+      "path": "captures-projets/mboamarkets-accueil-mobile.png",
+      "sha256": "b39c2e17236658adf8576d22c31f0669a8bd22d4ce95a0af4a71ca2c23409e71"
+    },
+    {
+      "path": "captures-projets/mboamarkets-semaine-desktop.png",
+      "sha256": "207b18bfa82c85bd32245df8477a2678dd5bb0cdace39d73d8686467f1df6197"
+    },
+    {
+      "path": "captures-projets/shopitech-accueil-desktop.png",
+      "sha256": "e84ccd7ce05d368e44d19eec5c2690528773d2b482cef5b1b56086d3697d8203"
+    },
+    {
+      "path": "captures-projets/shopitech-accueil-mobile.png",
+      "sha256": "c8be53faea5f84bf8be1db85984961a4fb15277e2b3da51f82defff92a26cfa2"
+    },
+    {
+      "path": "design/magnific__background__71841.png",
+      "sha256": "a0345f9bfc43bf3eba2efc360da1cb23926faa2b91b5908cf58753973a9a92d4"
+    },
+    {
+      "path": "design/magnific__keep-the-person-exactly-as-in-the-original-photo-s__71842.png",
+      "sha256": "1de3a9a183b737aaf2fb144c3fd71269be8bfb02e50a784026f623de94e3a4b7"
+    },
+    {
+      "path": "IMG-20260609-WA0073.jpg.jpeg",
+      "sha256": "d7dbd7d9790c4d21cb93cb7cbf59383111a9a4d3755d494c228b6523aada488f"
+    },
+    {
+      "path": "docs/adr/ADR-001-lecteur-morceaux-reference.md",
+      "sha256": "b0613371a9efa9b3a66ba30fadf73192545d724d8f431c4b96689ac6fab60558"
+    }
+  ],
+  "superseded": [
+    {
+      "path": "design/releases/DR-1/10_MOODFRAMES_C2.md",
+      "sha256": "7fc77fe85692b95a22ccf612c94e5d997fd1264e175c9234b70252bf0cbf9404",
+      "reason": "Candidate 2 rejetée par Russel le 20 octobre 2026 ou police retirée en C3"
+    },
+    {
+      "path": "design/releases/DR-1/assets/type-previews/HankenGrotesk-wght.ttf",
+      "sha256": "813b3f8fa0965405669a89b38e51bbefd95eef6b8e20d1cb2d8c10cce062662f",
+      "reason": "Candidate 2 rejetée par Russel le 20 octobre 2026 ou police retirée en C3"
+    },
+    {
+      "path": "design/releases/DR-1/assets/type-previews/Literata-opsz-wght.ttf",
+      "sha256": "b41138c9373112f32abb589cc22e8674b06ed4048b0c513be922bdd26f274440",
+      "reason": "Candidate 2 rejetée par Russel le 20 octobre 2026 ou police retirée en C3"
+    },
+    {
+      "path": "design/releases/DR-1/assets/type-previews/OFL-HankenGrotesk.txt",
+      "sha256": "e02ccb89a86839b22feff7872ff5cc355cc0f58318d29eee20e2cf83a612f16d",
+      "reason": "Candidate 2 rejetée par Russel le 20 octobre 2026 ou police retirée en C3"
+    },
+    {
+      "path": "design/releases/DR-1/assets/type-previews/OFL-Literata.txt",
+      "sha256": "8742963604cd89dc81437811a850018fc03b2bfad686d7422c8235967c87614e",
+      "reason": "Candidate 2 rejetée par Russel le 20 octobre 2026 ou police retirée en C3"
     }
   ],
   "verification": {
     "jsonSyntax": "PASS",
-    "dtcg2025_10Schema": "PASS",
-    "trailingWhitespace": "PASS",
+    "dtcg2025_10StructureReview": "PASS_FULL_EXTERNAL_REFERENCE_VALIDATION_PENDING",
+    "schemaFiles": "4_VALID",
+    "contentInstances": "7_APPROVED_PASS_CURRENT_SCHEMAS",
+    "schemaApprovedValidatedAtInvariant": "PASS_FIXED_AND_TESTED_BY_CLAUDE_2026-10-20",
+    "contentDrafts": "7_APPROVED_BY_RUSSEL_2026-10-20",
+    "sourceKit": "6_GENERATED_DECOR_MASTERS_VISUAL_APPROVED_RIGHTS_DECLARED_BY_RUSSEL",
+    "palette": "DTCG_C3_2_TEXT_CONTRAST_MIN_7.08_CHECKED_BY_CLAUDE",
+    "moodframes": "8_C3_2_VISUAL_APPROVED_BY_RUSSEL_2026-10-21",
+    "fullViewCoverage": "65_VIEWS_SVG_PNG_INDEX_AND_2_PARITY_SHEETS_APPROVED_BY_RUSSEL_2026-10-21",
+    "claudeR09": "FINAL_ACCEPTED_WITH_RESERVES_C3-R1_TO_C3-R8_2026-10-21",
+    "editorialTrailingWhitespace": "PASS_OFFICIAL_OFL_LICENSE_FILES_EXCLUDED",
     "applicationCodeAdded": false,
+    "generatedImagesAdded": true,
     "inventedColorValues": false,
-    "openBlockingReservations": 12
+    "openBlockingReservations": 0,
+    "registry": "G1-R5_22_CURRENT_8_RETIRED_ALL_HASHES_VERIFIED",
+    "openBlockingReservationIds": [],
+    "controlViewsInventory": "65_UNIQUE_IDS_ALL_FILES_PRESENT",
+    "projectMedia": "10_DERIVATIVES_5_PROJECTS_PLUS_ZIRIS_SOURCE_AND_DERIVATIVE_HASHES_MATCH",
+    "claudeG1Pass": "PRONOUNCED_2026-10-21",
+    "adr": "ADR-001_ACCEPTED",
+    "russelG1Pass": "PRONOUNCED_2026-10-21",
+    "codexG1Pass": "PRONOUNCED_2026-10-21",
+    "g1": "PASS_2026-10-21"
+  },
+  "gitExcluded": {
+    "reason": "Masters et rendus PNG de revue gardés en local (réserve C3-R2) ; leurs empreintes restent vérifiables ici.",
+    "patterns": [
+      "design/releases/DR-1/assets/c3-upscaled/",
+      "decor-candidats/*.png",
+      "design/releases/DR-1/control-views-c3/*.png",
+      "design/releases/DR-1/moodframes-c3/*.png"
+    ]
   }
 }
