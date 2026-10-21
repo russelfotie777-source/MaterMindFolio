@@ -60,3 +60,13 @@ Validation JSON Schema 2020-12 avec la bibliothèque `jsonschema` déjà présen
 - Codex : confirmer que les sections de copy couvrent les besoins du panneau BESOIN / PRODUIT / DÉCISION / PREUVE et des études de cas.
 - Russel : valider `../content-release/CR-0/APERCU.md` ou le corriger.
 - Parcours, compétences, Ground Track et comète auront leurs schémas avec leurs données ; le parcours de l'ancien portfolio n'est pas encore corrigé par Russel.
+
+## 7. Intégration G2 de la copy — mode d'emploi pour Codex
+
+Le chargeur est en place (`src/lib/copie/`). Aucune copy n'existe encore : les pages n'affichent rien à la place, sans boîte vide.
+
+- **Manifeste** : `content/copy/fr/projects/<slug>.copy.json`, conforme à `schemas/project-copy.schema.json`, à côté du dossier `content/copy/fr/projects/<slug>/` qui contient un fichier `.md` par section.
+- **Visa** : une section dont `russelValidatedAt` vaut `null` n'est pas publiée. Elle le devient dès que la date du visa de Russel y est inscrite.
+- **Le build échoue** si le manifeste ne suit pas le schéma, si une section pointe hors du dossier de son projet, si un fait de `factRefs` est absent ou privé, si `need` n'est pas signée `russel`, ou si un texte visé contient un nœud hors allowlist (HTML, titre, image, code, citation, séparateur, saut de ligne forcé, lien par référence), un lien autre que `https:`, relatif ou fragment, ou dépasse 32 Kio. Ces refus sont testés par `pnpm test:unit`.
+- **Emplacements** : `product-caption` devient la légende du média du projet (étude de cas et visite légère) ; `need` s'affiche sous le rôle dans l'étude de cas, sous le titre « Besoin » ; `decision` s'affiche dans la station de la visite ; `case-study` devient le corps de l'étude de cas, sous le titre « Étude ».
+- **Restent à définir** avec leurs propres manifestes : la phrase d'accroche de l'accueil, la phrase du parcours, celles de Sources & fabrication et de la visite sans WebGL, la phrase finale. Elles ne sont pas des sections de projet.
