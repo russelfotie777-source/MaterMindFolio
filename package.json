@@ -12,7 +12,7 @@
     "build": "node scripts/build.ts",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.scripts.json",
     "format": "prettier --check .",
     "tokens": "node scripts/tokens.ts",
     "tokens:check": "node scripts/tokens.ts --check",
