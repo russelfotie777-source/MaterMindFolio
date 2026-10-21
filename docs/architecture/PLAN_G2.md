@@ -32,9 +32,9 @@ Build, CSP, SEO, clavier, axe, et poids JS / CSS / polices / en-têtes mesurés.
 | 5 | fait, sauf `/cv.pdf` | HTML complet sans JavaScript, `title`, description et URL canonique par route, `sitemap.xml`, `robots.txt`, 404 réelle sur un slug inconnu |
 | 6 | en cours | lien d'évitement, en-tête, `main`, pied de page ; parcours clavier à prouver par Playwright (étape 9) |
 | 7 | à faire | dérivés d'actifs à publier |
-| 8 | à faire | sous-ensemble DM Sans |
+| 8 | fait | `scripts/font-subset.sh` : DM Sans officielle, wght 400–600, opsz 9–40, jeu latin du français, 33,2 Ko WOFF2, sortie déterministe ; seule police préchargée, `font-display: swap`, cache immuable sur le seul nom à empreinte ; licence OFL servie et citée dans Sources & fabrication |
 | 9 | à faire | |
-| 10 | à faire | aucun débordement horizontal à 320, 390 et 1440 px (sonde CDP locale) |
+| 10 | en cours | aucun débordement horizontal à 320, 390 et 1440 px ; mesures locales Brotli q11 : JS client ≈ 119 Ko sur `/` (154 Ko avec les polyfills `nomodule`, que les navigateurs modernes ne téléchargent pas), CSS 3,3 Ko, HTML 2,5 à 3,7 Ko, en-têtes 1,9 Ko dont 1,3 Ko de CSP ; à refaire à froid sur la preview Vercel |
 
 ### Textes attendus de `content/copy/` (Codex rédige, Russel valide)
 
@@ -45,5 +45,7 @@ Les pages n'affichent que des faits validés et des libellés d'interface. Les p
 Repris des vues de contrôle : « Aller au contenu », « Commencer la visite », « Explorer librement », « Registre des six projets », « Étude de cas · 01 / 06 », « Périmètre validé », « Preuve publique », « Parcours · dates validées », « Résumé recruteur », « Poste actuel », « Six produits », « Imprimer cette page », « Copier l'adresse », « Sources & fabrication ».
 
 Proposés par Claude, faute de vue : navigation « Projets · Résumé · Contact » (le CV la rejoindra), pied de page « Visite · Parcours · Sources & fabrication · Mentions légales · GitHub », titres « Six stations », « Parcours », « Me contacter », « Sources des faits », « Mentions légales », rubriques « Décisions » et « Repères », pages d'erreur (« Page introuvable », « Cette page n'a pas pu s'afficher », « Le site n'a pas pu s'afficher ») et descriptions des métadonnées. Les mentions légales (hébergeur Vercel, absence de cookie, de mesure d'audience et de formulaire) décrivent le runtime ; Russel les valide avant la production.
+
+Le dérivé de police sera inscrit au registre d'actifs lors de sa révision G2 (IR-0) : le manifeste DR-1 fige le registre G1-R5 par son empreinte, il n'est donc pas modifié en cours de lot.
 
 Absents en attendant leur source : les quatre domaines prouvés du résumé recruteur (aucun fait validé ne relie encore domaine et projets), le média de chaque projet, le portrait détouré et le favicon (variante du monogramme à dériver par Codex, `08_MONOGRAMME_TRACE_237.md`).
