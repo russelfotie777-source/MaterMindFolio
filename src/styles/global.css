@@ -86,12 +86,6 @@
       background: none;
       color: var(--color-text-on-light);
     }
-
-    body > header,
-    body > footer,
-    body > a[href='#contenu'] {
-      display: none;
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {
