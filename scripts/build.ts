@@ -3,6 +3,7 @@
 // dans chaque page HTML prérendue et leurs empreintes SHA-256 sont écrites dans .next-csp/.
 // Passe 2 : build identique, next.config.ts ajoute ces empreintes à script-src.
 // Contrôle : les empreintes de la passe 2 doivent être exactement celles de la passe 1.
+// Garde : aucun module réservé au serveur (Zod, parseur Markdown) dans les chunks clients.
 import { execFileSync } from 'node:child_process';
 import { createHash, randomUUID } from 'node:crypto';
 import { mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
@@ -10,18 +11,20 @@ import { join } from 'node:path';
 
 const HASH_FILE = '.next-csp/script-hashes.json';
 const INLINE_SCRIPT = /<script\b(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g;
+// Noms de classes conservés par la minification ; contrat, section 3.1, point 12.
+const SERVER_ONLY_MARKERS = ['ZodError', '$ZodType', 'micromark'];
 
-function htmlFiles(dir: string): string[] {
+function files(dir: string, extension: string): string[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
     const path = join(dir, entry.name);
-    if (entry.isDirectory()) return htmlFiles(path);
-    return entry.name.endsWith('.html') ? [path] : [];
+    if (entry.isDirectory()) return files(path, extension);
+    return entry.name.endsWith(extension) ? [path] : [];
   });
 }
 
 function inlineScriptHashes(): string[] {
   const hashes = new Set<string>();
-  for (const file of htmlFiles('.next/server/app')) {
+  for (const file of files('.next/server/app', '.html')) {
     for (const [, body] of readFileSync(file, 'utf8').matchAll(INLINE_SCRIPT)) {
       if (body) hashes.add(`'sha256-${createHash('sha256').update(body).digest('base64')}'`);
     }
@@ -50,3 +53,13 @@ if (JSON.stringify(first) !== JSON.stringify(second)) {
   process.exit(1);
 }
 console.log(`CSP : ${second.length} empreintes de scripts en ligne ajoutées à script-src.`);
+
+const leaks = files('.next/static', '.js').filter((file) => {
+  const code = readFileSync(file, 'utf8');
+  return SERVER_ONLY_MARKERS.some((marker) => code.includes(marker));
+});
+if (leaks.length > 0) {
+  console.error(`Module réservé au serveur dans les chunks clients : ${leaks.join(', ')} ; build refusé.`);
+  process.exit(1);
+}
+console.log('Chunks clients : aucun module réservé au serveur.');
