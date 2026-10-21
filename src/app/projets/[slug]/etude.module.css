@@ -1,3 +1,22 @@
+/* Belvédère : média 7/12 et preuves 5/12 ; sans média, les preuves prennent toute la largeur. */
+.belvedere {
+  display: grid;
+  gap: var(--space-10) var(--grid-desktop-gutter);
+  align-items: start;
+  margin-block-start: var(--space-12);
+}
+
+@media (min-width: 768px) {
+  .belvedere:has(> figure) {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  }
+}
+
+.preuves {
+  display: grid;
+  gap: var(--space-10);
+}
+
 .perimetre {
   font-weight: var(--font-weight-editorial-display);
 }

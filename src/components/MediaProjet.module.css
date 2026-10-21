@@ -1,0 +1,30 @@
+.media {
+  margin: 0;
+}
+
+.media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-organic-minimum);
+  outline: 1px solid color-mix(in srgb, var(--color-text-on-light) 16%, transparent);
+}
+
+.mobile {
+  max-width: 24.375rem;
+  margin-inline: auto;
+}
+
+.bureau {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .bureau {
+    display: block;
+  }
+
+  .mobile {
+    display: none;
+  }
+}

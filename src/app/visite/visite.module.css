@@ -9,7 +9,8 @@
 /* Six stations de même surface : aucune n'est agrandie. */
 .station {
   display: grid;
-  gap: var(--space-3);
+  gap: var(--space-6) var(--grid-desktop-gutter);
+  align-items: center;
   padding: var(--space-6);
   border-radius: var(--radius-organic-maximum) var(--radius-organic-minimum);
   background: var(--color-surface-depth);
@@ -19,6 +20,20 @@
   .station {
     padding: var(--space-10);
   }
+
+  .station:has(> figure) {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  }
+}
+
+.texte {
+  display: grid;
+  gap: var(--space-3);
+}
+
+/* Le média passe visuellement devant le texte ; il ne contient rien de focalisable. */
+.station > figure {
+  order: -1;
 }
 
 .nom {

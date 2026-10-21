@@ -86,6 +86,16 @@ test('accueil : portrait et décor viennent des dérivés, en cache immuable', a
   await expect(page.locator('img[src*="/media/approved/aube-"]')).toHaveAttribute('alt', '');
 });
 
+test('étude de cas : un seul média visible, décrit par son texte alternatif', async ({ page }) => {
+  await page.goto('/projets/fast-shipping-logistics');
+  const media = page.locator('main figure').getByRole('img');
+  await expect(media).toHaveCount(1);
+  await expect(media).toHaveAccessibleName(/^Page de suivi Fast Shipping/);
+  await expect
+    .poll(() => media.evaluate((img: HTMLImageElement) => (img.complete ? img.naturalWidth : 0)))
+    .toBeGreaterThan(0);
+});
+
 test('l’îlot « Copier l’adresse » est hydraté et annonce son résultat', async ({ page }) => {
   await page.goto('/contact');
   const statut = page.getByRole('status');

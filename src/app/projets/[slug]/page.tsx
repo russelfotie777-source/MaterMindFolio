@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 import { LienExterne } from '@/components/LienExterne';
+import { MediaProjet } from '@/components/MediaProjet';
 import { formaterJour, formaterPeriode } from '@/lib/dates';
 import { lireProjet, lireProjets, SLUGS } from '@/lib/faits/projets';
 import { PLATEFORMES, rangSurSix } from '@/lib/libelles';
@@ -28,8 +29,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-// Étude de cas (DR-1, vue A06), en lecture linéaire et sans JavaScript. Le média produit arrivera
-// avec le pipeline d'actifs ; en son absence, rôle, périmètre et preuve gardent toute la surface.
+// Étude de cas (DR-1, vue A06), en lecture linéaire et sans JavaScript : média produit sur 7 colonnes,
+// périmètre et preuve sur 5. Sans média, rôle, périmètre et preuve gardent toute la surface.
 export default async function EtudeDeCas({ params }: Props) {
   const projet = lireProjet((await params).slug);
   if (!projet) notFound();
@@ -45,34 +46,39 @@ export default async function EtudeDeCas({ params }: Props) {
         <h1 className={page.titrePage}>{projet.nom}</h1>
         <p className={page.lead}>{projet.role}</p>
 
+        <div className={styles.belvedere}>
+          <MediaProjet slug={projet.slug} tailles="(min-width: 1280px) 42rem, 55vw" />
+          <div className={styles.preuves}>
+            <section className={page.rubrique}>
+              <h2>Périmètre validé</h2>
+              <ul className={`${page.liste} ${styles.perimetre}`}>
+                {projet.perimetre.map((element) => (
+                  <li key={element}>{element}</li>
+                ))}
+              </ul>
+            </section>
+
+            <section className={page.rubrique}>
+              <h2>Preuve publique</h2>
+              <ul className={page.liste}>
+                {projet.preuves.map((preuve) => (
+                  <li key={preuve.libelle} className={styles.preuve}>
+                    <span className={page.fort}>
+                      {preuve.url ? (
+                        <LienExterne href={preuve.url}>{preuve.libelle}</LienExterne>
+                      ) : (
+                        preuve.libelle
+                      )}
+                    </span>
+                    <span className={page.attenue}>Vérifiée le {formaterJour(preuve.verifieeLe)}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </div>
+        </div>
+
         <div className={page.grille}>
-          <section className={page.rubrique}>
-            <h2>Périmètre validé</h2>
-            <ul className={`${page.liste} ${styles.perimetre}`}>
-              {projet.perimetre.map((element) => (
-                <li key={element}>{element}</li>
-              ))}
-            </ul>
-          </section>
-
-          <section className={page.rubrique}>
-            <h2>Preuve publique</h2>
-            <ul className={page.liste}>
-              {projet.preuves.map((preuve) => (
-                <li key={preuve.libelle} className={styles.preuve}>
-                  <span className={page.fort}>
-                    {preuve.url ? (
-                      <LienExterne href={preuve.url}>{preuve.libelle}</LienExterne>
-                    ) : (
-                      preuve.libelle
-                    )}
-                  </span>
-                  <span className={page.attenue}>Vérifiée le {formaterJour(preuve.verifieeLe)}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-
           {projet.decisions.length > 0 && (
             <section className={`${page.rubrique} ${styles.bandeau}`}>
               <h2>Décisions</h2>

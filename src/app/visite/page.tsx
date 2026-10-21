@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+import { MediaProjet } from '@/components/MediaProjet';
 import { lireProjets } from '@/lib/faits/projets';
 import { PLATEFORMES, rangSurSix } from '@/lib/libelles';
 import page from '@/styles/page.module.css';
@@ -13,7 +14,8 @@ export const metadata: Metadata = {
   alternates: { canonical: '/visite' },
 };
 
-// Version légère de la visite (DR-1, vues A04 et A05 sans WebGL) : l'index DOM des six stations.
+// Version légère de la visite (DR-1, vues A04 et A05 sans WebGL) : l'index DOM des six stations,
+// chacune avec son unique média ; le texte précède le média dans le DOM, le média passe devant à l'écran.
 // L'îlot immersif (G3) s'ajoutera devant cet index, qui reste la navigation sans Canvas.
 export default function Visite() {
   const projets = lireProjets();
@@ -25,17 +27,20 @@ export default function Visite() {
       <ol className={styles.stations}>
         {projets.map((projet) => (
           <li key={projet.slug} className={styles.station}>
-            <p className={page.etiquette}>
-              {rangSurSix(projet.rang)} · {projet.plateformes.map((p) => PLATEFORMES[p]).join(' · ')}
-            </p>
-            <h2 className={styles.nom}>{projet.nom}</h2>
-            <p className={page.fort}>{projet.role}</p>
-            <p className={page.attenue}>{projet.perimetre.join(' · ')}</p>
-            <p>
-              <Link className={page.boutonClair} href={`/projets/${projet.slug}`}>
-                Voir l’étude de cas<span className="visuellement-cache"> : {projet.nom}</span>
-              </Link>
-            </p>
+            <div className={styles.texte}>
+              <p className={page.etiquette}>
+                {rangSurSix(projet.rang)} · {projet.plateformes.map((p) => PLATEFORMES[p]).join(' · ')}
+              </p>
+              <h2 className={styles.nom}>{projet.nom}</h2>
+              <p className={page.fort}>{projet.role}</p>
+              <p className={page.attenue}>{projet.perimetre.join(' · ')}</p>
+              <p>
+                <Link className={page.boutonClair} href={`/projets/${projet.slug}`}>
+                  Voir l’étude de cas<span className="visuellement-cache"> : {projet.nom}</span>
+                </Link>
+              </p>
+            </div>
+            <MediaProjet slug={projet.slug} tailles="(min-width: 1280px) 44rem, 55vw" />
           </li>
         ))}
       </ol>
