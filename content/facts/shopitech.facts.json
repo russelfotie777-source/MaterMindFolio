@@ -1,0 +1,198 @@
+{
+  "schemaVersion": "project-facts/1",
+  "slug": "shopitech",
+  "contentRelease": {
+    "id": "CR-0",
+    "status": "approved",
+    "russelVisa": "2026-10-20"
+  },
+  "sources": [
+    {
+      "id": "russel-2026-10-19",
+      "kind": "owner-declaration",
+      "label": "Réponses de Russel dans la fiche de collecte G1",
+      "checkedAt": "2026-10-19"
+    },
+    {
+      "id": "site-beta",
+      "kind": "public-check",
+      "label": "Contrôle public de la beta",
+      "url": "https://beta.shopitech.cm/fr",
+      "checkedAt": "2026-10-19"
+    }
+  ],
+  "facts": {
+    "name": {
+      "value": "Shopitech",
+      "sources": [
+        "russel-2026-10-19",
+        "site-beta"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Itech Service"
+    },
+    "links": {
+      "value": [
+        {
+          "kind": "beta",
+          "label": "Version web beta",
+          "url": "https://beta.shopitech.cm/fr"
+        }
+      ],
+      "sources": [
+        "site-beta"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Itech Service"
+    },
+    "status": {
+      "value": {
+        "code": "beta",
+        "maintained": true,
+        "label": "Version web en beta, maintenue ; application mobile pas encore publiée"
+      },
+      "sources": [
+        "russel-2026-10-19",
+        "site-beta"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Itech Service"
+    },
+    "period": {
+      "value": {
+        "start": "2026-08",
+        "end": null,
+        "ongoing": true,
+        "approximate": false,
+        "phases": [
+          {
+            "label": "Développement",
+            "start": "2026-08",
+            "end": "2026-10"
+          }
+        ]
+      },
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)"
+    },
+    "organization": {
+      "value": {
+        "name": "Itech Service",
+        "relation": "client",
+        "city": "Douala (Akwa)",
+        "country": "Cameroun"
+      },
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Itech Service"
+    },
+    "role": {
+      "value": "Développeur du backend, de l'administration, du front public et de la base de données",
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)"
+    },
+    "personalScope": {
+      "value": [
+        "Backend",
+        "Ensemble de l'administration",
+        "Front public en Next.js",
+        "Base de données",
+        "Maintenance en cours"
+      ],
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)"
+    },
+    "platforms": {
+      "value": [
+        "web",
+        "web-admin"
+      ],
+      "sources": [
+        "russel-2026-10-19",
+        "site-beta"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Itech Service"
+    },
+    "stack": {
+      "value": [
+        "Next.js (front, backend et administration)",
+        "Base de données SQL",
+        "Serveur privé Hostinger"
+      ],
+      "sources": [
+        "russel-2026-10-19",
+        "site-beta"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Itech Service",
+      "note": "Moteur SQL exact à préciser."
+    },
+    "proofs": {
+      "value": [
+        {
+          "kind": "live-url",
+          "label": "Beta en ligne avec catalogue public en FCFA",
+          "url": "https://beta.shopitech.cm/fr",
+          "checkedAt": "2026-10-19"
+        }
+      ],
+      "sources": [
+        "site-beta"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Itech Service"
+    },
+    "rights": {
+      "value": {
+        "grantedBy": "Shopitech",
+        "form": "unspecified",
+        "scope": [
+          "name",
+          "logo",
+          "screenshots"
+        ],
+        "restrictions": []
+      },
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Itech Service"
+    },
+    "confidential": {
+      "value": [
+        "Données des clients et des commandes"
+      ],
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "private",
+      "rightsOwner": "Itech Service",
+      "note": "Valeur de protection proposée par Claude."
+    }
+  }
+}

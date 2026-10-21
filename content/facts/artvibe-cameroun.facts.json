@@ -1,0 +1,267 @@
+{
+  "schemaVersion": "project-facts/1",
+  "slug": "artvibe-cameroun",
+  "contentRelease": {
+    "id": "CR-0",
+    "status": "approved",
+    "russelVisa": "2026-10-20"
+  },
+  "sources": [
+    {
+      "id": "russel-2026-10-19",
+      "kind": "owner-declaration",
+      "label": "Réponses de Russel dans la fiche de collecte G1",
+      "checkedAt": "2026-10-19"
+    },
+    {
+      "id": "site-public",
+      "kind": "public-check",
+      "label": "Contrôle du site public",
+      "url": "https://artvibecamer.com/",
+      "checkedAt": "2026-10-19"
+    },
+    {
+      "id": "depot",
+      "kind": "repository-history",
+      "label": "Historique Git, README et ARCHITECTURE du dépôt (non public)",
+      "checkedAt": "2026-10-19"
+    },
+    {
+      "id": "journal",
+      "kind": "production-log",
+      "label": "Journal de production du projet (non public)",
+      "checkedAt": "2026-10-19"
+    }
+  ],
+  "facts": {
+    "name": {
+      "value": "ArtVibeCamer",
+      "sources": [
+        "site-public",
+        "depot"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "SAM BIAI"
+    },
+    "links": {
+      "value": [
+        {
+          "kind": "site",
+          "label": "artvibecamer.com",
+          "url": "https://artvibecamer.com/"
+        }
+      ],
+      "sources": [
+        "site-public"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "SAM BIAI"
+    },
+    "status": {
+      "value": {
+        "code": "live",
+        "maintained": true,
+        "label": "En ligne et ouvert au public depuis le 11 octobre 2026"
+      },
+      "sources": [
+        "journal",
+        "site-public"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "SAM BIAI"
+    },
+    "period": {
+      "value": {
+        "start": "2026-10",
+        "end": null,
+        "ongoing": true,
+        "approximate": false
+      },
+      "sources": [
+        "depot"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)",
+      "note": "Premier commit le 6 octobre 2026."
+    },
+    "organization": {
+      "value": {
+        "name": "SAM BIAI",
+        "relation": "client",
+        "city": "Douala",
+        "country": "Cameroun"
+      },
+      "sources": [
+        "russel-2026-10-19",
+        "site-public"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "SAM BIAI",
+      "note": "Porteur de l'événement ; premier sponsor : Zamara."
+    },
+    "role": {
+      "value": "Seul développeur, full stack",
+      "sources": [
+        "russel-2026-10-19",
+        "depot"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)"
+    },
+    "personalScope": {
+      "value": [
+        "API Laravel",
+        "Site public et back-office Next.js",
+        "Inscription individuelle et en groupe avec paiement Mobile Money, relance et reçu PDF",
+        "Fiches publiques des candidats",
+        "Achat de voix avec garde-fous anti-fraude",
+        "Back-office : tableau de bord, validation des dossiers, suivi des paiements, exports CSV",
+        "Billetterie à QR code et contrôle à l'entrée côté API",
+        "Déploiement, en-têtes de sécurité et HSTS"
+      ],
+      "sources": [
+        "russel-2026-10-19",
+        "depot"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)"
+    },
+    "team": {
+      "value": {
+        "size": 1,
+        "note": "Russel seul."
+      },
+      "sources": [
+        "russel-2026-10-19",
+        "depot"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)"
+    },
+    "platforms": {
+      "value": [
+        "web",
+        "web-admin"
+      ],
+      "sources": [
+        "depot",
+        "site-public"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "SAM BIAI"
+    },
+    "stack": {
+      "value": [
+        "Laravel 13",
+        "PHP 8.4",
+        "Sanctum",
+        "MySQL / MariaDB",
+        "Next.js 16",
+        "TypeScript",
+        "Tailwind CSS 4",
+        "Elgiopay (MTN Mobile Money, Orange Money)",
+        "Cloudflare Workers",
+        "Hostinger"
+      ],
+      "sources": [
+        "depot"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "SAM BIAI"
+    },
+    "proofs": {
+      "value": [
+        {
+          "kind": "live-url",
+          "label": "Plateforme d'inscription en ligne",
+          "url": "https://artvibecamer.com/",
+          "checkedAt": "2026-10-19"
+        },
+        {
+          "kind": "production-log",
+          "label": "Premier encaissement réel réussi le 11 octobre 2026 sur MTN et Orange, notifications à signature vérifiée",
+          "checkedAt": "2026-10-19"
+        },
+        {
+          "kind": "repository-history",
+          "label": "Tous les commits du dépôt viennent des identités Git de Russel",
+          "checkedAt": "2026-10-19"
+        }
+      ],
+      "sources": [
+        "site-public",
+        "journal",
+        "depot"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "SAM BIAI"
+    },
+    "decisions": {
+      "value": [
+        {
+          "title": "API et front séparés",
+          "rationale": "Le contrat d'API est la seule frontière : chaque côté avance sans bloquer l'autre."
+        },
+        {
+          "title": "Le paiement est la seule source des contreparties",
+          "rationale": "Aucune voix ni aucun billet sans paiement abouti ; le prix est toujours calculé par le serveur."
+        },
+        {
+          "title": "Pas de blocage automatique par adresse IP",
+          "rationale": "Au Cameroun, une connexion partagée peut regrouper des centaines de votants légitimes ; l'organisation tranche les cas suspects."
+        }
+      ],
+      "sources": [
+        "depot"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)",
+      "note": "Tiré de ARCHITECTURE.md ; à valider par Russel."
+    },
+    "rights": {
+      "value": {
+        "grantedBy": "SAM BIAI",
+        "form": "unspecified",
+        "scope": [
+          "name",
+          "logo",
+          "screenshots"
+        ],
+        "restrictions": [
+          "Logo du sponsor Zamara montré seulement tel qu'il apparaît sur le site, jamais isolé"
+        ]
+      },
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "SAM BIAI"
+    },
+    "confidential": {
+      "value": [
+        "Données des candidats et des paiements",
+        "Clés Elgiopay et autres secrets",
+        "Identifiants et chemins du serveur"
+      ],
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "private",
+      "rightsOwner": "SAM BIAI"
+    }
+  }
+}
