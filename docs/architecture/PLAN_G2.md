@@ -30,10 +30,10 @@ Build, CSP, SEO, clavier, axe, et poids JS / CSS / polices / en-têtes mesurés.
 | 3 | fait | `pnpm tokens:check` |
 | 4 | fait | build en échec sur un fait requis privé ou une release en `draft` (deux essais) ; faits privés facultatifs omis ; garde « aucun module serveur dans les chunks clients » dans `scripts/build.ts`, essayée avec Zod importé dans un îlot |
 | 5 | fait, sauf `/cv.pdf` | HTML complet sans JavaScript, `title`, description et URL canonique par route, `sitemap.xml`, `robots.txt`, 404 réelle sur un slug inconnu |
-| 6 | en cours | lien d'évitement, en-tête, `main`, pied de page ; parcours clavier à prouver par Playwright (étape 9) |
+| 6 | fait pour les routes G2 | lien d'évitement visible au focus puis focus sur `main`, navigation principale et pied de page testés au clavier ; le parcours de la visite, du player et des dialogues suit en G3 |
 | 7 | à faire | dérivés d'actifs à publier |
 | 8 | fait | `scripts/font-subset.sh` : DM Sans officielle, wght 400–600, opsz 9–40, jeu latin du français, 33,2 Ko WOFF2, sortie déterministe ; seule police préchargée, `font-display: swap`, cache immuable sur le seul nom à empreinte ; licence OFL servie et citée dans Sources & fabrication |
-| 9 | à faire | |
+| 9 | en cours | `pnpm test:e2e` : 64 tests verts sur Chromium et Firefox en local (CSP nulle et axe WCAG 2.2 AA nul sur les 14 routes, 404 réelles, HTML complet sans JavaScript, clavier, îlot hydraté, impression) ; WebKit demande des bibliothèques système absentes de ce poste, la CI les installe ; `.github/workflows/ci.yml` à vérifier au premier push |
 | 10 | en cours | aucun débordement horizontal à 320, 390 et 1440 px ; mesures locales Brotli q11 : JS client ≈ 119 Ko sur `/` (154 Ko avec les polyfills `nomodule`, que les navigateurs modernes ne téléchargent pas), CSS 3,3 Ko, HTML 2,5 à 3,7 Ko, en-têtes 1,9 Ko dont 1,3 Ko de CSP ; à refaire à froid sur la preview Vercel |
 
 ### Textes attendus de `content/copy/` (Codex rédige, Russel valide)
