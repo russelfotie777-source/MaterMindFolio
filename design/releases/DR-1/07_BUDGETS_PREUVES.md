@@ -24,8 +24,8 @@ Le portrait n'est pas sacrifié par une compression aveugle : si 150 Ko ne perme
 |---|---:|
 | Îlot immersif, JavaScript inclus | ≤ 290 Ko Brotli |
 | Premiers actifs 3D, panorama inclus | ≤ 200 Ko |
-| Clip main + poster | ≤ 140 Ko |
-| Réserve maintenue | ≥ 20 Ko |
+| Monogramme SVG + état fixe | ≤ 20 Ko |
+| Réserve maintenue | ≥ 140 Ko |
 | **Total absolu** | **≤ 650 Ko** |
 
 ### Desktop
@@ -34,11 +34,11 @@ Le portrait n'est pas sacrifié par une compression aveugle : si 150 Ko ne perme
 |---|---:|
 | JavaScript immersif | partage la cible d'architecture de 290 Ko |
 | Premiers actifs 3D | ≤ 650 Ko |
-| Clip main + poster | ≤ 210 Ko |
-| Réserve maintenue | ≥ 50 Ko |
+| Monogramme SVG + état fixe | ≤ 20 Ko |
+| Réserve maintenue | ≥ 240 Ko |
 | **Total absolu** | **≤ 1,2 Mo** |
 
-Le transfert entre sous-budgets est permis seulement si la réserve et le total restent intacts. La DR ne prescrit donc pas un nombre de polygones arbitraire ; elle prescrit ce qui doit rester visible après optimisation : tranche, joint, rugosité, ombre et incrustation.
+La suppression du clip de main libère 120 Ko sur mobile et 190 Ko sur desktop ; ces octets deviennent de la réserve, pas un droit automatique d'alourdir le ciel. Le transfert entre sous-budgets est permis seulement si la réserve et le total restent intacts. La DR ne prescrit donc pas un nombre de polygones arbitraire ; elle prescrit ce qui doit rester visible après optimisation : tranche, joint, rugosité, ombre et incrustation.
 
 ## 4. Mémoire et média
 
@@ -90,8 +90,9 @@ Pour chaque vue obligatoire, la future IR reproduit exactement le viewport de DR
 8. diff avec la référence DR ;
 9. justification de tout écart ;
 10. signature visuelle ou retour précis.
+11. audit éditorial : chaque phrase a une fonction, aucune répétition du titre, aucun remplissage ou mur de texte.
 
-Avant même cette IR, huit moodframes sourcés sont des preuves bloquantes de `DR-1 SIGNED` : accueil desktop/mobile, match-cut 3 s, révélation 10 s desktop/mobile, belvédère réel desktop/mobile et final geste + portrait. Une structure bien documentée sans ces images reste `DR-1 Candidate`.
+Les huit moodframes exigés avant l'IR sont livrés dans `11_MOODFRAMES_C3.md` : accueil desktop/mobile, raccord 3 s, révélation 10 s desktop/mobile, belvédère réel desktop/mobile et final monogramme + portrait. Les décors générés y sont déclarés comme tels ; ZIRIS reste une capture réelle. Ces vues restent candidates tant que Russel n'a pas donné son visa visuel. Leurs PNG et masters 4× sont des preuves de design, pas les médias de production, et ne sont donc pas comptés comme octets servis par la future application.
 
 ## 8. Images-clés auditées
 
@@ -108,5 +109,5 @@ Minimum : 0, 3, 6 et 10 secondes ; SOURCE code/germe/allumage ; six poses `readi
 
 ## 10. Arbitrage en cas de dépassement
 
-Ordre de réduction : DPR → nombre d'effets secondaires → densité de jetons SOURCE → longueur de traînée → parallaxe → résolution de texture hors sujet → nombre de stems. Ne jamais réduire d'abord : portrait utile, vraie interface, preuve, contraste, focus, texte, sous-titres, transcript, mode léger ou temps de lecture immobile.
+Tout remplissage éditorial est supprimé avant l'arbitrage technique. Ordre de réduction : DPR → nombre d'effets secondaires → densité de jetons SOURCE → longueur de traînée → parallaxe → résolution de texture hors sujet → nombre de stems. Ne jamais réduire d'abord : portrait utile, vraie interface, preuve, contraste, focus, texte utile et validé, sous-titres, transcript, mode léger ou temps de lecture immobile.
 

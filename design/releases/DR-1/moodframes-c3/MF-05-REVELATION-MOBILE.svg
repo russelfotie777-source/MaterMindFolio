@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+  <defs>
+    <style>@font-face{font-family:DMSans;src:url('../assets/type-previews/DM-Sans-opsz-wght.ttf')}.display,.sans{font-family:DMSans,Arial,sans-serif}.caps{letter-spacing:.12em}</style>
+    <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#0e0b17" stop-opacity=".24"/><stop offset=".6" stop-color="#0e0b17" stop-opacity=".04"/><stop offset="1" stop-color="#0e0b17" stop-opacity=".92"/></linearGradient>
+  </defs>
+  <rect width="390" height="844" fill="#0e0b17"/>
+  <image href="../assets/c3-upscaled/c3-lake-fuji-upscaled.png" width="390" height="844" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="390" height="844" fill="url(#shade)"/>
+  <text class="sans caps" x="20" y="38" font-size="9" font-weight="650" fill="#fff">00:10 · RÉVÉLATION</text>
+  <text class="sans" x="320" y="38" font-size="11" fill="#fff">Menu</text>
+
+  <path d="M54 82h266c32 0 50 18 50 52v108c0 34-18 54-54 54H68c-32 0-48-20-48-54V130c0-30 14-48 34-48z" fill="#fff"/>
+  <text class="sans caps" x="48" y="122" font-size="9" font-weight="650" fill="#5d17c7">SIX PROJETS · MÊME PLACE</text>
+  <text class="display" x="48" y="174" font-size="35" fill="#271859">Chaque projet</text>
+  <text class="display" x="48" y="213" font-size="35" fill="#271859">laisse une trace.</text>
+  <text class="sans" x="48" y="259" font-size="14" fill="#59358b">Touchez une étape ou continuez.</text>
+
+  <path d="M76 362c-7 16-23 30-23 48 0 17 10 30 23 36 13-6 23-19 23-36 0-18-16-32-23-48z" fill="#f06aa6"/>
+  <text class="sans caps" x="110" y="394" font-size="8" fill="#fff">SOLEIL · 3D</text>
+
+  <path d="M42 504C94 466 126 525 174 487s75-2 102 21 55-18 90-42" fill="none" stroke="#f06aa6" stroke-width="3" stroke-linecap="round"/>
+  <g class="sans" font-size="9" fill="#fff">
+    <g transform="translate(28 468)"><path d="M0 22l54-20 67 13-24 38-74 2z" fill="#323131" stroke="#f06aa6"/><text x="29" y="35">01</text></g>
+    <g transform="translate(92 528)"><path d="M0 22l54-20 67 13-24 38-74 2z" fill="#323131" stroke="#7e13e0"/><text x="29" y="35">02</text></g>
+    <g transform="translate(178 486)"><path d="M0 22l54-20 67 13-24 38-74 2z" fill="#323131" stroke="#1bda76"/><text x="29" y="35">03</text></g>
+    <g transform="translate(252 545)"><path d="M0 22l54-20 67 13-24 38-74 2z" fill="#402a87" stroke="#fff"/><text x="29" y="35">04</text></g>
+    <g transform="translate(118 622)"><path d="M0 22l54-20 67 13-24 38-74 2z" fill="#323131" stroke="#267cf3"/><text x="29" y="35">05</text></g>
+    <g transform="translate(228 666)"><path d="M0 22l54-20 67 13-24 38-74 2z" fill="#323131" stroke="#d728bf"/><text x="29" y="35">06</text></g>
+  </g>
+  <rect x="20" y="758" width="350" height="50" rx="25" fill="#5d17c7"/>
+  <text class="sans" x="195" y="789" text-anchor="middle" font-size="14" font-weight="650" fill="#fff">Continuer la visite</text>
+  <text class="sans caps" x="20" y="832" font-size="8" fill="#dbb4d1">PIERRES · VRAIE 3D À L'INTÉGRATION</text>
+</svg>

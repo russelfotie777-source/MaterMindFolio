@@ -27,6 +27,7 @@ Aucun spring, bounce, overshoot ou elastic n'entre dans la grammaire. Les transi
 - le panneau sort avant le mouvement ;
 - la caméra atteint `settled` avant l'entrée du nouveau panneau ;
 - le texte apparaît en un bloc ou deux niveaux maximum, sans cascade lettre par lettre ;
+- une vue porte une seule idée utile ; toute phrase est relue à voix haute et retirée si elle sonne comme un slogan générique ou une prose IA que Russel ne dirait pas ;
 - les médias non essentiels s'arrêtent hors écran et quand l'onglet est masqué ;
 - la timeline et le son se mettent en pause ensemble ;
 - un seek place immédiatement la scène sur une pose stable, puis reprend seulement sur action ;
@@ -62,24 +63,21 @@ Après le premier choix sonore, l'initialisation audio, la lecture et la caméra
 
 ## 5. Architecture créative du mix
 
-Les cinq couches créatives maximales utilisent seulement deux bus de contrôle runtime :
+Russel a refusé la narration. La visite utilise donc un seul bus sonore contrôlé au runtime :
 
 | Bus | Sources possibles | Règle |
 |---|---|---|
-| `voice` | voix réelle de Russel | jamais de chevauchement de phrases ; priorité du récit |
-| `bed` | musique, ambiance Base 237, feutre/clavier, impulsion solaire | sources prémixées par chapitre ou sommées vers le même bus ; aucun contrôle visiteur par stem |
+| `bed` | mélodie originale, ambiance Base 237, clavier, ponctuation du tracé et impulsion solaire | sources prémixées par chapitre ou sommées vers le même bus ; aucun contrôle visiteur par stem |
 
-La musique et l'ambiance ne nécessitent donc pas cinq bus. Si un chapitre exige un mix indépendant supplémentaire, il est prémixé avant publication ou fait l'objet d'un ADR, sans élargir silencieusement le runtime.
+Les lecteurs officiels des trois morceaux de référence restent des contenus tiers isolés, visibles et déclenchés au clic. Ils n'entrent ni dans `bed`, ni dans la timeline guidée. Leur fournisseur et leur CSP sont tranchés par ADR avant G2.
 
 ### Cibles
 
-- voix : environ **−16 LUFS** intégrés ;
 - true peak global : **≤ −1 dBTP** ;
-- sous la voix, le bus `bed` baisse suffisamment pour garder chaque mot intelligible ;
-- pendant la lecture d'une preuve dense, la musique disparaît ;
+- pendant la lecture d'une preuve, la musique disparaît ;
 - fondu de fond : **180 ms** nominal, dans la plage contractuelle 150–250 ms ;
-- voix : aucune crossfade ; rampe anti-clic **12 ms** au bord d'un segment ;
-- aucun son à chaque pas ; ponctuations rares et reliées à un geste réel ;
+- rampe anti-clic **12 ms** au bord d'un segment ;
+- aucun son à chaque pas ; ponctuations rares et reliées à une transition réelle ;
 - onglet masqué : son arrêté, reprise manuelle.
 
 ### Budgets
@@ -88,23 +86,23 @@ La musique et l'ambiance ne nécessitent donc pas cinq bus. Si un chapitre exige
 - visite complète, langue active : ≤ 2,5 Mo ;
 - audio PCM actif : cible ≤ 28 Mio ;
 - chapitres décodés juste à temps ;
-- sous-titres WebVTT et transcript HTML disponibles indépendamment de la lecture.
+- descriptions des cues sonores utiles en WebVTT et relevé HTML par chapitre, disponibles indépendamment de la lecture ; aucun locuteur fictif.
 
 ## 6. Cue sheet candidate
 
 Cette cue sheet fixe les intentions, pas une musique non encore autorisée.
 
-| Chapitre | Voix | Bed | Ponctuation | État sans source |
+| Chapitre | Narration | Bed | Ponctuation | État sans source |
 |---|---|---|---|---|
-| Ouverture | aucune par défaut | silence avant consentement | feutre au replay sonore | silence complet |
-| Base 237 | phrase personnelle validée | matin réel très bas | aucune | texte silencieux |
-| SOURCE | explication courte possible | lit tonal minimal | clavier isolé + impulsion | texte + silence |
-| Six projets | une phrase maximum par station ou aucune | musique baissée puis coupée sur preuve | aucune hiérarchie sonore | lecture silencieuse |
-| Compétences/comète | aucune nécessaire | lit continu discret | impulsion unique | silence |
-| Parcours/Ground Track | narration possible | ambiance sous la voix | aucune | texte silencieux |
-| Final | phrase réelle si enregistrée | résolution humaine | feutre très léger possible | portrait + texte |
+| Ouverture | aucune | silence avant consentement | ponctuation du tracé au replay sonore | silence complet |
+| Base 237 | aucune | matin réel très bas | aucune | texte silencieux |
+| SOURCE | aucune | lit tonal minimal | clavier isolé + impulsion | texte + silence |
+| Six projets | aucune | musique baissée puis coupée sur preuve | aucune hiérarchie sonore | lecture silencieuse |
+| Compétences/comète | aucune | lit continu discret | impulsion unique | silence |
+| Parcours/Ground Track | aucune | ambiance ou silence | aucune | texte silencieux |
+| Final | aucune | résolution humaine | rappel très léger du tracé | portrait + texte |
 
-Toute ligne voix ou musique reste `BLOCKED SOURCE` tant que Russel n'a pas validé voix, texte, auteur, licence et crédit.
+La narration est définitivement absente. Les autres lignes restent `PENDING SOURCE/RIGHTS` jusqu'au master, à l'auteur, à la licence, au crédit et au SHA consignés ; la visite silencieuse reste toujours complète.
 
 ## 7. Structure DOM et ordre de lecture
 
@@ -136,7 +134,7 @@ Le Canvas est décoratif, `aria-hidden`, sans élément focusable. Le nom, le ch
 
 - barre opaque basse, jamais glassmorphism ;
 - boutons directs : `Pause/Reprendre`, chapitre et progression ;
-- menu disclosure : précédent/suivant, quitter, volume, mute, sous-titres, transcript, Console, Approfondir, Résumé ;
+- menu disclosure : précédent/suivant, quitter, volume, mute, sons décrits, relevé audio, Console, Approfondir, Résumé ;
 - `button[aria-expanded]`, jamais `role="menu"` ;
 - libellé vocal complet de la progression, sans annonces à chaque seconde ;
 - commandes 44 × 44 px minimum, focus non masqué par la barre.
@@ -166,7 +164,7 @@ Le Canvas est décoratif, `aria-hidden`, sans élément focusable. Le nom, le ch
 - comète : carte factuelle datée, aucune région `aria-live` ;
 - erreurs : message lié au contrôle concerné ; aucune annonce répétée ;
 - nouvelle fenêtre : annoncée dans le nom accessible ou le texte adjacent ;
-- transcript structuré par chapitre avec locuteur et repères utiles, sans timecodes bavards.
+- relevé audio structuré par chapitre avec les cues significatifs, sans locuteur fictif ni timecodes bavards.
 
 ## 10. Clavier et focus
 

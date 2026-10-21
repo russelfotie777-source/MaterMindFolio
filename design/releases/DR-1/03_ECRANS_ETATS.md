@@ -15,27 +15,27 @@ Statuts de planche :
 
 | # | Famille | Desktop | Mobile | Reduced | Sans WebGL / JS incomplet | État actuel |
 |---:|---|---|---|---|---|---|
-| 1 | Accueil / Base 237 | identité + portrait + monde | tableau vertical | image fixe | HTML complet + poster | `PENDING SOURCE` |
-| 2 | Choix d'entrée sonore | panneau modal | feuille basse / dialogue | identique | DOM natif | `LOCKED` structure |
-| 3 | SOURCE | code → germe → monde | 3 plans lisibles | 3 images fixes | figure + code + 3 images | `BLOCKED` extrait |
-| 4 | Promenade | scène + index + player | tableaux 2.5D | index manuel | posters + index DOM | `PENDING SOURCE` |
-| 5 | Belvédère projet | média 7/12 + preuve 5/12 | média puis preuve | vue fixe | média HTML + contenu | `BLOCKED` six CR-0 |
-| 6 | Étude de cas | grille éditoriale | lecture linéaire | N/A | route SSR complète | `BLOCKED` six CR-0 |
-| 7 | Compétences / comète | 4 domaines + trace | plaque verticale | carte datée | carte statique | `BLOCKED` preuves/snapshot |
-| 8 | Console de fabrication | dialogue minéral | dialogue plein écran | identique | catalogue de liens | `LOCKED` structure |
-| 9 | Parcours | chronologie + responsabilités | liste chronologique | fixe | HTML complet | `BLOCKED` faits |
-| 10 | Ground Track | Terre + liste | carte légère + liste | fixe | raster + liste | `BLOCKED` lieux |
-| 11 | Résumé recruteur | lecture écran | lecture mobile | N/A | HTML + impression A4 | `BLOCKED` faits/CV |
-| 12 | Final / Open Channel | geste + portrait + actions | tableau final | fixe | image + actions | `BLOCKED` geste/portrait |
-| 13 | Sources & fabrication | registre éditorial | tables reflow | N/A | HTML complet | `PENDING RIGHTS` |
-| 14 | États système | voir section 4 | voir section 4 | selon état | selon état | `SPECIFIED` |
-| 15 | Mobile / reduced motion | axe de validation | séquence complète | séquence complète | combinaisons testées | `SPECIFIED` |
+| 1 | Accueil / Base 237 | identité + portrait détouré + monde | tableau vertical | image fixe | HTML complet + poster | `C3 COVERAGE READY FOR VISA` |
+| 2 | Choix d'entrée sonore | panneau modal | feuille basse / dialogue | identique | DOM natif | `C3 COVERAGE READY FOR VISA` |
+| 3 | SOURCE | code → germe → monde | 3 plans lisibles | 3 images fixes | figure + code + 3 images | `C3 COVERAGE READY` · valeurs exactes en G5 |
+| 4 | Promenade | scène 3D + index + player | tableaux 2.5D | index manuel | posters + index DOM | `C3 COVERAGE READY FOR VISA` |
+| 5 | Belvédère projet | média 7/12 + preuve 5/12 | média puis preuve | vue fixe | média HTML + contenu | six médias C3 validés · parité prête |
+| 6 | Étude de cas | grille éditoriale | lecture linéaire | N/A | route SSR complète | CR-0 validées · parité prête |
+| 7 | Compétences / comète | 4 domaines + trace | plaque verticale | carte datée | carte statique | `C3 COVERAGE READY` · snapshot exact en G5 |
+| 8 | Console de fabrication | dialogue minéral | dialogue plein écran | identique | catalogue de liens | `C3 COVERAGE READY FOR VISA` |
+| 9 | Parcours | chronologie + responsabilités | liste chronologique | fixe | HTML complet | chronologie produit validée · anciens postes exclus |
+| 10 | Ground Track | Terre + liste | carte légère + liste | fixe | raster + liste | territoires validés · couverture prête |
+| 11 | Résumé recruteur | lecture écran | lecture mobile | N/A | HTML + impression A4 | vues prêtes · PDF CV séparé en attente |
+| 12 | Final / Contact | monogramme + portrait détouré + actions | tableau final | fixe | image + actions | `C3 COVERAGE READY FOR VISA` |
+| 13 | Sources & fabrication | registre éditorial | tables reflow | N/A | HTML complet | `C3 COVERAGE READY FOR VISA` |
+| 14 | États système | voir section 4 | voir section 4 | selon état | selon état | 22 vues rendues |
+| 15 | Mobile / reduced motion | axe de validation | séquence complète | séquence complète | combinaisons testées | 2 séquences rendues |
 
 `N/A` ne signifie jamais « oublié » : la justification est que l'écran est déjà statique et n'utilise aucune animation essentielle.
 
 ## 3. Registre minimum des vues de DR-1
 
-La future release signable comprend au minimum **65 vues de contrôle** :
+La Candidate 3.1 comprend désormais les **65 vues de contrôle** ci-dessous, rendues en SVG et PNG dans `control-views-c3/`. La correction organique du 21 octobre 2026 est appliquée ; leur couverture attend le visa de Russel :
 
 | ID | Famille | Vues |
 |---|---|---:|
@@ -65,7 +65,7 @@ La future release signable comprend au minimum **65 vues de contrôle** :
 | Contenu optionnel absent | le module est omis et la grille se referme | aucun `À venir`, squelette permanent ou tiret ambigu |
 | Erreur immersive | DOM utile intact ; `Réessayer` + `Continuer en version légère` | aucun cul-de-sac plein écran |
 | WebGL indisponible | libellé discret `Version légère active` | mêmes faits, preuves, routes et actions |
-| Média projet absent | preuve, rôle et lien restent ; aucune boîte vide | l'absence ne réduit pas artificiellement la dignité du projet ; sans CR-0, G1 bloque |
+| Média projet absent | preuve, rôle et lien restent ; aucune boîte vide | l'absence ne réduit pas artificiellement la dignité du projet ; sans CR-0 visée, G1 bloque |
 | Snapshot périmé | `Dernière trace publique vérifiée le [date]` | jamais `live`, aucun `aria-live`, aucune disparition silencieuse |
 | Audio bloqué | visite continue en silence ; bouton `Activer le son` dans le player | aucune modale bloquante ni redémarrage |
 | Lien externe | visite pause et état mémorisé ; nouvel onglet annoncé dans le nom accessible | aucune confirmation modale inutile |
@@ -89,7 +89,6 @@ Les quinze familles ne couvrent pas explicitement toutes les routes. DR-1 spéci
 | `not-found` / 404 | message clair + projets, résumé, contact ; sans Canvas requis |
 | `error` | erreur locale, reprise ou route alternative, identifiant non sensible |
 | `global-error` | coque minimale compatible CSP, sans dépendre des styles de page défaillants |
-| sélecteur FR/EN éventuel | conserve route et chapitre ; apparaît seulement si Q6 confirme deux langues |
 
 ## 6. Wireframes fonctionnels
 
@@ -99,12 +98,12 @@ Les quinze familles ne couvrent pas explicitement toutes les routes. DR-1 spéci
 ┌────────────────────────────────────────────────────────────────────┐
 │ Aller au contenu                         Résumé · CV · Contact      │
 │                                                                    │
-│ [ PORTRAIT RÉEL 4:5 ]   MASTERMIND                                │
-│ [ 35–45 % utile     ]   [Rôle validé] · Cameroun                  │
+│ [ PORTRAIT DÉTOURÉ  ]   MASTERMIND                                │
+│ [ visage inchangé   ]   [Rôle validé] · Cameroun · Douala        │
 │ [ aucun texte dessus]   Le code est la base. L'humain…            │
 │                         [Commencer] [Explorer librement]           │
 │                                                                    │
-│ ═ tranche minérale / limbe réel — aperçu non bloquant ═           │
+│ ═ basalte 3D / horizon japonais — aperçu non bloquant ═           │
 └────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -149,9 +148,11 @@ Titre : `Comment souhaitez-vous entrer ?`
 
 Actions de même poids : `Entrer avec le son — recommandé` et `Continuer en silence`. Le mot « recommandé » donne le contexte sans diminuer le contraste, la taille ou l'ordre clavier du choix silencieux. Une fermeture visible revient à l'image fixe.
 
+Les trois morceaux cités comme références ne figurent jamais dans ce choix ni dans le player de visite. Leurs lecteurs officiels vivent uniquement dans `Sources & fabrication`, après un court texte expliquant qu'ils ont inspiré l'émotion sans être utilisés ni imités. Ils restent isolés, inactifs avant clic et remplacés par des liens simples si l'ADR fournisseur échoue.
+
 ### Console
 
-Plaque minérale claire, jamais terminal noir. Titre accessible, explication, champ/zone de commande, suggestions visibles et résultat en langage courant avec vrais liens. Sur mobile, l'ouverture plein écran ne masque pas le bouton de fermeture quand le clavier logiciel est présent.
+Plaque minérale claire ou encre/violet profond selon le chapitre, jamais terminal noir cliché. Titre accessible, explication courte, champ/zone de commande, suggestions visibles et résultat en langage courant avec vrais liens. Sur mobile, l'ouverture plein écran ne masque pas le bouton de fermeture quand le clavier logiciel est présent.
 
 ### Résumé recruteur
 

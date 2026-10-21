@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+  <defs>
+    <style>@font-face{font-family:DMSans;src:url('../assets/type-previews/DM-Sans-opsz-wght.ttf')}.display,.sans{font-family:DMSans,Arial,sans-serif}.caps{letter-spacing:.12em}</style>
+    <linearGradient id="topVeil" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#0e0b17" stop-opacity=".16"/><stop offset=".72" stop-color="#0e0b17" stop-opacity=".08"/><stop offset="1" stop-color="#0e0b17"/></linearGradient>
+  </defs>
+  <rect width="390" height="844" fill="#0e0b17"/>
+  <image href="../assets/c3-upscaled/c3-dawn-fuji-upscaled.png" width="390" height="470" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="390" height="470" fill="url(#topVeil)"/>
+  <text class="sans caps" x="20" y="38" font-size="10" font-weight="650" fill="#fff">HORIZON 237</text>
+  <text class="sans" x="316" y="38" font-size="11" fill="#fff">Menu</text>
+  <image href="../../../magnific__background__71841.png" x="76" y="60" width="286" height="410" preserveAspectRatio="xMidYMid meet"/>
+  <path d="M0 466c84-22 158 15 244-6s102-23 146-37v54H0z" fill="#0e0b17"/>
+  <path d="M26 463c74-13 126 12 197-4" fill="none" stroke="#f06aa6" stroke-width="3" stroke-linecap="round"/>
+
+  <g transform="translate(20 500)">
+    <text class="sans caps" x="0" y="0" font-size="10" font-weight="650" fill="#dbb4d1">SOFTWARE ENGINEER · DOUALA</text>
+    <text class="display" x="0" y="66" font-size="52" font-weight="500" fill="#fff">MASTER</text>
+    <text class="display" x="0" y="113" font-size="52" font-weight="500" fill="#fff">MIND</text>
+    <text class="sans" x="0" y="151" font-size="16" fill="#fff">Je construis des produits qui tiennent</text>
+    <text class="sans" x="0" y="174" font-size="16" fill="#fff">dans le réel.</text>
+    <rect x="0" y="202" width="350" height="54" rx="27" fill="#fff"/>
+    <text class="sans" x="175" y="235" text-anchor="middle" font-size="15" font-weight="650" fill="#271859">Commencer la visite</text>
+    <rect x="0" y="268" width="350" height="50" rx="25" fill="#5d17c7"/>
+    <text class="sans" x="175" y="299" text-anchor="middle" font-size="14" font-weight="650" fill="#fff">Explorer librement</text>
+  </g>
+  <circle cx="22" cy="824" r="3" fill="#f06aa6"/><circle cx="38" cy="824" r="3" fill="#dbb4d1"/><circle cx="54" cy="824" r="3" fill="#dbb4d1"/>
+</svg>

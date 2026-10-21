@@ -1,0 +1,593 @@
+{
+  "release": "DR-1-C3",
+  "visualRevision": "C3.2-organic-sparse-drop",
+  "count": 65,
+  "generatedAt": "2026-10-21",
+  "views": [
+    {
+      "id": "A01-01",
+      "family": "accueil",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A01-01-accueil-desktop.svg",
+      "png": "A01-01-accueil-desktop.png"
+    },
+    {
+      "id": "A01-02",
+      "family": "accueil",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A01-02-accueil-mobile.svg",
+      "png": "A01-02-accueil-mobile.png"
+    },
+    {
+      "id": "A02-01",
+      "family": "choix-sonore",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A02-01-choix-sonore-desktop.svg",
+      "png": "A02-01-choix-sonore-desktop.png"
+    },
+    {
+      "id": "A02-02",
+      "family": "choix-sonore",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A02-02-choix-sonore-mobile.svg",
+      "png": "A02-02-choix-sonore-mobile.png"
+    },
+    {
+      "id": "A03-01",
+      "family": "source",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A03-01-source-desktop.svg",
+      "png": "A03-01-source-desktop.png"
+    },
+    {
+      "id": "A03-02",
+      "family": "source",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A03-02-source-mobile.svg",
+      "png": "A03-02-source-mobile.png"
+    },
+    {
+      "id": "A03-03",
+      "family": "source",
+      "variant": "reduced",
+      "width": 1440,
+      "height": 900,
+      "svg": "A03-03-source-reduced.svg",
+      "png": "A03-03-source-reduced.png"
+    },
+    {
+      "id": "A03-04",
+      "family": "source",
+      "variant": "no-webgl",
+      "width": 1440,
+      "height": 900,
+      "svg": "A03-04-source-no-webgl.svg",
+      "png": "A03-04-source-no-webgl.png"
+    },
+    {
+      "id": "A04-01",
+      "family": "promenade",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A04-01-promenade-desktop.svg",
+      "png": "A04-01-promenade-desktop.png"
+    },
+    {
+      "id": "A04-02",
+      "family": "promenade",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A04-02-promenade-mobile.svg",
+      "png": "A04-02-promenade-mobile.png"
+    },
+    {
+      "id": "A04-03",
+      "family": "promenade",
+      "variant": "reduced",
+      "width": 1440,
+      "height": 900,
+      "svg": "A04-03-promenade-reduced.svg",
+      "png": "A04-03-promenade-reduced.png"
+    },
+    {
+      "id": "A04-04",
+      "family": "promenade",
+      "variant": "no-webgl",
+      "width": 1440,
+      "height": 900,
+      "svg": "A04-04-promenade-no-webgl.svg",
+      "png": "A04-04-promenade-no-webgl.png"
+    },
+    {
+      "id": "A05-01",
+      "family": "belvedere-neutre",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A05-01-belvedere-neutre-desktop.svg",
+      "png": "A05-01-belvedere-neutre-desktop.png"
+    },
+    {
+      "id": "A05-02",
+      "family": "belvedere-neutre",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A05-02-belvedere-neutre-mobile.svg",
+      "png": "A05-02-belvedere-neutre-mobile.png"
+    },
+    {
+      "id": "A05-03",
+      "family": "belvedere-neutre",
+      "variant": "reduced",
+      "width": 1440,
+      "height": 900,
+      "svg": "A05-03-belvedere-neutre-reduced.svg",
+      "png": "A05-03-belvedere-neutre-reduced.png"
+    },
+    {
+      "id": "A05-04",
+      "family": "belvedere-neutre",
+      "variant": "no-webgl",
+      "width": 1440,
+      "height": 900,
+      "svg": "A05-04-belvedere-neutre-no-webgl.svg",
+      "png": "A05-04-belvedere-neutre-no-webgl.png"
+    },
+    {
+      "id": "A06-01",
+      "family": "etude-de-cas",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A06-01-etude-de-cas-desktop.svg",
+      "png": "A06-01-etude-de-cas-desktop.png"
+    },
+    {
+      "id": "A06-02",
+      "family": "etude-de-cas",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A06-02-etude-de-cas-mobile.svg",
+      "png": "A06-02-etude-de-cas-mobile.png"
+    },
+    {
+      "id": "A06-03",
+      "family": "etude-de-cas",
+      "variant": "print",
+      "width": 1240,
+      "height": 1754,
+      "svg": "A06-03-etude-de-cas-print.svg",
+      "png": "A06-03-etude-de-cas-print.png"
+    },
+    {
+      "id": "A07-01",
+      "family": "competences-comete",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A07-01-competences-comete-desktop.svg",
+      "png": "A07-01-competences-comete-desktop.png"
+    },
+    {
+      "id": "A07-02",
+      "family": "competences-comete",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A07-02-competences-comete-mobile.svg",
+      "png": "A07-02-competences-comete-mobile.png"
+    },
+    {
+      "id": "A07-03",
+      "family": "competences-comete",
+      "variant": "reduced",
+      "width": 1440,
+      "height": 900,
+      "svg": "A07-03-competences-comete-reduced.svg",
+      "png": "A07-03-competences-comete-reduced.png"
+    },
+    {
+      "id": "A07-04",
+      "family": "competences-comete",
+      "variant": "no-webgl",
+      "width": 1440,
+      "height": 900,
+      "svg": "A07-04-competences-comete-no-webgl.svg",
+      "png": "A07-04-competences-comete-no-webgl.png"
+    },
+    {
+      "id": "A08-01",
+      "family": "console",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A08-01-console-desktop.svg",
+      "png": "A08-01-console-desktop.png"
+    },
+    {
+      "id": "A08-02",
+      "family": "console",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A08-02-console-mobile.svg",
+      "png": "A08-02-console-mobile.png"
+    },
+    {
+      "id": "A08-03",
+      "family": "console",
+      "variant": "no-js",
+      "width": 1440,
+      "height": 900,
+      "svg": "A08-03-console-no-js.svg",
+      "png": "A08-03-console-no-js.png"
+    },
+    {
+      "id": "A09-01",
+      "family": "parcours",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A09-01-parcours-desktop.svg",
+      "png": "A09-01-parcours-desktop.png"
+    },
+    {
+      "id": "A09-02",
+      "family": "parcours",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A09-02-parcours-mobile.svg",
+      "png": "A09-02-parcours-mobile.png"
+    },
+    {
+      "id": "A10-01",
+      "family": "ground-track",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A10-01-ground-track-desktop.svg",
+      "png": "A10-01-ground-track-desktop.png"
+    },
+    {
+      "id": "A10-02",
+      "family": "ground-track",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A10-02-ground-track-mobile.svg",
+      "png": "A10-02-ground-track-mobile.png"
+    },
+    {
+      "id": "A10-03",
+      "family": "ground-track",
+      "variant": "reduced",
+      "width": 1440,
+      "height": 900,
+      "svg": "A10-03-ground-track-reduced.svg",
+      "png": "A10-03-ground-track-reduced.png"
+    },
+    {
+      "id": "A10-04",
+      "family": "ground-track",
+      "variant": "no-webgl",
+      "width": 1440,
+      "height": 900,
+      "svg": "A10-04-ground-track-no-webgl.svg",
+      "png": "A10-04-ground-track-no-webgl.png"
+    },
+    {
+      "id": "A11-01",
+      "family": "resume-recruteur",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A11-01-resume-recruteur-desktop.svg",
+      "png": "A11-01-resume-recruteur-desktop.png"
+    },
+    {
+      "id": "A11-02",
+      "family": "resume-recruteur",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A11-02-resume-recruteur-mobile.svg",
+      "png": "A11-02-resume-recruteur-mobile.png"
+    },
+    {
+      "id": "A11-03",
+      "family": "resume-recruteur",
+      "variant": "print",
+      "width": 1240,
+      "height": 1754,
+      "svg": "A11-03-resume-recruteur-print.svg",
+      "png": "A11-03-resume-recruteur-print.png"
+    },
+    {
+      "id": "A12-01",
+      "family": "final",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A12-01-final-desktop.svg",
+      "png": "A12-01-final-desktop.png"
+    },
+    {
+      "id": "A12-02",
+      "family": "final",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A12-02-final-mobile.svg",
+      "png": "A12-02-final-mobile.png"
+    },
+    {
+      "id": "A12-03",
+      "family": "final",
+      "variant": "reduced",
+      "width": 1440,
+      "height": 900,
+      "svg": "A12-03-final-reduced.svg",
+      "png": "A12-03-final-reduced.png"
+    },
+    {
+      "id": "A12-04",
+      "family": "final",
+      "variant": "no-webgl",
+      "width": 1440,
+      "height": 900,
+      "svg": "A12-04-final-no-webgl.svg",
+      "png": "A12-04-final-no-webgl.png"
+    },
+    {
+      "id": "A13-01",
+      "family": "sources-fabrication",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A13-01-sources-fabrication-desktop.svg",
+      "png": "A13-01-sources-fabrication-desktop.png"
+    },
+    {
+      "id": "A13-02",
+      "family": "sources-fabrication",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A13-02-sources-fabrication-mobile.svg",
+      "png": "A13-02-sources-fabrication-mobile.png"
+    },
+    {
+      "id": "A14-01",
+      "family": "etat-loading",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A14-01-etat-loading-desktop.svg",
+      "png": "A14-01-etat-loading-desktop.png"
+    },
+    {
+      "id": "A14-02",
+      "family": "etat-loading",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A14-02-etat-loading-mobile.svg",
+      "png": "A14-02-etat-loading-mobile.png"
+    },
+    {
+      "id": "A14-03",
+      "family": "etat-optional-absent",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A14-03-etat-optional-absent-desktop.svg",
+      "png": "A14-03-etat-optional-absent-desktop.png"
+    },
+    {
+      "id": "A14-04",
+      "family": "etat-optional-absent",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A14-04-etat-optional-absent-mobile.svg",
+      "png": "A14-04-etat-optional-absent-mobile.png"
+    },
+    {
+      "id": "A14-05",
+      "family": "etat-immersive-error",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A14-05-etat-immersive-error-desktop.svg",
+      "png": "A14-05-etat-immersive-error-desktop.png"
+    },
+    {
+      "id": "A14-06",
+      "family": "etat-immersive-error",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A14-06-etat-immersive-error-mobile.svg",
+      "png": "A14-06-etat-immersive-error-mobile.png"
+    },
+    {
+      "id": "A14-07",
+      "family": "etat-webgl-unavailable",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A14-07-etat-webgl-unavailable-desktop.svg",
+      "png": "A14-07-etat-webgl-unavailable-desktop.png"
+    },
+    {
+      "id": "A14-08",
+      "family": "etat-webgl-unavailable",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A14-08-etat-webgl-unavailable-mobile.svg",
+      "png": "A14-08-etat-webgl-unavailable-mobile.png"
+    },
+    {
+      "id": "A14-09",
+      "family": "etat-media-absent",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A14-09-etat-media-absent-desktop.svg",
+      "png": "A14-09-etat-media-absent-desktop.png"
+    },
+    {
+      "id": "A14-10",
+      "family": "etat-media-absent",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A14-10-etat-media-absent-mobile.svg",
+      "png": "A14-10-etat-media-absent-mobile.png"
+    },
+    {
+      "id": "A14-11",
+      "family": "etat-snapshot-stale",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A14-11-etat-snapshot-stale-desktop.svg",
+      "png": "A14-11-etat-snapshot-stale-desktop.png"
+    },
+    {
+      "id": "A14-12",
+      "family": "etat-snapshot-stale",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A14-12-etat-snapshot-stale-mobile.svg",
+      "png": "A14-12-etat-snapshot-stale-mobile.png"
+    },
+    {
+      "id": "A14-13",
+      "family": "etat-audio-blocked",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A14-13-etat-audio-blocked-desktop.svg",
+      "png": "A14-13-etat-audio-blocked-desktop.png"
+    },
+    {
+      "id": "A14-14",
+      "family": "etat-audio-blocked",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A14-14-etat-audio-blocked-mobile.svg",
+      "png": "A14-14-etat-audio-blocked-mobile.png"
+    },
+    {
+      "id": "A14-15",
+      "family": "etat-external-link",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A14-15-etat-external-link-desktop.svg",
+      "png": "A14-15-etat-external-link-desktop.png"
+    },
+    {
+      "id": "A14-16",
+      "family": "etat-external-link",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A14-16-etat-external-link-mobile.svg",
+      "png": "A14-16-etat-external-link-mobile.png"
+    },
+    {
+      "id": "A14-17",
+      "family": "etat-contact-failure",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A14-17-etat-contact-failure-desktop.svg",
+      "png": "A14-17-etat-contact-failure-desktop.png"
+    },
+    {
+      "id": "A14-18",
+      "family": "etat-contact-failure",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A14-18-etat-contact-failure-mobile.svg",
+      "png": "A14-18-etat-contact-failure-mobile.png"
+    },
+    {
+      "id": "A14-19",
+      "family": "etat-offline",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A14-19-etat-offline-desktop.svg",
+      "png": "A14-19-etat-offline-desktop.png"
+    },
+    {
+      "id": "A14-20",
+      "family": "etat-offline",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A14-20-etat-offline-mobile.svg",
+      "png": "A14-20-etat-offline-mobile.png"
+    },
+    {
+      "id": "A14-21",
+      "family": "etat-resume",
+      "variant": "desktop",
+      "width": 1440,
+      "height": 900,
+      "svg": "A14-21-etat-resume-desktop.svg",
+      "png": "A14-21-etat-resume-desktop.png"
+    },
+    {
+      "id": "A14-22",
+      "family": "etat-resume",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A14-22-etat-resume-mobile.svg",
+      "png": "A14-22-etat-resume-mobile.png"
+    },
+    {
+      "id": "A15-01",
+      "family": "sequence",
+      "variant": "mobile",
+      "width": 390,
+      "height": 844,
+      "svg": "A15-01-sequence-mobile.svg",
+      "png": "A15-01-sequence-mobile.png"
+    },
+    {
+      "id": "A15-02",
+      "family": "sequence",
+      "variant": "reduced",
+      "width": 1440,
+      "height": 900,
+      "svg": "A15-02-sequence-reduced.svg",
+      "png": "A15-02-sequence-reduced.png"
+    }
+  ]
+}
