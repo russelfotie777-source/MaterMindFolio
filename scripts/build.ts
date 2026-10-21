@@ -3,7 +3,8 @@
 // dans chaque page HTML prérendue et leurs empreintes SHA-256 sont écrites dans .next-csp/.
 // Passe 2 : build identique, next.config.ts ajoute ces empreintes à script-src.
 // Contrôle : les empreintes de la passe 2 doivent être exactement celles de la passe 1.
-// Garde : aucun module réservé au serveur (Zod, parseur Markdown) dans les chunks clients.
+// Gardes : aucun module réservé au serveur (Zod, parseur Markdown) dans les chunks clients, et aucun
+// fait privé dans le HTML, les données RSC ou les chunks clients (docs/architecture/SCHEMAS_G1.md, section 5).
 import { execFileSync } from 'node:child_process';
 import { createHash, randomUUID } from 'node:crypto';
 import { mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
@@ -20,6 +21,39 @@ function files(dir: string, extension: string): string[] {
     if (entry.isDirectory()) return files(path, extension);
     return entry.name.endsWith(extension) ? [path] : [];
   });
+}
+
+type Json = null | boolean | number | string | Json[] | { [key: string]: Json };
+
+function strings(value: Json): string[] {
+  if (typeof value === 'string') return [value];
+  if (value === null || typeof value !== 'object') return [];
+  return (Array.isArray(value) ? value : Object.values(value)).flatMap(strings);
+}
+
+// Textes des faits privés, sous leurs formes brute, échappée JSON (données RSC) et échappée HTML.
+// Les textes courts sont ignorés : un prénom isolé apparaîtrait ailleurs sans être une fuite.
+function privateTexts(): string[] {
+  const texts = files('content/facts', '.json').flatMap((file) => {
+    const { facts } = JSON.parse(readFileSync(file, 'utf8')) as {
+      facts: Record<string, { visibility: string; value: Json }>;
+    };
+    return Object.values(facts).flatMap((fact) => (fact.visibility === 'private' ? strings(fact.value) : []));
+  });
+  const html = (text: string) =>
+    text
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll("'", '&#x27;')
+      .replaceAll('"', '&quot;');
+  return [
+    ...new Set(
+      texts
+        .filter((text) => text.length >= 8)
+        .flatMap((text) => [text, JSON.stringify(text).slice(1, -1), html(text)]),
+    ),
+  ];
 }
 
 function inlineScriptHashes(): string[] {
@@ -63,3 +97,19 @@ if (leaks.length > 0) {
   process.exit(1);
 }
 console.log('Chunks clients : aucun module réservé au serveur.');
+
+const secrets = privateTexts();
+const published = [
+  ...files('.next/server/app', '.html'),
+  ...files('.next/server/app', '.rsc'),
+  ...files('.next/static', '.js'),
+];
+const exposed = published.flatMap((file) => {
+  const content = readFileSync(file, 'utf8');
+  return secrets.filter((text) => content.includes(text)).map((text) => `${file} : « ${text} »`);
+});
+if (exposed.length > 0) {
+  console.error(`Fait privé publié :\n${exposed.join('\n')}\nBuild refusé.`);
+  process.exit(1);
+}
+console.log(`Faits privés : aucun des ${secrets.length} textes contrôlés n'est publié.`);
