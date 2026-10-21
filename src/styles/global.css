@@ -3,6 +3,15 @@
    les points de rupture des jetons (768 px tablette, 1280 px desktop compact) : CSS n'y lit pas de variable. */
 @layer base;
 
+/* DM Sans variable (opsz 9–40, wght 400–600), sous-ensemble français auto-hébergé : scripts/font-subset.sh. */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/fonts/dm-sans-fr-58cee3ce.woff2') format('woff2');
+}
+
 @layer base {
   :root {
     color-scheme: dark;

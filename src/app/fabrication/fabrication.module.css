@@ -1,7 +1,10 @@
+.bloc {
+  margin-block-start: var(--space-12);
+}
+
 .registre {
   display: grid;
-  gap: var(--space-10) var(--grid-desktop-gutter);
-  margin-block-start: var(--space-12);
+  gap: var(--space-8) var(--grid-desktop-gutter);
   font-size: var(--font-size-proof);
   line-height: var(--font-line-height-proof);
 }

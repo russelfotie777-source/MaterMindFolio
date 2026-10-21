@@ -48,7 +48,14 @@ const nextConfig: NextConfig = {
     sri: { algorithm: 'sha256' },
   },
   async headers() {
-    return [{ source: '/:path*', headers: securityHeaders }];
+    return [
+      { source: '/:path*', headers: securityHeaders },
+      // Seuls les fichiers dont le nom porte l'empreinte du contenu sont servis en cache immuable.
+      {
+        source: '/fonts/:file(dm-sans-fr-[0-9a-f]{8}\\.woff2)',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+    ];
   },
 };
 
