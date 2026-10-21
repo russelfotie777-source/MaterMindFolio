@@ -1,0 +1,13 @@
+.registre {
+  display: grid;
+  gap: var(--space-10) var(--grid-desktop-gutter);
+  margin-block-start: var(--space-12);
+  font-size: var(--font-size-proof);
+  line-height: var(--font-line-height-proof);
+}
+
+@media (min-width: 768px) {
+  .registre {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
