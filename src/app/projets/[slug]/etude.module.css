@@ -1,0 +1,53 @@
+.perimetre {
+  font-weight: var(--font-weight-editorial-display);
+}
+
+.preuve {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.preuve > span + span {
+  font-size: var(--font-size-proof);
+}
+
+/* Décisions et repères occupent toute la largeur, en colonnes sur grand écran. */
+.bandeau {
+  grid-column: 1 / -1;
+}
+
+.decisions,
+.reperes {
+  display: grid;
+  gap: var(--space-6) var(--grid-desktop-gutter);
+}
+
+@media (min-width: 768px) {
+  .decisions,
+  .reperes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .decisions,
+  .reperes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.reperes dt {
+  color: var(--texte-attenue);
+  font-size: var(--font-size-proof);
+  font-weight: var(--font-weight-interface-strong);
+}
+
+.suite {
+  margin-block-start: var(--space-8);
+}
+
+.suite a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-target-minimum);
+}

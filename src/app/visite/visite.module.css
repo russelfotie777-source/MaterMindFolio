@@ -1,0 +1,34 @@
+.stations {
+  display: grid;
+  gap: var(--space-6);
+  margin: var(--space-10) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Six stations de même surface : aucune n'est agrandie. */
+.station {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border-radius: var(--radius-organic-maximum) var(--radius-organic-minimum);
+  background: var(--color-surface-depth);
+}
+
+@media (min-width: 768px) {
+  .station {
+    padding: var(--space-10);
+  }
+}
+
+.nom {
+  font-size: var(--font-size-section-mobile);
+  font-weight: var(--font-weight-editorial);
+  line-height: var(--font-line-height-section);
+}
+
+@media (min-width: 768px) {
+  .nom {
+    font-size: var(--font-size-section);
+  }
+}

@@ -1,0 +1,184 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+
+import { LienExterne } from '@/components/LienExterne';
+import { formaterJour, formaterPeriode } from '@/lib/dates';
+import { lireProjet, lireProjets, SLUGS } from '@/lib/faits/projets';
+import { PLATEFORMES, rangSurSix } from '@/lib/libelles';
+import page from '@/styles/page.module.css';
+
+import styles from './etude.module.css';
+
+type Props = { params: Promise<{ slug: string }> };
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return SLUGS.map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const projet = lireProjet((await params).slug);
+  if (!projet) return {};
+  return {
+    title: projet.nom,
+    description: `${projet.nom} : ${projet.role}. Étude de cas ${rangSurSix(projet.rang)} du portfolio de MASTERMIND.`,
+    alternates: { canonical: `/projets/${projet.slug}` },
+  };
+}
+
+// Étude de cas (DR-1, vue A06), en lecture linéaire et sans JavaScript. Le média produit arrivera
+// avec le pipeline d'actifs ; en son absence, rôle, périmètre et preuve gardent toute la surface.
+export default async function EtudeDeCas({ params }: Props) {
+  const projet = lireProjet((await params).slug);
+  if (!projet) notFound();
+  const projets = lireProjets();
+  const precedent = projets[projet.rang - 2];
+  const suivant = projets[projet.rang];
+  const { organisation, equipe } = projet;
+
+  return (
+    <div className={page.cadre}>
+      <article className={page.plaque}>
+        <p className={page.etiquette}>Étude de cas · {rangSurSix(projet.rang)}</p>
+        <h1 className={page.titrePage}>{projet.nom}</h1>
+        <p className={page.lead}>{projet.role}</p>
+
+        <div className={page.grille}>
+          <section className={page.rubrique}>
+            <h2>Périmètre validé</h2>
+            <ul className={`${page.liste} ${styles.perimetre}`}>
+              {projet.perimetre.map((element) => (
+                <li key={element}>{element}</li>
+              ))}
+            </ul>
+          </section>
+
+          <section className={page.rubrique}>
+            <h2>Preuve publique</h2>
+            <ul className={page.liste}>
+              {projet.preuves.map((preuve) => (
+                <li key={preuve.libelle} className={styles.preuve}>
+                  <span className={page.fort}>
+                    {preuve.url ? (
+                      <LienExterne href={preuve.url}>{preuve.libelle}</LienExterne>
+                    ) : (
+                      preuve.libelle
+                    )}
+                  </span>
+                  <span className={page.attenue}>Vérifiée le {formaterJour(preuve.verifieeLe)}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {projet.decisions.length > 0 && (
+            <section className={`${page.rubrique} ${styles.bandeau}`}>
+              <h2>Décisions</h2>
+              <dl className={styles.decisions}>
+                {projet.decisions.map((decision) => (
+                  <div key={decision.titre}>
+                    <dt className={page.fort}>{decision.titre}</dt>
+                    <dd className={page.attenue}>{decision.raison}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          )}
+
+          <section className={`${page.rubrique} ${styles.bandeau}`}>
+            <h2>Repères</h2>
+            <dl className={styles.reperes}>
+              <div>
+                <dt>Statut</dt>
+                <dd>{projet.statut}</dd>
+              </div>
+              <div>
+                <dt>Période</dt>
+                <dd>
+                  {formaterPeriode(projet.periode)}
+                  {projet.periode.phases.length > 0 && (
+                    <ul className={page.liste}>
+                      {projet.periode.phases.map((phase) => (
+                        <li key={phase.libelle} className={page.attenue}>
+                          {phase.libelle} :{' '}
+                          {formaterPeriode({ ...phase, enCours: false, approximative: false })}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </dd>
+              </div>
+              <div>
+                <dt>Organisation</dt>
+                <dd>
+                  {organisation.nom} · {organisation.ville ? `${organisation.ville}, ` : ''}
+                  {organisation.pays}
+                </dd>
+              </div>
+              {equipe && (
+                <div>
+                  <dt>Équipe</dt>
+                  <dd>
+                    {equipe.taille !== null && (
+                      <>{equipe.taille > 1 ? `${equipe.taille} personnes` : '1 personne'}</>
+                    )}
+                    {equipe.note && <> · {equipe.note}</>}
+                    {equipe.membres.length > 0 && (
+                      <ul className={page.liste}>
+                        {equipe.membres.map((membre) => (
+                          <li key={membre.nom}>
+                            {membre.nom} : {membre.contribution}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </dd>
+                </div>
+              )}
+              <div>
+                <dt>Plateformes</dt>
+                <dd>{projet.plateformes.map((p) => PLATEFORMES[p]).join(' · ')}</dd>
+              </div>
+              <div>
+                <dt>Technologies</dt>
+                <dd>{projet.technologies.join(' · ')}</dd>
+              </div>
+              <div>
+                <dt>Liens</dt>
+                <dd>
+                  <ul className={page.liste}>
+                    {projet.liens.map((lien) => (
+                      <li key={lien.url}>
+                        <LienExterne href={lien.url}>{lien.libelle}</LienExterne>
+                      </li>
+                    ))}
+                  </ul>
+                </dd>
+              </div>
+            </dl>
+          </section>
+        </div>
+      </article>
+
+      <nav aria-label="Autres projets" className={styles.suite}>
+        <ul className={page.liste}>
+          {precedent && (
+            <li>
+              <Link href={`/projets/${precedent.slug}`}>Projet précédent : {precedent.nom}</Link>
+            </li>
+          )}
+          {suivant && (
+            <li>
+              <Link href={`/projets/${suivant.slug}`}>Projet suivant : {suivant.nom}</Link>
+            </li>
+          )}
+          <li>
+            <Link href="/projets">Les six projets</Link>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  );
+}

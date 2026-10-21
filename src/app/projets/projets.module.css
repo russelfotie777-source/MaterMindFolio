@@ -1,0 +1,53 @@
+.registre {
+  display: grid;
+  gap: var(--grid-mobile-reference-gutter);
+  margin: var(--space-10) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .registre {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--grid-tablet-gutter);
+  }
+}
+
+@media (min-width: 1280px) {
+  .registre {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--grid-desktop-gutter);
+  }
+}
+
+/* Cartes identiques : même surface, même ordre de lecture, la grille égalise les hauteurs. */
+.carte {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto auto;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border-radius: var(--radius-organic-minimum);
+  background: var(--color-surface-depth);
+  font-size: var(--font-size-proof);
+  line-height: var(--font-line-height-proof);
+}
+
+.nom {
+  font-size: var(--font-size-project-mobile);
+  font-weight: var(--font-weight-editorial-display);
+  line-height: var(--font-line-height-project);
+}
+
+@media (min-width: 768px) {
+  .nom {
+    font-size: var(--font-size-project);
+  }
+}
+
+.nom a {
+  text-decoration: none;
+}
+
+.nom a:hover {
+  text-decoration: underline;
+}
