@@ -72,6 +72,20 @@ test('clavier : le lien d’évitement mène au contenu', async ({ page, browser
   await expect(page.getByRole('link', { name: 'Commencer la visite' })).toBeFocused();
 });
 
+test('accueil : portrait et décor viennent des dérivés, en cache immuable', async ({ page, request }) => {
+  await page.goto('/');
+  const portrait = page.getByRole('img', { name: 'Portrait de MASTERMIND' });
+  await expect(portrait).toBeVisible();
+  await expect
+    .poll(() => portrait.evaluate((img: HTMLImageElement) => (img.complete ? img.naturalWidth : 0)))
+    .toBeGreaterThan(0);
+  const source = await portrait.evaluate((img: HTMLImageElement) => new URL(img.currentSrc).pathname);
+  expect(source).toMatch(/^\/media\/approved\/portrait-buste-\d+-[0-9a-f]{8}\.(avif|webp)$/);
+  expect((await request.get(source)).headers()['cache-control']).toContain('immutable');
+  // Le décor est décoratif : alt vide, hors de l'arbre d'accessibilité.
+  await expect(page.locator('img[src*="/media/approved/aube-"]')).toHaveAttribute('alt', '');
+});
+
 test('l’îlot « Copier l’adresse » est hydraté et annonce son résultat', async ({ page }) => {
   await page.goto('/contact');
   const statut = page.getByRole('status');
