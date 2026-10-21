@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 
+import pageStyles from '@/styles/page.module.css';
+
 type Etat = 'repos' | 'copiee' | 'echec';
 
 const messages: Record<Etat, string> = {
@@ -25,9 +27,11 @@ export function CopierAdresse({ adresse }: { adresse: string }) {
   }
 
   return (
-    <p>
-      <a href={`mailto:${adresse}`}>{adresse}</a>{' '}
-      <button type="button" onClick={copier}>
+    <p className={pageStyles.actions}>
+      <a className={pageStyles.fort} href={`mailto:${adresse}`}>
+        {adresse}
+      </a>{' '}
+      <button type="button" className={pageStyles.bouton} onClick={copier}>
         Copier l’adresse
       </button>{' '}
       <span role="status">{messages[etat]}</span>
