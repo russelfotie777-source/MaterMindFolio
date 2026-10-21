@@ -2,8 +2,10 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
+import { Copie } from '@/components/Copie';
 import { LienExterne } from '@/components/LienExterne';
 import { MediaProjet } from '@/components/MediaProjet';
+import { lireCopieProjet } from '@/lib/copie/projets';
 import { formaterJour, formaterPeriode } from '@/lib/dates';
 import { lireProjet, lireProjets, SLUGS } from '@/lib/faits/projets';
 import { PLATEFORMES, rangSurSix } from '@/lib/libelles';
@@ -38,6 +40,8 @@ export default async function EtudeDeCas({ params }: Props) {
   const precedent = projets[projet.rang - 2];
   const suivant = projets[projet.rang];
   const { organisation, equipe } = projet;
+  // Textes de Codex visés par Russel ; une section absente n'affiche rien.
+  const copie = lireCopieProjet(projet.slug);
 
   return (
     <div className={page.cadre}>
@@ -46,8 +50,19 @@ export default async function EtudeDeCas({ params }: Props) {
         <h1 className={page.titrePage}>{projet.nom}</h1>
         <p className={page.lead}>{projet.role}</p>
 
+        {copie.need && (
+          <section className={`${page.rubrique} ${styles.besoin}`}>
+            <h2>Besoin</h2>
+            <Copie arbre={copie.need} />
+          </section>
+        )}
+
         <div className={styles.belvedere}>
-          <MediaProjet slug={projet.slug} tailles="(min-width: 1280px) 42rem, 55vw" />
+          <MediaProjet
+            slug={projet.slug}
+            tailles="(min-width: 1280px) 42rem, 55vw"
+            legende={copie['product-caption'] && <Copie arbre={copie['product-caption']} />}
+          />
           <div className={styles.preuves}>
             <section className={page.rubrique}>
               <h2>Périmètre validé</h2>
@@ -79,6 +94,13 @@ export default async function EtudeDeCas({ params }: Props) {
         </div>
 
         <div className={page.grille}>
+          {copie['case-study'] && (
+            <section className={`${page.rubrique} ${styles.bandeau} ${styles.recit}`}>
+              <h2>Étude</h2>
+              <Copie arbre={copie['case-study']} />
+            </section>
+          )}
+
           {projet.decisions.length > 0 && (
             <section className={`${page.rubrique} ${styles.bandeau}`}>
               <h2>Décisions</h2>

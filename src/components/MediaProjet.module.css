@@ -28,3 +28,9 @@
     display: none;
   }
 }
+
+.legende {
+  margin-block-start: var(--space-3);
+  font-size: var(--font-size-proof);
+  line-height: var(--font-line-height-proof);
+}

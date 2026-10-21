@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+import { Copie } from '@/components/Copie';
 import { MediaProjet } from '@/components/MediaProjet';
+import { lireCopieProjet } from '@/lib/copie/projets';
 import { lireProjets } from '@/lib/faits/projets';
 import { PLATEFORMES, rangSurSix } from '@/lib/libelles';
 import page from '@/styles/page.module.css';
@@ -25,24 +27,32 @@ export default function Visite() {
       <p className={page.etiquette}>Visite · version légère</p>
       <h1 className={page.titrePage}>Six stations</h1>
       <ol className={styles.stations}>
-        {projets.map((projet) => (
-          <li key={projet.slug} className={styles.station}>
-            <div className={styles.texte}>
-              <p className={page.etiquette}>
-                {rangSurSix(projet.rang)} · {projet.plateformes.map((p) => PLATEFORMES[p]).join(' · ')}
-              </p>
-              <h2 className={styles.nom}>{projet.nom}</h2>
-              <p className={page.fort}>{projet.role}</p>
-              <p className={page.attenue}>{projet.perimetre.join(' · ')}</p>
-              <p>
-                <Link className={page.boutonClair} href={`/projets/${projet.slug}`}>
-                  Voir l’étude de cas<span className="visuellement-cache"> : {projet.nom}</span>
-                </Link>
-              </p>
-            </div>
-            <MediaProjet slug={projet.slug} tailles="(min-width: 1280px) 44rem, 55vw" />
-          </li>
-        ))}
+        {projets.map((projet) => {
+          const copie = lireCopieProjet(projet.slug);
+          return (
+            <li key={projet.slug} className={styles.station}>
+              <div className={styles.texte}>
+                <p className={page.etiquette}>
+                  {rangSurSix(projet.rang)} · {projet.plateformes.map((p) => PLATEFORMES[p]).join(' · ')}
+                </p>
+                <h2 className={styles.nom}>{projet.nom}</h2>
+                <p className={page.fort}>{projet.role}</p>
+                <p className={page.attenue}>{projet.perimetre.join(' · ')}</p>
+                {copie.decision && <Copie arbre={copie.decision} className={page.attenue} />}
+                <p>
+                  <Link className={page.boutonClair} href={`/projets/${projet.slug}`}>
+                    Voir l’étude de cas<span className="visuellement-cache"> : {projet.nom}</span>
+                  </Link>
+                </p>
+              </div>
+              <MediaProjet
+                slug={projet.slug}
+                tailles="(min-width: 1280px) 44rem, 55vw"
+                legende={copie['product-caption'] && <Copie arbre={copie['product-caption']} />}
+              />
+            </li>
+          );
+        })}
       </ol>
       <p className={page.actions}>
         <Link href="/">Retour à l’accueil</Link>

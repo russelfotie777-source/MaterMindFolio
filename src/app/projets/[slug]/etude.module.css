@@ -70,3 +70,15 @@
   align-items: center;
   min-height: var(--size-target-minimum);
 }
+
+.besoin {
+  max-width: 66ch;
+  margin-block-start: var(--space-10);
+}
+
+/* Corps éditorial : mesure de lecture de la DR-1 (45 à 66 caractères). */
+.recit > div {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 66ch;
+}
