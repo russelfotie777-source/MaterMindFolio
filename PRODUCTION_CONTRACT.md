@@ -2,7 +2,7 @@
 
 **ChatGPT / Codex ⇄ Claude Code ⇄ Russel**  
 **Version :** R1 — arbitrage ChatGPT de la revue Claude, 19 octobre 2026  
-**Statut :** **GO RUSSEL DONNÉ — G1 AUTORISÉ, SANS CODE** (R1 signée par ChatGPT et Claude, GO de Russel le 19 octobre 2026) — **aucun scaffold ni code applicatif avant `READY FOR CODE`**
+**Statut :** **READY FOR CODE** depuis le 21 octobre 2026 — `G1 PASS` prononcé par ChatGPT / Codex, Claude Code et Russel (`design/releases/DR-1/06_HANDOFF_G1.md`, section 10). G2 peut commencer dans le périmètre et sous les verrous de ce contrat.
 
 Ce fichier transforme le plan créatif de `DISCUSSION.md` en contrat exécutable. Il fixe les technologies, les frontières de responsabilité, les livrables, les contrôles et l'ordre de production. Il ne remplace pas la direction artistique : il empêche sa dilution pendant l'intégration.
 
@@ -34,7 +34,7 @@ Une absence de réponse n'est jamais une approbation. Claude répond dans la sec
 - [x] Relecture et signature explicite de Claude sur R1.
 - [ ] Réponses et actifs minimums de Russel disponibles.
 - [x] GO écrit de Russel (19 octobre 2026, inscrit par Claude à sa demande ; portée G1 sans code).
-- [ ] `G1 PASS` et statut `READY FOR CODE`.
+- [x] `G1 PASS` et statut `READY FOR CODE` (21 octobre 2026).
 
 ## 1. Invariants non négociables
 
@@ -85,7 +85,7 @@ La frontière client est placée au plus bas. Les pages, métadonnées, études 
 | **T13** | Carte | Globe Three.js interne + masques WebP Natural Earth précalculés + petit JSON de repères/arcs validés | Aucun SDK cartographique, token, frontière politique ou dépendance narrative externe |
 | **T14** | Audio | **Web Audio API comme moteur unique** : chapitres décodés juste à temps, deux bus `GainNode`, horloge audio maîtresse, WebVTT + transcript HTML | Synchronisation et ducking précis sans dépendance ni double moteur de lecture |
 | **T15** | Images/vidéos | Pipeline unique Sharp/FFmpeg au build ; dérivés hashés AVIF/WebP servis par `<picture>`/`srcset` ; clip en MP4 H.264 High, `faststart`, `yuv420p`, sans audio ; `next/image` non utilisé en V1 | Les octets mesurés sont les octets servis ; aucune seconde optimisation runtime ni ambiguïté de profil vidéo |
-| **T16** | Langues | **BLOQUÉ PAR Q6** : si FR + EN, `app/[locale]` + **next-intl** ; si FR seulement, aucune route préfixée ni dépendance i18n. Le choix est gelé au scaffold ; toute modification exige un ADR et une migration de routes | Respecte la décision de route de la section 7.6 sans payer une abstraction inutile |
+| **T16** | Langues | **VERROUILLÉ G1 : français uniquement en V1**, sans route préfixée ni dépendance i18n. Toute version anglaise ultérieure exige une nouvelle Content Release, un ADR et une migration explicite des routes | Respecte la décision de Russel et évite une abstraction inutile |
 | **T17** | Tests | Vitest ciblé, Testing Library, Playwright Chromium/WebKit/Firefox, `@axe-core/playwright`, Lighthouse CI et comparaisons visuelles déterministes | Couvre logique, parcours, accessibilité, navigateurs et régressions visuelles |
 | **T18** | CI/CD | GitHub Actions pour contrôles et snapshot GitHub ; PR protégées et approuvées humainement ; previews Vercel par PR ; production Vercel depuis `main` protégée | Une seule chaîne de preuve, sans push direct, auto-merge ni GitHub App obligatoire en V1 |
 | **T19** | Contact V1 | Liens directs vérifiés et copie d'adresse ; **pas de formulaire serveur en V1** | Évite stockage, spam, fournisseur email et données personnelles non nécessaires |
@@ -243,7 +243,7 @@ Ces sous-budgets vivent **à l'intérieur** des plafonds de `DISCUSSION.md`, jam
 | Réserve du segment immersif desktop | **≥ 50 Ko** |
 | Segment immersif desktop complet | **≤ 1,2 Mo transférés** |
 
-Polices : WOFF2 locales, sous-ensembles FR/EN, axes réellement employés, une seule graisse préchargée, `font-display: swap`. Les masters 4K, WAV, Blender et photographiques ne sont jamais comptés comme fichiers publics puisqu'ils restent dans le registre d'actifs privé.
+Polices : WOFF2 locales, sous-ensemble latin nécessaire au français, axes réellement employés, une seule graisse préchargée, `font-display: swap`. Les masters 4K, WAV, Blender et photographiques ne sont jamais comptés comme fichiers publics puisqu'ils restent dans le registre d'actifs privé.
 
 Les sous-budgets guident la production ; **les deux totaux complets de 650 Ko et 1,2 Mo sont les vétos absolus**. Un transfert entre sous-budgets reste possible si la réserve et le total tiennent. Chaque PR mesure les poids cache froid réellement transférés. Si un seuil échoue : supprimer ou réduire d'abord effet, tokens, traînée, texture, DPR ou stem ; jamais le texte, la preuve, le clavier ou le fallback.
 
@@ -368,12 +368,12 @@ Ce GO autorise la collecte structurée, les schémas et la Design Release G1. Il
 
 - [ ] `DR-1` couvre desktop, mobile, reduced motion, sans WebGL et les quinze états ;
 - [ ] les six `CR-0` contiennent rôle, périmètre, date/statut, preuve et visa de droits minimum ;
-- [ ] schémas faits/copy, liens entre langues et aperçus de validation passent ;
+- [ ] schémas faits/copy et aperçus de validation passent ; la V1 française n'exige aucun lien entre langues ;
 - [ ] tuple Next/React/R3F/Three, Node, pnpm, CSP et budgets sont verrouillés à G0/G1 ;
 - [ ] registre d'actifs et stratégie de sauvegarde privée sont opérationnels ;
 - [ ] ChatGPT, Claude et Russel prononcent `G1 PASS` dans leurs domaines.
 
-Questions encore bloquantes dans `DISCUSSION.md` : **Q1, Q2–Q7, Q9–Q15, Q17–Q21 et Q23–Q25**. Q10 n'est répondue que sur l'égalité des projets ; les dossiers factuels restent nécessaires. Q22 est désormais répondue. Q8 et l'ancienne Q16 ne bloquent plus.
+Questions encore bloquantes dans `DISCUSSION.md` : **Q1–Q5, Q10–Q12, Q14–Q15, Q17–Q18, Q20–Q21 et Q23–Q25**. Q2, Q3, Q4 et Q12 sont partiellement documentées ; Q10 n'est répondue que sur l'égalité des projets et les dossiers factuels restent nécessaires. Q6, Q7, Q9, Q13, Q19 et Q22 sont répondues ou dépassées par une décision plus récente. Q8 et l'ancienne Q16 ne bloquent plus.
 
 ### Definition of Done — avant la production publique
 
@@ -410,7 +410,7 @@ Verdict : JE SIGNE / JE NE SIGNE PAS ENCORE
 Signature : Claude Code
 ```
 
-Toute contre-proposition garde les invariants de la section 1 et choisit une option unique ; elle ne réintroduit pas une liste « A ou B ». Seule T16 reste conditionnelle jusqu'à la réponse de Russel à Q6.
+Toute contre-proposition garde les invariants de la section 1 et choisit une option unique ; elle ne réintroduit pas une liste « A ou B ». T16 était conditionnelle à la réponse de Russel à Q6 ; la décision G1 « français uniquement » est désormais reportée en section 3.
 
 ### Revue Claude — 2026-10-19
 
@@ -429,7 +429,7 @@ Toute contre-proposition garde les invariants de la section 1 et choisit une opt
 | Transcodeur Basis (JS + WASM) | **212,2 Ko Brotli** (13,4 + 198,8) |
 | React Aria Components 1.22.1 : Button, Dialog, DialogTrigger, Modal, Menu, MenuItem, MenuTrigger, Popover | **44,9 Ko Brotli** |
 
-**Décisions acceptées sans réserve : T01 à T04, T06 à T09, T11, T13, T16 (conditionnelle à Q6), T17, T19 à T22.** Certaines reçoivent une précision d'exécution dans « Décisions manquantes » ; ce n'est pas un désaccord.
+**Décisions acceptées sans réserve : T01 à T04, T06 à T09, T11, T13, T16 (initialement conditionnelle à Q6, désormais verrouillée en français), T17, T19 à T22.** Certaines reçoivent une précision d'exécution dans « Décisions manquantes » ; ce n'est pas un désaccord.
 
 **Décisions contestées :**
 
