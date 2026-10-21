@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://horizon237.local/schemas/fact.schema.json",
+  "title": "Types communs des faits HORIZON 237",
+  "description": "Enveloppe obligatoire de tout fait publiable : valeur, sources, date de validation par Russel, visibilité et propriétaire du droit (contrat, section 5). Spécification G1 ; le runtime la reprendra en Zod server-only.",
+  "$defs": {
+    "isoDate": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
+    },
+    "yearMonth": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])$"
+    },
+    "httpsUrl": {
+      "type": "string",
+      "pattern": "^https://[^\\s]+$"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "assetId": {
+      "type": "string",
+      "pattern": "^H237-[A-Z0-9]+(-[A-Z0-9]+)*$"
+    },
+    "nonEmptyText": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "source": {
+      "type": "object",
+      "description": "Origine d'un fait. Aucun chemin local, nom de service de stockage, identifiant ou secret.",
+      "required": ["id", "kind", "label", "checkedAt"],
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "kind": {
+          "enum": ["owner-declaration", "public-check", "repository-history", "production-log", "store-listing", "document"]
+        },
+        "label": { "$ref": "#/$defs/nonEmptyText" },
+        "url": { "$ref": "#/$defs/httpsUrl" },
+        "checkedAt": { "$ref": "#/$defs/isoDate" }
+      },
+      "additionalProperties": false
+    },
+    "fact": {
+      "type": "object",
+      "description": "Enveloppe d'un fait. Chaque champ précise le schéma de `value` en ajoutant `properties.value` à côté de cette référence.",
+      "required": ["value", "sources", "validatedAt", "visibility", "rightsOwner"],
+      "properties": {
+        "value": true,
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "validatedAt": {
+          "description": "Date du visa de Russel sur ce fait ; null tant qu'il n'a pas validé l'aperçu.",
+          "oneOf": [{ "$ref": "#/$defs/isoDate" }, { "type": "null" }]
+        },
+        "visibility": { "enum": ["public", "private"] },
+        "rightsOwner": { "$ref": "#/$defs/nonEmptyText" },
+        "note": { "$ref": "#/$defs/nonEmptyText" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://horizon237.local/schemas/profile-facts.schema.json",
+  "title": "Faits d'identité de MASTERMIND",
+  "description": "Faits de l'accueil, du résumé recruteur et du contact. Le parcours reste absent tant que Russel n'a pas corrigé les données de l'ancien portfolio.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "contentRelease",
+    "sources",
+    "facts"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "profile-facts/1"
+    },
+    "contentRelease": {
+      "type": "object",
+      "required": [
+        "id",
+        "status",
+        "russelVisa"
+      ],
+      "properties": {
+        "id": {
+          "const": "CR-0"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "approved"
+          ]
+        },
+        "russelVisa": {
+          "oneOf": [
+            {
+              "$ref": "fact.schema.json#/$defs/isoDate"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "if": {
+        "properties": {
+          "status": {
+            "const": "approved"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "russelVisa": {
+            "$ref": "fact.schema.json#/$defs/isoDate"
+          }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "fact.schema.json#/$defs/source"
+      }
+    },
+    "facts": {
+      "type": "object",
+      "required": [
+        "publicName",
+        "title",
+        "currentPosition",
+        "base",
+        "email",
+        "github",
+        "availability",
+        "siteLanguages"
+      ],
+      "properties": {
+        "publicName": {
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "$ref": "fact.schema.json#/$defs/nonEmptyText"
+            }
+          }
+        },
+        "title": {
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "$ref": "fact.schema.json#/$defs/nonEmptyText"
+            }
+          }
+        },
+        "currentPosition": {
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "type": "object",
+              "required": [
+                "title",
+                "organization",
+                "city",
+                "since"
+              ],
+              "properties": {
+                "title": {
+                  "$ref": "fact.schema.json#/$defs/nonEmptyText"
+                },
+                "organization": {
+                  "$ref": "fact.schema.json#/$defs/nonEmptyText"
+                },
+                "city": {
+                  "$ref": "fact.schema.json#/$defs/nonEmptyText"
+                },
+                "since": {
+                  "$ref": "fact.schema.json#/$defs/isoDate"
+                },
+                "focus": {
+                  "$ref": "fact.schema.json#/$defs/nonEmptyText"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "base": {
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "type": "object",
+              "required": [
+                "city",
+                "country"
+              ],
+              "properties": {
+                "city": {
+                  "$ref": "fact.schema.json#/$defs/nonEmptyText"
+                },
+                "country": {
+                  "$ref": "fact.schema.json#/$defs/nonEmptyText"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "email": {
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"
+            }
+          }
+        },
+        "github": {
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "$ref": "fact.schema.json#/$defs/httpsUrl"
+            }
+          }
+        },
+        "availability": {
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "$ref": "fact.schema.json#/$defs/nonEmptyText"
+            }
+          }
+        },
+        "siteLanguages": {
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "fr",
+                  "en"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "if": {
+    "properties": {
+      "contentRelease": {
+        "properties": {
+          "status": {
+            "const": "approved"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      }
+    },
+    "required": [
+      "contentRelease"
+    ]
+  },
+  "then": {
+    "description": "Un CR-0 approuvé exige une date de validation de Russel sur chaque fait.",
+    "properties": {
+      "facts": {
+        "additionalProperties": {
+          "properties": {
+            "validatedAt": {
+              "$ref": "fact.schema.json#/$defs/isoDate"
+            }
+          }
+        }
+      }
+    }
+  }
+}
