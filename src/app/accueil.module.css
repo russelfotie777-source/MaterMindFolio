@@ -1,8 +1,9 @@
 /* Ouverture : le décor couvre la section, le contenu se pose dessus sans jamais dépendre de lui. */
+/* L'en-tête se pose dessus : la composition réserve sa hauteur (deux lignes sur téléphone, une au-delà). */
 .ouverture {
   position: relative;
   display: grid;
-  min-height: calc(100svh - var(--space-24));
+  min-height: 100svh;
   overflow: hidden;
   isolation: isolate;
 }
@@ -26,7 +27,7 @@
   gap: 0;
   width: min(100% - 2 * var(--grid-mobile-reference-margin), var(--size-content-desktop));
   margin-inline: auto;
-  padding-block-start: var(--space-8);
+  padding-block-start: var(--space-32);
 }
 
 /* Plan sombre lisible : le texte ne repose jamais directement sur la lumière de l'aube. */
@@ -76,7 +77,7 @@
     align-items: end;
     gap: 0 var(--grid-tablet-gutter);
     width: min(100% - 2 * var(--grid-tablet-margin), var(--size-content-desktop));
-    padding-block-start: var(--space-12);
+    padding-block-start: var(--space-24);
   }
 
   .identite {

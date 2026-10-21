@@ -17,6 +17,14 @@
   }
 }
 
+/* Sur l'ouverture de l'accueil, l'en-tête se pose sur le décor plein cadre (DR-1, vue A01). */
+:global(body:has([data-ouverture])) .entete {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 0;
+  z-index: 1;
+}
+
 .evitement {
   position: absolute;
   inset-block-start: var(--space-2);

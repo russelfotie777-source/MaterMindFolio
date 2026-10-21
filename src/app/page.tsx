@@ -30,7 +30,7 @@ export default function Accueil() {
   });
 
   return (
-    <section className={styles.ouverture}>
+    <section className={styles.ouverture} data-ouverture>
       <Visuel
         className={styles.decor}
         cadres={[{ derive: 'aube-vertical', media: '(max-width: 767px)' }, { derive: 'aube-paysage' }]}
