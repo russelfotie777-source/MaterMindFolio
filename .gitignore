@@ -4,3 +4,11 @@
 /decor-candidats/*.png
 /design/releases/DR-1/control-views-c3/*.png
 /design/releases/DR-1/moodframes-c3/*.png
+
+# Dépendances et sorties de build
+/node_modules/
+/.next/
+/.next-csp/
+/next-env.d.ts
+*.tsbuildinfo
+/.vercel/

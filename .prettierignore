@@ -1,0 +1,10 @@
+# Documents de conception et de collecte : rédigés à la main, hors du formatage du code.
+*.md
+design/
+docs/
+assets/
+content/
+decor-candidats/
+captures-projets/
+pnpm-lock.yaml
+.next/
