@@ -59,16 +59,17 @@ test.describe('sans JavaScript', () => {
 });
 
 test('clavier : le lien d’évitement mène au contenu', async ({ page, browserName }) => {
-  // WebKit ne place pas les liens dans l'ordre de tabulation par défaut (réglage de macOS).
-  test.skip(browserName === 'webkit', 'Tab ignore les liens par défaut dans WebKit');
+  // Safari (WebKit) ne parcourt les liens au clavier qu'avec Option+Tab, son réglage par défaut :
+  // le test emploie donc la touche que l'utilisateur de Safari emploie réellement.
+  const suivant = browserName === 'webkit' ? 'Alt+Tab' : 'Tab';
   await page.goto('/');
-  await page.keyboard.press('Tab');
+  await page.keyboard.press(suivant);
   const evitement = page.getByRole('link', { name: 'Aller au contenu' });
   await expect(evitement).toBeFocused();
   await expect(evitement).toBeInViewport();
   await page.keyboard.press('Enter');
   await expect(page.locator('main#contenu')).toBeFocused();
-  await page.keyboard.press('Tab');
+  await page.keyboard.press(suivant);
   await expect(page.getByRole('link', { name: 'Commencer la visite' })).toBeFocused();
 });
 
