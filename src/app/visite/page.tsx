@@ -10,7 +10,7 @@ import { lireProjets } from '@/lib/faits/projets';
 import { PLATEFORMES, rangSurSix } from '@/lib/libelles';
 import { lireDerive } from '@/lib/media';
 import page from '@/styles/page.module.css';
-import { IlotVisite } from '@/visite/IlotVisite';
+import { type Belvedere, IlotVisite } from '@/visite/IlotVisite';
 
 import styles from './visite.module.css';
 
@@ -34,11 +34,38 @@ export default function Visite() {
     bureau: aube.find((f) => f.largeur === 2560)!.chemin,
   };
 
+  // Belvédère de chaque station (storyboard, section 1) : rang, nom, rôle exact, la phrase de besoin si
+  // Russel l'a visée, une preuve. Le périmètre complet reste derrière « Approfondir », seul lien du panneau.
+  const belvederes: Record<string, Belvedere> = Object.fromEntries(
+    projets.map((projet) => {
+      const copie = lireCopieProjet(projet.slug);
+      const [preuve] = projet.preuves;
+      return [
+        projet.slug,
+        {
+          nom: projet.nom,
+          media: <MediaProjet slug={projet.slug} tailles="(min-width: 1280px) 46rem, 55vw" />,
+          texte: (
+            <>
+              <p className={page.etiquette}>
+                {rangSurSix(projet.rang)} · {projet.plateformes.map((p) => PLATEFORMES[p]).join(' · ')}
+              </p>
+              <h2>{projet.nom}</h2>
+              <p className={page.fort}>{projet.role}</p>
+              {copie.need && <Copie arbre={copie.need} className={page.attenue} />}
+              {preuve && <p className={page.etiquette}>Preuve : {preuve.libelle}</p>}
+            </>
+          ),
+        },
+      ];
+    }),
+  );
+
   return (
     <div className={page.cadre}>
       <p className={page.etiquette}>Visite · version légère</p>
       <h1 className={page.titrePage}>Six stations</h1>
-      <IlotVisite ciel={ciel}>
+      <IlotVisite ciel={ciel} belvederes={belvederes}>
         <Visuel
           cadres={[{ derive: 'aube-vertical', media: '(max-width: 767px)' }, { derive: 'aube-paysage' }]}
           alt=""
@@ -57,7 +84,6 @@ export default function Visite() {
                 </p>
                 <h2 className={styles.nom}>{projet.nom}</h2>
                 <p className={page.fort}>{projet.role}</p>
-                <p className={page.attenue}>{projet.perimetre.join(' · ')}</p>
                 {copie.decision && <Copie arbre={copie.decision} className={page.attenue} />}
                 <p>
                   <Link className={page.boutonClair} href={`/projets/${projet.slug}`}>

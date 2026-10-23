@@ -24,11 +24,18 @@ function webgl2Disponible(): boolean {
 // chapitres, actions et player ; le canvas est décoratif, masqué aux technologies d'assistance et
 // sans élément focalisable. Three.js, R3F et GSAP ne sont chargés qu'après le geste d'entrée.
 // Le moteur audio arrive au lot G6 : d'ici là, le choix sonore est mémorisé mais la visite est muette.
+//
+// Belvédère neutre (DR-1, vue A05) : média et panneau sont rendus côté serveur pour chaque projet ; l'îlot
+// les monte dès l'approche, invisibles et inertes, pour que le média soit chargé avant l'arrêt de la caméra.
+export type Belvedere = { nom: string; media: ReactNode; texte: ReactNode };
+
 export function IlotVisite({
   ciel,
+  belvederes,
   children,
 }: {
   ciel: { mobile: string; bureau: string };
+  belvederes: Readonly<Record<string, Belvedere>>;
   children: ReactNode;
 }) {
   const [store] = useState(() => creerStoreVisite());
@@ -134,6 +141,9 @@ export function IlotVisite({
   }, [etat.phase]);
 
   const chapitre = CHAPITRES[etat.chapitre]!;
+  const belvedere = enVisite && chapitre.projet ? belvederes[chapitre.projet] : undefined;
+  // Mouvement → immobilité → information : le panneau n'est lisible que caméra arrêtée.
+  const lisible = etat.etape === 'lecture';
   const sceneVisible = etat.rendu === 'webgl' && etat.phase !== 'idle' && etat.phase !== 'sound-choice';
 
   return (
@@ -141,6 +151,30 @@ export function IlotVisite({
       <div className={styles.scene}>
         {!sceneVisible && <div className={styles.poster}>{children}</div>}
         <canvas ref={canvas} className={styles.canvas} aria-hidden="true" hidden={!sceneVisible} />
+        {belvedere && (
+          <div
+            key={chapitre.id}
+            className={styles.belvedere}
+            data-etape={etat.etape}
+            inert={!lisible}
+            aria-hidden={!lisible}
+          >
+            {belvedere.media && <div className={styles.media}>{belvedere.media}</div>}
+            <div className={styles.panneau}>
+              {belvedere.texte}
+              <p>
+                {/* Approfondir fige d'abord la visite ; le fragment garde le chapitre pour le retour. */}
+                <a
+                  className={pageStyles.bouton}
+                  href={`/projets/${chapitre.projet}`}
+                  onClick={() => store.envoyer({ type: 'OPEN_CASE', projet: chapitre.projet! })}
+                >
+                  Approfondir<span className="visuellement-cache"> : {belvedere.nom}</span>
+                </a>
+              </p>
+            </div>
+          </div>
+        )}
         {etat.rendu === 'leger' && (
           <p className={`${pageStyles.etiquette} ${styles.leger}`}>Version légère active</p>
         )}
@@ -208,11 +242,6 @@ export function IlotVisite({
           >
             Suivant
           </button>
-          {chapitre.projet && (
-            <a className={styles.commande} href={`/projets/${chapitre.projet}`}>
-              Approfondir<span className="visuellement-cache"> : {chapitre.libelle}</span>
-            </a>
-          )}
           <button type="button" className={styles.commande} onClick={() => store.envoyer({ type: 'EXIT' })}>
             Quitter
           </button>

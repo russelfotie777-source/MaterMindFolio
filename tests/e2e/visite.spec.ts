@@ -54,10 +54,15 @@ test('player : pause, chapitres et fragment stable, sans violation CSP', async (
   await expect(player.getByRole('button', { name: 'Reprendre' })).toBeVisible();
   await expect(page).toHaveURL(/#base-237-source$/);
   await player.getByRole('button', { name: 'Suivant' }).click();
-  await expect(player.getByRole('link', { name: /^Approfondir/ })).toHaveAttribute(
+  // Belvédère : caméra posée, panneau lisible avec rôle, preuve et une seule action.
+  const ilot = page.getByRole('region', { name: 'Visite guidée' });
+  await expect(ilot.getByRole('heading', { name: 'Fast Shipping logistique' })).toBeVisible();
+  await expect(ilot.getByText(/^Preuve : /)).toBeVisible();
+  await expect(ilot.getByRole('link', { name: /^Approfondir/ })).toHaveAttribute(
     'href',
     '/projets/fast-shipping-logistics',
   );
+  await expect(player.getByRole('link')).toHaveCount(0);
   await player.getByRole('button', { name: 'Quitter' }).click();
   await expect(page.getByRole('button', { name: 'Démarrer la visite' })).toBeVisible();
   expect(await violationsCsp(page)).toEqual([]);
@@ -92,4 +97,19 @@ test.describe('mouvement réduit', () => {
     await player.getByRole('button', { name: 'Suivant' }).click();
     await expect(player).toContainText('02/12');
   });
+});
+
+test('belvédère : un fragment partagé ouvre sur la pose stable, panneau lisible', async ({ page }) => {
+  await page.goto('/visite#project-ziris');
+  await page.getByRole('button', { name: 'Démarrer la visite' }).click();
+  await page.getByRole('button', { name: 'Continuer en silence' }).click();
+  const player = page.getByRole('group', { name: 'Lecteur de la visite' });
+  await expect(player).toBeVisible({ timeout: 15_000 });
+  const panneau = page.locator('[data-etape]');
+  // Un fragment partagé ouvre sur la pose stable du chapitre, contenu visible.
+  await expect(panneau).toHaveAttribute('data-etape', 'lecture');
+  await expect(
+    page.getByRole('region', { name: 'Visite guidée' }).getByRole('heading', { name: /^ZIRIS/ }),
+  ).toBeVisible();
+  expect(await violationsCsp(page)).toEqual([]);
 });

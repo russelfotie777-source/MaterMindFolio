@@ -53,3 +53,18 @@ export function chapitreDuFragment(fragment: string): number | null {
   const index = CHAPITRES.findIndex((chapitre) => `#${chapitre.id}` === fragment);
   return index === -1 ? null : index;
 }
+
+// Durée de l'approche avant la pose stable : 1,5 s pour un projet (storyboard, section 5), 2 s sinon.
+export const approche = (index: number) => (index === 0 ? 0 : CHAPITRES[index]!.projet ? 1.5 : 2);
+
+// Enveloppe de chaque chapitre (storyboard, sections 5 et 6) : approche sans texte, lecture caméra
+// immobile, puis dernière seconde de sortie où le panneau se retire avant le départ.
+export type Etape = 'approche' | 'lecture' | 'sortie';
+const SORTIE = 1;
+
+export function etapeA(temps: number): Etape {
+  const index = chapitreA(temps);
+  const { debut, duree } = CHAPITRES[index]!;
+  if (temps < debut + approche(index)) return 'approche';
+  return temps >= debut + duree - SORTIE ? 'sortie' : 'lecture';
+}

@@ -101,3 +101,15 @@ test('mouvement réduit dès l’entrée : storyboard manuel, ouvert en pause', 
   assert.equal(etat.phase, 'paused');
   assert.equal(transition(etat, { type: 'SEEK_CHAPTER', chapitre: 1 }).chapitre, 1);
 });
+
+test('étapes : un chapitre atteint repart en approche, un saut se pose en lecture', () => {
+  const arrivee = transition(enLecture(), { type: 'CHAPTER_REACHED', chapitre: 2 });
+  assert.equal(arrivee.etape, 'approche');
+  const lecture = transition(arrivee, { type: 'STAGE_REACHED', etape: 'lecture' });
+  assert.equal(lecture.etape, 'lecture');
+  const saut = transition(arrivee, { type: 'SEEK_CHAPTER', chapitre: 4 });
+  assert.equal(saut.etape, 'lecture');
+  // Hors lecture, l'étape ne bouge plus : la pause fige ce qui est à l'écran.
+  const pause = transition(arrivee, { type: 'PAUSE' });
+  assert.equal(transition(pause, { type: 'STAGE_REACHED', etape: 'lecture' }), pause);
+});

@@ -5,12 +5,17 @@
 //
 // Les branches du contrat (reduced-motion, audio-blocked, webgl-unavailable, offline, error) sont des
 // axes indépendants de la phase : on peut être en pause, sans son, sans WebGL et hors ligne à la fois.
+import type { Etape } from './chapitres';
+
 export type Phase =
   'idle' | 'sound-choice' | 'loading' | 'playing' | 'paused' | 'deep-dive' | 'completed' | 'error';
 
 export type EtatVisite = {
   phase: Phase;
   chapitre: number;
+  // Étape dans le chapitre, changée trois fois par chapitre au plus : le panneau n'est lisible qu'en
+  // `lecture`, caméra immobile. Un saut ou une pause se posent toujours en lecture.
+  etape: Etape;
   nombreChapitres: number;
   // Choix sonore de la session : demandé une seule fois, jamais deviné.
   son: 'a-choisir' | 'actif' | 'silence' | 'bloque';
@@ -30,6 +35,7 @@ export type Evenement =
   | { type: 'RESUME' }
   | { type: 'SEEK_CHAPTER'; chapitre: number }
   | { type: 'CHAPTER_REACHED'; chapitre: number }
+  | { type: 'STAGE_REACHED'; etape: Etape }
   | { type: 'COMPLETE' }
   | { type: 'OPEN_CASE'; projet: string }
   | { type: 'CLOSE_CASE' }
@@ -45,6 +51,7 @@ export function etatInitial(nombreChapitres: number, options: Partial<EtatVisite
   return {
     phase: 'idle',
     chapitre: 0,
+    etape: 'lecture',
     nombreChapitres,
     son: 'a-choisir',
     mouvement: 'immersif',
@@ -84,9 +91,15 @@ export function transition(etat: EtatVisite, evenement: Evenement): EtatVisite {
       return etat.phase === 'paused' ? { ...etat, phase: 'playing' } : etat;
     case 'SEEK_CHAPTER':
       // Un saut pose la scène sur une pose stable, puis ne reprend que sur action (DR-1, 04, section 2).
-      return enVisite(etat.phase) ? { ...etat, phase: 'paused', chapitre: borne(evenement.chapitre) } : etat;
+      return enVisite(etat.phase)
+        ? { ...etat, phase: 'paused', chapitre: borne(evenement.chapitre), etape: 'lecture' }
+        : etat;
     case 'CHAPTER_REACHED':
-      return etat.phase === 'playing' ? { ...etat, chapitre: borne(evenement.chapitre) } : etat;
+      return etat.phase === 'playing'
+        ? { ...etat, chapitre: borne(evenement.chapitre), etape: 'approche' }
+        : etat;
+    case 'STAGE_REACHED':
+      return etat.phase === 'playing' ? { ...etat, etape: evenement.etape } : etat;
     case 'COMPLETE':
       return etat.phase === 'playing'
         ? { ...etat, phase: 'completed', chapitre: etat.nombreChapitres - 1 }

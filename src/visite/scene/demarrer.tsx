@@ -18,9 +18,9 @@ import {
   PointsMaterial,
 } from 'three';
 
-import { CHAPITRES, DUREE_TOTALE, chapitreA } from '../chapitres';
+import { approche, CHAPITRES, DUREE_TOTALE, chapitreA, etapeA } from '../chapitres';
 import { DEPLACEMENT } from '../courbes';
-import { approche, POSES_CHAPITRES } from '../poses';
+import { POSES_CHAPITRES } from '../poses';
 import type { StoreVisite } from '../store';
 import { creerLecteurTemps } from '../temps';
 import { Monde } from './Monde';
@@ -112,6 +112,8 @@ export async function demarrerScene(
     const etat = store.getState();
     const chapitre = chapitreA(position);
     if (chapitre !== etat.chapitre) store.envoyer({ type: 'CHAPTER_REACHED', chapitre });
+    const etape = etapeA(position);
+    if (etape !== store.getState().etape) store.envoyer({ type: 'STAGE_REACHED', etape });
     if (position >= DUREE_TOTALE) store.envoyer({ type: 'COMPLETE' });
     rendre();
   };

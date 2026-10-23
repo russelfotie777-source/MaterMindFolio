@@ -39,6 +39,3 @@ export const POSES_CHAPITRES: readonly Pose[] = CHAPITRES.map((chapitre) => {
   if (!pose) throw new Error(`Pose manquante : ${chapitre.id}`);
   return pose;
 });
-
-// Durée de l'approche avant la pose stable : 1,5 s pour un projet (storyboard, section 5), 2 s sinon.
-export const approche = (index: number) => (index === 0 ? 0 : CHAPITRES[index]!.projet ? 1.5 : 2);
