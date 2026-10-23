@@ -90,3 +90,14 @@ test('Échap mène à la vue libre et garde le chapitre comme point de reprise',
   const sortie = jouer(enLecture(), { type: 'CHAPTER_REACHED', chapitre: 7 }, { type: 'EXIT' });
   assert.deepEqual([sortie.phase, sortie.chapitre], ['idle', 7]);
 });
+
+test('mouvement réduit dès l’entrée : storyboard manuel, ouvert en pause', () => {
+  const etat = jouer(
+    etatInitial(12, { mouvement: 'reduit' }),
+    { type: 'START' },
+    { type: 'CHOOSE_SOUND', avecSon: false },
+    { type: 'READY' },
+  );
+  assert.equal(etat.phase, 'paused');
+  assert.equal(transition(etat, { type: 'SEEK_CHAPTER', chapitre: 1 }).chapitre, 1);
+});

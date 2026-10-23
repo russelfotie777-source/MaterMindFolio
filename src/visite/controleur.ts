@@ -69,7 +69,9 @@ export function transition(etat: EtatVisite, evenement: Evenement): EtatVisite {
       if (etat.phase !== 'sound-choice') return etat;
       return { ...etat, phase: 'loading', son: evenement.avecSon ? 'actif' : 'silence' };
     case 'READY':
-      return etat.phase === 'loading' ? { ...etat, phase: 'playing' } : etat;
+      // En mouvement réduit, la visite est un storyboard manuel : elle s'ouvre en pause sur le chapitre.
+      if (etat.phase !== 'loading') return etat;
+      return { ...etat, phase: etat.mouvement === 'reduit' ? 'paused' : 'playing' };
     case 'FAIL':
       return etat.phase === 'loading' || enVisite(etat.phase) ? { ...etat, phase: 'error' } : etat;
     case 'RETRY':
