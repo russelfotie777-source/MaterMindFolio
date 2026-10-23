@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "project-copy/1",
+  "slug": "artvibe-cameroun",
+  "lang": "fr",
+  "sections": {
+    "product-caption": {
+      "file": "content/copy/fr/projects/artvibe-cameroun/product-caption.md",
+      "author": "chatgpt",
+      "factRefs": ["personalScope", "proofs"],
+      "russelValidatedAt": null
+    },
+    "decision": {
+      "file": "content/copy/fr/projects/artvibe-cameroun/decision.md",
+      "author": "chatgpt",
+      "factRefs": ["decisions"],
+      "russelValidatedAt": null
+    }
+  }
+}
