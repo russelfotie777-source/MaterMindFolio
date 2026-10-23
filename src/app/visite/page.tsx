@@ -6,6 +6,7 @@ import { MediaProjet } from '@/components/MediaProjet';
 import { Visuel } from '@/components/Visuel';
 import { lireCopieProjet } from '@/lib/copie/projets';
 import { lireCopieSite } from '@/lib/copie/site';
+import { lireProfil } from '@/lib/faits/profil';
 import { lireProjets } from '@/lib/faits/projets';
 import { PLATEFORMES, rangSurSix } from '@/lib/libelles';
 import { lireDerive } from '@/lib/media';
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
 // L'îlot immersif (G3) s'ajoutera devant cet index, qui reste la navigation sans Canvas.
 export default function Visite() {
   const copieSite = lireCopieSite();
+  const profil = lireProfil();
   const projets = lireProjets();
   // Texture du ciel cylindrique (C3-R1, C3-R3) : dérivé WebP du décor d'aube, 1280 px sur téléphone
   // pour tenir le budget des premiers actifs 3D, 2560 px au-delà pour limiter l'agrandissement.
@@ -33,6 +35,33 @@ export default function Visite() {
     mobile: aube.find((f) => f.largeur === 1280)!.chemin,
     bureau: aube.find((f) => f.largeur === 2560)!.chemin,
   };
+
+  // Image 0 de l'ouverture : décor d'aube, identité validée et portrait réel détouré, composés comme
+  // l'accueil. Couche décorative de l'îlot (texte déjà présent dans la page), chargée au geste d'entrée.
+  const identite = (
+    <>
+      <Visuel
+        className={styles.identiteDecor}
+        cadres={[{ derive: 'aube-vertical', media: '(max-width: 767px)' }, { derive: 'aube-paysage' }]}
+        alt=""
+        sizes="(min-width: 1280px) 82rem, 100vw"
+        prioritaire
+      />
+      <div className={styles.identiteTexte}>
+        <p className={page.etiquette}>
+          {profil.intitule} · {profil.base.ville}, {profil.base.pays}
+        </p>
+        <p className={styles.identiteNom}>{profil.nomPublic}</p>
+      </div>
+      <Visuel
+        className={styles.identitePortrait}
+        cadres={[{ derive: 'portrait-buste' }]}
+        alt=""
+        sizes="(min-width: 768px) 40vw, 70vw"
+        prioritaire
+      />
+    </>
+  );
 
   // Belvédère de chaque station (storyboard, section 1) : rang, nom, rôle exact, la phrase de besoin si
   // Russel l'a visée, une preuve. Le périmètre complet reste derrière « Approfondir », seul lien du panneau.
@@ -65,7 +94,7 @@ export default function Visite() {
     <div className={page.cadre}>
       <p className={page.etiquette}>Visite · version légère</p>
       <h1 className={page.titrePage}>Six stations</h1>
-      <IlotVisite ciel={ciel} belvederes={belvederes}>
+      <IlotVisite ciel={ciel} identite={identite} belvederes={belvederes}>
         <Visuel
           cadres={[{ derive: 'aube-vertical', media: '(max-width: 767px)' }, { derive: 'aube-paysage' }]}
           alt=""

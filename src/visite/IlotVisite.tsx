@@ -5,6 +5,7 @@ import { type ReactNode, useEffect, useRef, useState, useSyncExternalStore } fro
 import pageStyles from '@/styles/page.module.css';
 
 import { CHAPITRES, chapitreDuFragment } from './chapitres';
+import { Monogramme } from './Monogramme';
 import type { Scene } from './scene/demarrer';
 import { creerStoreVisite } from './store';
 
@@ -27,14 +28,22 @@ function webgl2Disponible(): boolean {
 //
 // Belvédère neutre (DR-1, vue A05) : média et panneau sont rendus côté serveur pour chaque projet ; l'îlot
 // les monte dès l'approche, invisibles et inertes, pour que le média soit chargé avant l'arrêt de la caméra.
+//
+// Ouverture (storyboard, section 2) : identité, monogramme et index égal des six projets sont des couches
+// DOM décoratives posées sur le canvas, montées au geste d'entrée seulement, et dont la scène choisit la
+// couche visible à chaque image. Leur contenu reste disponible dans la page.
 export type Belvedere = { nom: string; media: ReactNode; texte: ReactNode };
+
+const NOMS_PROJETS = CHAPITRES.filter((chapitre) => chapitre.projet).map((chapitre) => chapitre.libelle);
 
 export function IlotVisite({
   ciel,
+  identite,
   belvederes,
   children,
 }: {
   ciel: { mobile: string; bureau: string };
+  identite: ReactNode;
   belvederes: Readonly<Record<string, Belvedere>>;
   children: ReactNode;
 }) {
@@ -45,6 +54,10 @@ export function IlotVisite({
   const demarrer = useRef<HTMLButtonElement>(null);
   const scene = useRef<Scene | null>(null);
   const ilot = useRef<HTMLElement>(null);
+  const ouverture = useRef<HTMLDivElement>(null);
+  // L'ouverture n'est montée que pour une visite immersive qui part de l'image 0 : ses images se
+  // chargent pendant le choix sonore, et rien n'est téléchargé avant le geste.
+  const [ouvertureMontee, setOuvertureMontee] = useState(false);
 
   // Préférences et environnement : mouvement réduit, onglet masqué, réseau, fragment partagé.
   useEffect(() => {
@@ -88,14 +101,21 @@ export function IlotVisite({
       return;
     }
     let annule = false;
+    // L'image 0 doit être prête avant la lecture : le portrait n'apparaît jamais en fondu.
+    const imagesOuverture = [...(ouverture.current?.querySelectorAll('img') ?? [])];
     import('./scene/demarrer')
       .then(({ demarrerScene }) =>
         demarrerScene(
           canvas.current!,
           store,
           matchMedia('(max-width: 767px)').matches ? ciel.mobile : ciel.bureau,
+          ouverture.current,
         ),
       )
+      .then(async (monte) => {
+        await Promise.all(imagesOuverture.map((image) => image.decode().catch(() => undefined)));
+        return monte;
+      })
       .then((monte) => {
         if (annule) return monte.detruire();
         scene.current = monte;
@@ -151,6 +171,19 @@ export function IlotVisite({
       <div className={styles.scene}>
         {!sceneVisible && <div className={styles.poster}>{children}</div>}
         <canvas ref={canvas} className={styles.canvas} aria-hidden="true" hidden={!sceneVisible} />
+        {ouvertureMontee && (
+          <div ref={ouverture} className={styles.ouverture} aria-hidden="true" hidden={!sceneVisible}>
+            <div className={styles.identite}>{identite}</div>
+            <div className={styles.monogramme}>
+              <Monogramme />
+            </div>
+            <ol role="list" className={styles.index}>
+              {NOMS_PROJETS.map((nom) => (
+                <li key={nom}>{nom}</li>
+              ))}
+            </ol>
+          </div>
+        )}
         {belvedere && (
           <div
             key={chapitre.id}
@@ -186,7 +219,13 @@ export function IlotVisite({
             ref={demarrer}
             type="button"
             className={pageStyles.boutonClair}
-            onClick={() => store.envoyer({ type: 'START' })}
+            onClick={() => {
+              const { phase, chapitre, mouvement, rendu } = store.getState();
+              if (phase === 'idle' && chapitre === 0 && mouvement === 'immersif' && rendu === 'webgl') {
+                setOuvertureMontee(true);
+              }
+              store.envoyer({ type: 'START' });
+            }}
           >
             {etat.phase === 'completed' ? 'Revoir la visite' : 'Démarrer la visite'}
           </button>

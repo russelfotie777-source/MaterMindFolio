@@ -57,6 +57,12 @@ export function chapitreDuFragment(fragment: string): number | null {
 // Durée de l'approche avant la pose stable : 1,5 s pour un projet (storyboard, section 5), 2 s sinon.
 export const approche = (index: number) => (index === 0 ? 0 : CHAPITRES[index]!.projet ? 1.5 : 2);
 
+// Image stable d'un chapitre, où se pose un saut, un fragment ou le mouvement réduit : l'arrivée après
+// l'approche, sauf pour l'ouverture, dont l'image stable est le monde complet à 8,30 s (ouverture.ts).
+// Ainsi l'ouverture n'est jamais rejouée par un saut dans la même visite (storyboard, section 1).
+export const instantStable = (index: number) =>
+  index === 0 ? 8.3 : CHAPITRES[index]!.debut + approche(index);
+
 // Enveloppe de chaque chapitre (storyboard, sections 5 et 6) : approche sans texte, lecture caméra
 // immobile, puis dernière seconde de sortie où le panneau se retire avant le départ.
 export type Etape = 'approche' | 'lecture' | 'sortie';

@@ -270,3 +270,82 @@
     font-size: var(--font-size-section);
   }
 }
+
+/* Ouverture : couches décoratives posées sur le canvas. Aucune n'est visible tant que la scène n'a pas
+   choisi la sienne (data-couche) ; chaque bascule est une coupe franche, sans transition. */
+.ouverture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.ouverture[hidden] {
+  display: none;
+}
+
+.ouverture > * {
+  visibility: hidden;
+}
+
+.ouverture[data-couche='identite'] > .identite,
+.ouverture[data-couche='monogramme'] > .monogramme,
+.ouverture[data-couche='index'] > .index {
+  visibility: visible;
+}
+
+.identite,
+.monogramme {
+  position: absolute;
+  inset: 0;
+}
+
+/* Monogramme sur surface ivoire minérale, à l'encre violette ; le trait seul évolue. */
+.monogramme {
+  display: grid;
+  place-items: center;
+  background: var(--color-surface-paper-tint);
+  color: var(--color-text-on-light);
+}
+
+.monogramme svg {
+  width: min(84%, 48rem);
+  height: auto;
+}
+
+/* Index égal des six projets : mêmes corps, tailles et graisses, aucun n'est mis en avant. */
+.index {
+  position: absolute;
+  inset-inline: var(--space-4);
+  inset-block-end: var(--space-4);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.index li {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-organic-minimum);
+  background: var(--color-surface-depth);
+  color: var(--color-text-on-dark);
+  font-size: var(--font-size-interface);
+  font-weight: var(--font-weight-interface-strong);
+  line-height: var(--font-line-height-interface);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .index {
+    inset-inline: var(--space-8);
+    inset-block-end: var(--space-8);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .index {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}

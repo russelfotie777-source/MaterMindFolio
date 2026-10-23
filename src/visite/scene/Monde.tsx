@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
-import { BackSide, IcosahedronGeometry, RepeatWrapping, SRGBColorSpace, TextureLoader } from 'three';
+import { IcosahedronGeometry, type MeshBasicMaterial, type PointsMaterial } from 'three';
+import { mergeVertices } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 
 import { STATIONS } from '../poses';
 
@@ -21,29 +22,24 @@ function graine(depart: number) {
   };
 }
 
-// La texture est chargée hors du rendu React ; sa fin de chargement redemande une image, puisque la
-// scène ne rend qu'à la demande hors lecture (frameloop « never »).
-function Ciel({ image, surCharge }: { image: string; surCharge: () => void }) {
-  const texture = useMemo(() => {
-    const chargee = new TextureLoader().load(image, surCharge);
-    chargee.colorSpace = SRGBColorSpace;
-    chargee.wrapS = RepeatWrapping;
-    // Vue de l'intérieur : l'image est retournée pour ne pas apparaître en miroir, et décalée pour que
-    // le Fuji (x ≈ 0,486 du panorama) soit droit devant, sur l'axe -z de la promenade.
-    chargee.repeat.x = -1;
-    chargee.offset.x = -0.014;
-    return chargee;
-  }, [image, surCharge]);
+// Matériaux partagés avec la timeline : seule la boucle unique fait varier exposition du ciel, opacité
+// du firmament et allumage des balises (ouverture, storyboard section 2). Ils sont créés hors de React.
+export type Materiaux = {
+  ciel: MeshBasicMaterial;
+  etoiles: PointsMaterial;
+  balises: MeshBasicMaterial;
+};
+
+function Ciel({ materiau }: { materiau: MeshBasicMaterial }) {
   const centre = 1.6 + (0.5 - HORIZON_IMAGE) * HAUTEUR_CIEL;
   return (
-    <mesh position={[0, centre, 0]}>
+    <mesh position={[0, centre, 0]} material={materiau}>
       <cylinderGeometry args={[RAYON_CIEL, RAYON_CIEL, HAUTEUR_CIEL, 96, 1, true]} />
-      <meshBasicMaterial map={texture} side={BackSide} fog={false} toneMapped={false} />
     </mesh>
   );
 }
 
-function Etoiles() {
+function Etoiles({ materiau }: { materiau: PointsMaterial }) {
   const positions = useMemo(() => {
     const hasard = graine(237);
     const points = new Float32Array(1600 * 3);
@@ -57,17 +53,19 @@ function Etoiles() {
     return points;
   }, []);
   return (
-    <points>
+    <points material={materiau}>
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
-      <pointsMaterial color="#ffffff" size={1.6} sizeAttenuation={false} fog={false} toneMapped={false} />
     </points>
   );
 }
 
 function pierre(rayon: number, depart: number) {
-  const geometrie = new IcosahedronGeometry(rayon, 4);
+  // Sommets fusionnés : les normales calculées ensuite sont lissées, sans facettes au gros plan de 3 s.
+  const geometrie = mergeVertices(
+    new IcosahedronGeometry(rayon, 6).deleteAttribute('normal').deleteAttribute('uv'),
+  );
   const hasard = graine(depart);
   const sommets = geometrie.getAttribute('position');
   const bosses = Array.from({ length: 6 }, () => [
@@ -113,7 +111,21 @@ function Pierres() {
   );
 }
 
-export function Monde({ ciel, surCharge }: { ciel: string; surCharge: () => void }) {
+// Six balises identiques, une trace solaire verticale derrière chaque pierre de station : elles
+// s'allument ensemble à 6 s, sans halo ni bloom, et restent lisibles de loin.
+function Balises({ materiau }: { materiau: MeshBasicMaterial }) {
+  return (
+    <group>
+      {STATIONS.map(([x, , z], i) => (
+        <mesh key={i} position={[x, 1.3, z - 0.9]} material={materiau}>
+          <cylinderGeometry args={[0.06, 0.06, 2.6, 12]} />
+        </mesh>
+      ))}
+    </group>
+  );
+}
+
+export function Monde({ materiaux }: { materiaux: Materiaux }) {
   return (
     <>
       <color attach="background" args={['#0e0b17']} />
@@ -128,8 +140,9 @@ export function Monde({ ciel, surCharge }: { ciel: string; surCharge: () => void
         <meshStandardMaterial color="#323131" roughness={1} />
       </mesh>
       <Pierres />
-      <Etoiles />
-      <Ciel image={ciel} surCharge={surCharge} />
+      <Balises materiau={materiaux.balises} />
+      <Etoiles materiau={materiaux.etoiles} />
+      <Ciel materiau={materiaux.ciel} />
     </>
   );
 }

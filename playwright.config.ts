@@ -12,9 +12,20 @@ export default defineConfig({
   reporter: process.env.CI ? [['github'], ['html', { open: 'never' }]] : 'list',
   use: { baseURL: `http://localhost:${PORT}`, trace: 'retain-on-failure' },
   projects: [
-    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
-    { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
-    { name: 'webkit', use: { ...devices['Desktop Safari'] } },
+    { name: 'chromium', use: { ...devices['Desktop Chrome'] }, testIgnore: /ouverture/ },
+    { name: 'firefox', use: { ...devices['Desktop Firefox'] }, testIgnore: /ouverture/ },
+    { name: 'webkit', use: { ...devices['Desktop Safari'] }, testIgnore: /ouverture/ },
+    // Scène 3D réelle sans GPU : WebGL logiciel (SwiftShader), pour la chorégraphie de l'ouverture.
+    {
+      name: 'chromium-webgl',
+      testMatch: /ouverture/,
+      use: {
+        ...devices['Desktop Chrome'],
+        launchOptions: {
+          args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'],
+        },
+      },
+    },
   ],
   webServer: {
     command: `node_modules/.bin/next start -p ${PORT}`,

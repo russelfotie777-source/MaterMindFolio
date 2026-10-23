@@ -70,8 +70,15 @@ export function transition(etat: EtatVisite, evenement: Evenement): EtatVisite {
   switch (evenement.type) {
     case 'START':
       if (etat.phase !== 'idle' && etat.phase !== 'completed') return etat;
-      // Le choix silencieux est mémorisé pour la session et n'est pas redemandé.
-      return { ...etat, phase: etat.son === 'a-choisir' ? 'sound-choice' : 'loading', etude: null };
+      // Le choix silencieux est mémorisé pour la session et n'est pas redemandé. « Revoir la visite »
+      // repart du premier chapitre, sans rejouer l'ouverture (image stable de chapitres.ts).
+      return {
+        ...etat,
+        phase: etat.son === 'a-choisir' ? 'sound-choice' : 'loading',
+        chapitre: etat.phase === 'completed' ? 0 : etat.chapitre,
+        etape: etat.phase === 'completed' ? 'lecture' : etat.etape,
+        etude: null,
+      };
     case 'CHOOSE_SOUND':
       if (etat.phase !== 'sound-choice') return etat;
       return { ...etat, phase: 'loading', son: evenement.avecSon ? 'actif' : 'silence' };

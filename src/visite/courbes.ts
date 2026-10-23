@@ -34,3 +34,5 @@ export function bezier(x1: number, y1: number, x2: number, y2: number): (t: numb
 export const DEPLACEMENT = bezier(0.65, 0, 0.35, 1);
 // motion.reveal : cubic-bezier(0.45, 0, 0.2, 1), élévation finale.
 export const REVELATION = bezier(0.45, 0, 0.2, 1);
+// motion.luminance : cubic-bezier(0.16, 1, 0.3, 1), allumage et ouverture d'exposition, sans dépassement.
+export const LUMINANCE = bezier(0.16, 1, 0.3, 1);

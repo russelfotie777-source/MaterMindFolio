@@ -113,3 +113,10 @@ test('étapes : un chapitre atteint repart en approche, un saut se pose en lectu
   const pause = transition(arrivee, { type: 'PAUSE' });
   assert.equal(transition(pause, { type: 'STAGE_REACHED', etape: 'lecture' }), pause);
 });
+
+test('revoir la visite repart du premier chapitre', () => {
+  const fin = jouer(enLecture(), { type: 'CHAPTER_REACHED', chapitre: 11 }, { type: 'COMPLETE' });
+  const revoir = transition(fin, { type: 'START' });
+  assert.equal(revoir.phase, 'loading');
+  assert.equal(revoir.chapitre, 0);
+});

@@ -19,8 +19,14 @@ const station = (i: number): Pose => {
   return { position: [x * 0.35, 1.7, z + 5.5], cible: [x, y + 0.9, z], fov: 45 };
 };
 
+// Ouverture (storyboard, section 2) : gros plan sur la pierre de la Base au match-cut de 3 s, translation
+// latérale lente jusqu'à 4,40 s, puis élargissement jusqu'à la vue large, horizon à hauteur d'yeux.
+export const OUVERTURE_PIERRE: Pose = { position: [-1.5, 0.55, 2.4], cible: [-0.2, 0.35, 0], fov: 35 };
+export const OUVERTURE_TRANSLATION: Pose = { position: [1.5, 0.55, 2.4], cible: [0.2, 0.35, 0], fov: 35 };
+const OUVERTURE_LARGE: Pose = { position: [0, 2.2, 9], cible: [0, 1.8, -60], fov: 50 };
+
 const POSES: Record<string, Pose> = {
-  opening: { position: [0, 1.6, 10], cible: [0, 2, -100], fov: 50 },
+  opening: OUVERTURE_LARGE,
   'base-237-source': { position: [0.9, 1.15, 2.6], cible: [0, 0.45, 0], fov: 42 },
   'project-fast-shipping-logistics': station(0),
   'project-batobaye-market': station(1),
