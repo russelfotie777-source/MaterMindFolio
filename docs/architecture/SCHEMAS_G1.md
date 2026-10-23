@@ -69,4 +69,9 @@ Le chargeur est en place (`src/lib/copie/`). Aucune copy n'existe encore : les p
 - **Visa** : une section dont `russelValidatedAt` vaut `null` n'est pas publiée. Elle le devient dès que la date du visa de Russel y est inscrite.
 - **Le build échoue** si le manifeste ne suit pas le schéma, si une section pointe hors du dossier de son projet, si un fait de `factRefs` est absent ou privé, si `need` n'est pas signée `russel`, ou si un texte visé contient un nœud hors allowlist (HTML, titre, image, code, citation, séparateur, saut de ligne forcé, lien par référence), un lien autre que `https:`, relatif ou fragment, ou dépasse 32 Kio. Ces refus sont testés par `pnpm test:unit`.
 - **Emplacements** : `product-caption` devient la légende du média du projet (étude de cas et visite légère) ; `need` s'affiche sous le rôle dans l'étude de cas, sous le titre « Besoin » ; `decision` s'affiche dans la station de la visite ; `case-study` devient le corps de l'étude de cas, sous le titre « Étude ».
-- **Restent à définir** avec leurs propres manifestes : la phrase d'accroche de l'accueil, la phrase du parcours, celles de Sources & fabrication et de la visite sans WebGL, la phrase finale. Elles ne sont pas des sections de projet.
+- **Copy du site** (phrases qui n'appartiennent à aucun projet) : manifeste `content/copy/fr/site.copy.json`, conforme à `schemas/site-copy.schema.json`, et un fichier par section dans `content/copy/fr/site/`. Mêmes règles de visa et d'allowlist ; pas de `factRefs`, puisque ces phrases ne s'appuient sur aucun fait. Emplacements :
+  - `accueil` : sous le nom, en blanc plein, au-dessus de la disponibilité (A01) ;
+  - `visite-legere` : sous le titre de la visite légère (A04, sans WebGL) ;
+  - `parcours` : sous le titre du parcours (A09) ;
+  - `fabrication` : sous le titre de Sources & fabrication (A13) ;
+  - `promenade` et `final` : déclarables dès maintenant, affichées avec la visite immersive (G3) et le final (G6).

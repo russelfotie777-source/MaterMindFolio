@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://horizon237.local/schemas/site-copy.schema.json",
+  "title": "Manifeste de la copy du site",
+  "description": "Phrases éditoriales qui n'appartiennent à aucun projet : accroche de l'accueil, phrases des vues A04, A09, A12 et A13 de la DR-1. Mêmes règles que la copy projet (contrat, section 3.2) ; une section sans visa de Russel reste absente.",
+  "type": "object",
+  "required": ["schemaVersion", "lang", "sections"],
+  "properties": {
+    "schemaVersion": { "const": "site-copy/1" },
+    "lang": { "const": "fr" },
+    "sections": {
+      "type": "object",
+      "propertyNames": { "enum": ["accueil", "promenade", "visite-legere", "parcours", "fabrication", "final"] },
+      "additionalProperties": {
+        "type": "object",
+        "required": ["file", "author", "russelValidatedAt"],
+        "properties": {
+          "file": { "type": "string", "pattern": "^content/copy/fr/site/[a-z0-9-]+\\.md$" },
+          "author": { "enum": ["russel", "chatgpt"] },
+          "russelValidatedAt": {
+            "oneOf": [{ "$ref": "fact.schema.json#/$defs/isoDate" }, { "type": "null" }]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

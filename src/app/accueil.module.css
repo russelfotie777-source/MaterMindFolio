@@ -110,3 +110,9 @@
     grid-column: 1 / span 5;
   }
 }
+
+/* Accroche : la voix de Russel, en blanc plein au-dessus de la disponibilité (vue A01). */
+.accroche {
+  margin-block-end: var(--space-4);
+  color: var(--color-text-on-dark);
+}

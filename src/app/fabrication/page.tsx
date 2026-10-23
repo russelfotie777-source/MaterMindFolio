@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+import { Copie } from '@/components/Copie';
 import { LecteurReference } from '@/components/LecteurReference';
 import { LienExterne } from '@/components/LienExterne';
+import { lireCopieSite } from '@/lib/copie/site';
 import { formaterJour } from '@/lib/dates';
 import { lireReferencesMusicales } from '@/lib/faits/musique';
 import { lireProjets } from '@/lib/faits/projets';
@@ -22,6 +24,7 @@ const ko = (octets: number) => `${Math.round(octets / 1000)} Ko`;
 // Sources & fabrication (DR-1, vue A13 et 05_ACTIFS_DROITS) : chaque dérivé publié avec son identifiant,
 // son origine, ses formats et son poids ; une image générée est toujours déclarée comme telle.
 export default function Fabrication() {
+  const copieSite = lireCopieSite();
   const projets = lireProjets();
   const morceaux = lireReferencesMusicales();
   const images = lireDerives().map(([id, derive]) => {
@@ -34,6 +37,7 @@ export default function Fabrication() {
     <div className={page.cadre}>
       <p className={page.etiquette}>Colophon</p>
       <h1 className={page.titrePage}>Sources &amp; fabrication</h1>
+      {copieSite.fabrication && <Copie arbre={copieSite.fabrication} className={page.lead} />}
 
       <section className={`${page.rubrique} ${styles.bloc}`}>
         <h2>Images</h2>

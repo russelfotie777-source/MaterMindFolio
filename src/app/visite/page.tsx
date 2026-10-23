@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Copie } from '@/components/Copie';
 import { MediaProjet } from '@/components/MediaProjet';
 import { lireCopieProjet } from '@/lib/copie/projets';
+import { lireCopieSite } from '@/lib/copie/site';
 import { lireProjets } from '@/lib/faits/projets';
 import { PLATEFORMES, rangSurSix } from '@/lib/libelles';
 import page from '@/styles/page.module.css';
@@ -20,12 +21,14 @@ export const metadata: Metadata = {
 // chacune avec son unique média ; le texte précède le média dans le DOM, le média passe devant à l'écran.
 // L'îlot immersif (G3) s'ajoutera devant cet index, qui reste la navigation sans Canvas.
 export default function Visite() {
+  const copieSite = lireCopieSite();
   const projets = lireProjets();
 
   return (
     <div className={page.cadre}>
       <p className={page.etiquette}>Visite · version légère</p>
       <h1 className={page.titrePage}>Six stations</h1>
+      {copieSite['visite-legere'] && <Copie arbre={copieSite['visite-legere']} className={page.lead} />}
       <ol className={styles.stations}>
         {projets.map((projet) => {
           const copie = lireCopieProjet(projet.slug);

@@ -2,7 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { preload } from 'react-dom';
 
+import { Copie } from '@/components/Copie';
 import { Visuel } from '@/components/Visuel';
+import { lireCopieSite } from '@/lib/copie/site';
 import { lireProfil } from '@/lib/faits/profil';
 import { lireDerive } from '@/lib/media';
 import page from '@/styles/page.module.css';
@@ -15,9 +17,10 @@ const TAILLES_PORTRAIT = '(min-width: 768px) min(45vw, 36rem), 70vw';
 
 // Accueil (DR-1, vues A01 et 01_DIRECTION_ARTISTIQUE, section 8) : décor d'aube plein cadre, identité sur
 // plan sombre, portrait détouré à droite. C'est aussi la version sans Canvas : tout est déjà dans le HTML.
-// La phrase d'accroche viendra de content/copy/ quand Codex l'aura livrée et Russel validée.
+// L'accroche vient de content/copy/fr/site.copy.json, une fois visée par Russel.
 export default function Accueil() {
   const profil = lireProfil();
+  const { accueil } = lireCopieSite();
   const portrait = lireDerive('portrait-buste').fichiers.avif;
   // Unique image préchargée : le portrait, première image utile (contrat, section 6). Le décor, élément
   // LCP mesuré, est chargé sans délai et en priorité haute, sans second préchargement.
@@ -44,6 +47,7 @@ export default function Accueil() {
             {profil.intitule} · {profil.base.ville}
           </p>
           <h1 className={page.titreDisplay}>{profil.nomPublic}</h1>
+          {accueil && <Copie arbre={accueil} className={`${page.lead} ${styles.accroche}`} />}
           <p className={page.lead}>{profil.disponibilite}</p>
           <p className={`${page.actions} ${styles.actions}`}>
             <Link className={page.boutonClair} href="/visite">
