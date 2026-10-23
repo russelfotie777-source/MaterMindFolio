@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   metadataBase: SITE_URL,
   title: { default: 'MASTERMIND — Software Engineer', template: '%s — MASTERMIND' },
   description: 'HORIZON 237 — TRACE SOLAIRE, le portfolio de MASTERMIND, Software Engineer basé à Douala.',
+  // Partage social sans image : la carte de partage relève de la direction artistique (Codex).
+  openGraph: { type: 'website', locale: 'fr_FR', siteName: 'HORIZON 237 — TRACE SOLAIRE' },
+  twitter: { card: 'summary' },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
