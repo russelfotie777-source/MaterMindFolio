@@ -27,4 +27,4 @@ Russel crée le projet avec son compte ; Claude vérifie ensuite la preview et e
 - poids transférés à froid (Brotli réel du CDN), LCP médian de 5 chargements, Lighthouse mobile et desktop ;
 - captures aux viewports de la DR-1 (1440 × 900 et 390 × 844), comparées aux vues de contrôle.
 
-Ces résultats forment l'IR-0, dans `docs/quality/IR-0/`, soumise au visa de fidélité de Codex.
+Mesures et captures sont produites par `pnpm ir0 <URL de la preview>` (`scripts/ir0.ts`, avec `H237_BYPASS` pour une preview protégée), essayé localement : 14 routes × 2 viewports, zéro violation CSP. Ces résultats forment l'IR-0, dans `docs/quality/IR-0/`, soumise au visa de fidélité de Codex.

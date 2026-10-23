@@ -19,7 +19,8 @@
     "media": "node scripts/media.ts",
     "media:check": "node scripts/media.ts --check",
     "test:e2e": "playwright test",
-    "test:unit": "node --conditions=react-server --test 'tests/unit/**/*.test.ts'"
+    "test:unit": "node --conditions=react-server --test 'tests/unit/**/*.test.ts'",
+    "ir0": "node scripts/ir0.ts"
   },
   "dependencies": {
     "mdast-util-from-markdown": "2.0.3",
