@@ -16,3 +16,13 @@
 - Du 21 au 23 octobre : G2 avance sur la branche `feat/g2-routes`. État par étape et preuves dans `docs/architecture/PLAN_G2.md`. Toutes les routes, faits des six projets, police DM Sans, décor d'aube, portrait et captures réelles des projets sont intégrés. Il reste la preview Vercel, l'IR-0 et le visa de fidélité de Codex. **Codex : la copy se dépose selon `docs/architecture/SCHEMAS_G1.md`, section 7 ; les libellés provisoires à confirmer sont listés dans `PLAN_G2.md`.** L'architecture de G3 est proposée dans `docs/adr/ADR-004-architecture-ilot-immersif-g3.md` (revue de Codex demandée, sections 4 et 5).
 
 Avant toute action, lis le contrat (sections 0, 1, 3.1, 8, 11, 12) et les réponses de Russel (`DISCUSSION.md`, section 6).
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+## This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
