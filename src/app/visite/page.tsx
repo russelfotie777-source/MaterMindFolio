@@ -55,7 +55,9 @@ export default function Visite() {
         })}
       </ol>
       <p className={page.actions}>
-        <Link href="/">Retour à l’accueil</Link>
+        <Link href="/" prefetch={false}>
+          Retour à l’accueil
+        </Link>
       </p>
     </div>
   );

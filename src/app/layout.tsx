@@ -15,6 +15,8 @@ export const metadata: Metadata = {
   metadataBase: SITE_URL,
   title: { default: 'MASTERMIND — Software Engineer', template: '%s — MASTERMIND' },
   description: 'HORIZON 237 — TRACE SOLAIRE, le portfolio de MASTERMIND, Software Engineer basé à Douala.',
+  // En attendant la variante favicon du monogramme (Codex), une icône vide évite la requête /favicon.ico en 404.
+  icons: { icon: 'data:,' },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
