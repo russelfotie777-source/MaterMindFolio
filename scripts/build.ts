@@ -9,6 +9,7 @@ import { execFileSync } from 'node:child_process';
 import { createHash, randomUUID } from 'node:crypto';
 import { mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { brotliCompressSync, constants } from 'node:zlib';
 
 const HASH_FILE = '.next-csp/script-hashes.json';
 const INLINE_SCRIPT = /<script\b(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g;
@@ -111,3 +112,25 @@ if (exposed.length > 0) {
   process.exit(1);
 }
 console.log(`Faits privés : aucun des ${secrets.length} textes contrôlés n'est publié.`);
+
+// Budget de l'îlot immersif (contrat, section 7 ; ADR-004, section 4) : 290 Ko en Brotli q5, la
+// compression réaliste d'un CDN, pour les chunks de la scène (Three.js, R3F, GSAP et code du monde).
+const BUDGET_ILOT = 290_000;
+const ilot = files('.next/static', '.js').filter((file) =>
+  readFileSync(file, 'utf8').includes('WebGLRenderer'),
+);
+const poidsIlot = ilot.reduce(
+  (total, file) =>
+    total +
+    brotliCompressSync(readFileSync(file), { params: { [constants.BROTLI_PARAM_QUALITY]: 5 } }).length,
+  0,
+);
+if (poidsIlot > BUDGET_ILOT) {
+  console.error(
+    `Îlot immersif : ${Math.round(poidsIlot / 1000)} Ko en Brotli q5, au-delà de 290 Ko ; build refusé.`,
+  );
+  process.exit(1);
+}
+console.log(
+  `Îlot immersif : ${Math.round(poidsIlot / 1000)} Ko en Brotli q5 sur 290 Ko (${ilot.length} chunk).`,
+);
