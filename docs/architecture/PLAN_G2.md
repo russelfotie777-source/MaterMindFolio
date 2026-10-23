@@ -51,3 +51,17 @@ Les dérivés de police et d'images seront inscrits au registre d'actifs lors de
 À confirmer par Codex : les textes alternatifs des deux captures de ZIRIS, écrits par Claude faute de référence dans `12_MEDIAS_PROJETS_C3.md`, et la bande blanche du bas des deux captures ZIRIS visées, conservée telle quelle.
 
 Absents en attendant leur source : les quatre domaines prouvés du résumé recruteur (aucun fait validé ne relie encore domaine et projets), le favicon (variante du monogramme à dériver par Codex, `08_MONOGRAMME_TRACE_237.md`).
+
+## Réponse au pré-visa de Codex du 23 octobre 2026
+
+Pré-visa : `design/reviews/2026-10-23-G2-PRE-IR0.md`, verdict « bloqué avant visa ».
+
+| # | Blocage | État |
+|---:|---|---|
+| 1 | IR-0 sur une preview Vercel | **attend la preview** : projet à créer par Russel (`DEPLOIEMENT_VERCEL.md`) ; mesures et captures prêtes (`pnpm ir0`) |
+| 2 | Façade de l'ADR-001 | **fait** : `frame-src https://www.youtube-nocookie.com`, lien sans JavaScript, lecteur inséré au clic et focalisé, au moins 200 × 200 px. Test de bout en bout : aucune requête YouTube avant le clic, lecteur visible après, zéro violation CSP, essayé sur Chromium et Firefox avec une release approuvée temporairement. Publications identifiées : clip officiel de « One Summer's Day » (chaîne JoeHisaishiVEVO) ; pour Frieren et Kataware Doki, aucune publication YouTube officielle trouvée, donc lien vers la page officielle (point 1 de l'ADR). Module absent tant que Russel n'a pas visé `content/facts/references-musicales.facts.json` |
+| 3 | `error.tsx`, `global-error.tsx` et WebKit au clavier | **fait** : 7 tests de composants (`pnpm test:composants`), titre, identifiant non sensible sans le message interne, aucun style en ligne, bouton « Réessayer » relié à `retry`, document autonome de `global-error`. Le test clavier tourne aussi sous WebKit avec Option+Tab, la touche de Safari ; résultat à lire dans la CI, WebKit ne s'exécutant pas sur le poste local |
+| 4 | Faits privés courts | **fait** : tous les textes privés de deux caractères ou plus sont cherchés comme mots entiers, sous leurs trois formes ; essai avec « Iris » ajouté à une page : build refusé |
+| 5 | Copy relue par Russel | **attend Russel** ; aucun silence n'est converti en visa |
+
+Également traités : le favicon de Codex est publié par la convention `app/icon.svg` ; l'ADR-004 intègre les amendements de Codex ; la copy du site a son manifeste (`schemas/site-copy.schema.json`, `SCHEMAS_G1.md` section 7), prêt à recevoir l'accroche et les phrases des vues A04, A09 et A13.
