@@ -12,15 +12,16 @@ test('au plus quatre corps actifs à chaque chapitre', () => {
   });
 });
 
-test('six repères de même rayon, chacun actif pendant sa station', () => {
+test('six repères de même rayon, chacun actif pendant sa seule station', () => {
   const projets = CHAPITRES.flatMap((chapitre, i) => (chapitre.projet ? [i] : []));
-  const reperes = CORPS.filter((corps) => corps.chapitres.length === 2 && !corps.avecFirmament);
+  const reperes = CORPS.filter((corps) => !corps.avecFirmament);
   assert.deepEqual(
     reperes.map((corps) => corps.id),
     ['lune', 'mars', 'jupiter', 'saturne', 'uranus', 'neptune'],
   );
   assert.equal(new Set(reperes.map((corps) => corps.rayon)).size, 1);
-  reperes.forEach((corps, k) => assert.ok(corps.chapitres.includes(projets[k]!), corps.id));
+  // Un seul repère par station : le suivant n'apparaît qu'à sa propre station.
+  reperes.forEach((corps, k) => assert.deepEqual(corps.chapitres, [projets[k]]));
 });
 
 test('tous les corps restent dans le cylindre du ciel', () => {

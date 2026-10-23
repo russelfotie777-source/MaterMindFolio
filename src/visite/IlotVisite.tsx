@@ -69,6 +69,13 @@ export function IlotVisite({
   // L'ouverture n'est montée que pour une visite immersive qui part de l'image 0 : ses images se
   // chargent pendant le choix sonore, et rien n'est téléchargé avant le geste.
   const [ouvertureMontee, setOuvertureMontee] = useState(false);
+  // Menu du player : disclosure APG (bouton aria-expanded), jamais role="menu" (DR-1, 04, section 8).
+  const [menuOuvert, setMenuOuvert] = useState(false);
+  const boutonMenu = useRef<HTMLButtonElement>(null);
+  const fermerMenu = () => {
+    setMenuOuvert(false);
+    boutonMenu.current?.focus();
+  };
 
   // Préférences et environnement : mouvement réduit, onglet masqué, réseau, fragment partagé.
   useEffect(() => {
@@ -153,17 +160,27 @@ export function IlotVisite({
 
   useEffect(() => () => scene.current?.detruire(), []);
 
-  // Le fragment nomme le chapitre courant, jamais un instant ; Échap quitte vers la vue libre.
+  // Le fragment nomme le chapitre courant, jamais un instant ; Échap ferme d'abord le menu ouvert, puis
+  // quitte vers la vue libre.
   const enVisite = etat.phase === 'playing' || etat.phase === 'paused';
   useEffect(() => {
     if (!enVisite) return;
     history.replaceState(null, '', `#${CHAPITRES[etat.chapitre]!.id}`);
+  }, [enVisite, etat.chapitre]);
+  useEffect(() => {
+    if (!enVisite) return;
     const surTouche = (evenement: KeyboardEvent) => {
-      if (evenement.key === 'Escape') store.envoyer({ type: 'EXIT' });
+      if (evenement.key !== 'Escape') return;
+      if (menuOuvert) {
+        setMenuOuvert(false);
+        boutonMenu.current?.focus();
+      } else {
+        store.envoyer({ type: 'EXIT' });
+      }
     };
     addEventListener('keydown', surTouche);
     return () => removeEventListener('keydown', surTouche);
-  }, [enVisite, etat.chapitre, store]);
+  }, [enVisite, menuOuvert, store]);
 
   useEffect(() => {
     if (etat.phase === 'idle') demarrer.current?.focus({ preventScroll: true });
@@ -292,9 +309,73 @@ export function IlotVisite({
           >
             Suivant
           </button>
-          <button type="button" className={styles.commande} onClick={() => store.envoyer({ type: 'EXIT' })}>
-            Quitter
+          <button
+            ref={boutonMenu}
+            type="button"
+            className={styles.commande}
+            aria-expanded={menuOuvert}
+            aria-controls="menu-visite"
+            onClick={() => setMenuOuvert(!menuOuvert)}
+          >
+            Menu
           </button>
+          {menuOuvert && (
+            <div id="menu-visite" className={styles.menu}>
+              <h2 className={pageStyles.etiquette}>Chapitres</h2>
+              <ol role="list" className={styles.chapitres}>
+                {CHAPITRES.map((element, i) => (
+                  <li key={element.id}>
+                    <button
+                      type="button"
+                      className={styles.chapitre}
+                      aria-current={i === etat.chapitre ? 'step' : undefined}
+                      onClick={() => {
+                        store.envoyer({ type: 'SEEK_CHAPTER', chapitre: i });
+                        fermerMenu();
+                      }}
+                    >
+                      <span className={styles.numero}>{String(i + 1).padStart(2, '0')}</span>{' '}
+                      {element.libelle}
+                    </button>
+                  </li>
+                ))}
+              </ol>
+              <ul role="list" className={styles.actionsMenu}>
+                {chapitre.projet && (
+                  <li>
+                    <a
+                      className={styles.commande}
+                      href={`/projets/${chapitre.projet}`}
+                      onClick={() => store.envoyer({ type: 'OPEN_CASE', projet: chapitre.projet! })}
+                    >
+                      Approfondir<span className="visuellement-cache"> : {chapitre.libelle}</span>
+                    </a>
+                  </li>
+                )}
+                <li>
+                  <a
+                    className={styles.commande}
+                    href="/resume-recruteur"
+                    onClick={() => store.envoyer({ type: 'PAUSE' })}
+                  >
+                    Résumé recruteur
+                  </a>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    className={styles.commande}
+                    onClick={() => {
+                      setMenuOuvert(false);
+                      store.envoyer({ type: 'EXIT' });
+                    }}
+                  >
+                    Quitter la visite
+                  </button>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
       )}
 

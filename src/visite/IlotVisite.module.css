@@ -86,6 +86,7 @@
 
 /* Player : barre opaque, commandes de 44 px au moins, focus jamais masqué. */
 .player {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2) var(--space-3);
@@ -348,4 +349,89 @@
   .index {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
+}
+
+/* Menu du player : panneau opaque posé au-dessus de la barre, index des douze chapitres puis actions
+   secondaires. Ouverture en 240 ms (motion.interface), supprimée en mouvement réduit. */
+.menu {
+  position: absolute;
+  inset-inline: var(--space-4);
+  inset-block-end: calc(100% + var(--space-2));
+  z-index: 2;
+  display: grid;
+  gap: var(--space-4);
+  max-height: min(34rem, 62svh);
+  overflow: auto;
+  padding: var(--space-5);
+  border-radius: var(--radius-organic-minimum) var(--radius-organic-maximum);
+  background: var(--color-surface-depth);
+  color: var(--color-text-on-dark);
+  transition:
+    opacity var(--motion-duration-interface) var(--motion-easing-interface),
+    translate var(--motion-duration-interface) var(--motion-easing-interface);
+}
+
+@starting-style {
+  .menu {
+    opacity: 0;
+    translate: 0 var(--space-2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu {
+    transition: none;
+  }
+}
+
+.menu h2 {
+  --etiquette: var(--color-solar-trace);
+
+  margin: 0;
+}
+
+.chapitres,
+.actionsMenu {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .menu {
+    inset-inline: auto var(--space-4);
+    width: min(100% - 2 * var(--space-4), 30rem);
+  }
+}
+
+.actionsMenu {
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: var(--space-2);
+}
+
+.chapitre {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  width: 100%;
+  min-height: var(--size-target-minimum);
+  padding: 0 var(--space-3);
+  border: 0;
+  border-radius: var(--radius-control);
+  background: none;
+  color: var(--color-text-on-dark);
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+
+.chapitre:hover {
+  background: var(--color-surface-elevated);
+}
+
+.chapitre[aria-current] {
+  background: var(--color-violet-depth);
+  font-weight: var(--font-weight-interface-strong);
 }

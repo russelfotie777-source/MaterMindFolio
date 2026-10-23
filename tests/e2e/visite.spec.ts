@@ -63,7 +63,8 @@ test('player : pause, chapitres et fragment stable, sans violation CSP', async (
     '/projets/fast-shipping-logistics',
   );
   await expect(player.getByRole('link')).toHaveCount(0);
-  await player.getByRole('button', { name: 'Quitter' }).click();
+  await player.getByRole('button', { name: 'Menu' }).click();
+  await player.getByRole('button', { name: 'Quitter la visite' }).click();
   await expect(page.getByRole('button', { name: 'Démarrer la visite' })).toBeVisible();
   expect(await violationsCsp(page)).toEqual([]);
 });
@@ -114,5 +115,38 @@ test('belvédère : un fragment partagé ouvre sur la pose stable, panneau lisib
   await expect(
     page.getByRole('region', { name: 'Visite guidée' }).getByRole('heading', { name: /^ZIRIS/ }),
   ).toBeVisible();
+  expect(await violationsCsp(page)).toEqual([]);
+});
+
+test('menu du player : disclosure, index des douze chapitres, Échap le referme sans quitter', async ({
+  page,
+}) => {
+  await page.clock.install();
+  await page.goto('/visite');
+  await page.clock.pauseAt(Date.now() + 60_000);
+  await page.getByRole('button', { name: 'Démarrer la visite' }).click();
+  await page.getByRole('button', { name: 'Continuer en silence' }).click();
+  const player = page.getByRole('group', { name: 'Lecteur de la visite' });
+  await expect(player).toBeVisible({ timeout: 15_000 });
+  const menu = player.getByRole('button', { name: 'Menu' });
+  await expect(menu).toHaveAttribute('aria-expanded', 'false');
+  await menu.click();
+  await expect(menu).toHaveAttribute('aria-expanded', 'true');
+  await expect(page.getByRole('menu')).toHaveCount(0);
+  const chapitres = page.locator('#menu-visite ol').getByRole('button');
+  await expect(chapitres).toHaveCount(12);
+  await expect(chapitres.first()).toHaveAttribute('aria-current', 'step');
+  await chapitres.filter({ hasText: 'Parcours' }).focus();
+  await page.keyboard.press('Escape');
+  await expect(menu).toBeFocused();
+  await expect(menu).toHaveAttribute('aria-expanded', 'false');
+  await expect(player).toBeVisible();
+  // Un chapitre choisi dans l'index se pose en pause sur son image stable.
+  await menu.click();
+  await chapitres.filter({ hasText: 'Parcours' }).click();
+  await expect(player).toContainText('10/12');
+  await expect(player.getByRole('button', { name: 'Reprendre' })).toBeVisible();
+  await expect(menu).toBeFocused();
+  await expect(page).toHaveURL(/#career$/);
   expect(await violationsCsp(page)).toEqual([]);
 });
