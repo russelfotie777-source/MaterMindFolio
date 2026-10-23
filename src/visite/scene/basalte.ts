@@ -1,5 +1,4 @@
-import { BufferAttribute, Color, IcosahedronGeometry } from 'three';
-import { mergeVertices } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
+import { BufferAttribute, BufferGeometry, Color } from 'three';
 
 // Pierres de basalte procédurales (C3-R4 ; amendement 5 de Codex) : basalte mat #323131, masse irrégulière,
 // grain d'agrégat, pores, fissures et arêtes usées, sans aucune texture téléchargée. Tout est déterministe :
@@ -22,17 +21,26 @@ function hacher(x: number, y: number, z: number, sel: number) {
 
 const lisser = (t: number) => t * t * (3 - 2 * t);
 
-// Bruit de valeur 3D, interpolé et lissé : de 0 à 1.
+// Bruit de valeur 3D, interpolé et lissé : de 0 à 1. Écrit sans tableau ni fermeture, car il est
+// appelé quelques centaines de milliers de fois au chargement.
 function bruit(x: number, y: number, z: number, sel: number) {
-  const [ix, iy, iz] = [Math.floor(x), Math.floor(y), Math.floor(z)];
-  const [fx, fy, fz] = [lisser(x - ix), lisser(y - iy), lisser(z - iz)];
-  const coin = (dx: number, dy: number, dz: number) => hacher(ix + dx, iy + dy, iz + dz, sel);
-  const melange = (a: number, b: number, t: number) => a + (b - a) * t;
-  return melange(
-    melange(melange(coin(0, 0, 0), coin(1, 0, 0), fx), melange(coin(0, 1, 0), coin(1, 1, 0), fx), fy),
-    melange(melange(coin(0, 0, 1), coin(1, 0, 1), fx), melange(coin(0, 1, 1), coin(1, 1, 1), fx), fy),
-    fz,
-  );
+  const ix = Math.floor(x);
+  const iy = Math.floor(y);
+  const iz = Math.floor(z);
+  const fx = lisser(x - ix);
+  const fy = lisser(y - iy);
+  const fz = lisser(z - iz);
+  const a = hacher(ix, iy, iz, sel);
+  const b = hacher(ix + 1, iy, iz, sel);
+  const c = hacher(ix, iy + 1, iz, sel);
+  const d = hacher(ix + 1, iy + 1, iz, sel);
+  const e = hacher(ix, iy, iz + 1, sel);
+  const f = hacher(ix + 1, iy, iz + 1, sel);
+  const g = hacher(ix, iy + 1, iz + 1, sel);
+  const h = hacher(ix + 1, iy + 1, iz + 1, sel);
+  const bas = a + (b - a) * fx + (c + (d - c) * fx - (a + (b - a) * fx)) * fy;
+  const haut = e + (f - e) * fx + (g + (h - g) * fx - (e + (f - e) * fx)) * fy;
+  return bas + (haut - bas) * fz;
 }
 
 // Somme d'octaves centrée : de -1 à 1 environ.
@@ -49,11 +57,99 @@ function octaves(x: number, y: number, z: number, sel: number, nombre: number) {
   return somme / total;
 }
 
-// `detail` règle la finesse du maillage : plus fin pour la pierre de la Base, vue en gros plan à 3 s.
-export function pierre(rayon: number, depart: number, detail: number) {
-  const geometrie = mergeVertices(
-    new IcosahedronGeometry(1, detail).deleteAttribute('normal').deleteAttribute('uv'),
-  );
+// Icosphère indexée, construite directement : chaque face de l'icosaèdre est découpée en grille, et les
+// sommets partagés entre faces sont fusionnés par une clé numérique. Le relief est ainsi calculé une
+// seule fois par sommet et les normales sont lisses, sans le coût des UV de IcosahedronGeometry.
+const T = (1 + Math.sqrt(5)) / 2;
+const ICOSAEDRE = [
+  [-1, T, 0],
+  [1, T, 0],
+  [-1, -T, 0],
+  [1, -T, 0],
+  [0, -1, T],
+  [0, 1, T],
+  [0, -1, -T],
+  [0, 1, -T],
+  [T, 0, -1],
+  [T, 0, 1],
+  [-T, 0, -1],
+  [-T, 0, 1],
+] as const;
+const FACES = [
+  [0, 11, 5],
+  [0, 5, 1],
+  [0, 1, 7],
+  [0, 7, 10],
+  [0, 10, 11],
+  [1, 5, 9],
+  [5, 11, 4],
+  [11, 10, 2],
+  [10, 7, 6],
+  [7, 1, 8],
+  [3, 9, 4],
+  [3, 4, 2],
+  [3, 2, 6],
+  [3, 6, 8],
+  [3, 8, 9],
+  [4, 9, 5],
+  [2, 4, 11],
+  [6, 2, 10],
+  [8, 6, 7],
+  [9, 8, 1],
+] as const;
+
+function icosphere(segments: number) {
+  const vus = new Map<number, number>();
+  const positions: number[] = [];
+  const index: number[] = [];
+  const sommet = (x: number, y: number, z: number) => {
+    const longueur = Math.hypot(x, y, z);
+    const [nx, ny, nz] = [x / longueur, y / longueur, z / longueur];
+    const cle =
+      (Math.round(nx * 1e4) + 1e4) * 4e8 + (Math.round(ny * 1e4) + 1e4) * 2e4 + (Math.round(nz * 1e4) + 1e4);
+    let numero = vus.get(cle);
+    if (numero === undefined) {
+      numero = positions.length / 3;
+      vus.set(cle, numero);
+      positions.push(nx, ny, nz);
+    }
+    return numero;
+  };
+  for (const [ia, ib, ic] of FACES) {
+    const [a, b, c] = [ICOSAEDRE[ia], ICOSAEDRE[ib], ICOSAEDRE[ic]];
+    // grille[i][j] : point a + (b - a)·i/n + (c - a)·j/n, pour i + j ≤ n.
+    const grille: number[][] = [];
+    for (let i = 0; i <= segments; i++) {
+      const ligne: number[] = [];
+      for (let j = 0; j <= segments - i; j++) {
+        const u = i / segments;
+        const v = j / segments;
+        ligne.push(
+          sommet(
+            a[0] + (b[0] - a[0]) * u + (c[0] - a[0]) * v,
+            a[1] + (b[1] - a[1]) * u + (c[1] - a[1]) * v,
+            a[2] + (b[2] - a[2]) * u + (c[2] - a[2]) * v,
+          ),
+        );
+      }
+      grille.push(ligne);
+    }
+    for (let i = 0; i < segments; i++) {
+      for (let j = 0; j < segments - i; j++) {
+        index.push(grille[i]![j]!, grille[i + 1]![j]!, grille[i]![j + 1]!);
+        if (j < segments - i - 1) index.push(grille[i + 1]![j]!, grille[i + 1]![j + 1]!, grille[i]![j + 1]!);
+      }
+    }
+  }
+  const geometrie = new BufferGeometry();
+  geometrie.setAttribute('position', new BufferAttribute(new Float32Array(positions), 3));
+  geometrie.setIndex(index);
+  return geometrie;
+}
+
+// `segments` règle la finesse du maillage : plus fin pour la pierre de la Base, vue en gros plan à 3 s.
+export function pierre(rayon: number, depart: number, segments: number) {
+  const geometrie = icosphere(segments);
   const hasard = graine(depart);
   const sel = Math.floor(hasard() * 1e6);
   // Fissures : quelques plans qui traversent la pierre, creusés en sillons étroits.

@@ -9,9 +9,10 @@ import { lireCopieSite } from '@/lib/copie/site';
 import { lireProfil } from '@/lib/faits/profil';
 import { lireProjets } from '@/lib/faits/projets';
 import { PLATEFORMES, rangSurSix } from '@/lib/libelles';
-import { lireDerive } from '@/lib/media';
+import { type IdDerive, lireDerive } from '@/lib/media';
 import page from '@/styles/page.module.css';
-import { type Belvedere, IlotVisite } from '@/visite/IlotVisite';
+import { IDS_CARTES } from '@/visite/corps';
+import { type Belvedere, IlotVisite, type TexturesVisite } from '@/visite/IlotVisite';
 
 import styles from './visite.module.css';
 
@@ -30,10 +31,19 @@ export default function Visite() {
   const projets = lireProjets();
   // Texture du ciel cylindrique (C3-R1, C3-R3) : dérivé WebP du décor d'aube, 1280 px sur téléphone
   // pour tenir le budget des premiers actifs 3D, 2560 px au-delà pour limiter l'agrandissement.
-  const aube = lireDerive('aube-paysage').fichiers.webp;
-  const ciel = {
-    mobile: aube.find((f) => f.largeur === 1280)!.chemin,
-    bureau: aube.find((f) => f.largeur === 2560)!.chemin,
+  // Cartes des corps célestes (C3-R5) : 512 px sur téléphone, 1024 px au-delà.
+  const paire = (id: IdDerive, mobile: number, bureau: number) => {
+    const fichiers = lireDerive(id).fichiers.webp;
+    return {
+      mobile: fichiers.find((f) => f.largeur === mobile)!.chemin,
+      bureau: fichiers.find((f) => f.largeur === bureau)!.chemin,
+    };
+  };
+  const textures: TexturesVisite = {
+    ciel: paire('aube-paysage', 1280, 2560),
+    cartes: Object.fromEntries(
+      IDS_CARTES.map((id) => [id, paire(`${id}-carte`, 512, 1024)]),
+    ) as TexturesVisite['cartes'],
   };
 
   // Image 0 de l'ouverture : décor d'aube, identité validée et portrait réel détouré, composés comme
@@ -94,7 +104,7 @@ export default function Visite() {
     <div className={page.cadre}>
       <p className={page.etiquette}>Visite · version légère</p>
       <h1 className={page.titrePage}>Six stations</h1>
-      <IlotVisite ciel={ciel} identite={identite} belvederes={belvederes}>
+      <IlotVisite textures={textures} identite={identite} belvederes={belvederes}>
         <Visuel
           cadres={[{ derive: 'aube-vertical', media: '(max-width: 767px)' }, { derive: 'aube-paysage' }]}
           alt=""

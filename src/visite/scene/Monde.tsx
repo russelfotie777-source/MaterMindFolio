@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
-import type { MeshBasicMaterial, PointsMaterial } from 'three';
+import { type MeshBasicMaterial, type MeshStandardMaterial, type PointsMaterial, RingGeometry } from 'three';
 
+import type { Corps } from '../corps';
 import { STATIONS } from '../poses';
 import { BASALTE, graine, pierre } from './basalte';
 
@@ -19,6 +20,47 @@ export type Materiaux = {
   etoiles: PointsMaterial;
   balises: MeshBasicMaterial;
 };
+
+// Corps célestes : matériaux créés et pilotés par la boucle (cartes chargées à la demande, visibilité
+// par chapitre). Vraies sphères, sans halo ; l'anneau de Saturne suit la carte radiale de transparence.
+export type CorpsRendu = {
+  donnees: Corps;
+  materiau: MeshBasicMaterial | MeshStandardMaterial;
+  anneau: MeshStandardMaterial | null;
+};
+
+const DEGRE = Math.PI / 180;
+
+function anneau(rayon: number) {
+  const interieur = rayon * 1.24;
+  const exterieur = rayon * 2.27;
+  const geometrie = new RingGeometry(interieur, exterieur, 128, 1);
+  // La carte de l'anneau est radiale : u suit la distance au centre, v reste au milieu.
+  const positions = geometrie.getAttribute('position');
+  const uv = geometrie.getAttribute('uv');
+  for (let i = 0; i < positions.count; i++) {
+    const distance = Math.hypot(positions.getX(i), positions.getY(i));
+    uv.setXY(i, (distance - interieur) / (exterieur - interieur), 0.5);
+  }
+  return geometrie;
+}
+
+function CorpsCeleste({ donnees, materiau, anneau: materiauAnneau }: CorpsRendu) {
+  const geometrieAnneau = useMemo(
+    () => (materiauAnneau ? anneau(donnees.rayon) : null),
+    [materiauAnneau, donnees.rayon],
+  );
+  return (
+    <group position={donnees.position} rotation={[0, 0, donnees.inclinaison * DEGRE]}>
+      <mesh material={materiau}>
+        <sphereGeometry args={[donnees.rayon, 64, 32]} />
+      </mesh>
+      {geometrieAnneau && (
+        <mesh geometry={geometrieAnneau} material={materiauAnneau!} rotation={[-Math.PI / 2, 0, 0]} />
+      )}
+    </group>
+  );
+}
 
 function Ciel({ materiau }: { materiau: MeshBasicMaterial }) {
   const centre = 1.6 + (0.5 - HORIZON_IMAGE) * HAUTEUR_CIEL;
@@ -54,9 +96,9 @@ function Etoiles({ materiau }: { materiau: PointsMaterial }) {
 function Pierres() {
   const formes = useMemo(
     () => [
-      { geometrie: pierre(0.9, 11, 40), position: [0, 0.35, 0] as const },
+      { geometrie: pierre(0.9, 11, 36), position: [0, 0.35, 0] as const },
       ...STATIONS.map((station, i) => ({
-        geometrie: pierre(1.1, 101 + i, 20),
+        geometrie: pierre(1.1, 101 + i, 18),
         position: [station[0], 0.4, station[2]] as const,
       })),
     ],
@@ -87,7 +129,7 @@ function Balises({ materiau }: { materiau: MeshBasicMaterial }) {
   );
 }
 
-export function Monde({ materiaux }: { materiaux: Materiaux }) {
+export function Monde({ materiaux, corps }: { materiaux: Materiaux; corps: readonly CorpsRendu[] }) {
   return (
     <>
       <color attach="background" args={['#0e0b17']} />
@@ -104,6 +146,9 @@ export function Monde({ materiaux }: { materiaux: Materiaux }) {
       <Pierres />
       <Balises materiau={materiaux.balises} />
       <Etoiles materiau={materiaux.etoiles} />
+      {corps.map((rendu) => (
+        <CorpsCeleste key={rendu.donnees.id} {...rendu} />
+      ))}
       <Ciel materiau={materiaux.ciel} />
     </>
   );

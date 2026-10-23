@@ -100,7 +100,10 @@ test.describe('mouvement réduit', () => {
 });
 
 test('belvédère : un fragment partagé ouvre sur la pose stable, panneau lisible', async ({ page }) => {
+  // Horloge figée : avec WebGL, la visite avancerait sinon jusqu'au retrait du panneau.
+  await page.clock.install();
   await page.goto('/visite#project-ziris');
+  await page.clock.pauseAt(Date.now() + 60_000);
   await page.getByRole('button', { name: 'Démarrer la visite' }).click();
   await page.getByRole('button', { name: 'Continuer en silence' }).click();
   const player = page.getByRole('group', { name: 'Lecteur de la visite' });

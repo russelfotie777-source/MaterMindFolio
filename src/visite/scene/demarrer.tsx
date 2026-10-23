@@ -7,9 +7,11 @@ import {
   Color,
   CylinderGeometry,
   DirectionalLight,
+  DoubleSide,
   Fog,
   Group,
   HemisphereLight,
+  type Material,
   Mesh,
   MeshBasicMaterial,
   MeshStandardMaterial,
@@ -18,17 +20,21 @@ import {
   Points,
   PointsMaterial,
   RepeatWrapping,
+  RingGeometry,
+  SphereGeometry,
   SRGBColorSpace,
+  type Texture,
   TextureLoader,
 } from 'three';
 
 import { CHAPITRES, DUREE_TOTALE, approche, chapitreA, etapeA, instantStable } from '../chapitres';
+import { CORPS, type IdCarte } from '../corps';
 import { DEPLACEMENT, LUMINANCE, REVELATION } from '../courbes';
 import { OUVERTURE, coucheA, segmenter } from '../ouverture';
 import { OUVERTURE_PIERRE, OUVERTURE_TRANSLATION, POSES_CHAPITRES, type Pose } from '../poses';
 import type { StoreVisite } from '../store';
 import { creerLecteurTemps } from '../temps';
-import { type Materiaux, Monde } from './Monde';
+import { type CorpsRendu, type Materiaux, Monde } from './Monde';
 
 // Catalogue explicite : jamais <Canvas>, qui embarquerait tout Three.js (ADR-004, section 2, point 1).
 extend({
@@ -46,9 +52,12 @@ extend({
   PlaneGeometry,
   Points,
   PointsMaterial,
+  RingGeometry,
+  SphereGeometry,
 });
 
 export type Scene = { detruire: () => void };
+export type Textures = { ciel: string; cartes: Record<IdCarte, string> };
 
 // Exposition du ciel avant l'ouverture solaire de 8 s : l'aube reste lisible, jamais noire.
 const EXPOSITION_AVANT_AUBE = 0.38;
@@ -77,7 +86,7 @@ const aplatir = ({ position, cible, fov }: Pose) => ({
 export async function demarrerScene(
   canvas: HTMLCanvasElement,
   store: StoreVisite,
-  ciel: string,
+  textures: Textures,
   ouverture: HTMLElement | null,
 ): Promise<Scene> {
   const mobile = matchMedia('(max-width: 767px)').matches;
@@ -96,7 +105,8 @@ export async function demarrerScene(
 
   // Ciel : décor d'aube vu de l'intérieur du cylindre, retourné pour ne pas apparaître en miroir et
   // décalé pour que le Fuji (x ≈ 0,486 du panorama) soit droit devant, sur l'axe -z de la promenade.
-  const texture = new TextureLoader().load(ciel, () => rendre());
+  const chargeur = new TextureLoader();
+  const texture = chargeur.load(textures.ciel, () => rendre());
   texture.colorSpace = SRGBColorSpace;
   texture.wrapS = RepeatWrapping;
   texture.repeat.x = -1;
@@ -112,6 +122,53 @@ export async function demarrerScene(
       toneMapped: false,
     }),
     balises: new MeshBasicMaterial({ color: '#f06aa6', transparent: true, fog: false, toneMapped: false }),
+  };
+
+  // Corps célestes (C3-R5) : une carte n'est téléchargée qu'à l'approche de son chapitre, et le corps
+  // n'apparaît qu'une fois sa carte prête, jamais en sphère noire. Seuls les corps du chapitre sont rendus.
+  const corps: CorpsRendu[] = CORPS.map((donnees) => ({
+    donnees,
+    materiau: donnees.emissif
+      ? new MeshBasicMaterial({ transparent: true, fog: false, toneMapped: false })
+      : new MeshStandardMaterial({ roughness: 1, metalness: 0, fog: false, transparent: true }),
+    anneau: donnees.anneaux
+      ? new MeshStandardMaterial({
+          roughness: 1,
+          metalness: 0,
+          fog: false,
+          transparent: true,
+          side: DoubleSide,
+          depthWrite: false,
+        })
+      : null,
+  }));
+  const cartes: Texture[] = [];
+  const pretes = new Set<Material>();
+  const habiller = (materiau: CorpsRendu['materiau'], id: IdCarte) => {
+    const carte = chargeur.load(textures.cartes[id], () => {
+      pretes.add(materiau);
+      rendre();
+    });
+    carte.colorSpace = SRGBColorSpace;
+    cartes.push(carte);
+    materiau.map = carte;
+    materiau.needsUpdate = true;
+  };
+  const peindreCorps = (chapitre: number) => {
+    for (const { donnees, materiau, anneau } of corps) {
+      const actif = donnees.chapitres.includes(chapitre);
+      if (!materiau.map && (actif || donnees.chapitres.includes(chapitre + 1))) {
+        habiller(materiau, donnees.id);
+        if (anneau) habiller(anneau, 'anneaux');
+      }
+      const opacite = donnees.avecFirmament ? reglages.etoiles : 1;
+      materiau.opacity = opacite;
+      materiau.visible = actif && opacite > 0 && pretes.has(materiau);
+      if (anneau) {
+        anneau.opacity = opacite;
+        anneau.visible = materiau.visible && pretes.has(anneau);
+      }
+    }
   };
 
   // Une seule timeline, dont les labels sont les identifiants de chapitre (ADR-004, section 2, point 4).
@@ -175,6 +232,7 @@ export async function demarrerScene(
 
   const rendre = () => {
     peindreOuverture(timeline.time());
+    peindreCorps(chapitreA(timeline.time()));
     materiaux.ciel.color.setScalar(reglages.exposition);
     materiaux.etoiles.opacity = reglages.etoiles;
     materiaux.etoiles.visible = reglages.etoiles > 0;
@@ -187,7 +245,7 @@ export async function demarrerScene(
     advance(performance.now());
   };
 
-  root.render(<Monde materiaux={materiaux} />);
+  root.render(<Monde materiaux={materiaux} corps={corps} />);
 
   const temps = creerLecteurTemps(() => performance.now() / 1000);
   const aller = (position: number) => {
@@ -245,7 +303,9 @@ export async function demarrerScene(
       timeline.kill();
       root.unmount();
       texture.dispose();
+      cartes.forEach((carte) => carte.dispose());
       Object.values(materiaux).forEach((materiau) => materiau.dispose());
+      corps.forEach(({ materiau, anneau }) => [materiau, anneau].forEach((m) => m?.dispose()));
     },
   };
 }

@@ -21,7 +21,7 @@
     "test:e2e": "playwright test",
     "test:unit": "node --conditions=react-server --test 'tests/unit/**/*.test.ts'",
     "ir0": "node scripts/ir0.ts",
-    "test:composants": "esbuild tests/composants/*.test.tsx --bundle --platform=node --format=cjs --jsx=automatic --packages=external --loader:.css=local-css --outdir=.tests --out-extension:.js=.cjs --log-level=warning && node --test '.tests/**/*.test.cjs'"
+    "test:composants": "esbuild tests/composants/*.test.tsx tests/composants/*.test.ts --bundle --platform=node --format=cjs --jsx=automatic --packages=external --loader:.css=local-css --outdir=.tests --out-extension:.js=.cjs --log-level=warning && node --test '.tests/**/*.test.cjs'"
   },
   "dependencies": {
     "@react-three/fiber": "9.8.2",

@@ -57,6 +57,23 @@ function capture(
   };
 }
 
+// Carte d'un corps céleste (C3-R5) : projection équirectangulaire 2:1, 512 px de large sur téléphone et
+// 1024 px au-delà ; seule la version WebP sert de texture (ADR-004, section 2, point 10).
+function carte(id: string, registre: string, fichier: string, sha256: string, hauteur = 1024): Source {
+  return {
+    id,
+    registre,
+    chemin: `design/releases/DR-1/assets/planetes/${fichier}`,
+    sha256,
+    credit:
+      'Carte : Solar System Scope (solarsystemscope.com), licence CC BY 4.0 (creativecommons.org/licenses/by/4.0) ; réduite et compressée pour HORIZON 237.',
+    genere: false,
+    variantes: [
+      { nom: 'carte', recadrage: { left: 0, top: 0, width: 2048, height: hauteur }, largeurs: [512, 1024] },
+    ],
+  };
+}
+
 // Transformations permises par la DR-1 (05_ACTIFS_DROITS, section 10) : recadrage, réduction, compression.
 // Aucun étalonnage n'est appliqué ici : celui du portrait reste à décider par la direction artistique.
 const SOURCES: Source[] = [
@@ -217,6 +234,68 @@ const SOURCES: Source[] = [
     { left: 0, top: 0, width: 390, height: 844 },
     'Capture réelle de la plateforme publique ; autorisation de SAM BIAI déclarée.',
     'Accueil mobile ArtVibeCamer avec la promesse culturelle, les disciplines et le bouton d’inscription d’un talent.',
+  ),
+  // Corps célestes de la promenade (registre G3 : assets/registry-g3.json).
+  carte(
+    'soleil',
+    'H237-SPACE-SUN-001',
+    '2k_sun.jpg',
+    'ff0f076ba65e03b5ab518451bc96699325be38e3ccbdd5869ee1c00f3a0c8816',
+  ),
+  carte(
+    'mercure',
+    'H237-SPACE-MERCURY-001',
+    '2k_mercury.jpg',
+    '5a5c80607f643496bac9a631e71957def35ed788895f18b678ac849c2b38e48a',
+  ),
+  carte(
+    'venus',
+    'H237-SPACE-VENUS-001',
+    '2k_venus_atmosphere.jpg',
+    '225012ad4911730605c4e189ca2a3bf674fce50cc48aab4102b936b47d6991ac',
+  ),
+  carte(
+    'lune',
+    'H237-SPACE-MOON-001',
+    '2k_moon.jpg',
+    '2764ba6535ea0481a062846ee033cc7a909dae05b31a8fd13f3e98f3a7fd92bd',
+  ),
+  carte(
+    'mars',
+    'H237-SPACE-MARS-001',
+    '2k_mars.jpg',
+    '2d187f3e77a98eaa8cea5f4cc722f633c122ef170b9e94ace6b5fb6cbc3f8e01',
+  ),
+  carte(
+    'jupiter',
+    'H237-SPACE-JUPITER-001',
+    '2k_jupiter.jpg',
+    'b0f04d005350252636b0e3396fc592548cbd9e9126b269d32d5c6abd4b0e4f2b',
+  ),
+  carte(
+    'saturne',
+    'H237-SPACE-SATURN-001',
+    '2k_saturn.jpg',
+    '54a900ca9bf7ab62e70f862852759abdf342e6d6436a95a2fe9ebdb6bcd3bbac',
+  ),
+  carte(
+    'anneaux',
+    'H237-SPACE-SATURN-RING-001',
+    '2k_saturn_ring_alpha.png',
+    '4b0644b2f3ef259fd0bfaedd9dc52f9e7d9738f65f50363e8c4dd19f650d7334',
+    125,
+  ),
+  carte(
+    'uranus',
+    'H237-SPACE-URANUS-001',
+    '2k_uranus.jpg',
+    'd15239d46f82d3ea13d2b260b5b29b2a382f42f2916dae0694d0387b1204a09d',
+  ),
+  carte(
+    'neptune',
+    'H237-SPACE-NEPTUNE-001',
+    '2k_neptune.jpg',
+    'cb42ea82709741d28b0af44d8b283cbc6dbd0c521a7f0e1e1e010ade00977df6',
   ),
 ];
 

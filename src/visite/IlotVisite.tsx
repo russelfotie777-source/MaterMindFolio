@@ -6,10 +6,17 @@ import pageStyles from '@/styles/page.module.css';
 
 import { CHAPITRES, chapitreDuFragment } from './chapitres';
 import { Monogramme } from './Monogramme';
-import type { Scene } from './scene/demarrer';
+import type { Scene, Textures } from './scene/demarrer';
 import { creerStoreVisite } from './store';
 
 import styles from './IlotVisite.module.css';
+
+function choisirTextures(textures: TexturesVisite, format: keyof Paire): Textures {
+  const cartes = Object.fromEntries(
+    Object.entries(textures.cartes).map(([id, paire]) => [id, paire[format]]),
+  ) as Textures['cartes'];
+  return { ciel: textures.ciel[format], cartes };
+}
 
 function webgl2Disponible(): boolean {
   try {
@@ -34,15 +41,19 @@ function webgl2Disponible(): boolean {
 // couche visible à chaque image. Leur contenu reste disponible dans la page.
 export type Belvedere = { nom: string; media: ReactNode; texte: ReactNode };
 
+// Chaque texture existe en deux définitions : téléphone, puis au-delà (ADR-004, section 2, point 10).
+type Paire = { mobile: string; bureau: string };
+export type TexturesVisite = { ciel: Paire; cartes: Record<keyof Textures['cartes'], Paire> };
+
 const NOMS_PROJETS = CHAPITRES.filter((chapitre) => chapitre.projet).map((chapitre) => chapitre.libelle);
 
 export function IlotVisite({
-  ciel,
+  textures,
   identite,
   belvederes,
   children,
 }: {
-  ciel: { mobile: string; bureau: string };
+  textures: TexturesVisite;
   identite: ReactNode;
   belvederes: Readonly<Record<string, Belvedere>>;
   children: ReactNode;
@@ -108,7 +119,7 @@ export function IlotVisite({
         demarrerScene(
           canvas.current!,
           store,
-          matchMedia('(max-width: 767px)').matches ? ciel.mobile : ciel.bureau,
+          choisirTextures(textures, matchMedia('(max-width: 767px)').matches ? 'mobile' : 'bureau'),
           ouverture.current,
         ),
       )
@@ -125,7 +136,7 @@ export function IlotVisite({
     return () => {
       annule = true;
     };
-  }, [etat.phase, etat.rendu, store, ciel]);
+  }, [etat.phase, etat.rendu, store, textures]);
 
   // Perte du contexte WebGL en cours de visite : canvas retiré, faits et actions conservés.
   useEffect(() => {

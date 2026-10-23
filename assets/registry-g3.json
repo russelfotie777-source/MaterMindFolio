@@ -1,0 +1,378 @@
+{
+  "version": "G3-R1",
+  "date": "2026-10-23",
+  "status": "g3-additions-pending-codex-visa",
+  "policy": "Registre des actifs ajoutés au lot G3. Le registre G1 (assets/registry.json, G1-R5) reste figé : la DR-1 en fixe l'empreinte. Mêmes règles : aucune donnée privée, une empreinte prouve l'intégrité, pas le droit ; chaque licence est vérifiée et attribuée actif par actif (DR-1, 05_ACTIFS_DROITS).",
+  "assets": [
+    {
+      "id": "H237-SPACE-SUN-001",
+      "type": "celestial-texture-map",
+      "body": "Soleil",
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "ff0f076ba65e03b5ab518451bc96699325be38e3ccbdd5869ee1c00f3a0c8816",
+        "scope": "source-as-downloaded"
+      },
+      "source": {
+        "kind": "external-texture-map",
+        "title": "2k_sun.jpg",
+        "author": "Solar System Scope (INOVE), d'après des données de la NASA",
+        "url": "https://www.solarsystemscope.com/textures/download/2k_sun.jpg",
+        "page": "https://www.solarsystemscope.com/textures/",
+        "downloadedAt": "2026-10-23",
+        "path": "design/releases/DR-1/assets/planetes/2k_sun.jpg"
+      },
+      "rights": {
+        "status": "LICENSED_CC_BY_4_0",
+        "license": "Creative Commons Attribution 4.0 International",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "basis": "Licence affichée sur la page source le 2026-10-23 : « Distributed under Attribution 4.0 International license: You may use, adapt, and share these textures for any purpose, even commercially. »",
+        "publicCredit": "Carte : Solar System Scope (solarsystemscope.com), licence CC BY 4.0 (creativecommons.org/licenses/by/4.0) ; réduite et compressée pour HORIZON 237"
+      },
+      "design": {
+        "status": [
+          "PENDING_CODEX_VISA"
+        ],
+        "role": "carte d'un corps céleste réel en 3D (C3-R5)"
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Métadonnées supprimées des dérivés par Sharp ; aucune donnée personnelle.",
+        "auditedAt": "2026-10-23"
+      }
+    },
+    {
+      "id": "H237-SPACE-MERCURY-001",
+      "type": "celestial-texture-map",
+      "body": "Mercure",
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "5a5c80607f643496bac9a631e71957def35ed788895f18b678ac849c2b38e48a",
+        "scope": "source-as-downloaded"
+      },
+      "source": {
+        "kind": "external-texture-map",
+        "title": "2k_mercury.jpg",
+        "author": "Solar System Scope (INOVE), d'après des données de la NASA",
+        "url": "https://www.solarsystemscope.com/textures/download/2k_mercury.jpg",
+        "page": "https://www.solarsystemscope.com/textures/",
+        "downloadedAt": "2026-10-23",
+        "path": "design/releases/DR-1/assets/planetes/2k_mercury.jpg"
+      },
+      "rights": {
+        "status": "LICENSED_CC_BY_4_0",
+        "license": "Creative Commons Attribution 4.0 International",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "basis": "Licence affichée sur la page source le 2026-10-23 : « Distributed under Attribution 4.0 International license: You may use, adapt, and share these textures for any purpose, even commercially. »",
+        "publicCredit": "Carte : Solar System Scope (solarsystemscope.com), licence CC BY 4.0 (creativecommons.org/licenses/by/4.0) ; réduite et compressée pour HORIZON 237"
+      },
+      "design": {
+        "status": [
+          "PENDING_CODEX_VISA"
+        ],
+        "role": "carte d'un corps céleste réel en 3D (C3-R5)"
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Métadonnées supprimées des dérivés par Sharp ; aucune donnée personnelle.",
+        "auditedAt": "2026-10-23"
+      }
+    },
+    {
+      "id": "H237-SPACE-VENUS-001",
+      "type": "celestial-texture-map",
+      "body": "Vénus (atmosphère)",
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "225012ad4911730605c4e189ca2a3bf674fce50cc48aab4102b936b47d6991ac",
+        "scope": "source-as-downloaded"
+      },
+      "source": {
+        "kind": "external-texture-map",
+        "title": "2k_venus_atmosphere.jpg",
+        "author": "Solar System Scope (INOVE), d'après des données de la NASA",
+        "url": "https://www.solarsystemscope.com/textures/download/2k_venus_atmosphere.jpg",
+        "page": "https://www.solarsystemscope.com/textures/",
+        "downloadedAt": "2026-10-23",
+        "path": "design/releases/DR-1/assets/planetes/2k_venus_atmosphere.jpg"
+      },
+      "rights": {
+        "status": "LICENSED_CC_BY_4_0",
+        "license": "Creative Commons Attribution 4.0 International",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "basis": "Licence affichée sur la page source le 2026-10-23 : « Distributed under Attribution 4.0 International license: You may use, adapt, and share these textures for any purpose, even commercially. »",
+        "publicCredit": "Carte : Solar System Scope (solarsystemscope.com), licence CC BY 4.0 (creativecommons.org/licenses/by/4.0) ; réduite et compressée pour HORIZON 237"
+      },
+      "design": {
+        "status": [
+          "PENDING_CODEX_VISA"
+        ],
+        "role": "carte d'un corps céleste réel en 3D (C3-R5)"
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Métadonnées supprimées des dérivés par Sharp ; aucune donnée personnelle.",
+        "auditedAt": "2026-10-23"
+      }
+    },
+    {
+      "id": "H237-SPACE-MOON-001",
+      "type": "celestial-texture-map",
+      "body": "Lune",
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "2764ba6535ea0481a062846ee033cc7a909dae05b31a8fd13f3e98f3a7fd92bd",
+        "scope": "source-as-downloaded"
+      },
+      "source": {
+        "kind": "external-texture-map",
+        "title": "2k_moon.jpg",
+        "author": "Solar System Scope (INOVE), d'après des données de la NASA",
+        "url": "https://www.solarsystemscope.com/textures/download/2k_moon.jpg",
+        "page": "https://www.solarsystemscope.com/textures/",
+        "downloadedAt": "2026-10-23",
+        "path": "design/releases/DR-1/assets/planetes/2k_moon.jpg"
+      },
+      "rights": {
+        "status": "LICENSED_CC_BY_4_0",
+        "license": "Creative Commons Attribution 4.0 International",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "basis": "Licence affichée sur la page source le 2026-10-23 : « Distributed under Attribution 4.0 International license: You may use, adapt, and share these textures for any purpose, even commercially. »",
+        "publicCredit": "Carte : Solar System Scope (solarsystemscope.com), licence CC BY 4.0 (creativecommons.org/licenses/by/4.0) ; réduite et compressée pour HORIZON 237"
+      },
+      "design": {
+        "status": [
+          "PENDING_CODEX_VISA"
+        ],
+        "role": "carte d'un corps céleste réel en 3D (C3-R5)"
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Métadonnées supprimées des dérivés par Sharp ; aucune donnée personnelle.",
+        "auditedAt": "2026-10-23"
+      }
+    },
+    {
+      "id": "H237-SPACE-MARS-001",
+      "type": "celestial-texture-map",
+      "body": "Mars",
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "2d187f3e77a98eaa8cea5f4cc722f633c122ef170b9e94ace6b5fb6cbc3f8e01",
+        "scope": "source-as-downloaded"
+      },
+      "source": {
+        "kind": "external-texture-map",
+        "title": "2k_mars.jpg",
+        "author": "Solar System Scope (INOVE), d'après des données de la NASA",
+        "url": "https://www.solarsystemscope.com/textures/download/2k_mars.jpg",
+        "page": "https://www.solarsystemscope.com/textures/",
+        "downloadedAt": "2026-10-23",
+        "path": "design/releases/DR-1/assets/planetes/2k_mars.jpg"
+      },
+      "rights": {
+        "status": "LICENSED_CC_BY_4_0",
+        "license": "Creative Commons Attribution 4.0 International",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "basis": "Licence affichée sur la page source le 2026-10-23 : « Distributed under Attribution 4.0 International license: You may use, adapt, and share these textures for any purpose, even commercially. »",
+        "publicCredit": "Carte : Solar System Scope (solarsystemscope.com), licence CC BY 4.0 (creativecommons.org/licenses/by/4.0) ; réduite et compressée pour HORIZON 237"
+      },
+      "design": {
+        "status": [
+          "PENDING_CODEX_VISA"
+        ],
+        "role": "carte d'un corps céleste réel en 3D (C3-R5)"
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Métadonnées supprimées des dérivés par Sharp ; aucune donnée personnelle.",
+        "auditedAt": "2026-10-23"
+      }
+    },
+    {
+      "id": "H237-SPACE-JUPITER-001",
+      "type": "celestial-texture-map",
+      "body": "Jupiter",
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "b0f04d005350252636b0e3396fc592548cbd9e9126b269d32d5c6abd4b0e4f2b",
+        "scope": "source-as-downloaded"
+      },
+      "source": {
+        "kind": "external-texture-map",
+        "title": "2k_jupiter.jpg",
+        "author": "Solar System Scope (INOVE), d'après des données de la NASA",
+        "url": "https://www.solarsystemscope.com/textures/download/2k_jupiter.jpg",
+        "page": "https://www.solarsystemscope.com/textures/",
+        "downloadedAt": "2026-10-23",
+        "path": "design/releases/DR-1/assets/planetes/2k_jupiter.jpg"
+      },
+      "rights": {
+        "status": "LICENSED_CC_BY_4_0",
+        "license": "Creative Commons Attribution 4.0 International",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "basis": "Licence affichée sur la page source le 2026-10-23 : « Distributed under Attribution 4.0 International license: You may use, adapt, and share these textures for any purpose, even commercially. »",
+        "publicCredit": "Carte : Solar System Scope (solarsystemscope.com), licence CC BY 4.0 (creativecommons.org/licenses/by/4.0) ; réduite et compressée pour HORIZON 237"
+      },
+      "design": {
+        "status": [
+          "PENDING_CODEX_VISA"
+        ],
+        "role": "carte d'un corps céleste réel en 3D (C3-R5)"
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Métadonnées supprimées des dérivés par Sharp ; aucune donnée personnelle.",
+        "auditedAt": "2026-10-23"
+      }
+    },
+    {
+      "id": "H237-SPACE-SATURN-001",
+      "type": "celestial-texture-map",
+      "body": "Saturne",
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "54a900ca9bf7ab62e70f862852759abdf342e6d6436a95a2fe9ebdb6bcd3bbac",
+        "scope": "source-as-downloaded"
+      },
+      "source": {
+        "kind": "external-texture-map",
+        "title": "2k_saturn.jpg",
+        "author": "Solar System Scope (INOVE), d'après des données de la NASA",
+        "url": "https://www.solarsystemscope.com/textures/download/2k_saturn.jpg",
+        "page": "https://www.solarsystemscope.com/textures/",
+        "downloadedAt": "2026-10-23",
+        "path": "design/releases/DR-1/assets/planetes/2k_saturn.jpg"
+      },
+      "rights": {
+        "status": "LICENSED_CC_BY_4_0",
+        "license": "Creative Commons Attribution 4.0 International",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "basis": "Licence affichée sur la page source le 2026-10-23 : « Distributed under Attribution 4.0 International license: You may use, adapt, and share these textures for any purpose, even commercially. »",
+        "publicCredit": "Carte : Solar System Scope (solarsystemscope.com), licence CC BY 4.0 (creativecommons.org/licenses/by/4.0) ; réduite et compressée pour HORIZON 237"
+      },
+      "design": {
+        "status": [
+          "PENDING_CODEX_VISA"
+        ],
+        "role": "carte d'un corps céleste réel en 3D (C3-R5)"
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Métadonnées supprimées des dérivés par Sharp ; aucune donnée personnelle.",
+        "auditedAt": "2026-10-23"
+      }
+    },
+    {
+      "id": "H237-SPACE-SATURN-RING-001",
+      "type": "celestial-texture-map",
+      "body": "Anneaux de Saturne (alpha)",
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "4b0644b2f3ef259fd0bfaedd9dc52f9e7d9738f65f50363e8c4dd19f650d7334",
+        "scope": "source-as-downloaded"
+      },
+      "source": {
+        "kind": "external-texture-map",
+        "title": "2k_saturn_ring_alpha.png",
+        "author": "Solar System Scope (INOVE), d'après des données de la NASA",
+        "url": "https://www.solarsystemscope.com/textures/download/2k_saturn_ring_alpha.png",
+        "page": "https://www.solarsystemscope.com/textures/",
+        "downloadedAt": "2026-10-23",
+        "path": "design/releases/DR-1/assets/planetes/2k_saturn_ring_alpha.png"
+      },
+      "rights": {
+        "status": "LICENSED_CC_BY_4_0",
+        "license": "Creative Commons Attribution 4.0 International",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "basis": "Licence affichée sur la page source le 2026-10-23 : « Distributed under Attribution 4.0 International license: You may use, adapt, and share these textures for any purpose, even commercially. »",
+        "publicCredit": "Carte : Solar System Scope (solarsystemscope.com), licence CC BY 4.0 (creativecommons.org/licenses/by/4.0) ; réduite et compressée pour HORIZON 237"
+      },
+      "design": {
+        "status": [
+          "PENDING_CODEX_VISA"
+        ],
+        "role": "carte d'un corps céleste réel en 3D (C3-R5)"
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Métadonnées supprimées des dérivés par Sharp ; aucune donnée personnelle.",
+        "auditedAt": "2026-10-23"
+      }
+    },
+    {
+      "id": "H237-SPACE-URANUS-001",
+      "type": "celestial-texture-map",
+      "body": "Uranus",
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "d15239d46f82d3ea13d2b260b5b29b2a382f42f2916dae0694d0387b1204a09d",
+        "scope": "source-as-downloaded"
+      },
+      "source": {
+        "kind": "external-texture-map",
+        "title": "2k_uranus.jpg",
+        "author": "Solar System Scope (INOVE), d'après des données de la NASA",
+        "url": "https://www.solarsystemscope.com/textures/download/2k_uranus.jpg",
+        "page": "https://www.solarsystemscope.com/textures/",
+        "downloadedAt": "2026-10-23",
+        "path": "design/releases/DR-1/assets/planetes/2k_uranus.jpg"
+      },
+      "rights": {
+        "status": "LICENSED_CC_BY_4_0",
+        "license": "Creative Commons Attribution 4.0 International",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "basis": "Licence affichée sur la page source le 2026-10-23 : « Distributed under Attribution 4.0 International license: You may use, adapt, and share these textures for any purpose, even commercially. »",
+        "publicCredit": "Carte : Solar System Scope (solarsystemscope.com), licence CC BY 4.0 (creativecommons.org/licenses/by/4.0) ; réduite et compressée pour HORIZON 237"
+      },
+      "design": {
+        "status": [
+          "PENDING_CODEX_VISA"
+        ],
+        "role": "carte d'un corps céleste réel en 3D (C3-R5)"
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Métadonnées supprimées des dérivés par Sharp ; aucune donnée personnelle.",
+        "auditedAt": "2026-10-23"
+      }
+    },
+    {
+      "id": "H237-SPACE-NEPTUNE-001",
+      "type": "celestial-texture-map",
+      "body": "Neptune",
+      "integrity": {
+        "algorithm": "sha256",
+        "value": "cb42ea82709741d28b0af44d8b283cbc6dbd0c521a7f0e1e1e010ade00977df6",
+        "scope": "source-as-downloaded"
+      },
+      "source": {
+        "kind": "external-texture-map",
+        "title": "2k_neptune.jpg",
+        "author": "Solar System Scope (INOVE), d'après des données de la NASA",
+        "url": "https://www.solarsystemscope.com/textures/download/2k_neptune.jpg",
+        "page": "https://www.solarsystemscope.com/textures/",
+        "downloadedAt": "2026-10-23",
+        "path": "design/releases/DR-1/assets/planetes/2k_neptune.jpg"
+      },
+      "rights": {
+        "status": "LICENSED_CC_BY_4_0",
+        "license": "Creative Commons Attribution 4.0 International",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "basis": "Licence affichée sur la page source le 2026-10-23 : « Distributed under Attribution 4.0 International license: You may use, adapt, and share these textures for any purpose, even commercially. »",
+        "publicCredit": "Carte : Solar System Scope (solarsystemscope.com), licence CC BY 4.0 (creativecommons.org/licenses/by/4.0) ; réduite et compressée pour HORIZON 237"
+      },
+      "design": {
+        "status": [
+          "PENDING_CODEX_VISA"
+        ],
+        "role": "carte d'un corps céleste réel en 3D (C3-R5)"
+      },
+      "metadataAudit": {
+        "status": "PASS",
+        "result": "Métadonnées supprimées des dérivés par Sharp ; aucune donnée personnelle.",
+        "auditedAt": "2026-10-23"
+      }
+    }
+  ]
+}
