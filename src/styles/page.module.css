@@ -1,0 +1,180 @@
+/* Composition commune des routes (DR-1, 01_DIRECTION_ARTISTIQUE et vues de contrôle A06, A09, A11).
+   Le texte suit des couleurs de contexte : sur le fond vivant sombre par défaut, sur papier dans .plaque. */
+.cadre {
+  --texte: var(--color-text-on-dark);
+  --texte-attenue: var(--color-text-on-dark-muted);
+  --etiquette: var(--color-solar-trace);
+
+  width: min(100% - 2 * var(--grid-mobile-reference-margin), var(--size-content-desktop));
+  margin-inline: auto;
+  padding-block: var(--space-8) var(--space-16);
+  color: var(--texte);
+}
+
+@media (min-width: 768px) {
+  .cadre {
+    width: min(100% - 2 * var(--grid-tablet-margin), var(--size-content-desktop));
+    padding-block: var(--space-12) var(--space-20);
+  }
+}
+
+@media (min-width: 1280px) {
+  .cadre {
+    width: min(100% - 2 * var(--grid-desktop-margin), var(--size-content-desktop));
+  }
+}
+
+/* Plaque papier : coin haut droit coupé, rayons organiques bornés par les jetons. */
+.plaque {
+  --texte: var(--color-text-on-light);
+  --texte-attenue: var(--color-text-on-light-muted);
+  --etiquette: var(--color-violet-primary);
+
+  padding: var(--space-8) var(--space-5);
+  border-radius: var(--radius-organic-maximum) var(--radius-none) var(--radius-organic-maximum)
+    var(--radius-organic-minimum);
+  background: var(--color-surface-paper);
+  color: var(--texte);
+  clip-path: polygon(0 0, calc(100% - var(--space-8)) 0, 100% var(--space-12), 100% 100%, 0 100%);
+}
+
+.plaque :focus-visible {
+  outline-color: var(--color-state-focus-on-light);
+}
+
+@media (min-width: 768px) {
+  .plaque {
+    padding: var(--space-12) var(--space-12) var(--space-10);
+  }
+}
+
+.etiquette,
+.rubrique > h2 {
+  color: var(--etiquette);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-label);
+  line-height: var(--font-line-height-interface);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.titreDisplay,
+.titrePage {
+  margin-block: var(--space-4) var(--space-6);
+  font-family: var(--font-family-brand);
+  letter-spacing: -0.03em;
+  overflow-wrap: anywhere;
+}
+
+.titreDisplay {
+  font-size: var(--font-size-display-mobile);
+  font-weight: var(--font-weight-editorial-display);
+  line-height: var(--font-line-height-display);
+}
+
+.titrePage {
+  font-size: var(--font-size-page-mobile);
+  font-weight: var(--font-weight-editorial);
+  line-height: var(--font-line-height-page);
+}
+
+@media (min-width: 768px) {
+  .titreDisplay {
+    font-size: var(--font-size-display);
+  }
+
+  .titrePage {
+    font-size: var(--font-size-page);
+  }
+}
+
+.lead {
+  max-width: 66ch;
+  color: var(--texte-attenue);
+  font-size: var(--font-size-lead-mobile);
+  line-height: var(--font-line-height-lead);
+}
+
+@media (min-width: 768px) {
+  .lead {
+    font-size: var(--font-size-lead);
+  }
+}
+
+.attenue {
+  color: var(--texte-attenue);
+}
+
+/* Rubriques : un h2 au style d'étiquette, puis un contenu en corps fort. */
+.grille {
+  display: grid;
+  gap: var(--space-10) var(--grid-desktop-gutter);
+  margin-block-start: var(--space-12);
+}
+
+@media (min-width: 768px) {
+  .grille {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-block-start: var(--space-16);
+  }
+}
+
+.rubrique > :not(:first-child) {
+  margin-block-start: var(--space-4);
+}
+
+.fort {
+  font-weight: var(--font-weight-interface-strong);
+}
+
+.liste {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.liste > li + li {
+  margin-block-start: var(--space-2);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-block-start: var(--space-8);
+}
+
+.bouton,
+.boutonClair {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--size-target-minimum);
+  padding: var(--space-3) var(--space-8);
+  border: 0;
+  border-radius: var(--radius-control);
+  font: inherit;
+  font-size: var(--font-size-interface);
+  font-weight: var(--font-weight-interface-strong);
+  line-height: var(--font-line-height-interface);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.bouton {
+  background: var(--color-violet-primary);
+  color: var(--color-text-on-dark);
+}
+
+.boutonClair {
+  background: var(--color-surface-paper);
+  color: var(--color-text-on-light);
+}
+
+.bouton:hover {
+  background: var(--color-violet-bright);
+}
+
+.boutonClair:hover {
+  background: var(--color-surface-paper-tint);
+}

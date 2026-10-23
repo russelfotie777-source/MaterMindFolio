@@ -1,0 +1,16 @@
+# Contrat, section 3.1, point 8 : alertes et mises à jour de sécurité pour pnpm et GitHub Actions,
+# sans auto-merge. Les montées de version de dépendances restent manuelles (tuple Next/React/R3F
+# verrouillé, ADR-002) : la limite à 0 ne laisse passer que les PR de sécurité. Les actions, épinglées
+# par SHA, reçoivent leurs mises à jour une fois par semaine.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 0
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5

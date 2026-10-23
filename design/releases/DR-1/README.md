@@ -1,106 +1,131 @@
 # DR-1 — HORIZON 237 / TRACE SOLAIRE
 
-- **Release :** `DR-1 Candidate 0`
-- **Date :** 19 octobre 2026
+- **Release :** `DR-1 Candidate 3.2`
+- **Date :** 20 octobre 2026
 - **DRI :** ChatGPT / Codex
-- **Statut :** **BLOCKED SOURCE — spécification produite, release non signable**
+- **Statut :** **CANDIDATE C3.2 — VALIDÉE VISUELLEMENT PAR RUSSEL LE 21 OCTOBRE 2026**
 - **Portée autorisée :** G1 uniquement, sans scaffold, installation ni code applicatif
 - **État global :** `G1 PASS = NON` · `READY FOR CODE = NON`
 
-## 1. Objet de cette release
+## 1. Objet de Candidate 3
 
-Cette release transforme le concept validé **HORIZON 237 — TRACE SOLAIRE** en contrat de design contrôlable : compositions, grille, typographie, storyboard, états, mouvement, son, accessibilité, besoins d'actifs, règles de parité des six projets et conditions de fidélité.
+Candidate 3.2 applique les dernières décisions de Russel :
 
-Elle ne prétend pas être une maquette haute fidélité finale. La matière qui rend le portfolio personnel — portrait final, geste, ciel, pierre/latérite, interfaces produit, preuves, voix et sons — n'a pas encore été livrée et validée dans `docs/collecte/G1_COLLECTE.md`. Produire les images finales avant ces sources contredirait les interdictions suivantes : aucun fait inventé, aucun actif sans droit, aucun visuel génératif pour la direction artistique et aucun décor spatial générique.
+- Japon comme horizon artistique, sans falsifier son origine camerounaise ni sa base à Douala ;
+- couleurs vivantes, sombre violet majoritaire et clair minoritaire ;
+- six décors Magnific autorisés et explicitement déclarés comme images générées ;
+- portrait détouré intégré dans l'univers, visage inchangé ;
+- pierres, Soleil, planètes et comète en vraie 3D future ;
+- produit et preuve réels, jamais générés ;
+- texte court, utile et humain.
+
+Les six décors possèdent désormais des masters de revue 4×. La palette DTCG C3, le Source Kit réécrit, les règles de droits mises à jour et huit nouveaux moodframes desktop/mobile sont livrés. Candidate 2 reste uniquement comme historique rejeté.
 
 ## 2. Verdict immédiat
 
-| Domaine | État | Preuve / blocage |
+| Domaine | État | Preuve / suite |
 |---|---|---|
-| Concept, narration et hiérarchie | **LOCKED** | `DISCUSSION.md`, section 7 |
-| Architecture des écrans | **SPECIFIED** | `03_ECRANS_ETATS.md` |
+| Concept, récit et hiérarchie | **LOCKED** | `DISCUSSION.md`, sections 6 et 7 |
+| Architecture des quinze familles | **SPECIFIED** | `03_ECRANS_ETATS.md` |
 | Storyboard et rythme | **SPECIFIED** | `02_STORYBOARD_VISITE.md` |
-| Système visuel structurel | **SPECIFIED** | `01_DIRECTION_ARTISTIQUE.md` |
-| Tokens structurels | **CANDIDATE** | `design/contracts/tokens.json` ; palette volontairement absente |
-| Palette finale | **BLOCKED SOURCE** | ciel, latérite, pierre et référence blanche manquants |
-| Portrait et geste | **BLOCKED SOURCE** | prises finales et autorisations manquantes |
-| Six médias projet et preuves | **BLOCKED CONTENT/RIGHTS** | six `CR-0` non signées |
-| Son, voix et musique | **BLOCKED SOURCE/RIGHTS** | choix voix, références et licence manquants |
-| Faisabilité technique | **PENDING VISA CLAUDE** | visa demandé sur ce dossier complet |
-| Identité et fidélité | **PENDING VISA RUSSEL** | validation après apport des sources |
+| Portrait final | **VISUAL SELECTED** | PNG détouré, exception propriétaire maintenue |
+| Monogramme TRACE 237 | **SOURCE APPROVED** | `08_MONOGRAMME_TRACE_237.md` + SVG |
+| Décors Japon C3 | **VISUAL SELECTED / OWNER DECLARATION RECORDED** | six masters 4× ; déclaration de droits de Russel consignée dans `DR1-R14` |
+| Tokens et palette | **C3.2 CORRECTION APPLIED** | DTCG 2025.10 ; rose sakura vivant, fleurs aux repères, formes organiques et suppression des bornes |
+| Typographie | **DM SANS LOCKED** | famille réelle de ZIRIS Entreprises, OFL 1.1, aucune police créée |
+| Moodframes | **C3.2 APPROVED BY RUSSEL** | huit SVG + huit PNG + contact sheet réémis en DM Sans et en grammaire organique |
+| Schémas et CR-0 | **DELIVERED / VALIDATED** | invariant `approved ⇒ validatedAt` corrigé ; sept instances valides |
+| Faits, copy et CV | **CONTENT VISA ACQUIRED / PDF PENDING** | aperçu CR-0 et CV candidat validés ; production du PDF laissée en attente |
+| Médias projet et droits | **MEDIA DESIGN APPROVED** | six projets couverts en desktop/mobile et validés par Russel ; limites d'accord conservées |
+| Direction sonore | **SPECIFIED / ASSETS PENDING** | aucune narration ; masters, droits et ADR à produire |
+| Faisabilité Claude | **ACCEPTED WITH RESERVES** | visa `DR1-R09` daté du 20 octobre 2026 |
+| Fidélité visuelle Codex | **C3.2 COVERAGE APPROVED BY RUSSEL** | 65 vues organiques et deux planches de parité validées le 21 octobre 2026 |
 
-## 3. Fichiers de la release
+## 3. Périmètre de design
 
-| Fichier | Rôle |
+| Fichier ou dossier | Rôle |
 |---|---|
-| `manifest.json` | empreintes SHA-256 et périmètre exact de cette candidate |
-| `README.md` | manifeste, statut, signataires et conditions de sortie |
-| `01_DIRECTION_ARTISTIQUE.md` | thèse visuelle, compositions, grille, type, matière et règles anti-génériques |
-| `02_STORYBOARD_VISITE.md` | découpage 0–107 s, cadrages, immobilités, transitions et fallbacks |
-| `03_ECRANS_ETATS.md` | couverture des 15 familles, variantes système et registre des vues |
-| `04_MOUVEMENT_SON_ACCESSIBILITE.md` | timings, consentement sonore, reduced motion, clavier et lecteurs d'écran |
-| `05_ACTIFS_DROITS.md` | briefs de capture, audit des sources, transformations et visas de droits |
-| `06_HANDOFF_G1.md` | actions de Russel et de Claude, preuves attendues et procédure de signature |
-| `07_BUDGETS_PREUVES.md` | budgets visuels, performance et protocole de preuve de la DR |
-| `design/contracts/tokens.json` | tokens DTCG 2025.10 verrouillables sans inventer la palette |
-| `assets/registry.json` | registre G1 public-safe des actifs effectivement reçus |
+| `01_DIRECTION_ARTISTIQUE.md` | direction C3, grille, typographie, couleur et matière |
+| `02_STORYBOARD_VISITE.md` | découpage, rythme, ordre des projets et fallbacks |
+| `03_ECRANS_ETATS.md` | quinze familles, états système et registre des vues |
+| `04_MOUVEMENT_SON_ACCESSIBILITE.md` | mouvement, consentement, son et équivalences |
+| `05_ACTIFS_DROITS.md` | provenance, transformations et droits C3 |
+| `06_HANDOFF_G1.md` | état des gates, réserves et chemin de signature |
+| `07_BUDGETS_PREUVES.md` | budgets, appareils et protocole de preuve |
+| `08_MONOGRAMME_TRACE_237.md` | construction et règles du signe original |
+| `09_SOURCE_KIT_REEL.md` | Source Kit C3, décors générés déclarés et photos complémentaires |
+| `10_MOODFRAMES_C2.md` + `moodframes/**` | historique Candidate 2 rejeté, conservé pour traçabilité |
+| `11_MOODFRAMES_C3.md` + `moodframes-c3/**` | huit preuves visuelles C3 et contact sheet |
+| `12_MEDIAS_PROJETS_C3.md` + `assets/project-media/**` | dix médias réels desktop/mobile des cinq autres projets et planche de visa |
+| `13_CONTROLE_65_VUES_C3.md` + `control-views-c3/**` | 65 vues desktop/mobile/reduced/fallback, index et deux planches de parité |
+| `assets/c3-upscaled/**` | six masters 4× de revue, non optimisés pour le web |
+| `assets/source-derivatives/**` | captures ZIRIS réelles de revue |
+| `assets/type-previews/**` | DM Sans officielle + OFL pour les preuves C3 ; anciennes polices conservées seulement avec l'historique C2 |
+| `assets/trace-237-monogram.svg` | master vectoriel du monogramme |
+| `design/contracts/tokens.json` | tokens DTCG C3 |
 
-## 4. Décisions non négociables de DR-1
+`manifest.json` et `assets/registry.json` restent sous la responsabilité de Claude pour la réémission, les empreintes et les statuts techniques. Les schémas, CR-0 et le CV candidat restent des dépendances G1 distinctes.
 
-1. **L'humain avant le monde.** MASTERMIND, son portrait réel, son rôle validé, son origine camerounaise, son CV, son contact et les accès aux preuves sont lisibles en HTML dès la première image.
-2. **Lumière dominante.** L'ivoire minéral et les surfaces réellement éclairées dominent ; aucun écran n'est dominé par le noir.
-3. **Cobalt photographique.** Le firmament vient d'un panorama réel de Russel, jamais d'un gradient bleu-violet, d'une nébuleuse de stock ou d'un remplissage génératif.
-4. **Trace matérielle.** La promenade possède largeur, épaisseur, tranche, joints, agrégat, rugosité, ombre et structure crédibles. Elle ne ressemble jamais à une courbe Spline extrudée.
-5. **Produits réels au premier plan.** Aux belvédères, l'interface et la preuve dominent ; la planète reste un repère de voyage.
-6. **Parité stricte.** Les six projets utilisent le même espace utile, le même temps de base, la même profondeur de contenu et le même CTA. Aucun `featured`.
-7. **Texte à l'arrêt.** Une information importante n'apparaît jamais pendant un mouvement de caméra.
-8. **Contrôle humain.** La visite ne démarre qu'après action ; le son ne démarre qu'après le choix explicite ; pause, sortie, transcript et résumé restent disponibles.
-9. **Équivalence réelle.** Mobile, mouvement réduit et absence de WebGL racontent la même histoire et conservent les mêmes preuves.
-10. **Pas de faux spectaculaire.** Aucun fait, chiffre, témoignage, système, rôle, actif, son ou licence n'est simulé pour remplir une maquette.
+## 4. Décisions verrouillées
 
-## 5. Ce qui peut encore évoluer sans rompre la DA
+1. **L'humain et le produit avant le décor.** Identité, projets, preuves, CV et contact existent en HTML avant le Canvas.
+2. **Japon, horizon choisi.** Le site ne présente jamais Russel comme japonais ni installé au Japon.
+3. **Sombre vivant.** Violet, végétation et matière portent la profondeur ; le blanc reste une découpe minoritaire.
+4. **Transparence générative.** Chaque décor Magnific est crédité comme image générée ; aucune interface ni preuve ne l'est.
+5. **Vraie 3D.** Pierres, Soleil, planètes et comète sont des objets Three.js/R3F, avec fallback utile.
+6. **Produit réel au premier plan.** L'interface et la preuve dominent chaque belvédère.
+7. **Parité stricte.** Les six projets ont le même contrat, la même aire utile et un temps comparable.
+8. **Ordre chronologique.** Fast Shipping → Batobaye Market → MBoa Market → ZIRIS → Shopitech → ArtVibeCamer.
+9. **Texte humain, à l'arrêt.** Aucun amas de texte ni prose de remplissage.
+10. **Contrôle humain.** Visite, caméra et son commencent après une action ; pause, sortie, navigation libre et silence restent disponibles.
+11. **Aucune narration.** La musique de visite reste originale ou licenciée ; les références protégées passent seulement par lecteur officiel au clic.
+12. **Aucun faux spectaculaire.** Aucun chiffre, média, rôle, droit, son ou témoignage n'est inventé.
+13. **Aucune police inventée.** DM Sans, telle qu'utilisée par ZIRIS Entreprises, est l'unique famille visible ; la monospace système est réservée au code.
 
-- le mapping des six projets vers les six corps célestes, après connaissance des ratios et médias ;
-- les valeurs chromatiques finales, uniquement après étalonnage des sources réelles ;
-- le recadrage précis des médias, sans perte de sens ni hiérarchie implicite ;
-- une variation de 7 à 9 secondes par projet si elle est justifiée par la lisibilité, avec moyenne et exposition équitables ;
-- la présence d'une musique, selon le goût explicite de Russel, la licence et le budget ;
-- le français seul ou le bilingue, après réponse à la collecte ;
-- la ville de Base 237 et les repères du Ground Track, après validation factuelle.
+## 5. Éléments encore flexibles
+
+- ajustements chromatiques demandés par Russel après revue C3, versionnés dans les tokens ;
+- recadrages et dérivés sans changer le sens ni cacher l'origine générée ;
+- variation de 7 à 9 secondes par projet si lisibilité et parité restent mesurées ;
+- matériau basaltique final, PBR CC0 ou procédural, après visa de Claude ;
+- fournisseur du lecteur officiel musical après ADR CSP/vie privée ;
+- microcopies finales après visa de Russel.
 
 ## 6. Critères de signature
 
-### Visa ChatGPT / Codex — fidélité visuelle
+### ChatGPT / Codex
 
-- huit moodframes sourcés prouvent le « wow » avant signature : accueil 0 s desktop/mobile, match-cut 3 s, révélation 10 s desktop/mobile, un belvédère réel desktop/mobile et final geste + portrait ;
-- toutes les vues du registre sont produites aux viewports demandés ;
-- les tokens chromatiques proviennent des sources étalonnées et passent les contrastes ;
-- chaque image-clé contient au moins un artefact réel : visage, geste ou produit ;
-- les six projets passent le contact sheet de parité ;
-- aucune esthétique interdite de `DISCUSSION.md` 7.9 n'apparaît.
+- visa de Russel sur les huit moodframes C3, la palette et DM Sans : **acquis le 20 octobre 2026** ;
+- 65 vues de contrôle et deux contact sheets de parité ;
+- aucun décor générique, aucune interface synthétique et aucune preuve fictive ;
+- corrections visuelles versionnées sans écraser l'historique C2.
 
-### Visa Claude Code — faisabilité
+### Claude Code
 
-- les vues, transitions et fallbacks sont réalisables dans les budgets contractuels ;
-- les états DOM et focus sont compatibles avec les primitives natives convenues ;
-- les cadrages mobile et le premier segment respectent les plafonds de poids et de frame time ;
-- aucun élément de la DR n'exige une dépendance ou une exception CSP non prévue.
+- invariant des schémas `approved ⇒ validatedAt` corrigé ou couvert par un validateur testé ;
+- Source Kit, vraie 3D, budgets, fallbacks, CSP et coût des médias C3 acceptés ;
+- registre et manifeste C3 réémis avec empreintes exactes ;
+- visa formel `DR1-R09` daté.
 
-### Visa Russel — identité, faits et droits
+### Russel
 
-- portrait, geste, ciel, matières et sons choisis représentent réellement Russel ;
-- les six fiches projet, les preuves et les droits sont approuvés ;
-- les coordonnées, le CV, la ville, les langues et la voix publique sont confirmés ;
-- les références sonores et les autorisations sont documentées.
+- validation explicite de l'aperçu CR-0 et du CV candidat : **acquise** ; PDF final laissé en attente ;
+- validation des moodframes C3, de l'identité et des médias des six projets : **acquise** ; limites d'accord conservées dans les fiches ;
+- déclaration d'acceptation des conditions Magnific : **consignée dans `DR1-R14`** ;
+- ligne `Russel — G1 PASS` seulement après résolution des réserves bloquantes.
 
 ## 7. Règle de passage
 
-Le libellé **`DR-1 SIGNED`** ne peut être écrit qu'après les trois visas ci-dessus. La présence de ce dossier ne vaut ni `G1 PASS`, ni autorisation de scaffold. Tant que `BLOCKED SOURCE` subsiste, Claude peut seulement revoir la faisabilité et préparer les schémas G1 qui lui appartiennent.
+Le dossier reste `DR-1 Candidate 3.2` jusqu'à la réémission du manifeste et du registre par Claude et aux visas G1 finaux. Les libellés **`DR-1 SIGNED`**, **`G1 PASS`** et **`READY FOR CODE`** ne peuvent apparaître qu'après les visas et preuves ci-dessus.
+
+Jusque-là : **aucun scaffold, aucune installation, aucun package, aucune route et aucun code applicatif**.
 
 ## 8. Références normatives
 
-- `DISCUSSION.md`, section 7 — concept et expérience validés ;
-- `PRODUCTION_CONTRACT.md`, sections 1, 3.1, 8, 11 et 12 — invariants, ownership, gates et DoR ;
-- [DTCG Format Module 2025.10](https://www.designtokens.org/TR/2025.10/format/) — format stable retenu pour les tokens ;
-- [Literata](https://github.com/googlefonts/literata) et [Hanken Grotesk](https://github.com/marcologous/hanken-grotesk) — familles sous SIL Open Font License 1.1, à auto-héberger et sous-ensembler avant intégration.
-
+- `DISCUSSION.md`, sections 6 et 7 ;
+- `PRODUCTION_CONTRACT.md`, sections 0, 1, 3.1, 8, 11 et 12 ;
+- `docs/collecte/BRIEF_CODEX_C3.md` ;
+- `docs/architecture/SCHEMAS_G1.md` ;
+- `docs/content-release/CR-0/APERCU.md` ;
+- [DTCG Format Module 2025.10](https://www.designtokens.org/TR/2025.10/format/) ;
+- [DM Sans](https://github.com/google/fonts/tree/main/ofl/dmsans), famille utilisée par ZIRIS Entreprises, sous SIL Open Font License 1.1.

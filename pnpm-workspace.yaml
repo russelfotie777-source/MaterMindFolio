@@ -1,0 +1,9 @@
+# Aucun script d'installation n'est exécuté sans décision explicite (contrat, section 3.1, point 7).
+# unrs-resolver : binaire précompilé fourni par ses dépendances optionnelles, son script n'est pas nécessaire.
+allowBuilds:
+  unrs-resolver: false
+
+# Exceptions d'audit : portée, risque, mitigation, owner et expiration dans docs/architecture/EXCEPTIONS_AUDIT.md.
+auditConfig:
+  ignoreGhsas:
+    - GHSA-vfj7-8cjw-p6xm

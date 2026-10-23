@@ -1,0 +1,71 @@
+.entete {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--grid-mobile-reference-margin);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .entete {
+    padding: var(--space-6) var(--space-10);
+  }
+}
+
+/* Sur l'ouverture de l'accueil, l'en-tête se pose sur le décor plein cadre (DR-1, vue A01). */
+:global(body:has([data-ouverture])) .entete {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 0;
+  z-index: 1;
+}
+
+.evitement {
+  position: absolute;
+  inset-block-start: var(--space-2);
+  inset-inline-start: var(--space-2);
+  z-index: 1;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-control);
+  background: var(--color-surface-paper);
+  color: var(--color-text-on-light);
+  transform: translateY(-200%);
+}
+
+.evitement:focus {
+  transform: none;
+}
+
+.site,
+.liens a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-target-minimum);
+  text-decoration: none;
+}
+
+.site:hover,
+.liens a:hover {
+  text-decoration: underline;
+}
+
+.liens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media print {
+  .evitement,
+  .entete {
+    display: none;
+  }
+}

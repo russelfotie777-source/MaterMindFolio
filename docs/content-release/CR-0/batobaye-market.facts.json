@@ -1,0 +1,259 @@
+{
+  "schemaVersion": "project-facts/1",
+  "slug": "batobaye-market",
+  "contentRelease": {
+    "id": "CR-0",
+    "status": "approved",
+    "russelVisa": "2026-10-20"
+  },
+  "sources": [
+    {
+      "id": "russel-2026-10-19",
+      "kind": "owner-declaration",
+      "label": "Réponses de Russel dans la fiche de collecte G1",
+      "checkedAt": "2026-10-19"
+    },
+    {
+      "id": "site-public",
+      "kind": "public-check",
+      "label": "Contrôle du site public",
+      "url": "https://batobayemarket.shop/fr",
+      "checkedAt": "2026-10-19"
+    },
+    {
+      "id": "google-play",
+      "kind": "store-listing",
+      "label": "Fiche Google Play",
+      "url": "https://play.google.com/store/apps/details?id=com.vivacom.batobaya",
+      "checkedAt": "2026-10-19"
+    },
+    {
+      "id": "app-store",
+      "kind": "store-listing",
+      "label": "Fiche App Store",
+      "url": "https://apps.apple.com/cm/app/batobaye-market/id6770470645",
+      "checkedAt": "2026-10-19"
+    }
+  ],
+  "facts": {
+    "name": {
+      "value": "Batobaye Market",
+      "sources": [
+        "russel-2026-10-19",
+        "site-public"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "BatobayeMarket"
+    },
+    "links": {
+      "value": [
+        {
+          "kind": "site",
+          "label": "batobayemarket.shop",
+          "url": "https://batobayemarket.shop/fr"
+        },
+        {
+          "kind": "play-store",
+          "label": "Google Play",
+          "url": "https://play.google.com/store/apps/details?id=com.vivacom.batobaya"
+        },
+        {
+          "kind": "app-store",
+          "label": "App Store",
+          "url": "https://apps.apple.com/cm/app/batobaye-market/id6770470645"
+        }
+      ],
+      "sources": [
+        "site-public",
+        "google-play",
+        "app-store"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "BatobayeMarket"
+    },
+    "status": {
+      "value": {
+        "code": "live",
+        "maintained": true,
+        "label": "En ligne ; phase principale achevée, maintenance et mises à jour en cours"
+      },
+      "sources": [
+        "russel-2026-10-19",
+        "site-public"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "BatobayeMarket"
+    },
+    "period": {
+      "value": {
+        "start": "2025-11",
+        "end": null,
+        "ongoing": true,
+        "approximate": false,
+        "phases": [
+          {
+            "label": "Phase principale de développement",
+            "start": "2025-11",
+            "end": "2026-08"
+          }
+        ]
+      },
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)"
+    },
+    "organization": {
+      "value": {
+        "name": "BatobayeMarket",
+        "relation": "employer",
+        "city": "Douala",
+        "country": "Cameroun"
+      },
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "BatobayeMarket"
+    },
+    "role": {
+      "value": "Développeur Full Stack ; maintenance actuelle à dominante backend",
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)"
+    },
+    "personalScope": {
+      "value": [
+        "Backend Laravel",
+        "Interface d'administration en React.js",
+        "Version mobile en React Native",
+        "Storefront web public",
+        "Publication sur Google Play et l'App Store",
+        "Maintenance et mises à jour, aujourd'hui surtout côté backend"
+      ],
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)"
+    },
+    "team": {
+      "value": {
+        "size": 4,
+        "note": "Dont 2 développeurs basés en Inde ; rôles individuels à préciser."
+      },
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "BatobayeMarket"
+    },
+    "platforms": {
+      "value": [
+        "web",
+        "web-admin",
+        "android",
+        "ios"
+      ],
+      "sources": [
+        "russel-2026-10-19",
+        "google-play",
+        "app-store"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "BatobayeMarket"
+    },
+    "stack": {
+      "value": [
+        "Laravel",
+        "MySQL",
+        "React.js",
+        "React Native",
+        "Firebase (notifications push)",
+        "VPS DigitalOcean"
+      ],
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "BatobayeMarket"
+    },
+    "proofs": {
+      "value": [
+        {
+          "kind": "live-url",
+          "label": "Site marchand en ligne avec catalogue public",
+          "url": "https://batobayemarket.shop/fr",
+          "checkedAt": "2026-10-19"
+        },
+        {
+          "kind": "store-listing",
+          "label": "Application sur Google Play, 1 k+ téléchargements affichés",
+          "url": "https://play.google.com/store/apps/details?id=com.vivacom.batobaya",
+          "checkedAt": "2026-10-19"
+        },
+        {
+          "kind": "store-listing",
+          "label": "Application sur l'App Store",
+          "url": "https://apps.apple.com/cm/app/batobaye-market/id6770470645",
+          "checkedAt": "2026-10-19"
+        }
+      ],
+      "sources": [
+        "site-public",
+        "google-play",
+        "app-store"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "BatobayeMarket",
+      "note": "Prouvent le déploiement du produit, pas à eux seuls la contribution de Russel."
+    },
+    "rights": {
+      "value": {
+        "grantedBy": "PDG de BatobayeMarket",
+        "form": "verbal",
+        "scope": [
+          "name",
+          "logo",
+          "screenshots"
+        ],
+        "restrictions": [
+          "Masquer le numéro de téléphone visible sur la capture de connexion",
+          "Retirer l'interface du navigateur par recadrage"
+        ]
+      },
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "BatobayeMarket"
+    },
+    "confidential": {
+      "value": [
+        "Données des clients et des commandes"
+      ],
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "private",
+      "rightsOwner": "BatobayeMarket",
+      "note": "Valeur de protection proposée par Claude."
+    }
+  }
+}

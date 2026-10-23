@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <defs>
+    <style>@font-face{font-family:DMSans;src:url('../assets/type-previews/DM-Sans-opsz-wght.ttf')}.display,.sans{font-family:DMSans,Arial,sans-serif}.caps{letter-spacing:.13em}</style>
+    <linearGradient id="gardenShade" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0e0b17" stop-opacity=".54"/><stop offset="1" stop-color="#1a103e" stop-opacity=".80"/></linearGradient>
+    <clipPath id="screen"><rect x="58" y="146" width="822" height="514"/></clipPath>
+  </defs>
+  <rect width="1440" height="900" fill="#0e0b17"/>
+  <image href="../assets/c3-upscaled/c3-wisteria-upscaled.png" width="1440" height="900" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="1440" height="900" fill="url(#gardenShade)"/>
+  <text class="sans caps" x="58" y="61" font-size="12" font-weight="650" fill="#fff">04 / 06 · BELVÉDÈRE PRODUIT</text>
+  <text class="sans" x="1200" y="61" font-size="13" fill="#fff">Pause · Menu</text>
+
+  <path d="M98 130h730c46 0 68 24 68 70v410c0 44-26 66-74 66H106c-42 0-64-24-64-70V198c0-42 20-68 56-68z" fill="#fff"/>
+  <rect x="52" y="140" width="834" height="526" fill="#271859"/>
+  <image href="../assets/source-derivatives/ziris-enterprise-desktop-1440.webp" x="58" y="146" width="822" height="514" preserveAspectRatio="xMidYMin slice" clip-path="url(#screen)"/>
+  <rect x="58" y="146" width="822" height="514" fill="none" stroke="#fff" stroke-width="2"/>
+  <rect x="86" y="612" width="192" height="30" fill="#fff"/>
+  <text class="sans caps" x="102" y="632" font-size="9" font-weight="650" fill="#5d17c7">INTERFACE PUBLIQUE RÉELLE</text>
+
+  <g transform="translate(956 130)">
+    <path d="M52 0h310c42 0 64 24 64 70v410c0 44-22 66-68 66H64c-42 0-64-22-64-66V62C0 24 18 0 52 0z" fill="#fff"/>
+    <text class="sans caps" x="42" y="62" font-size="10" font-weight="650" fill="#5d17c7">SAAS · DEUX VERSIONS</text>
+    <text class="display" x="42" y="142" font-size="72" font-weight="500" fill="#271859">ZIRIS</text>
+    <text class="sans" x="42" y="185" font-size="17" font-weight="650" fill="#271859">Co-propriétaire &amp; développeur</text>
+    <text class="sans" x="42" y="225" font-size="16" fill="#59358b">Présences pour entreprises</text>
+    <text class="sans" x="42" y="249" font-size="16" fill="#59358b">et établissements.</text>
+    <text class="sans caps" x="42" y="326" font-size="10" font-weight="650" fill="#5d17c7">PREUVE</text>
+    <text class="display" x="42" y="372" font-size="28" fill="#271859">2 interfaces en ligne</text>
+    <text class="sans" x="42" y="405" font-size="13" fill="#59358b">Co-développé avec Amadou Mendouga.</text>
+    <rect x="42" y="446" width="234" height="56" rx="28" fill="#5d17c7"/>
+    <text class="sans" x="159" y="480" text-anchor="middle" font-size="15" font-weight="650" fill="#fff">Voir l'étude de cas</text>
+  </g>
+
+  <path d="M92 732h1226c42 0 64 18 64 46 0 30-22 46-68 46H100c-28 0-42-18-42-46 0-28 12-46 34-46z" fill="#1a103e"/>
+  <g class="sans" font-size="13" fill="#dbb4d1">
+    <text x="88" y="785">Fast Shipping</text><text x="306" y="785">Batobaye</text><text x="500" y="785">MBoa</text>
+    <text x="670" y="785" fill="#fff" font-weight="650">ZIRIS</text><text x="848" y="785">Shopitech</text><text x="1082" y="785">ArtVibeCamer</text>
+  </g>
+  <path d="M692 792c-5 11-16 20-16 33 0 11 7 20 16 24 9-4 16-13 16-24 0-13-11-22-16-33z" fill="#1bda76"/>
+  <text class="sans caps" x="58" y="864" font-size="9" fill="#dbb4d1">LE DÉCOR S'EFFACE · LA PREUVE PRODUIT DOMINE</text>
+</svg>

@@ -1,0 +1,100 @@
+/* Fondation commune (contrat, T04). Les valeurs viennent des jetons générés, jamais d'une constante locale.
+   Les modules CSS des composants, hors couche, priment sur cette base. Les media queries reprennent
+   les points de rupture des jetons (768 px tablette, 1280 px desktop compact) : CSS n'y lit pas de variable. */
+@layer base;
+
+/* DM Sans variable (opsz 9–40, wght 400–600), sous-ensemble français auto-hébergé : scripts/font-subset.sh. */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/fonts/dm-sans-fr-58cee3ce.woff2') format('woff2');
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background: var(--color-surface-canvas);
+    color: var(--color-text-on-dark);
+    font-family: var(--font-family-interface);
+    font-size: var(--font-size-body-mobile);
+    line-height: var(--font-line-height-body);
+  }
+
+  @media (min-width: 768px) {
+    body {
+      font-size: var(--font-size-body);
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  p,
+  dl,
+  dd,
+  figure {
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+    text-underline-offset: 0.18em;
+  }
+
+  :focus-visible {
+    outline: var(--size-focus-width) solid var(--color-state-focus-on-dark);
+    outline-offset: 2px;
+  }
+
+  /* Cible du lien d'évitement : reçoit le focus sans être une commande, donc sans contour. */
+  main:focus {
+    outline: none;
+  }
+
+  /* Masqué à l'écran, lu par les technologies d'assistance. */
+  .visuellement-cache {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  @media print {
+    body {
+      background: none;
+      color: var(--color-text-on-light);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: var(--motion-duration-instant) !important;
+      animation-duration: var(--motion-duration-instant) !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

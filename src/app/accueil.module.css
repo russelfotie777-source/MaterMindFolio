@@ -1,0 +1,112 @@
+/* Ouverture : le décor couvre la section, le contenu se pose dessus sans jamais dépendre de lui. */
+/* L'en-tête se pose dessus : la composition réserve sa hauteur (deux lignes sur téléphone, une au-delà). */
+.ouverture {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.decor {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 62%;
+}
+
+.composition {
+  display: grid;
+  grid-template-areas:
+    'portrait'
+    'identite';
+  align-content: end;
+  gap: 0;
+  width: min(100% - 2 * var(--grid-mobile-reference-margin), var(--size-content-desktop));
+  margin-inline: auto;
+  padding-block-start: var(--space-32);
+}
+
+/* Plan sombre lisible : le texte ne repose jamais directement sur la lumière de l'aube. */
+.identite {
+  --texte: var(--color-text-on-dark);
+  --texte-attenue: var(--color-text-on-dark-muted);
+  --etiquette: var(--color-solar-trace);
+
+  grid-area: identite;
+  container-type: inline-size;
+  position: relative;
+  z-index: 1;
+  margin-block-end: var(--space-8);
+  padding: var(--space-8) var(--space-6);
+  border-radius: var(--radius-organic-maximum) var(--radius-organic-minimum);
+  background: color-mix(in srgb, var(--color-surface-canvas) 86%, transparent);
+  color: var(--texte);
+}
+
+/* Les <picture> s'effacent de la grille : leurs <img> en deviennent les éléments. */
+.composition > picture {
+  display: contents;
+}
+
+.portrait {
+  grid-area: portrait;
+  justify-self: end;
+  width: min(70vw, 22rem);
+  height: auto;
+  margin-block-end: calc(-1 * var(--space-16));
+}
+
+.actions > * {
+  flex: 1 1 100%;
+}
+
+/* Le nom tient sur une ligne dans le plan sombre : la taille d'affichage est plafonnée par sa largeur,
+   jamais une coupure au milieu du mot. */
+.identite h1 {
+  font-size: min(var(--font-size-display), 15.5cqi);
+}
+
+@media (min-width: 768px) {
+  .composition {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-areas: none;
+    align-items: end;
+    gap: 0 var(--grid-tablet-gutter);
+    width: min(100% - 2 * var(--grid-tablet-margin), var(--size-content-desktop));
+    padding-block-start: var(--space-24);
+  }
+
+  .identite {
+    grid-area: auto;
+    grid-column: 1 / span 6;
+    align-self: center;
+    margin-block-end: var(--space-12);
+    padding: var(--space-10);
+  }
+
+  .portrait {
+    grid-area: auto;
+    grid-column: 7 / -1;
+    width: min(100%, 36rem);
+    margin-block-end: 0;
+  }
+
+  .actions > * {
+    flex: 0 0 auto;
+  }
+}
+
+@media (min-width: 1280px) {
+  .composition {
+    gap: 0 var(--grid-desktop-gutter);
+    width: min(100% - 2 * var(--grid-desktop-margin), var(--size-content-desktop));
+  }
+
+  .identite {
+    grid-column: 1 / span 5;
+  }
+}

@@ -1,0 +1,45 @@
+.pied {
+  display: grid;
+  gap: var(--space-4);
+  margin-block-start: auto;
+  padding: var(--space-8) var(--grid-mobile-reference-margin);
+  border-block-start: 1px solid var(--color-surface-elevated);
+  background: var(--color-surface-depth);
+  color: var(--color-text-on-dark-muted);
+  font-size: var(--font-size-proof);
+  line-height: var(--font-line-height-proof);
+}
+
+@media (min-width: 768px) {
+  .pied {
+    padding-inline: var(--space-10);
+  }
+}
+
+.liens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.liens a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-target-minimum);
+  color: var(--color-text-on-dark);
+}
+
+.signature {
+  font-size: var(--font-size-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media print {
+  .pied {
+    display: none;
+  }
+}

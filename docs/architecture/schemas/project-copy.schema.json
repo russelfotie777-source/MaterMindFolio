@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://horizon237.local/schemas/project-copy.schema.json",
+  "title": "Manifeste de la copy d'un projet",
+  "description": "Relie les textes éditoriaux d'un projet à des identifiants de section stables et aux faits qu'ils supposent. Les textes eux-mêmes sont des fichiers CommonMark restreints (contrat, section 3.2) ; ils ne recopient jamais une date, un chiffre, un rôle ou un lien : ceux-ci viennent des faits.",
+  "type": "object",
+  "required": ["schemaVersion", "slug", "lang", "sections"],
+  "properties": {
+    "schemaVersion": { "const": "project-copy/1" },
+    "slug": {
+      "enum": ["fast-shipping-logistics", "batobaye-market", "mboamarkets", "ziris", "shopitech", "artvibe-cameroun"]
+    },
+    "lang": { "const": "fr" },
+    "sections": {
+      "type": "object",
+      "required": ["product-caption"],
+      "properties": {
+        "need": {
+          "description": "BESOIN : présent seulement si Russel l'a écrit avec ses mots.",
+          "allOf": [
+            { "$ref": "#/$defs/section" },
+            { "properties": { "author": { "const": "russel" } } }
+          ]
+        },
+        "product-caption": {
+          "description": "Légende du média PRODUIT dominant.",
+          "$ref": "#/$defs/section"
+        },
+        "decision": {
+          "description": "DÉCISION technique très courte, limitée au périmètre réel de Russel.",
+          "$ref": "#/$defs/section"
+        },
+        "case-study": {
+          "description": "Corps de l'étude de cas ouverte par Approfondir ; exigé à G4, pas à CR-0.",
+          "$ref": "#/$defs/section"
+        }
+      },
+      "additionalProperties": false
+    },
+    "mediaAlt": {
+      "description": "Texte alternatif de chaque média : ce que le média prouve, pas seulement ce qu'il montre.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["assetId", "section"],
+        "properties": {
+          "assetId": { "$ref": "fact.schema.json#/$defs/assetId" },
+          "section": { "$ref": "#/$defs/section" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "section": {
+      "type": "object",
+      "required": ["file", "author", "factRefs", "russelValidatedAt"],
+      "properties": {
+        "file": {
+          "type": "string",
+          "pattern": "^content/copy/fr/projects/[a-z0-9-]+/[a-z0-9-]+\\.md$"
+        },
+        "author": { "enum": ["russel", "chatgpt"] },
+        "factRefs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": ["name", "links", "status", "period", "organization", "role", "personalScope", "team", "platforms", "stack", "proofs", "rights", "media", "decisions"]
+          }
+        },
+        "russelValidatedAt": {
+          "oneOf": [{ "$ref": "fact.schema.json#/$defs/isoDate" }, { "type": "null" }]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,537 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://horizon237.local/schemas/project-facts.schema.json",
+  "title": "Faits d'un projet (CR-0)",
+  "description": "Même schéma et même profondeur pour les six projets. Les champs requis forment le minimum CR-0 : rôle, périmètre, date/statut, preuve et droits (contrat, section 12). Une valeur inconnue reste absente : jamais de valeur plausible inventée.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "slug",
+    "contentRelease",
+    "sources",
+    "facts"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "project-facts/1"
+    },
+    "slug": {
+      "description": "Identique au fragment du chapitre `project-<slug>` du storyboard DR-1.",
+      "enum": [
+        "fast-shipping-logistics",
+        "batobaye-market",
+        "mboamarkets",
+        "ziris",
+        "shopitech",
+        "artvibe-cameroun"
+      ]
+    },
+    "contentRelease": {
+      "type": "object",
+      "required": [
+        "id",
+        "status",
+        "russelVisa"
+      ],
+      "properties": {
+        "id": {
+          "const": "CR-0"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "approved"
+          ]
+        },
+        "russelVisa": {
+          "oneOf": [
+            {
+              "$ref": "fact.schema.json#/$defs/isoDate"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "if": {
+        "properties": {
+          "status": {
+            "const": "approved"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "russelVisa": {
+            "$ref": "fact.schema.json#/$defs/isoDate"
+          }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "fact.schema.json#/$defs/source"
+      }
+    },
+    "facts": {
+      "type": "object",
+      "required": [
+        "name",
+        "links",
+        "status",
+        "period",
+        "organization",
+        "role",
+        "personalScope",
+        "platforms",
+        "stack",
+        "proofs",
+        "rights",
+        "confidential"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "$ref": "fact.schema.json#/$defs/nonEmptyText"
+            }
+          }
+        },
+        "links": {
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": [
+                  "kind",
+                  "label",
+                  "url"
+                ],
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "site",
+                      "beta",
+                      "play-store",
+                      "app-store"
+                    ]
+                  },
+                  "label": {
+                    "$ref": "fact.schema.json#/$defs/nonEmptyText"
+                  },
+                  "url": {
+                    "$ref": "fact.schema.json#/$defs/httpsUrl"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "status": {
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "type": "object",
+              "required": [
+                "code",
+                "label"
+              ],
+              "properties": {
+                "code": {
+                  "enum": [
+                    "live",
+                    "beta",
+                    "in-development",
+                    "archived"
+                  ]
+                },
+                "maintained": {
+                  "type": "boolean"
+                },
+                "label": {
+                  "$ref": "fact.schema.json#/$defs/nonEmptyText"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "period": {
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "type": "object",
+              "required": [
+                "start",
+                "end",
+                "ongoing",
+                "approximate"
+              ],
+              "properties": {
+                "start": {
+                  "$ref": "fact.schema.json#/$defs/yearMonth"
+                },
+                "end": {
+                  "oneOf": [
+                    {
+                      "$ref": "fact.schema.json#/$defs/yearMonth"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "ongoing": {
+                  "type": "boolean"
+                },
+                "approximate": {
+                  "type": "boolean"
+                },
+                "phases": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "label",
+                      "start",
+                      "end"
+                    ],
+                    "properties": {
+                      "label": {
+                        "$ref": "fact.schema.json#/$defs/nonEmptyText"
+                      },
+                      "start": {
+                        "$ref": "fact.schema.json#/$defs/yearMonth"
+                      },
+                      "end": {
+                        "oneOf": [
+                          {
+                            "$ref": "fact.schema.json#/$defs/yearMonth"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "organization": {
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "type": "object",
+              "required": [
+                "name",
+                "relation",
+                "country"
+              ],
+              "properties": {
+                "name": {
+                  "$ref": "fact.schema.json#/$defs/nonEmptyText"
+                },
+                "relation": {
+                  "enum": [
+                    "employer",
+                    "employer-subsidiary",
+                    "client",
+                    "own-product",
+                    "co-owned-product"
+                  ]
+                },
+                "city": {
+                  "$ref": "fact.schema.json#/$defs/nonEmptyText"
+                },
+                "country": {
+                  "$ref": "fact.schema.json#/$defs/nonEmptyText"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "role": {
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "$ref": "fact.schema.json#/$defs/nonEmptyText"
+            }
+          }
+        },
+        "personalScope": {
+          "description": "Ce que Russel a fait lui-même. Obligatoire et jamais déduit d'un lien public seul.",
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "fact.schema.json#/$defs/nonEmptyText"
+              }
+            }
+          }
+        },
+        "team": {
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "type": "object",
+              "properties": {
+                "size": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "members": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "name",
+                      "contribution"
+                    ],
+                    "properties": {
+                      "name": {
+                        "$ref": "fact.schema.json#/$defs/nonEmptyText"
+                      },
+                      "contribution": {
+                        "$ref": "fact.schema.json#/$defs/nonEmptyText"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "note": {
+                  "$ref": "fact.schema.json#/$defs/nonEmptyText"
+                }
+              },
+              "minProperties": 1,
+              "additionalProperties": false
+            }
+          }
+        },
+        "platforms": {
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "web",
+                  "web-admin",
+                  "pwa",
+                  "android",
+                  "ios"
+                ]
+              }
+            }
+          }
+        },
+        "stack": {
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "$ref": "fact.schema.json#/$defs/nonEmptyText"
+              }
+            }
+          }
+        },
+        "proofs": {
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": [
+                  "kind",
+                  "label",
+                  "checkedAt"
+                ],
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "live-url",
+                      "store-listing",
+                      "repository-history",
+                      "production-log",
+                      "metric"
+                    ]
+                  },
+                  "label": {
+                    "$ref": "fact.schema.json#/$defs/nonEmptyText"
+                  },
+                  "url": {
+                    "$ref": "fact.schema.json#/$defs/httpsUrl"
+                  },
+                  "checkedAt": {
+                    "$ref": "fact.schema.json#/$defs/isoDate"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "rights": {
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "type": "object",
+              "required": [
+                "grantedBy",
+                "form",
+                "scope",
+                "restrictions"
+              ],
+              "properties": {
+                "grantedBy": {
+                  "$ref": "fact.schema.json#/$defs/nonEmptyText"
+                },
+                "form": {
+                  "enum": [
+                    "verbal",
+                    "written",
+                    "co-owner-agreement",
+                    "russel-declaration",
+                    "unspecified"
+                  ]
+                },
+                "scope": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "enum": [
+                      "name",
+                      "logo",
+                      "screenshots",
+                      "video",
+                      "metrics"
+                    ]
+                  }
+                },
+                "restrictions": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "fact.schema.json#/$defs/nonEmptyText"
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "media": {
+          "description": "Identifiants opaques du registre d'actifs ; jamais un chemin de fichier.",
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "$ref": "fact.schema.json#/$defs/assetId"
+              }
+            }
+          }
+        },
+        "decisions": {
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "object",
+                "required": [
+                  "title",
+                  "rationale"
+                ],
+                "properties": {
+                  "title": {
+                    "$ref": "fact.schema.json#/$defs/nonEmptyText"
+                  },
+                  "rationale": {
+                    "$ref": "fact.schema.json#/$defs/nonEmptyText"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "confidential": {
+          "description": "Ce qui ne doit jamais apparaître. Toujours privé.",
+          "$ref": "fact.schema.json#/$defs/fact",
+          "properties": {
+            "value": {
+              "type": "array",
+              "items": {
+                "$ref": "fact.schema.json#/$defs/nonEmptyText"
+              }
+            },
+            "visibility": {
+              "const": "private"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "if": {
+    "properties": {
+      "contentRelease": {
+        "properties": {
+          "status": {
+            "const": "approved"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      }
+    },
+    "required": [
+      "contentRelease"
+    ]
+  },
+  "then": {
+    "description": "Un CR-0 approuvé exige une date de validation de Russel sur chaque fait.",
+    "properties": {
+      "facts": {
+        "additionalProperties": {
+          "properties": {
+            "validatedAt": {
+              "$ref": "fact.schema.json#/$defs/isoDate"
+            }
+          }
+        }
+      }
+    }
+  }
+}

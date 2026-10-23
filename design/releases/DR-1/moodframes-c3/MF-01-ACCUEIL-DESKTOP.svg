@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <defs>
+    <style>
+      @font-face{font-family:DMSans;src:url('../assets/type-previews/DM-Sans-opsz-wght.ttf')}.display,.sans{font-family:DMSans,Arial,sans-serif}.caps{letter-spacing:.14em}
+    </style>
+    <linearGradient id="veil" x1="0" x2="1"><stop offset="0" stop-color="#0e0b17"/><stop offset=".45" stop-color="#0e0b17" stop-opacity=".94"/><stop offset=".72" stop-color="#0e0b17" stop-opacity=".22"/><stop offset="1" stop-color="#0e0b17" stop-opacity="0"/></linearGradient>
+    <linearGradient id="portraitFade" x1="0" y1="0" x2="0" y2="1"><stop offset=".78" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <mask id="portraitMask"><rect x="0" y="0" width="1440" height="900" fill="url(#portraitFade)"/></mask>
+    <clipPath id="stoneA"><path d="M690 772l182-52 230 25-66 94-278 7z"/></clipPath>
+    <clipPath id="stoneB"><path d="M1048 688l120-32 141 18-38 61-173 6z"/></clipPath>
+  </defs>
+  <rect width="1440" height="900" fill="#0e0b17"/>
+  <image href="../assets/c3-upscaled/c3-dawn-fuji-upscaled.png" width="1440" height="900" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="1440" height="900" fill="url(#veil)"/>
+
+  <g class="sans" fill="#fff">
+    <text x="64" y="56" font-size="13" font-weight="650" class="caps">HORIZON 237 · TRACE SOLAIRE</text>
+    <text x="1010" y="56" font-size="14">Projets</text>
+    <text x="1106" y="56" font-size="14">Résumé</text>
+    <text x="1204" y="56" font-size="14">Contact</text>
+    <rect x="1312" y="34" width="64" height="36" rx="18" fill="#fff"/>
+    <text x="1344" y="57" text-anchor="middle" font-size="12" font-weight="650" fill="#271859">FR</text>
+  </g>
+
+  <g transform="translate(64 168)">
+    <text class="sans caps" x="0" y="0" font-size="12" font-weight="650" fill="#dbb4d1">SOFTWARE ENGINEER · DOUALA</text>
+    <text class="display" x="0" y="112" font-size="102" font-weight="500" fill="#fff">MASTER</text>
+    <text class="display" x="0" y="204" font-size="102" font-weight="500" fill="#fff">MIND</text>
+    <path d="M474 206C464 229 440 248 440 275c0 25 15 45 34 53 19-8 34-28 34-53 0-27-24-46-34-69z" fill="#5d17c7"/>
+    <text class="sans" x="0" y="282" font-size="22" fill="#fff">Je construis des produits qui tiennent</text>
+    <text class="sans" x="0" y="314" font-size="22" fill="#fff">dans le réel.</text>
+    <text class="sans" x="0" y="355" font-size="16" fill="#dbb4d1">En poste · ouvert aux opportunités</text>
+    <g transform="translate(0 400)">
+      <rect width="226" height="58" rx="29" fill="#fff"/>
+      <text class="sans" x="113" y="36" text-anchor="middle" font-size="16" font-weight="650" fill="#271859">Commencer la visite</text>
+      <rect x="242" width="184" height="58" rx="29" fill="#5d17c7"/>
+      <text class="sans" x="334" y="36" text-anchor="middle" font-size="16" font-weight="650" fill="#fff">Explorer librement</text>
+    </g>
+    <text class="sans caps" x="0" y="504" font-size="10" font-weight="650" fill="#a461cb">JAPON · HORIZON ARTISTIQUE</text>
+    <text class="sans" x="0" y="529" font-size="13" fill="#dbb4d1">Origine et base réelle : Cameroun · Douala</text>
+  </g>
+
+  <image href="../../../magnific__background__71841.png" x="866" y="108" width="454" height="690" preserveAspectRatio="xMidYMid meet" mask="url(#portraitMask)"/>
+  <path d="M896 765c90 16 257 11 382-10" fill="none" stroke="#7e13e0" stroke-width="2" opacity=".9"/>
+
+  <path d="M690 772l182-52 230 25-66 94-278 7z" fill="#323131"/>
+  <image href="../assets/c3-upscaled/c3-basalt-upscaled.png" x="672" y="697" width="450" height="160" preserveAspectRatio="xMidYMid slice" clip-path="url(#stoneA)" opacity=".82"/>
+  <path d="M690 772l68 74 278-7 66-94-230-25z" fill="none" stroke="#f06aa6" stroke-width="2"/>
+  <path d="M1048 688l120-32 141 18-38 61-173 6z" fill="#323131"/>
+  <image href="../assets/c3-upscaled/c3-basalt-upscaled.png" x="1034" y="645" width="292" height="108" preserveAspectRatio="xMidYMid slice" clip-path="url(#stoneB)" opacity=".74"/>
+  <path d="M1048 688l50 53 173-6 38-61-141-18z" fill="none" stroke="#1bda76" stroke-width="2"/>
+  <text class="sans caps" x="1118" y="832" font-size="10" fill="#dbb4d1">PIERRES · VRAIE 3D À L'INTÉGRATION</text>
+
+  <g transform="translate(64 832)" class="sans">
+    <text x="0" y="0" font-size="12" fill="#fff">00:00</text>
+    <circle cx="90" cy="-4" r="4" fill="#f06aa6"/><circle cx="112" cy="-4" r="3" fill="#dbb4d1"/><circle cx="132" cy="-4" r="3" fill="#dbb4d1"/>
+    <text x="1182" y="0" font-size="12" fill="#fff">Son : au choix</text>
+  </g>
+</svg>

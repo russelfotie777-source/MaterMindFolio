@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="360" viewBox="0 0 960 360">
+  <title>Monogramme TRACE 237 de MASTERMIND</title>
+  <desc>Deux M géométriques partagent un axe central. Leur ligne de base devient un horizon qui s’élève vers un disque solaire.</desc>
+  <g fill="none" stroke="#000" stroke-opacity="1" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M96 252V92l144 132L384 92v160" stroke-width="20"/>
+    <path d="M384 252V92l144 132L672 92v160" stroke-width="20"/>
+    <path d="M72 284h600c92 0 148-52 148-132" stroke-width="12"/>
+    <circle cx="820" cy="112" r="28" stroke-width="12"/>
+    <path d="M168 284v28M384 284v28M600 284v28" stroke-width="12"/>
+  </g>
+</svg>

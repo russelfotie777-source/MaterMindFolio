@@ -1,0 +1,264 @@
+{
+  "schemaVersion": "project-facts/1",
+  "slug": "mboamarkets",
+  "contentRelease": {
+    "id": "CR-0",
+    "status": "approved",
+    "russelVisa": "2026-10-20"
+  },
+  "sources": [
+    {
+      "id": "russel-2026-10-19",
+      "kind": "owner-declaration",
+      "label": "Réponses de Russel dans la fiche de collecte G1",
+      "checkedAt": "2026-10-19"
+    },
+    {
+      "id": "site-public",
+      "kind": "public-check",
+      "label": "Contrôle du site public",
+      "url": "https://mboamarkets.com/",
+      "checkedAt": "2026-10-19"
+    },
+    {
+      "id": "depot",
+      "kind": "repository-history",
+      "label": "Historique Git et README du dépôt du projet (non public)",
+      "checkedAt": "2026-10-19"
+    }
+  ],
+  "facts": {
+    "name": {
+      "value": "MBoa Market",
+      "sources": [
+        "site-public",
+        "depot"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "MBoa Market",
+      "note": "Graphie du site et du dépôt ; domaine mboamarkets.com."
+    },
+    "links": {
+      "value": [
+        {
+          "kind": "site",
+          "label": "mboamarkets.com",
+          "url": "https://mboamarkets.com/"
+        }
+      ],
+      "sources": [
+        "site-public"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "MBoa Market"
+    },
+    "status": {
+      "value": {
+        "code": "live",
+        "maintained": true,
+        "label": "Site marchand en ligne, maintenu"
+      },
+      "sources": [
+        "russel-2026-10-19",
+        "site-public"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "MBoa Market"
+    },
+    "period": {
+      "value": {
+        "start": "2026-01",
+        "end": null,
+        "ongoing": true,
+        "approximate": false,
+        "phases": [
+          {
+            "label": "Développement principal",
+            "start": "2026-01",
+            "end": "2026-02"
+          },
+          {
+            "label": "Seconde phase : modèle produit, PWA, paiement Orange",
+            "start": "2026-08",
+            "end": "2026-09"
+          }
+        ]
+      },
+      "sources": [
+        "russel-2026-10-19",
+        "depot"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)"
+    },
+    "organization": {
+      "value": {
+        "name": "MBoa Market",
+        "relation": "employer-subsidiary",
+        "country": "Cameroun"
+      },
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "MBoa Market",
+      "note": "Filiale de Batobaye Market."
+    },
+    "role": {
+      "value": "Développeur principal",
+      "sources": [
+        "depot"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)",
+      "note": "Déduit de l'historique Git (32 des 34 commits) ; à confirmer par Russel."
+    },
+    "personalScope": {
+      "value": [
+        "Migration du modèle produit",
+        "Optimisation de la vitesse de chargement",
+        "PWA complète",
+        "Galerie et interfaces client",
+        "Livraison et calcul des frais",
+        "Intégration du paiement Orange",
+        "Onglet paiement et corrections du back-office"
+      ],
+      "sources": [
+        "depot"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)"
+    },
+    "team": {
+      "value": {
+        "members": [
+          {
+            "name": "Iris",
+            "contribution": "Système de panier"
+          }
+        ],
+        "note": "32 des 34 commits viennent des identités Git de Russel."
+      },
+      "sources": [
+        "depot"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "private",
+      "rightsOwner": "MBoa Market",
+      "note": "Nom d'un tiers : privé tant que Russel n'a pas décidé."
+    },
+    "platforms": {
+      "value": [
+        "web",
+        "web-admin",
+        "pwa"
+      ],
+      "sources": [
+        "depot",
+        "site-public"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "MBoa Market"
+    },
+    "stack": {
+      "value": [
+        "PHP 8.2 natif (PDO, sans framework)",
+        "MySQL / MariaDB",
+        "Tailwind CSS 4",
+        "Swiper.js",
+        "Service worker maison",
+        "Commande via WhatsApp",
+        "Paiement Orange"
+      ],
+      "sources": [
+        "depot"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "MBoa Market"
+    },
+    "proofs": {
+      "value": [
+        {
+          "kind": "live-url",
+          "label": "Site en ligne : catalogue, panier, commande WhatsApp, 6 langues",
+          "url": "https://mboamarkets.com/",
+          "checkedAt": "2026-10-19"
+        },
+        {
+          "kind": "repository-history",
+          "label": "32 des 34 commits du dépôt par Russel",
+          "checkedAt": "2026-10-19"
+        }
+      ],
+      "sources": [
+        "site-public",
+        "depot"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "MBoa Market"
+    },
+    "decisions": {
+      "value": [
+        {
+          "title": "PHP natif sans framework ni build JavaScript",
+          "rationale": "Le trafic vient surtout de publicités Facebook : la vitesse de chargement passe avant tout."
+        },
+        {
+          "title": "Tailwind compilé en local",
+          "rationale": "Pas de dépendance à un CDN au chargement."
+        },
+        {
+          "title": "Redirection fluide vers WhatsApp",
+          "rationale": "C'est le principal canal de commande."
+        }
+      ],
+      "sources": [
+        "depot"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "Russel (MASTERMIND)",
+      "note": "Tiré du README ; à valider par Russel."
+    },
+    "rights": {
+      "value": {
+        "grantedBy": "PDG de BatobayeMarket (maison mère)",
+        "form": "verbal",
+        "scope": [
+          "name",
+          "logo",
+          "screenshots"
+        ],
+        "restrictions": []
+      },
+      "sources": [
+        "russel-2026-10-19"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "public",
+      "rightsOwner": "MBoa Market"
+    },
+    "confidential": {
+      "value": [
+        "Données des clients et des commandes",
+        "Identifiants de la base et du paiement"
+      ],
+      "sources": [
+        "depot"
+      ],
+      "validatedAt": "2026-10-20",
+      "visibility": "private",
+      "rightsOwner": "MBoa Market"
+    }
+  }
+}

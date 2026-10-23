@@ -1,0 +1,17 @@
+# Masters et rendus de revue lourds de la DR-1 : conservés en local, empreintes
+# dans design/releases/DR-1/manifest.json (réserve C3-R2 du visa de faisabilité).
+/design/releases/DR-1/assets/c3-upscaled/
+/decor-candidats/*.png
+/design/releases/DR-1/control-views-c3/*.png
+/design/releases/DR-1/moodframes-c3/*.png
+
+# Dépendances et sorties de build
+/node_modules/
+/.next/
+/.next-csp/
+/next-env.d.ts
+*.tsbuildinfo
+/.vercel/
+/test-results/
+/playwright-report/
+/blob-report/

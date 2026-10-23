@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <defs>
+    <style>@font-face{font-family:DMSans;src:url('../assets/type-previews/DM-Sans-opsz-wght.ttf')}.display,.sans{font-family:DMSans,Arial,sans-serif}.caps{letter-spacing:.15em}</style>
+    <linearGradient id="basaltVeil" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0e0b17" stop-opacity=".40"/><stop offset=".55" stop-color="#1a103e" stop-opacity=".60"/><stop offset="1" stop-color="#0e0b17" stop-opacity=".88"/></linearGradient>
+    <clipPath id="slab1"><path d="M-50 748L570 570l406 96-528 240H-50z"/></clipPath>
+    <clipPath id="slab2"><path d="M690 563l316-116 258 58-263 150z"/></clipPath>
+  </defs>
+  <rect width="1440" height="900" fill="#0e0b17"/>
+  <image href="../assets/c3-upscaled/c3-basalt-upscaled.png" width="1440" height="900" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="1440" height="900" fill="url(#basaltVeil)"/>
+  <path d="M0 132C330 68 630 184 984 107s360-44 456-66V0H0z" fill="#251957" opacity=".88"/>
+  <path d="M0 132C330 68 630 184 984 107s360-44 456-66" fill="none" stroke="#a461cb" stroke-width="2"/>
+
+  <text class="sans caps" x="64" y="66" font-size="12" font-weight="650" fill="#dbb4d1">00:03 · LE RACCORD</text>
+  <text class="sans" x="1214" y="66" font-size="13" fill="#fff">Passer · Pause</text>
+
+  <g transform="translate(250 135) scale(1.02)" fill="none" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M96 252V92l144 132L384 92v160" stroke="#fff" stroke-width="20"/>
+    <path d="M384 252V92l144 132L672 92v160" stroke="#fff" stroke-width="20"/>
+    <path d="M72 284h600c92 0 148-52 148-132" stroke="#f06aa6" stroke-width="12"/>
+    <circle cx="820" cy="112" r="28" stroke="#f06aa6" stroke-width="12"/>
+    <path d="M168 284v28M384 284v28M600 284v28" stroke="#1bda76" stroke-width="12"/>
+  </g>
+
+  <path d="M-50 748L570 570l406 96-528 240H-50z" fill="#323131"/>
+  <image href="../assets/c3-upscaled/c3-basalt-upscaled.png" x="-20" y="548" width="1020" height="370" preserveAspectRatio="xMidYMid slice" clip-path="url(#slab1)" opacity=".88"/>
+  <path d="M-50 748L570 570l406 96-528 240" fill="none" stroke="#f06aa6" stroke-width="4"/>
+  <path d="M690 563l316-116 258 58-263 150z" fill="#323131"/>
+  <image href="../assets/c3-upscaled/c3-basalt-upscaled.png" x="680" y="430" width="600" height="250" preserveAspectRatio="xMidYMid slice" clip-path="url(#slab2)" opacity=".72"/>
+  <path d="M690 563l316-116 258 58-263 150" fill="none" stroke="#7e13e0" stroke-width="3"/>
+
+  <path d="M1018 646h310c30 0 48 18 48 46v76c0 32-20 48-54 48h-286c-34 0-54-18-54-52v-72c0-28 14-46 36-46z" fill="#fff"/>
+  <text class="sans caps" x="1014" y="684" font-size="10" font-weight="650" fill="#5d17c7">LA TRACE DEVIENT CHEMIN</text>
+  <text class="display" x="1014" y="741" font-size="34" fill="#271859">Le code, c'est</text>
+  <text class="display" x="1014" y="779" font-size="34" fill="#271859">la Base.</text>
+  <text class="sans caps" x="64" y="858" font-size="10" fill="#dbb4d1">VOLUMES ET OMBRES : VRAIE 3D · MOODFRAME FIXE</text>
+</svg>
