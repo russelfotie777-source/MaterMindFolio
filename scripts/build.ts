@@ -31,9 +31,9 @@ function strings(value: Json): string[] {
   return (Array.isArray(value) ? value : Object.values(value)).flatMap(strings);
 }
 
-// Textes des faits privés, sous leurs formes brute, échappée JSON (données RSC) et échappée HTML.
-// Les textes courts sont ignorés : un prénom isolé apparaîtrait ailleurs sans être une fuite.
-function privateTexts(): string[] {
+// Textes des faits privés, sous leurs formes brute, échappée JSON (données RSC) et échappée HTML,
+// cherchés comme mots entiers : un prénom court comme « Iris » est contrôlé sans faux positif dans « Paris ».
+function privateTexts(): { text: string; pattern: RegExp }[] {
   const texts = files('content/facts', '.json').flatMap((file) => {
     const { facts } = JSON.parse(readFileSync(file, 'utf8')) as {
       facts: Record<string, { visibility: string; value: Json }>;
@@ -47,13 +47,11 @@ function privateTexts(): string[] {
       .replaceAll('>', '&gt;')
       .replaceAll("'", '&#x27;')
       .replaceAll('"', '&quot;');
-  return [
-    ...new Set(
-      texts
-        .filter((text) => text.length >= 8)
-        .flatMap((text) => [text, JSON.stringify(text).slice(1, -1), html(text)]),
-    ),
-  ];
+  const escape = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return [...new Set(texts.map((text) => text.trim()).filter((text) => text.length >= 2))].map((text) => {
+    const forms = [...new Set([text, JSON.stringify(text).slice(1, -1), html(text)])].map(escape);
+    return { text, pattern: new RegExp(`(?<![\\p{L}\\p{N}])(?:${forms.join('|')})(?![\\p{L}\\p{N}])`, 'u') };
+  });
 }
 
 function inlineScriptHashes(): string[] {
@@ -106,7 +104,7 @@ const published = [
 ];
 const exposed = published.flatMap((file) => {
   const content = readFileSync(file, 'utf8');
-  return secrets.filter((text) => content.includes(text)).map((text) => `${file} : « ${text} »`);
+  return secrets.filter(({ pattern }) => pattern.test(content)).map(({ text }) => `${file} : « ${text} »`);
 });
 if (exposed.length > 0) {
   console.error(`Fait privé publié :\n${exposed.join('\n')}\nBuild refusé.`);
