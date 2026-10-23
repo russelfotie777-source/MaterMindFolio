@@ -41,7 +41,7 @@ export default function Fabrication() {
 
       <section className={`${page.rubrique} ${styles.bloc}`}>
         <h2>Images</h2>
-        <ul className={`${page.liste} ${styles.images}`}>
+        <ul role="list" className={`${page.liste} ${styles.images}`}>
           {images.map((image) => (
             <li key={image.id}>
               <p className={page.fort}>
@@ -64,7 +64,7 @@ export default function Fabrication() {
           <p className={page.attenue}>
             Ils ont inspiré la direction sonore ; ils ne sont ni utilisés ni imités sur le site.
           </p>
-          <ul className={`${page.liste} ${styles.morceaux}`}>
+          <ul role="list" className={`${page.liste} ${styles.morceaux}`}>
             {morceaux.map((morceau) => (
               <li key={morceau.id}>
                 <p className={page.fort}>{morceau.titre}</p>
@@ -104,7 +104,7 @@ export default function Fabrication() {
               <h3 className={page.fort}>
                 <Link href={`/projets/${projet.slug}`}>{projet.nom}</Link>
               </h3>
-              <ul className={page.liste}>
+              <ul role="list" className={page.liste}>
                 {projet.sources.map((source) => (
                   <li key={source.libelle}>
                     {source.url ? (

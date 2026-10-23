@@ -29,7 +29,7 @@ export default function Visite() {
       <p className={page.etiquette}>Visite · version légère</p>
       <h1 className={page.titrePage}>Six stations</h1>
       {copieSite['visite-legere'] && <Copie arbre={copieSite['visite-legere']} className={page.lead} />}
-      <ol className={styles.stations}>
+      <ol role="list" className={styles.stations}>
         {projets.map((projet) => {
           const copie = lireCopieProjet(projet.slug);
           return (

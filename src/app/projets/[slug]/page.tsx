@@ -67,7 +67,7 @@ export default async function EtudeDeCas({ params }: Props) {
           <div className={styles.preuves}>
             <section className={page.rubrique}>
               <h2>Périmètre validé</h2>
-              <ul className={`${page.liste} ${styles.perimetre}`}>
+              <ul role="list" className={`${page.liste} ${styles.perimetre}`}>
                 {projet.perimetre.map((element) => (
                   <li key={element}>{element}</li>
                 ))}
@@ -76,7 +76,7 @@ export default async function EtudeDeCas({ params }: Props) {
 
             <section className={page.rubrique}>
               <h2>Preuve publique</h2>
-              <ul className={page.liste}>
+              <ul role="list" className={page.liste}>
                 {projet.preuves.map((preuve) => (
                   <li key={preuve.libelle} className={styles.preuve}>
                     <span className={page.fort}>
@@ -128,7 +128,7 @@ export default async function EtudeDeCas({ params }: Props) {
                 <dd>
                   {formaterPeriode(projet.periode)}
                   {projet.periode.phases.length > 0 && (
-                    <ul className={page.liste}>
+                    <ul role="list" className={page.liste}>
                       {projet.periode.phases.map((phase) => (
                         <li key={phase.libelle} className={page.attenue}>
                           {phase.libelle} :{' '}
@@ -155,7 +155,7 @@ export default async function EtudeDeCas({ params }: Props) {
                     )}
                     {equipe.note && <> · {equipe.note}</>}
                     {equipe.membres.length > 0 && (
-                      <ul className={page.liste}>
+                      <ul role="list" className={page.liste}>
                         {equipe.membres.map((membre) => (
                           <li key={membre.nom}>
                             {membre.nom} : {membre.contribution}
@@ -177,7 +177,7 @@ export default async function EtudeDeCas({ params }: Props) {
               <div>
                 <dt>Liens</dt>
                 <dd>
-                  <ul className={page.liste}>
+                  <ul role="list" className={page.liste}>
                     {projet.liens.map((lien) => (
                       <li key={lien.url}>
                         <LienExterne href={lien.url}>{lien.libelle}</LienExterne>
@@ -192,7 +192,7 @@ export default async function EtudeDeCas({ params }: Props) {
       </article>
 
       <nav aria-label="Autres projets" className={styles.suite}>
-        <ul className={page.liste}>
+        <ul role="list" className={page.liste}>
           {precedent && (
             <li>
               <Link href={`/projets/${precedent.slug}`}>Projet précédent : {precedent.nom}</Link>

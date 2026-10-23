@@ -32,7 +32,7 @@ export default function Parcours() {
         {formaterJour(posteActuel.depuis)}.
       </p>
 
-      <ol className={styles.chronologie}>
+      <ol role="list" className={styles.chronologie}>
         {projets.map((projet) => (
           <li key={projet.slug} className={styles.etape}>
             <p className={page.etiquette}>

@@ -127,6 +127,7 @@
   font-weight: var(--font-weight-interface-strong);
 }
 
+/* Sans puces : Safari retire alors la sémantique de liste, que role="list" rétablit dans le JSX. */
 .liste {
   margin: 0;
   padding: 0;
