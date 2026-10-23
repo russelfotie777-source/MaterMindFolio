@@ -61,6 +61,7 @@ export default async function EtudeDeCas({ params }: Props) {
           <MediaProjet
             slug={projet.slug}
             tailles="(min-width: 1280px) 42rem, 55vw"
+            prioritaire
             legende={copie['product-caption'] && <Copie arbre={copie['product-caption']} />}
           />
           <div className={styles.preuves}>
