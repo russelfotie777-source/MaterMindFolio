@@ -20,7 +20,8 @@ const contentSecurityPolicy = [
   "connect-src 'self'",
   "manifest-src 'self'",
   "object-src 'none'",
-  "frame-src 'none'",
+  // ADR-001 : seul le lecteur officiel des morceaux de référence, inséré après un clic.
+  'frame-src https://www.youtube-nocookie.com',
   "frame-ancestors 'none'",
   "base-uri 'none'",
   "form-action 'none'",

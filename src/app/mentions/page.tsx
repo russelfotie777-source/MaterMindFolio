@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+import { lireReferencesMusicales } from '@/lib/faits/musique';
 import { lireProfil } from '@/lib/faits/profil';
 import page from '@/styles/page.module.css';
 
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
 // Faits techniques du site (contrat, T18 à T20) : hébergement Vercel, aucun formulaire, aucune mesure.
 export default function Mentions() {
   const profil = lireProfil();
+  const lecteurTiers = lireReferencesMusicales().some((morceau) => morceau.publication.genre === 'youtube');
 
   return (
     <div className={page.cadre}>
@@ -42,6 +44,12 @@ export default function Mentions() {
               Ce site ne dépose aucun cookie, n’utilise aucun outil de mesure d’audience et ne propose aucun
               formulaire. L’hébergeur peut conserver des journaux techniques de connexion.
             </p>
+            {lecteurTiers && (
+              <p>
+                Dans Sources &amp; fabrication, le lecteur YouTube d’un morceau de référence n’est chargé
+                qu’après un clic ; YouTube applique alors ses propres règles de confidentialité.
+              </p>
+            )}
           </section>
 
           <section className={page.rubrique}>

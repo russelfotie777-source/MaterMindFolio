@@ -39,3 +39,14 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
+.morceaux {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.morceaux li {
+  display: grid;
+  gap: var(--space-2);
+  justify-items: start;
+}

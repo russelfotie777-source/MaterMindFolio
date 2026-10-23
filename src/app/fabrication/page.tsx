@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+import { LecteurReference } from '@/components/LecteurReference';
 import { LienExterne } from '@/components/LienExterne';
 import { formaterJour } from '@/lib/dates';
+import { lireReferencesMusicales } from '@/lib/faits/musique';
 import { lireProjets } from '@/lib/faits/projets';
 import { lireDerives } from '@/lib/media';
 import page from '@/styles/page.module.css';
@@ -21,6 +23,7 @@ const ko = (octets: number) => `${Math.round(octets / 1000)} Ko`;
 // son origine, ses formats et son poids ; une image générée est toujours déclarée comme telle.
 export default function Fabrication() {
   const projets = lireProjets();
+  const morceaux = lireReferencesMusicales();
   const images = lireDerives().map(([id, derive]) => {
     const fichiers = [...derive.fichiers.avif, ...derive.fichiers.webp];
     const poids = fichiers.map((f) => f.octets);
@@ -50,6 +53,32 @@ export default function Fabrication() {
           ))}
         </ul>
       </section>
+
+      {morceaux.length > 0 && (
+        <section className={`${page.rubrique} ${styles.bloc}`}>
+          <h2>Morceaux de référence</h2>
+          <p className={page.attenue}>
+            Ils ont inspiré la direction sonore ; ils ne sont ni utilisés ni imités sur le site.
+          </p>
+          <ul className={`${page.liste} ${styles.morceaux}`}>
+            {morceaux.map((morceau) => (
+              <li key={morceau.id}>
+                <p className={page.fort}>{morceau.titre}</p>
+                <p className={page.attenue}>
+                  {morceau.compositeur} · {morceau.oeuvre} ({morceau.annee})
+                </p>
+                {morceau.publication.genre === 'youtube' ? (
+                  <LecteurReference titre={morceau.titre} videoId={morceau.publication.videoId} />
+                ) : (
+                  <p>
+                    <LienExterne href={morceau.publication.url}>{morceau.publication.libelle}</LienExterne>
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section className={`${page.rubrique} ${styles.bloc}`}>
         <h2>Typographie</h2>

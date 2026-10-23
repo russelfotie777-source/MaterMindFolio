@@ -97,6 +97,26 @@ test('étude de cas : un seul média visible, décrit par son texte alternatif',
     .toBeGreaterThan(0);
 });
 
+test('morceaux de référence : aucune requête YouTube avant le clic (ADR-001)', async ({ page }) => {
+  const youtube: string[] = [];
+  page.on('request', (requete) => {
+    if (/youtube|ytimg|googlevideo/.test(new URL(requete.url()).hostname)) youtube.push(requete.url());
+  });
+  await page.goto('/fabrication');
+  await page.waitForLoadState('networkidle');
+  expect(youtube).toEqual([]);
+
+  const ecouter = page.getByRole('link', { name: /^Écouter sur YouTube/ });
+  test.skip((await ecouter.count()) === 0, 'Références musicales en attente du visa de Russel.');
+  await ecouter.first().click();
+  const lecteur = page.locator('iframe[src^="https://www.youtube-nocookie.com/embed/"]');
+  await expect(lecteur).toBeVisible();
+  await expect(lecteur).toBeFocused();
+  const { width, height } = (await lecteur.boundingBox())!;
+  expect(Math.min(width, height)).toBeGreaterThanOrEqual(200);
+  expect(await violationsCsp(page)).toEqual([]);
+});
+
 test('l’îlot « Copier l’adresse » est hydraté et annonce son résultat', async ({ page }) => {
   await page.goto('/contact');
   const statut = page.getByRole('status');
