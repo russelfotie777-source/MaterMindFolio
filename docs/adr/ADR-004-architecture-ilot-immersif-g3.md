@@ -1,8 +1,8 @@
 # ADR-004 — Architecture de l'îlot immersif (G3)
 
-- Statut : **proposé**, 23 octobre 2026. Il s'applique au lot G3, qui ne s'ouvre qu'après `G2 PASS` (contrat, section 11).
+- Statut : **accepté avec amendements** le 23 octobre 2026 par ChatGPT / Codex (`design/reviews/2026-10-23-ADR-004-CODEX.md`). Les amendements sont intégrés à la section 7. Il s'applique au lot G3, qui ne s'ouvre qu'après `G2 PASS` (contrat, section 11).
 - Auteur : Claude Code, DRI de G3 (contrat, sections 8 et 11).
-- Revue demandée : ChatGPT / Codex pour ce qui touche au mouvement et à l'image (sections 4, 5 et 7 ci-dessous) ; aucune décision visuelle n'est prise ici.
+- Revue : Codex, pour le mouvement et l'image (section 2, points 3, 4, 7, 9 et 10 ; sections 4 et 5). Aucune décision visuelle n'est prise ici.
 - Cadre : contrat T03, T06, T08, T09, T12, T14, section 3.1 (points 1, 2, 3 et 5), section 4 et section 7 ; DR-1 `02_STORYBOARD_VISITE.md`, `04_MOUVEMENT_SON_ACCESSIBILITE.md`, `07_BUDGETS_PREUVES.md` ; réserves `C3-R1` à `C3-R5`.
 
 ## 1. Mesure qui motive cet ADR
@@ -67,12 +67,29 @@ src/visite/
 
 ## 5. Questions ouvertes
 
-- **Codex** : poses `entry`, `settled`, `reading` et `exit` de chaque chapitre, sous forme de données (position, cible et focale de caméra), pour remplir `chapitres.ts` ; tracé SVG du monogramme pour la révélation de 1,00 à 2,65 s ; validation des actifs pierre, ciel et planètes.
-- **Codex et Russel** : la vidéo de main est remplacée par le monogramme (DR-1, storyboard, section 2). Le sous-budget « clip main + son poster mobile ≤ 140 Ko » devient donc libre. Le réallouer aux actifs 3D exige leur accord, puisque le total de 650 Ko reste le véto.
-- **Russel** : accès à un Galaxy A14 et à un iPhone pour les mesures sur appareil.
+Tranchées par la revue de Codex : voir la section 7. Reste ouvert pour Russel : l'accès à un Galaxy A14 et à un iPhone. Leur absence ne bloque pas cet ADR, mais bloque `G3 PASS`.
 
 ## 6. Conséquences
 
 - Le socle G2 ne change pas : aucune page ne charge de code 3D avant l'îlot.
 - Le tuple React reste lié à R3F 9 (`react` < 19.4) tant que R3F est conservé.
 - Les bibliothèques de G3 sont installées dans la même PR que le premier code qui les utilise, avec leurs versions exactes de l'ADR-002.
+
+## 7. Amendements de Codex, 23 octobre 2026
+
+1. **Poses caméra.** Claude produit les valeurs de runtime à partir des contraintes de la DR, et Codex valide les cadrages obtenus à chaque viewport. Chaque pose de `chapitres.ts` est versionnée : variante desktop, tablette ou mobile, position, cible, FOV ou zoom, plans near et far, safe zone de lecture. Chacune des quatre poses (`entry`, `settled`, `reading`, `exit`) reçoit une capture de calibration.
+2. **Monogramme.** Le master `design/releases/DR-1/assets/trace-237-monogram.svg` suffit : aucun nouveau tracé. Codex annote l'ordre et la direction de révélation de ses primitives. Le runtime révèle de 1,00 à 2,65 s, puis immobilise 350 ms, sans morph.
+3. **Budget du clip supprimé.** Ses octets retournent à la réserve (au moins 140 Ko sur mobile et 240 Ko sur desktop, `07_BUDGETS_PREUVES.md`). Toute réallocation exige un amendement de la DR visé par Codex et Russel. Les plafonds de 650 Ko sur mobile et de 1,2 Mo sur desktop restent des vétos. La question posée à la section 5 de la version proposée est donc close.
+4. **Preuves ajoutées à G3** :
+   - **Matrice de fidélité.** Elle couvre ces états : 0, 3, 6 et 10 s, la promenade, le belvédère neutre sur desktop et mobile, le player fermé et ouvert, le mouvement réduit et le mode sans WebGL. Chaque état est capturé avec son masque de luminance, son contraste, son focus et ses surfaces, puis comparé à la DR.
+   - **Chorégraphie image par image** : portrait sans fondu, tracé, match-cut à 3 s, allumage simultané à 6 s en au moins 400 ms, ouverture solaire de 8,00 à 8,30 s sans flash.
+   - **Entrées et résilience** : teaser jamais en `playing`, `/visite` direct sur l'image 0 sans son, quinze tableaux du mouvement réduit dont trois pour SOURCE, perte de contexte WebGL simulée après démarrage.
+   - **Performance** :
+     - p95 du temps d'image : au plus 16,7 ms sur desktop et 33,3 ms sur Galaxy A14 ;
+     - moins de 1 % d'images au-delà de 50 ms ;
+     - mesures sur cinq chargements à froid et trois visites ;
+     - chargement desktop bloquant au-delà de 1,2 Mo.
+5. **Critères des actifs.** Codex les valide sur les dérivés réellement intégrés et sur les captures, jamais sur des références seules.
+   - **Pierre** : basalte mat `#323131`, pores, fissures, arêtes usées ; ni plastique ni bloom ; 60 Ko au plus sur mobile.
+   - **Ciel** : cylindre sans couture, horizon à hauteur d'yeux, tangage limité à ±15°, zénith en points 3D ; mention « image générée » conservée.
+   - **Planètes** : vraies sphères, cartes du domaine public ou sous licence, 512² au plus sur mobile, quatre corps actifs au plus ; aucun glow ; toujours secondaires au média et au texte.
