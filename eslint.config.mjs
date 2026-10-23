@@ -7,6 +7,7 @@ export default defineConfig([
   ...nextTypescript,
   globalIgnores([
     '.next/**',
+    '.tests/**',
     'node_modules/**',
     'next-env.d.ts',
     'design/**',
