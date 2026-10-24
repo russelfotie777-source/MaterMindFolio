@@ -71,10 +71,10 @@ export function placeTrace(): { position: Vecteur; echelle: number } {
   return {
     position: [
       px + ((cx - px) / longueur) * distance,
-      py + ((cy - py) / longueur) * distance + 110,
+      py + ((cy - py) / longueur) * distance + 135,
       pz + ((cz - pz) / longueur) * distance,
     ],
-    echelle: 0.36,
+    echelle: 0.3,
   };
 }
 
