@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Fragment } from 'react';
 import { preload } from 'react-dom';
 
+import { classesCartouche, Fleche, NomVivant, Repere } from '@/components/Cartouche';
 import { Copie } from '@/components/Copie';
 import { MediaProjet } from '@/components/MediaProjet';
 import { Visuel } from '@/components/Visuel';
 import { lireCopieSite } from '@/lib/copie/site';
 import { lireProfil } from '@/lib/faits/profil';
 import { lireProjets } from '@/lib/faits/projets';
-import { PLATEFORMES, rangSurSix } from '@/lib/libelles';
+import { PLATEFORMES } from '@/lib/libelles';
 import { lireDerive } from '@/lib/media';
 import page from '@/styles/page.module.css';
 
@@ -23,17 +23,6 @@ const TAILLES_PORTRAIT = '(min-width: 768px) min(52vw, 46rem), 92vw';
 // mise en page, est un canvas fixe derrière le site ; chaque section de cette page est une étape de son chemin : l'ouverture au-dessus
 // de la mer de nuages, puis les six îles des projets, puis le final face au Fuji. Le HTML porte tout le
 // contenu et reste complet sans WebGL : décor d'aube, portrait et captures réelles prennent alors le relais.
-// Flèche des appels : un cercle tracé du rose de la trace, qui se remplit au survol.
-function Fleche({ vers = 'droite' }: { vers?: 'droite' | 'bas' }) {
-  return (
-    <span className={styles.rond} aria-hidden="true">
-      <svg viewBox="0 0 24 24" focusable="false">
-        <path d={vers === 'bas' ? 'M12 4v15M6 13l6 6 6-6' : 'M4 12h15M13 6l6 6-6 6'} />
-      </svg>
-    </span>
-  );
-}
-
 export default function Accueil() {
   const profil = lireProfil();
   const { accueil } = lireCopieSite();
@@ -80,11 +69,11 @@ export default function Accueil() {
             {profil.disponibilite}
           </p>
           <p className={styles.actions}>
-            <a className={styles.cta} href="#projet-1">
+            <a className={classesCartouche.appel} href="#projet-1">
               <span>Entrer dans le monde</span>
               <Fleche vers="bas" />
             </a>
-            <Link className={styles.lien} href="/resume-recruteur">
+            <Link className={classesCartouche.lien} href="/resume-recruteur">
               Résumé recruteur
             </Link>
           </p>
@@ -108,35 +97,12 @@ export default function Accueil() {
             {/* Cartouche : aucun fond, le texte vit dans le monde. Avec le monde actif, il se lève à
                 l'arrivée de la caméra et un trait de lumière le relie à l'écran 3D de l'île. */}
             <div className={styles.panneau} data-cartouche>
-              <p className={styles.repere} data-apparait data-repere>
-                <span>{rangSurSix(projet.rang)}</span>
-                <span className={styles.jauge} aria-hidden="true">
-                  {projets.map(({ rang }) => (
-                    <span key={rang} data-allume={rang === projet.rang ? '' : undefined} />
-                  ))}
-                </span>
-              </p>
-              <p className={styles.meta} data-apparait>
+              <Repere rang={projet.rang} total={projets.length} />
+              <p className={classesCartouche.meta} data-apparait>
                 {projet.periode.debut.slice(0, 4)} ·{' '}
                 {projet.plateformes.map((p) => PLATEFORMES[p]).join(' · ')}
               </p>
-              <h2 id={`titre-${projet.slug}`} className={styles.projet}>
-                <span className="visuellement-cache">{projet.nom}</span>
-                <span aria-hidden="true">
-                  {projet.nom.split(' ').map((mot, m) => (
-                    <Fragment key={m}>
-                      {m > 0 && ' '}
-                      <span className={styles.mot}>
-                        {Array.from(mot, (lettre, l) => (
-                          <span key={l} className={styles.lettre} data-lettre>
-                            {lettre}
-                          </span>
-                        ))}
-                      </span>
-                    </Fragment>
-                  ))}
-                </span>
-              </h2>
+              <NomVivant nom={projet.nom} id={`titre-${projet.slug}`} />
               <p className={styles.role} data-apparait>
                 {projet.role}
               </p>
@@ -146,7 +112,7 @@ export default function Accueil() {
                 </p>
               )}
               <p data-apparait>
-                <Link className={styles.cta} href={`/projets/${projet.slug}`}>
+                <Link className={classesCartouche.appel} href={`/projets/${projet.slug}`}>
                   <span>
                     Étude de cas<span className="visuellement-cache"> : {projet.nom}</span>
                   </span>
@@ -172,14 +138,14 @@ export default function Accueil() {
           {profil.disponibilite}
         </p>
         <p className={styles.actions}>
-          <Link className={styles.cta} href="/contact">
+          <Link className={classesCartouche.appel} href="/contact">
             <span>Écrire à {profil.nomPublic}</span>
             <Fleche />
           </Link>
-          <Link className={styles.lien} href="/projets">
+          <Link className={classesCartouche.lien} href="/projets">
             Les six projets
           </Link>
-          <Link className={styles.lien} href="/parcours">
+          <Link className={classesCartouche.lien} href="/parcours">
             Parcours
           </Link>
         </p>

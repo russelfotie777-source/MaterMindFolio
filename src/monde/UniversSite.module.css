@@ -26,20 +26,83 @@
 }
 
 /* Hors de l'accueil, un voile de nuit violette garde le texte lisible : le monde reste visible derrière.
-   Un voile opaque en couleur, jamais de flou ni de verre. */
+   Un voile opaque en couleur, jamais de flou ni de verre. Deux nappes : le voile plein des pages, et
+   celui des pages ouvertes, qui ne couvre que le côté du texte tant que l'en-tête est visible : l'écran
+   3D d'une étude de cas (au-dessus du texte sur téléphone), le Fuji et sa trace sur grand écran pour le
+   contact, restent à découvert. */
 .voile {
   opacity: 0;
+  transition: opacity 900ms var(--motion-easing-luminance);
+}
+
+.voile::before,
+.voile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transition: opacity 700ms var(--motion-easing-luminance);
+}
+
+.voile::before {
   background: linear-gradient(
     180deg,
     color-mix(in srgb, var(--color-surface-canvas) 78%, transparent),
     color-mix(in srgb, var(--color-surface-canvas) 62%, transparent) 45%,
     color-mix(in srgb, var(--color-surface-canvas) 84%, transparent)
   );
-  transition: opacity 900ms var(--motion-easing-luminance);
 }
 
-:global(html[data-monde][data-page-monde='interieure']) .voile {
+.voile::after {
+  opacity: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 30%,
+    color-mix(in srgb, var(--color-surface-canvas) 80%, transparent) 50%,
+    color-mix(in srgb, var(--color-surface-canvas) 90%, transparent)
+  );
+}
+
+/* Page ouverte défilée : le monde reste derrière le texte, plus sombre que sur les autres pages, car
+   l'écran du projet ou le Fuji y sont encore face à la caméra. */
+:global(html[data-page-monde='etude'][data-voile='plein']) .voile::before,
+:global(html[data-page-monde='contact'][data-voile='plein']) .voile::before {
+  background: color-mix(in srgb, var(--color-surface-canvas) 86%, transparent);
+}
+
+@media (min-width: 768px) {
+  .voile::after {
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-surface-canvas) 88%, transparent),
+      color-mix(in srgb, var(--color-surface-canvas) 72%, transparent) 38%,
+      color-mix(in srgb, var(--color-surface-canvas) 20%, transparent) 54%,
+      transparent 62%
+    );
+  }
+}
+
+:global(html[data-monde][data-page-monde='interieure']) .voile,
+:global(html[data-monde][data-page-monde='etude']) .voile,
+:global(html[data-monde][data-page-monde='contact']) .voile {
   opacity: 1;
+}
+
+:global(html[data-page-monde='etude']:not([data-voile='plein'])) .voile::before {
+  opacity: 0;
+}
+
+:global(html[data-page-monde='etude']:not([data-voile='plein'])) .voile::after {
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  :global(html[data-page-monde='contact']:not([data-voile='plein'])) .voile::before {
+    opacity: 0;
+  }
+
+  :global(html[data-page-monde='contact']:not([data-voile='plein'])) .voile::after {
+    opacity: 1;
+  }
 }
 
 /* La visite a sa propre scène : ce monde s'efface et s'arrête. */

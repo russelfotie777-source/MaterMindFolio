@@ -82,9 +82,11 @@ extend({
 
 export type TexturesMonde = { cartes: Record<IdCarte, string>; ecrans: string[]; liens: string[] };
 // Page affichée par le monde : les sections de l'accueil, un point de vue fixe (avec l'écran de projet à
-// charger et le monogramme à tracer s'il le faut), ou l'arrêt.
+// charger, le conteneur du cartouche qu'il relie et le monogramme à tracer s'il le faut), ou l'arrêt.
 export type PageMonde =
-  { sections: readonly HTMLElement[] } | { pose: Pose; ecran?: number; trace?: boolean } | { arret: true };
+  | { sections: readonly HTMLElement[] }
+  | { pose: Pose; ecran?: number; cartouche?: HTMLElement | null; trace?: boolean }
+  | { arret: true };
 export type Monde = { definirPage: (page: PageMonde) => void; detruire: () => void };
 
 // Corps célestes du ciel d'accueil : grands, lointains, dispersés autour du Fuji. Aucun n'est un bouton.
@@ -265,10 +267,9 @@ export async function monterMonde(
   const groupes: (Object3D | undefined)[] = [];
   const groupe = (k: number) => (groupes[k] ??= store.getState().scene.getObjectByName(`ecran-groupe-${k}`));
   const coin = new Vector3();
-  const ancre = (k: number, bas: boolean): Point | null => {
+  const ancre = (k: number, bas: boolean, versTexte: 1 | -1): Point | null => {
     const dalle = groupe(k);
     if (!dalle) return null;
-    const versTexte = ILES[k]!.cote === -1 ? 1 : -1;
     if (bas) coin.set(-(DALLE.largeur / 2 + 0.4), -(DALLE.hauteur / 2 + 0.4), 0);
     else coin.set(versTexte * (DALLE.largeur / 2 + 0.4), DALLE.hauteur / 2 + 0.4, 0);
     dalle.localToWorld(coin).project(camera);
@@ -447,12 +448,18 @@ export async function monterMonde(
       // Le trait ne part du cadre qu'une fois le cadre entièrement tracé.
       cartouches?.relier(
         station >= 0 && station < textures.ecrans.length && tours[station]!.progres >= 1
-          ? ancre(station, bas)
+          ? ancre(station, bas, ILES[station]!.cote === -1 ? 1 : -1)
           : null,
         bas ? 'bas' : section?.dataset.panneau === 'gauche' ? 'gauche' : 'droite',
       );
     } else if ('pose' in page && page.ecran !== undefined) {
+      // Étude de cas : l'écran, vu de face, tient la droite du cadre ; le cartouche est à sa gauche.
       reveler(page.ecran);
+      const bas = innerWidth < 768;
+      cartouches?.relier(
+        tours[page.ecran]!.progres >= 1 ? ancre(page.ecran, bas, -1) : null,
+        bas ? 'bas' : 'gauche',
+      );
     }
     survolLisse.forEach((valeur, k) => {
       const voulu = survol === k ? 1 : 0;
@@ -496,7 +503,12 @@ export async function monterMonde(
     }
     page = suivante;
     cartouches?.detruire();
-    cartouches = 'sections' in page ? animerCartouches(page.sections, trait) : null;
+    if ('sections' in page) cartouches = animerCartouches(page.sections, trait);
+    else if ('pose' in page && page.cartouche) {
+      // Hors accueil, le cartouche se lève dès l'arrivée sur la page, pendant le vol de la caméra.
+      cartouches = animerCartouches([page.cartouche], trait);
+      cartouches.activer(0);
+    } else cartouches = null;
     mesurer();
     if ('sections' in page) position = progression(scrollY, mesures, innerHeight);
     if ('arret' in page) gsap.ticker.remove(tick);

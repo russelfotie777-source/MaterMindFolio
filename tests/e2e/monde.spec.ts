@@ -74,6 +74,25 @@ test('le clavier rend visible le cartouche qu’il atteint, sans attendre la cam
   await expect(region.locator('[data-cartouche]')).toHaveCSS('opacity', '1', { timeout: 3_000 });
 });
 
+test('une étude de cas vit dans le monde : en-tête sans fond, relié à l’écran 3D du projet', async ({
+  page,
+}) => {
+  test.setTimeout(90_000);
+  await page.goto('/projets/ziris');
+  const racine = page.locator('html');
+  await expect(racine).toHaveAttribute('data-monde', 'actif', { timeout: 30_000 });
+  await expect(racine).toHaveAttribute('data-page-monde', 'etude');
+  await expect(page.locator('[data-etude]')).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+  await expect(page.getByRole('heading', { level: 1, name: 'ZIRIS' })).toBeVisible();
+  // La caméra se pose face à l'écran, le cadre se trace, puis le trait rejoint le rang du projet.
+  const trait = page.locator('body > div[aria-hidden="true"] svg');
+  await expect(trait).toHaveCSS('opacity', '1', { timeout: 40_000 });
+  // L'en-tête dépassé, le voile de nuit couvre tout le cadre.
+  await page.evaluate(() => scrollTo(0, innerHeight));
+  await expect(racine).toHaveAttribute('data-voile', 'plein');
+  await expect(trait).toHaveCSS('opacity', '0');
+});
+
 test.describe('sans mouvement', () => {
   test.use({ reducedMotion: 'reduce' });
 

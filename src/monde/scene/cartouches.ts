@@ -118,6 +118,8 @@ export function animerCartouches(sections: readonly HTMLElement[], trait: SVGSVG
       }
       if (dessin.progres <= 0) return cacherTrait();
       const boite = cartouche.repere.getBoundingClientRect();
+      // Repère sorti de la fenêtre (page défilée) : le trait se retire avec lui.
+      if (boite.bottom < 0 || boite.top > innerHeight) return cacherTrait();
       const bloc = cartouche.panneau.getBoundingClientRect();
       // Arrivée : juste avant le repère (texte à droite), juste après la jauge (texte à gauche), ou
       // au-dessus du repère (téléphone, où le trait descend du coin bas de l'écran). Sur grand écran, le

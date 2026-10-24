@@ -105,14 +105,43 @@ export function UniversSite({ textures }: { textures: TexturesUnivers }) {
   }, [textures, actif]);
 
   // À chaque route, la caméra reçoit sa nouvelle page : les sections de l'accueil ou un point de vue.
+  // Une étude de cas laisse voir l'écran 3D de son projet à côté de son en-tête, le contact le Fuji et
+  // sa trace : le voile de nuit ne couvre que le côté du texte, puis tout le cadre une fois l'en-tête
+  // dépassé.
   useEffect(() => {
     if (!monte || !monde.current || !actif) return;
     const racine = document.documentElement;
     const vue = vueDeRoute(chemin, textures.slugs, innerWidth < innerHeight);
-    racine.dataset.pageMonde = vue === null ? 'accueil' : 'arret' in vue ? 'arret' : 'interieure';
+    const etude = vue !== null && 'pose' in vue && vue.ecran !== undefined;
+    const contact = vue !== null && 'pose' in vue && vue.trace === true;
+    racine.dataset.pageMonde =
+      vue === null
+        ? 'accueil'
+        : 'arret' in vue
+          ? 'arret'
+          : etude
+            ? 'etude'
+            : contact
+              ? 'contact'
+              : 'interieure';
     monde.current.definirPage(
-      vue ?? { sections: [...document.querySelectorAll<HTMLElement>('[data-monde-section]')] },
+      vue === null
+        ? { sections: [...document.querySelectorAll<HTMLElement>('[data-monde-section]')] }
+        : etude
+          ? { ...vue, cartouche: document.querySelector<HTMLElement>('[data-etude]') }
+          : vue,
     );
+    if (!etude && !contact) return;
+    const voiler = () => {
+      if (scrollY > innerHeight * 0.4) racine.dataset.voile = 'plein';
+      else delete racine.dataset.voile;
+    };
+    voiler();
+    addEventListener('scroll', voiler, { passive: true });
+    return () => {
+      removeEventListener('scroll', voiler);
+      delete racine.dataset.voile;
+    };
   }, [chemin, monte, actif, textures.slugs]);
 
   return (

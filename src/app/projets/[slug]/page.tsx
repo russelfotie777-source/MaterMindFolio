@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
+import { classesCartouche, Fleche, NomVivant, Repere } from '@/components/Cartouche';
 import { Copie } from '@/components/Copie';
 import { LienExterne } from '@/components/LienExterne';
 import { MediaProjet } from '@/components/MediaProjet';
@@ -33,6 +34,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 // Étude de cas (DR-1, vue A06), en lecture linéaire et sans JavaScript : média produit sur 7 colonnes,
 // périmètre et preuve sur 5. Sans média, rôle, périmètre et preuve gardent toute la surface.
+// Dans le monde (décision de Russel du 25 octobre 2026), l'en-tête est un cartouche : la caméra se pose
+// face à l'écran 3D du projet, à droite, et un trait relie son cadre au rang du projet.
 export default async function EtudeDeCas({ params }: Props) {
   const projet = lireProjet((await params).slug);
   if (!projet) notFound();
@@ -42,13 +45,30 @@ export default async function EtudeDeCas({ params }: Props) {
   const { organisation, equipe } = projet;
   // Textes de Codex visés par Russel ; une section absente n'affiche rien.
   const copie = lireCopieProjet(projet.slug);
+  const [site] = projet.liens;
 
   return (
     <div className={page.cadre}>
-      <article className={page.plaque}>
-        <p className={page.etiquette}>Étude de cas · {rangSurSix(projet.rang)}</p>
-        <h1 className={page.titrePage}>{projet.nom}</h1>
-        <p className={page.lead}>{projet.role}</p>
+      <article className={page.plaque} data-etude>
+        <header className={styles.entete} data-cartouche>
+          <Repere rang={projet.rang} total={projets.length} />
+          <p className={classesCartouche.meta} data-apparait>
+            Étude de cas · {projet.periode.debut.slice(0, 4)} ·{' '}
+            {projet.plateformes.map((p) => PLATEFORMES[p]).join(' · ')}
+          </p>
+          <NomVivant nom={projet.nom} niveau={1} />
+          <p className={`${page.lead} ${styles.role}`} data-apparait>
+            {projet.role}
+          </p>
+          {site && (
+            <p data-apparait>
+              <LienExterne className={classesCartouche.appel} href={site.url}>
+                <span>{site.libelle}</span>
+                <Fleche vers="dehors" />
+              </LienExterne>
+            </p>
+          )}
+        </header>
 
         {copie.need && (
           <section className={`${page.rubrique} ${styles.besoin}`}>

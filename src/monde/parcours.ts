@@ -78,6 +78,22 @@ export function placeTrace(): { position: Vecteur; echelle: number } {
   };
 }
 
+// Étude de cas : l'écran du projet vu de face, dans le tiers droit du cadre (dans le tiers haut en
+// portrait), pour que le texte de l'étude tienne le reste. La cible glisse le long de l'écran, vers sa
+// gauche : l'écran passe à droite du centre.
+export function poseEtude(k: number, portrait: boolean): Pose {
+  const [x, y, z] = centreEcran(k);
+  const angle = -ILES[k]!.cote * ECRAN.rotation;
+  const [nx, nz] = [Math.sin(angle), Math.cos(angle)];
+  const [dx, dz] = [Math.cos(angle), -Math.sin(angle)];
+  const recul = portrait ? 54 : 40;
+  const glissement = portrait ? 0 : -15;
+  return {
+    position: [x + nx * recul, y + 1, z + nz * recul],
+    cible: [x + dx * glissement, y - (portrait ? 11 : 0), z + dz * glissement],
+  };
+}
+
 // Point de vue fixe de chaque route hors accueil : le site entier reste dans le même monde, et la caméra
 // vole d'une page à l'autre. `null` : l'accueil, dont la caméra suit le défilement ; `arret` : la visite,
 // qui a sa propre scène. Une étude de cas regarde l'île de son projet ; le contact, le Fuji et sa trace.
@@ -90,14 +106,7 @@ export function vueDeRoute(chemin: string, slugs: readonly string[], portrait: b
   const projet = /^\/projets\/([^/]+)/.exec(chemin);
   if (projet) {
     const k = slugs.indexOf(projet[1]!);
-    if (k !== -1) {
-      const { position, cible } = etapes[k + 1]!;
-      // Un peu de recul et de hauteur : l'île reste visible autour de la page.
-      return {
-        pose: { position: [position[0] * 1.6, position[1] + 9, position[2] + 26], cible },
-        ecran: k,
-      };
-    }
+    if (k !== -1) return { pose: poseEtude(k, portrait), ecran: k };
   }
   if (chemin.startsWith('/projets')) {
     return { pose: { position: [90, 75, 40], cible: [-20, 0, -420] } };

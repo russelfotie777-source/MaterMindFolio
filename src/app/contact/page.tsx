@@ -17,7 +17,7 @@ export default function Contact() {
 
   return (
     <div className={page.cadre}>
-      <article className={page.plaque}>
+      <article className={`${page.plaque} ${page.colonne}`}>
         <p className={page.etiquette}>Contact</p>
         <h1 className={page.titrePage}>Me contacter</h1>
         <p className={page.lead}>{profil.disponibilite}</p>

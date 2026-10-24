@@ -159,28 +159,6 @@
   margin: 0;
 }
 
-/* Lien secondaire : texte souligné d'un trait de la trace, qui s'étire au survol. */
-.lien {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--size-target-minimum);
-  color: var(--color-text-on-dark);
-  font-size: var(--font-size-interface);
-  font-weight: var(--font-weight-interface-strong);
-  text-decoration: none;
-  background: linear-gradient(var(--color-solar-trace), var(--color-solar-trace)) no-repeat 0 78% / 40% 1.5px;
-  transition: background-size 320ms var(--motion-easing-interface);
-}
-
-.lien:hover,
-.lien:focus-visible {
-  background-size: 100% 1.5px;
-}
-
-.indice {
-  display: none;
-}
-
 @media (min-width: 768px) {
   .ouverture {
     padding-block-start: var(--space-32);
@@ -317,69 +295,6 @@
   background: linear-gradient(180deg, rgb(18 7 42 / 0), rgb(18 7 42 / 0.78) 38%, rgb(18 7 42 / 0.9));
 }
 
-/* Repère : rang du projet et jauge des six îles, la sienne allumée. */
-.repere {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  color: var(--color-solar-trace);
-  font-size: var(--font-size-label);
-  font-weight: var(--font-weight-label);
-  letter-spacing: 0.24em;
-  font-variant-numeric: tabular-nums;
-}
-
-.jauge {
-  display: flex;
-  gap: 5px;
-}
-
-.jauge > span {
-  width: 14px;
-  height: 3px;
-  border-radius: 2px;
-  background: rgb(255 255 255 / 0.28);
-}
-
-.jauge > span[data-allume] {
-  width: 30px;
-  background: linear-gradient(90deg, var(--color-solar-trace), #ffd6ec);
-}
-
-.meta {
-  color: #c9a0ff;
-  font-size: var(--font-size-label);
-  font-weight: var(--font-weight-label);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-/* Nom du projet : lettres de lumière, du blanc au rose de la trace et à la glycine. Chaque lettre porte
-   son propre dégradé, pour rester peinte quand elle se lève dans son masque. */
-.projet {
-  margin: var(--space-1) 0 var(--space-2);
-  font-family: var(--font-family-brand);
-  font-size: clamp(2.6rem, 11vw, 3.4rem);
-  font-weight: 700;
-  line-height: 0.95;
-  letter-spacing: -0.045em;
-}
-
-.mot {
-  display: inline-block;
-  overflow: hidden;
-  padding-block: 0.06em 0.16em;
-  margin-block: -0.06em -0.16em;
-  white-space: nowrap;
-}
-
-.lettre {
-  display: inline-block;
-  background: linear-gradient(180deg, #ffffff 22%, #ffd6ec 62%, #c9a0ff 100%);
-  background-clip: text;
-  color: transparent;
-}
-
 .role {
   max-width: 32ch;
   color: var(--color-text-on-dark);
@@ -401,55 +316,6 @@
   font-weight: var(--font-weight-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-}
-
-/* Appel : le texte et un cercle tracé du rose de la trace ; au survol, le cercle se remplit et la flèche
-   avance. */
-.cta {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-4);
-  min-height: var(--size-target-minimum);
-  color: var(--color-text-on-dark);
-  font-size: var(--font-size-interface);
-  font-weight: var(--font-weight-interface-strong);
-  letter-spacing: 0.02em;
-  text-decoration: none;
-}
-
-.rond {
-  display: grid;
-  place-items: center;
-  width: 3.25rem;
-  height: 3.25rem;
-  border: 1.5px solid var(--color-solar-trace);
-  border-radius: 50%;
-  color: var(--color-solar-trace);
-  transition:
-    background-color 260ms var(--motion-easing-interface),
-    color 260ms var(--motion-easing-interface);
-}
-
-.rond svg {
-  width: 1.25rem;
-  height: 1.25rem;
-  fill: none;
-  stroke: currentcolor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transition: translate 260ms var(--motion-easing-interface);
-}
-
-.cta:hover .rond,
-.cta:focus-visible .rond {
-  background: var(--color-solar-trace);
-  color: #1a0a33;
-}
-
-.cta:hover .rond svg,
-.cta:focus-visible .rond svg {
-  translate: 3px 0;
 }
 
 .secours {
@@ -489,16 +355,8 @@
     );
   }
 
-  .projet {
-    font-size: clamp(3.4rem, 5.2vw, 6rem);
-  }
-
   .role {
     font-size: var(--font-size-lead);
-  }
-
-  .meta {
-    letter-spacing: 0.18em;
   }
 
   .station[data-panneau='droite'] .panneau {
@@ -538,8 +396,11 @@
 }
 
 .final .projet {
+  font-family: var(--font-family-brand);
   font-size: min(14vw, 9rem);
+  font-weight: 700;
   line-height: 0.9;
+  letter-spacing: -0.045em;
   background: linear-gradient(180deg, #ffffff 30%, #ffd6ec 70%, #c9a0ff 100%);
   background-clip: text;
   color: transparent;
