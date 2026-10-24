@@ -2,8 +2,10 @@ import {
   BufferAttribute,
   CatmullRomCurve3,
   Color,
+  CurvePath,
   CylinderGeometry,
   LatheGeometry,
+  LineCurve3,
   TubeGeometry,
   Vector2,
   Vector3,
@@ -160,4 +162,36 @@ export function glycine(depart: number, hauteur = 10, envergure = 7.5) {
     }
   }
   return { tronc, fleurs };
+}
+
+// Cadre de lumière d'un écran : un tube fin qui fait le tour de l'écran en partant du coin haut tourné
+// vers le texte et y revient, pour que le trait du cartouche en sorte. Couleur du rose de la trace à la
+// glycine le long du tour ; le tracé se révèle avec setDrawRange, comme le monogramme du final.
+export function cadreEcran(largeur: number, hauteur: number, versTexte: 1 | -1) {
+  const x = (largeur / 2) * versTexte;
+  const y = hauteur / 2;
+  const coins = [
+    new Vector3(x, y, 0),
+    new Vector3(-x, y, 0),
+    new Vector3(-x, -y, 0),
+    new Vector3(x, -y, 0),
+    new Vector3(x, y, 0),
+  ];
+  const tour = new CurvePath<Vector3>();
+  for (let i = 0; i < 4; i++) tour.add(new LineCurve3(coins[i], coins[i + 1]));
+  const tube = new TubeGeometry(tour, 320, 0.075, 6, false);
+  const positions = tube.getAttribute('position');
+  const couleurs = new Float32Array(positions.count * 3);
+  const rose = new Color('#ffb8de');
+  const glycine = new Color('#c9a0ff');
+  const teinte = new Color();
+  // Les sommets du tube sont rangés anneau par anneau, du début à la fin du tour.
+  const parAnneau = 7;
+  for (let i = 0; i < positions.count; i++) {
+    const t = Math.floor(i / parAnneau) / 320;
+    teinte.copy(rose).lerp(glycine, Math.sin(t * Math.PI));
+    couleurs.set([teinte.r, teinte.g, teinte.b], i * 3);
+  }
+  tube.setAttribute('color', new BufferAttribute(couleurs, 3));
+  return tube;
 }

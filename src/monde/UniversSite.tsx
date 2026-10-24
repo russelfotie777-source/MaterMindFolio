@@ -32,6 +32,7 @@ function webgl2Disponible(): boolean {
 // le contenu : mouvement réduit, économie de données, WebGL absent ou perdu laissent le site statique.
 export function UniversSite({ textures }: { textures: TexturesUnivers }) {
   const scene = useRef<HTMLDivElement>(null);
+  const trait = useRef<SVGSVGElement>(null);
   const monde = useRef<Monde | null>(null);
   const [monte, setMonte] = useState(false);
   const chemin = usePathname();
@@ -47,7 +48,8 @@ export function UniversSite({ textures }: { textures: TexturesUnivers }) {
 
   useEffect(() => {
     const conteneur = scene.current;
-    if (!actif) return;
+    const ligne = trait.current;
+    if (!actif || !ligne) return;
     const connexion = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
     if (
       !conteneur ||
@@ -83,6 +85,7 @@ export function UniversSite({ textures }: { textures: TexturesUnivers }) {
               racine.dataset.monde = 'actif';
             },
             naviguer: (lien) => routeur.current.push(lien),
+            trait: ligne,
           },
         ),
       )
@@ -114,7 +117,15 @@ export function UniversSite({ textures }: { textures: TexturesUnivers }) {
 
   return (
     <>
-      <div ref={scene} className={styles.monde} aria-hidden="true" />
+      <div ref={scene} className={styles.monde} aria-hidden="true">
+        {/* Trait de lumière qui relie l'écran 3D d'une île au cartouche de son projet. */}
+        <svg ref={trait} className={styles.trait} focusable="false">
+          <polyline />
+          <circle r="4" />
+          <circle r="4" className={styles.onde} />
+          <circle r="3" />
+        </svg>
+      </div>
       <div className={styles.voile} aria-hidden="true" />
     </>
   );

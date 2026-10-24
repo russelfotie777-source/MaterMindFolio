@@ -43,14 +43,52 @@
 }
 
 /* La visite a sa propre scène : ce monde s'efface et s'arrête. */
-:global(html[data-page-monde='arret']) .monde canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
+:global(html[data-page-monde='arret']) .monde {
+  opacity: 0;
 }
 
-.monde {
+/* Trait du cartouche : au-dessus du canvas, sous le texte. Net, sans halo : un fil du rose de la trace,
+   un point sur le cadre de l'écran, une onde qui en part, un point d'arrivée. */
+.trait {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
   opacity: 0;
+}
+
+.trait polyline {
+  fill: none;
+  stroke: #ffb8de;
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+
+.trait circle {
+  fill: #ffb8de;
+}
+
+.trait .onde {
+  fill: none;
+  stroke: #ffb8de;
+  stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: onde 2.2s var(--motion-easing-luminance) infinite;
+}
+
+@keyframes onde {
+  from {
+    scale: 1;
+    opacity: 0.9;
+  }
+
+  to {
+    scale: 4.5;
+    opacity: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

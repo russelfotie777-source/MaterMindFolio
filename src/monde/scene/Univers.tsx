@@ -15,7 +15,7 @@ import {
   Vector3,
 } from 'three';
 
-import { BASALTE, graine, pierre } from '@/visite/scene/basalte';
+import { graine, pierre } from '@/visite/scene/basalte';
 
 import { centreEcran, ECRAN, FUJI, ILES, placeTrace, poses, SOLEIL, type Vecteur } from '../parcours';
 import { fuji, glycine, ile } from './geometries';
@@ -34,7 +34,8 @@ export type MateriauxMonde = {
   soleil: ShaderMaterial;
   petales: ShaderMaterial;
   lucioles: ShaderMaterial;
-  ecrans: MeshBasicMaterial[];
+  ecrans: ShaderMaterial[];
+  cadres: { tubes: TubeGeometry[]; materiau: MeshBasicMaterial };
   comete: ShaderMaterial;
   trace: { tubes: TubeGeometry[]; materiau: MeshBasicMaterial };
   corps: {
@@ -233,7 +234,7 @@ function Glycines({ fleurs }: { fleurs: ReturnType<typeof arbres> }) {
   );
 }
 
-function Iles({ ecrans }: { ecrans: MeshBasicMaterial[] }) {
+function Iles({ ecrans, cadres }: Pick<MateriauxMonde, 'ecrans' | 'cadres'>) {
   const formes = useMemo(
     () => ({
       iles: ILES.map((_, k) => ile(RAYON_ILE, 901 + k)),
@@ -257,14 +258,20 @@ function Iles({ ecrans }: { ecrans: MeshBasicMaterial[] }) {
             <mesh geometry={formes.arbres[k]!.tronc} position={pieds[k]!}>
               <meshStandardMaterial color="#3a2450" roughness={1} />
             </mesh>
-            <group position={v(centreEcran(k))} rotation={[0, -cote * ECRAN.rotation, 0]}>
+            {/* Écran : dalle de laque nuit, capture qui se matérialise, cadre de lumière tracé à l'arrivée. */}
+            <group
+              position={v(centreEcran(k))}
+              rotation={[0, -cote * ECRAN.rotation, 0]}
+              name={`ecran-groupe-${k}`}
+            >
               <mesh position={[0, 0, -0.42]}>
                 <boxGeometry args={[ECRAN.largeur + 1.2, ECRAN.hauteur + 1.2, 0.7]} />
-                <meshStandardMaterial color={BASALTE} roughness={0.9} />
+                <meshStandardMaterial color="#1b0d36" roughness={0.45} metalness={0.25} />
               </mesh>
               <mesh material={ecrans[k]!} name={`ecran-${k}`}>
                 <planeGeometry args={[ECRAN.largeur, ECRAN.hauteur]} />
               </mesh>
+              <mesh geometry={cadres.tubes[k]!} material={cadres.materiau} />
             </group>
           </group>
         );
@@ -362,7 +369,7 @@ export function Univers({ materiaux }: { materiaux: MateriauxMonde }) {
       <MerDeNuages materiau={materiaux.nuages} />
       <Corps corps={materiaux.corps} />
       <PierresFlottantes />
-      <Iles ecrans={materiaux.ecrans} />
+      <Iles ecrans={materiaux.ecrans} cadres={materiaux.cadres} />
       <Lucioles materiau={materiaux.lucioles} />
       <Petales materiau={materiaux.petales} />
       <Comete materiau={materiaux.comete} />

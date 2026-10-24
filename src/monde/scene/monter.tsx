@@ -16,6 +16,7 @@ import {
   HemisphereLight,
   Mesh,
   MeshBasicMaterial,
+  type Object3D,
   MeshStandardMaterial,
   PerspectiveCamera,
   Raycaster,
@@ -33,8 +34,29 @@ import {
 
 import type { IdCarte } from '@/visite/corps';
 
-import { FUJI as MONT, type Pose, poses, progression, SOLEIL, type Vecteur } from '../parcours';
-import { CIEL, COMETE, ETOILES, FUJI, LUCIOLES, NUAGES, PETALES, SOLEIL as SHADER_SOLEIL } from './shaders';
+import {
+  ECRAN as DALLE,
+  FUJI as MONT,
+  ILES,
+  type Pose,
+  poses,
+  progression,
+  SOLEIL,
+  type Vecteur,
+} from '../parcours';
+import { animerCartouches, type Cartouches, type Point } from './cartouches';
+import { cadreEcran } from './geometries';
+import {
+  CIEL,
+  COMETE,
+  ECRAN,
+  ETOILES,
+  FUJI,
+  LUCIOLES,
+  NUAGES,
+  PETALES,
+  SOLEIL as SHADER_SOLEIL,
+} from './shaders';
 import { tubesMonogramme } from './trace';
 import { type MateriauxMonde, Univers } from './Univers';
 
@@ -82,7 +104,7 @@ const CORPS: { id: IdCarte; rayon: number; position: Vecteur; anneau?: boolean; 
 export async function monterMonde(
   canvas: HTMLCanvasElement,
   textures: TexturesMonde,
-  { pret, naviguer }: { pret: () => void; naviguer: (lien: string) => void },
+  { pret, naviguer, trait }: { pret: () => void; naviguer: (lien: string) => void; trait: SVGSVGElement },
 ): Promise<Monde> {
   const mobile = matchMedia('(max-width: 767px)').matches;
   const camera = new PerspectiveCamera(50, 1, 0.5, 6000);
@@ -128,6 +150,15 @@ export async function monterMonde(
     return carte;
   };
 
+  // Un corps céleste n'apparaît qu'avec sa carte : jamais de disque noir pendant le chargement.
+  const habiller = <M extends MeshBasicMaterial | MeshStandardMaterial>(materiau: M, url: string) => {
+    materiau.visible = false;
+    materiau.map = charger(url, () => {
+      materiau.visible = true;
+    });
+    return materiau;
+  };
+
   const materiaux: MateriauxMonde = {
     ciel: shader(CIEL, { uSoleil: soleil }, { side: BackSide, depthWrite: false }),
     etoiles: shader(
@@ -157,45 +188,97 @@ export async function monterMonde(
       tubes: tubesMonogramme(),
       materiau: new MeshBasicMaterial({ color: '#ffb8de', toneMapped: false, fog: false }),
     },
-    // Écrans des projets : couleur de nuit jusqu'à ce que la capture réelle soit chargée.
-    ecrans: textures.ecrans.map(() => new MeshBasicMaterial({ color: '#1a103e', toneMapped: false })),
+    // Écrans des projets : trame de nuit jusqu'à ce que la capture réelle soit chargée puis révélée.
+    ecrans: textures.ecrans.map(() =>
+      shader(ECRAN, { uCarte: { value: null }, uRevele: { value: 0 }, uSurvol: { value: 0 } }),
+    ),
+    // Cadres de lumière : chacun part du coin tourné vers le texte du cartouche, opposé à l'île.
+    cadres: {
+      tubes: ILES.map(({ cote }) => {
+        const tube = cadreEcran(DALLE.largeur + 0.8, DALLE.hauteur + 0.8, cote === -1 ? 1 : -1);
+        tube.setDrawRange(0, 0);
+        return tube;
+      }),
+      materiau: new MeshBasicMaterial({ vertexColors: true, toneMapped: false }),
+    },
     corps: CORPS.map(({ id, rayon, position, anneau, emissif }) => ({
       rayon,
       position,
-      materiau: emissif
-        ? new MeshBasicMaterial({ map: charger(textures.cartes[id]), toneMapped: false })
-        : new MeshStandardMaterial({
-            map: charger(textures.cartes[id]),
-            roughness: 1,
-            metalness: 0,
-            fog: false,
-          }),
+      materiau: habiller(
+        emissif
+          ? new MeshBasicMaterial({ toneMapped: false })
+          : new MeshStandardMaterial({ roughness: 1, metalness: 0, fog: false }),
+        textures.cartes[id],
+      ),
       anneau: anneau
-        ? new MeshStandardMaterial({
-            map: charger(textures.cartes.anneaux),
-            transparent: true,
-            side: DoubleSide,
-            depthWrite: false,
-            roughness: 1,
-            fog: false,
-          })
+        ? habiller(
+            new MeshStandardMaterial({
+              transparent: true,
+              side: DoubleSide,
+              depthWrite: false,
+              roughness: 1,
+              fog: false,
+            }),
+            textures.cartes.anneaux,
+          )
         : null,
     })),
   };
 
-  // Les captures réelles des projets ne sont téléchargées qu'à l'approche de leur île.
-  const ecransCharges = new Set<number>();
+  // Les captures réelles des projets ne sont téléchargées qu'à l'approche de leur île. Lues telles
+  // quelles (sans conversion d'espace colorimétrique) : le shader de l'écran écrit en sRGB.
+  const ecransDemandes = new Set<number>();
+  const ecransPrets = new Set<number>();
   const chargerEcrans = (position: number) => {
     textures.ecrans.forEach((url, k) => {
-      if (ecransCharges.has(k) || Math.abs(position - (k + 1)) > 1.6) return;
-      ecransCharges.add(k);
-      const materiau = materiaux.ecrans[k]!;
-      materiau.map = charger(url, () => {
-        materiau.color.set('#ffffff');
-        materiau.needsUpdate = true;
-      });
+      if (ecransDemandes.has(k) || Math.abs(position - (k + 1)) > 1.6) return;
+      ecransDemandes.add(k);
+      const carte = chargeur.load(url, () => ecransPrets.add(k));
+      carte.anisotropy = 4;
+      cartes.push(carte);
+      materiaux.ecrans[k]!.uniforms.uCarte!.value = carte;
     });
   };
+
+  // Matérialisation d'un écran, une fois par visite : la capture se lève derrière son front de bruit,
+  // puis le cadre de lumière fait le tour de l'écran et revient au coin d'où part le trait du cartouche.
+  const ecransReveles = new Set<number>();
+  const tours = ILES.map(() => ({ progres: 0 }));
+  const reveler = (k: number) => {
+    if (ecransReveles.has(k) || !ecransPrets.has(k)) return;
+    ecransReveles.add(k);
+    gsap.to(materiaux.ecrans[k]!.uniforms.uRevele!, { value: 1, duration: 1.7, ease: 'power2.out' });
+    const tube = materiaux.cadres.tubes[k]!;
+    const total = tube.index?.count ?? 0;
+    const cadre = tours[k]!;
+    gsap.to(cadre, {
+      progres: 1,
+      duration: 1.5,
+      delay: 0.25,
+      ease: 'power2.inOut',
+      onUpdate: () => tube.setDrawRange(0, Math.floor((total * cadre.progres) / 3) * 3),
+    });
+  };
+
+  // Cartouches de l'accueil et point du cadre d'où part leur trait, projeté dans la fenêtre.
+  let cartouches: Cartouches | null = null;
+  const groupes: (Object3D | undefined)[] = [];
+  const groupe = (k: number) => (groupes[k] ??= store.getState().scene.getObjectByName(`ecran-groupe-${k}`));
+  const coin = new Vector3();
+  const ancre = (k: number, bas: boolean): Point | null => {
+    const dalle = groupe(k);
+    if (!dalle) return null;
+    const versTexte = ILES[k]!.cote === -1 ? 1 : -1;
+    if (bas) coin.set(-(DALLE.largeur / 2 + 0.4), -(DALLE.hauteur / 2 + 0.4), 0);
+    else coin.set(versTexte * (DALLE.largeur / 2 + 0.4), DALLE.hauteur / 2 + 0.4, 0);
+    dalle.localToWorld(coin).project(camera);
+    if (coin.z > 1) return null;
+    return {
+      x: ((coin.x + 1) / 2) * document.documentElement.clientWidth,
+      y: ((1 - coin.y) / 2) * innerHeight,
+    };
+  };
+  const survolLisse = textures.ecrans.map(() => 0);
 
   const store = root.render(<Univers materiaux={materiaux} />);
 
@@ -343,8 +426,41 @@ export async function monterMonde(
     camera.position.addScaledVector(droite, parallaxe.x * 2.4);
     camera.position.y -= parallaxe.y * 1.6;
     camera.lookAt(cible);
+    camera.updateMatrixWorld();
     cameraMonde.value.copy(camera.position);
     viser();
+
+    // Station posée : la caméra est presque arrivée devant une île. Son écran se matérialise dès
+    // l'approche ; son cartouche se lève à l'arrivée et reçoit le trait du cadre.
+    if ('sections' in page) {
+      const proche = Math.round(position);
+      if (Math.abs(position - proche) < 0.5 && proche >= 1 && proche <= textures.ecrans.length) {
+        reveler(proche - 1);
+      }
+      // Le cartouche attend que la caméra se pose : il se lève dans le dernier instant de l'arrivée.
+      const posee = Math.abs(position - proche) < 0.15 ? proche : -1;
+      cartouches?.activer(posee);
+      const focus = cartouches?.focalisee() ?? -1;
+      const station = (focus !== -1 ? focus : posee) - 1;
+      const bas = innerWidth < 768;
+      const section = sections()[station + 1];
+      // Le trait ne part du cadre qu'une fois le cadre entièrement tracé.
+      cartouches?.relier(
+        station >= 0 && station < textures.ecrans.length && tours[station]!.progres >= 1
+          ? ancre(station, bas)
+          : null,
+        bas ? 'bas' : section?.dataset.panneau === 'gauche' ? 'gauche' : 'droite',
+      );
+    } else if ('pose' in page && page.ecran !== undefined) {
+      reveler(page.ecran);
+    }
+    survolLisse.forEach((valeur, k) => {
+      const voulu = survol === k ? 1 : 0;
+      const suivant = valeur + (voulu - valeur) * (1 - Math.exp(-dt * 8));
+      survolLisse[k] = suivant;
+      materiaux.ecrans[k]!.uniforms.uSurvol!.value = suivant;
+      groupe(k)?.scale.setScalar(1 + suivant * 0.03);
+    });
 
     advance(maintenant);
     if (premiere) {
@@ -379,6 +495,8 @@ export async function monterMonde(
       raccord.duree = RACCORD;
     }
     page = suivante;
+    cartouches?.detruire();
+    cartouches = 'sections' in page ? animerCartouches(page.sections, trait) : null;
     mesurer();
     if ('sections' in page) position = progression(scrollY, mesures, innerHeight);
     if ('arret' in page) gsap.ticker.remove(tick);
@@ -397,11 +515,15 @@ export async function monterMonde(
       document.documentElement.style.cursor = '';
       redimensionner.disconnect();
       removeEventListener('resize', surFenetre);
+      cartouches?.detruire();
+      gsap.killTweensOf([...materiaux.ecrans.map((materiau) => materiau.uniforms.uRevele), ...tours]);
       root.unmount();
       cartes.forEach((carte) => carte.dispose());
-      const { ecrans, corps, trace, ...shaders } = materiaux;
+      const { ecrans, cadres, corps, trace, ...shaders } = materiaux;
       Object.values(shaders).forEach((materiau) => materiau.dispose());
       ecrans.forEach((materiau) => materiau.dispose());
+      cadres.tubes.forEach((tube) => tube.dispose());
+      cadres.materiau.dispose();
       corps.forEach(({ materiau, anneau }) => [materiau, anneau].forEach((m) => m?.dispose()));
       trace.tubes.forEach((tube) => tube.dispose());
       trace.materiau.dispose();

@@ -25,13 +25,13 @@ export const centreEcran = (k: number): Vecteur => {
 };
 
 // Poses de la caméra, une par section de la page d'accueil : ouverture, six projets, final.
-// En portrait, l'écran passe dans la moitié haute du cadre et le panneau de texte dessous.
+// En portrait, l'écran entier tient dans le tiers haut du cadre et le cartouche se tient dessous.
 export function poses(portrait: boolean): Pose[] {
   const accueil: Pose = { position: [0, 16, 70], cible: [0, 30, -400] };
   const projets = ILES.map(({ cote }, k): Pose => {
     const [x, y, z] = centreEcran(k);
     return portrait
-      ? { position: [x * 0.55, y + 1, z + 42], cible: [x, y - 5, z] }
+      ? { position: [x * 0.75, y + 1, z + 54], cible: [x, y - 11, z] }
       : { position: [cote * 3, y + 2, z + 36], cible: [x * 0.42, y, z] };
   });
   const [fx, fy, fz] = FUJI.position;

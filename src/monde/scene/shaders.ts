@@ -289,3 +289,35 @@ export const COMETE = {
     }
   `,
 };
+
+// Écran d'un projet : la capture réelle se matérialise quand la caméra se pose devant l'île. Un front de
+// bruit monte du bas comme le soleil se lève ; devant lui, la nuit et une trame fine ; sur lui, un liseré
+// net du rose de la trace à la glycine ; derrière lui, la capture. Survolé, l'écran s'éclaire à peine.
+export const ECRAN = {
+  vertex: /* glsl */ `
+    varying vec2 vUv;
+    void main() {
+      vUv = uv;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  `,
+  fragment: /* glsl */ `
+    ${BRUIT}
+    uniform sampler2D uCarte;
+    uniform float uRevele;
+    uniform float uSurvol;
+    varying vec2 vUv;
+    void main() {
+      vec2 cellule = abs(fract(vUv * vec2(24.0, 15.0)) - 0.5);
+      float trame = smoothstep(0.46, 0.5, max(cellule.x, cellule.y));
+      vec3 attente = mix(vec3(0.102, 0.063, 0.243), vec3(0.42, 0.24, 0.66), trame * 0.45);
+      vec3 capture = texture2D(uCarte, vUv).rgb;
+      capture = mix(capture, min(capture * 1.06 + 0.03, 1.0), uSurvol);
+      float front = vUv.y * 0.72 + fbm(vUv * vec2(5.0, 3.2) + 3.0) * 0.28;
+      float ecart = uRevele * 1.32 - 0.16 - front;
+      vec3 lisere = mix(vec3(0.94, 0.42, 0.65), vec3(0.79, 0.63, 1.0), smoothstep(0.0, 0.045, ecart));
+      vec3 couleur = ecart > 0.045 ? capture : ecart > 0.0 ? lisere : attente;
+      gl_FragColor = vec4(couleur, 1.0);
+    }
+  `,
+};
