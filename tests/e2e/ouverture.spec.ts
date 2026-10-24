@@ -26,7 +26,10 @@ test.describe('ouverture 0–10 s', () => {
     await page.getByRole('button', { name: 'Démarrer la visite' }).click();
     await page.getByRole('button', { name: 'Continuer en silence' }).click();
     await expect(page.getByRole('button', { name: 'Pause' })).toBeVisible({ timeout: 15_000 });
-    test.skip(await page.locator('canvas').isHidden(), 'WebGL2 indisponible sur cette machine');
+    test.skip(
+      await page.getByRole('region', { name: 'Visite guidée' }).locator('canvas').isHidden(),
+      'WebGL2 indisponible sur cette machine',
+    );
 
     const ouverture = page.locator('[data-couche]');
     const etapes: [number, string][] = [

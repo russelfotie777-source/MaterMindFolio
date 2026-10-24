@@ -77,3 +77,36 @@ export function placeTrace(): { position: Vecteur; echelle: number } {
     echelle: 0.36,
   };
 }
+
+// Point de vue fixe de chaque route hors accueil : le site entier reste dans le même monde, et la caméra
+// vole d'une page à l'autre. `null` : l'accueil, dont la caméra suit le défilement ; `arret` : la visite,
+// qui a sa propre scène. Une étude de cas regarde l'île de son projet ; le contact, le Fuji et sa trace.
+export type VueDeRoute = null | { arret: true } | { pose: Pose; ecran?: number; trace?: boolean };
+
+export function vueDeRoute(chemin: string, slugs: readonly string[], portrait: boolean): VueDeRoute {
+  if (chemin === '/') return null;
+  if (chemin.startsWith('/visite')) return { arret: true };
+  const etapes = poses(portrait);
+  const projet = /^\/projets\/([^/]+)/.exec(chemin);
+  if (projet) {
+    const k = slugs.indexOf(projet[1]!);
+    if (k !== -1) {
+      const { position, cible } = etapes[k + 1]!;
+      // Un peu de recul et de hauteur : l'île reste visible autour de la page.
+      return {
+        pose: { position: [position[0] * 1.6, position[1] + 9, position[2] + 26], cible },
+        ecran: k,
+      };
+    }
+  }
+  if (chemin.startsWith('/projets')) {
+    return { pose: { position: [90, 75, 40], cible: [-20, 0, -420] } };
+  }
+  if (chemin.startsWith('/contact')) return { pose: etapes.at(-1)!, trace: true };
+  if (chemin.startsWith('/parcours')) {
+    const [fx, fy, fz] = FUJI.position;
+    return { pose: { position: [140, 45, -420], cible: [fx, fy + FUJI.hauteur * 0.45, fz] } };
+  }
+  // Résumé, fabrication, mentions et pages d'erreur : le ciel calme au-dessus de la mer de nuages.
+  return { pose: { position: [0, 120, 160], cible: [0, 190, -900] } };
+}

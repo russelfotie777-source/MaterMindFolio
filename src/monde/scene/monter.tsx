@@ -11,6 +11,7 @@ import {
   CylinderGeometry,
   DirectionalLight,
   DoubleSide,
+  Fog,
   Group,
   HemisphereLight,
   Mesh,
@@ -32,7 +33,7 @@ import {
 
 import type { IdCarte } from '@/visite/corps';
 
-import { FUJI as MONT, poses, progression, SOLEIL, type Vecteur } from '../parcours';
+import { FUJI as MONT, type Pose, poses, progression, SOLEIL, type Vecteur } from '../parcours';
 import { CIEL, COMETE, ETOILES, FUJI, LUCIOLES, NUAGES, PETALES, SOLEIL as SHADER_SOLEIL } from './shaders';
 import { tubesMonogramme } from './trace';
 import { type MateriauxMonde, Univers } from './Univers';
@@ -45,6 +46,7 @@ extend({
   Color,
   CylinderGeometry,
   DirectionalLight,
+  Fog,
   Group,
   HemisphereLight,
   Mesh,
@@ -57,7 +59,11 @@ extend({
 });
 
 export type TexturesMonde = { cartes: Record<IdCarte, string>; ecrans: string[]; liens: string[] };
-export type Monde = { detruire: () => void };
+// Page affichée par le monde : les sections de l'accueil, un point de vue fixe (avec l'écran de projet à
+// charger et le monogramme à tracer s'il le faut), ou l'arrêt.
+export type PageMonde =
+  { sections: readonly HTMLElement[] } | { pose: Pose; ecran?: number; trace?: boolean } | { arret: true };
+export type Monde = { definirPage: (page: PageMonde) => void; detruire: () => void };
 
 // Corps célestes du ciel d'accueil : grands, lointains, dispersés autour du Fuji. Aucun n'est un bouton.
 const CORPS: { id: IdCarte; rayon: number; position: Vecteur; anneau?: boolean; emissif?: boolean }[] = [
@@ -75,9 +81,8 @@ const CORPS: { id: IdCarte; rayon: number; position: Vecteur; anneau?: boolean; 
 // advance() de R3F. La page HTML reste le contenu ; le monde n'en est que le décor animé.
 export async function monterMonde(
   canvas: HTMLCanvasElement,
-  sections: readonly HTMLElement[],
   textures: TexturesMonde,
-  pret: () => void,
+  { pret, naviguer }: { pret: () => void; naviguer: (lien: string) => void },
 ): Promise<Monde> {
   const mobile = matchMedia('(max-width: 767px)').matches;
   const camera = new PerspectiveCamera(50, 1, 0.5, 6000);
@@ -150,7 +155,7 @@ export async function monterMonde(
     ),
     trace: {
       tubes: tubesMonogramme(),
-      materiau: new MeshBasicMaterial({ color: '#ffb8de', toneMapped: false }),
+      materiau: new MeshBasicMaterial({ color: '#ffb8de', toneMapped: false, fog: false }),
     },
     // Écrans des projets : couleur de nuit jusqu'à ce que la capture réelle soit chargée.
     ecrans: textures.ecrans.map(() => new MeshBasicMaterial({ color: '#1a103e', toneMapped: false })),
@@ -159,7 +164,12 @@ export async function monterMonde(
       position,
       materiau: emissif
         ? new MeshBasicMaterial({ map: charger(textures.cartes[id]), toneMapped: false })
-        : new MeshStandardMaterial({ map: charger(textures.cartes[id]), roughness: 1, metalness: 0 }),
+        : new MeshStandardMaterial({
+            map: charger(textures.cartes[id]),
+            roughness: 1,
+            metalness: 0,
+            fog: false,
+          }),
       anneau: anneau
         ? new MeshStandardMaterial({
             map: charger(textures.cartes.anneaux),
@@ -167,6 +177,7 @@ export async function monterMonde(
             side: DoubleSide,
             depthWrite: false,
             roughness: 1,
+            fog: false,
           })
         : null,
     })),
@@ -188,6 +199,11 @@ export async function monterMonde(
 
   const store = root.render(<Univers materiaux={materiaux} />);
 
+  // Page affichée : l'accueil suit le défilement le long de ses sections ; une autre route pose la caméra
+  // sur un point de vue fixe ; la visite, qui a sa propre scène, arrête ce monde.
+  let page: PageMonde = { arret: true };
+  const sections = () => ('sections' in page ? page.sections : []);
+
   // Chemin de la caméra et mesure des sections ; recalculés à chaque redimensionnement.
   let chemin = { positions: new CatmullRomCurve3(), cibles: new CatmullRomCurve3() };
   let mesures: { haut: number; hauteur: number }[] = [];
@@ -206,13 +222,12 @@ export async function monterMonde(
         'centripetal',
       ),
     };
-    mesures = sections.map((section) => ({
+    mesures = sections().map((section) => ({
       haut: section.getBoundingClientRect().top + scrollY,
       hauteur: section.offsetHeight,
     }));
     pixel.value = dpr * Math.min(innerHeight / 900, 1.4);
   };
-  mesurer();
 
   // Pointeur : légère parallaxe de la caméra, amortie, jamais de rebond.
   const pointeur = { x: 0, y: 0 };
@@ -249,36 +264,47 @@ export async function monterMonde(
   const surClic = (evenement: MouseEvent) => {
     if (survol === -1 || surInteractif(evenement.target)) return;
     const lien = textures.liens[survol];
-    if (lien) location.assign(lien);
+    if (lien) naviguer(lien);
   };
   addEventListener('pointermove', surPointeur, { passive: true });
   addEventListener('click', surClic);
 
-  let position = progression(scrollY, mesures, innerHeight);
+  let position = 0;
+  const voulue = { position: new Vector3(), cible: new Vector3() };
   const cible = new Vector3();
   const droite = new Vector3();
   const haut = new Vector3(0, 1, 0);
   let precedent = performance.now();
   let premiere = true;
 
-  // Entrée : à la première visite en haut de page, la caméra descend du ciel vers l'ouverture en 3,2 s,
-  // d'un seul mouvement amorti, sans rebond.
+  // Raccord : à chaque changement de page, la caméra part de là où elle est et rejoint son nouveau point
+  // de vue d'un seul mouvement amorti, sans rebond. La toute première entrée part du ciel.
+  const RACCORD = 2.6;
   const ENTREE = 3.2;
-  let entree = scrollY < innerHeight * 0.2 ? 0 : ENTREE;
-  const departCamera = new Vector3(0, 300, 380);
-  const departCible = new Vector3(0, 40, -300);
-  const versCible = new Vector3();
+  let raccord = {
+    depart: new Vector3(0, 300, 380),
+    departCible: new Vector3(0, 40, -300),
+    duree: ENTREE,
+    ecoule: 0,
+  };
   const adoucir = (x: number) => 1 - Math.pow(1 - x, 3);
 
-  // Le monogramme se trace à l'approche du final, du premier montant au disque solaire.
-  const revelerTrace = () => {
-    const fin = sections.length - 1;
-    const x = Math.min(Math.max((position - (fin - 0.9)) / 0.75, 0), 1);
-    const p = x * x * (3 - 2 * x);
-    materiaux.trace.materiau.visible = p > 0;
+  // Le monogramme se trace à l'approche du final, ou sur la page de contact.
+  let trace = 0;
+  const revelerTrace = (dt: number) => {
+    if ('sections' in page) {
+      const fin = sections().length - 1;
+      const x = Math.min(Math.max((position - (fin - 0.9)) / 0.75, 0), 1);
+      trace = x * x * (3 - 2 * x);
+    } else if ('pose' in page && page.trace) {
+      trace = Math.min(trace + dt / 2.2, 1);
+    } else {
+      trace = Math.max(trace - dt, 0);
+    }
+    materiaux.trace.materiau.visible = trace > 0;
     for (const tube of materiaux.trace.tubes) {
       const total = tube.index?.count ?? 0;
-      tube.setDrawRange(0, Math.floor((total * p) / 3) * 3);
+      tube.setDrawRange(0, Math.floor((total * trace) / 3) * 3);
     }
   };
 
@@ -287,25 +313,32 @@ export async function monterMonde(
     const dt = Math.min((maintenant - precedent) / 1000, 0.1);
     precedent = maintenant;
     temps.value += dt;
-
-    // Amortissement exponentiel : la caméra rejoint le défilement sans dépassement.
-    const voulue = progression(scrollY, mesures, innerHeight);
-    position += (voulue - position) * (1 - Math.exp(-dt * 4.5));
     parallaxe.x += (pointeur.x - parallaxe.x) * (1 - Math.exp(-dt * 3));
     parallaxe.y += (pointeur.y - parallaxe.y) * (1 - Math.exp(-dt * 3));
-    chargerEcrans(position);
 
-    const t = Math.min(Math.max(position / (sections.length - 1), 0), 1);
-    chemin.positions.getPoint(t, camera.position);
-    chemin.cibles.getPoint(t, cible);
-    if (entree < ENTREE) {
-      entree += dt;
-      const e = adoucir(Math.min(entree / ENTREE, 1));
-      camera.position.lerpVectors(departCamera, camera.position, e);
-      versCible.lerpVectors(departCible, cible, e);
-      cible.copy(versCible);
+    if ('sections' in page) {
+      // Amortissement exponentiel : la caméra rejoint le défilement sans dépassement.
+      position += (progression(scrollY, mesures, innerHeight) - position) * (1 - Math.exp(-dt * 4.5));
+      const t = Math.min(Math.max(position / (sections().length - 1), 0), 1);
+      chemin.positions.getPoint(t, voulue.position);
+      chemin.cibles.getPoint(t, voulue.cible);
+      chargerEcrans(position);
+    } else if ('pose' in page) {
+      voulue.position.set(...page.pose.position);
+      voulue.cible.set(...page.pose.cible);
+      if (page.ecran !== undefined) chargerEcrans(page.ecran + 1);
     }
-    revelerTrace();
+
+    if (raccord.ecoule < raccord.duree) {
+      raccord.ecoule += dt;
+      const e = adoucir(Math.min(raccord.ecoule / raccord.duree, 1));
+      camera.position.lerpVectors(raccord.depart, voulue.position, e);
+      cible.lerpVectors(raccord.departCible, voulue.cible, e);
+    } else {
+      camera.position.copy(voulue.position);
+      cible.copy(voulue.cible);
+    }
+    revelerTrace(dt);
     droite.subVectors(cible, camera.position).cross(haut).normalize();
     camera.position.addScaledVector(droite, parallaxe.x * 2.4);
     camera.position.y -= parallaxe.y * 1.6;
@@ -320,7 +353,6 @@ export async function monterMonde(
     }
   };
   gsap.ticker.lagSmoothing(0);
-  gsap.ticker.add(tick);
 
   // Fenêtre redimensionnée : nouvelle taille et nouveau chemin. Page redimensionnée (polices, images,
   // passage au monde actif) : nouvelles mesures des sections.
@@ -331,7 +363,33 @@ export async function monterMonde(
   const redimensionner = new ResizeObserver(mesurer);
   redimensionner.observe(document.body);
 
+  const definirPage = (suivante: PageMonde) => {
+    const etaitArrete = 'arret' in page;
+    if (!premiere) {
+      // La caméra repart de sa pose réelle, parallaxe comprise.
+      raccord = {
+        depart: camera.position.clone(),
+        departCible: cible.clone(),
+        duree: RACCORD,
+        ecoule: 0,
+      };
+    } else if ('sections' in suivante && scrollY > innerHeight * 0.2) {
+      raccord.ecoule = raccord.duree;
+    } else if (!('sections' in suivante)) {
+      raccord.duree = RACCORD;
+    }
+    page = suivante;
+    mesurer();
+    if ('sections' in page) position = progression(scrollY, mesures, innerHeight);
+    if ('arret' in page) gsap.ticker.remove(tick);
+    else if (etaitArrete) {
+      precedent = performance.now();
+      gsap.ticker.add(tick);
+    }
+  };
+
   return {
+    definirPage,
     detruire() {
       gsap.ticker.remove(tick);
       removeEventListener('pointermove', surPointeur);

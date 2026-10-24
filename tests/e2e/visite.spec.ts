@@ -26,7 +26,7 @@ test('rien ne démarre avant le geste d’entrée', async ({ page }) => {
   await page.goto('/visite');
   await page.waitForLoadState('networkidle');
   await expect(page.getByRole('group', { name: 'Lecteur de la visite' })).toHaveCount(0);
-  await expect(page.locator('canvas')).toBeHidden();
+  await expect(page.getByRole('region', { name: 'Visite guidée' }).locator('canvas')).toBeHidden();
   expect(page.url()).not.toContain('#');
 });
 
@@ -85,7 +85,7 @@ test('WebGL indisponible : version légère annoncée, mêmes chapitres et actio
   const player = await entrer(page);
   await expect(page.getByText('Version légère active')).toBeVisible();
   await expect(player).toBeVisible();
-  await expect(page.locator('canvas')).toBeHidden();
+  await expect(page.getByRole('region', { name: 'Visite guidée' }).locator('canvas')).toBeHidden();
   await expect(page.getByRole('heading', { name: 'Fast Shipping logistique' })).toBeVisible();
 });
 

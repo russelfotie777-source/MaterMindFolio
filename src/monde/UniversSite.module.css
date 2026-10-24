@@ -1,0 +1,56 @@
+/* Canvas de l'univers : fixe derrière tout le site, invisible tant que la première image n'est pas rendue,
+   puis révélé en 900 ms. Il ne reçoit jamais le pointeur : liens et texte restent au-dessus. */
+.monde,
+.voile {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.monde {
+  opacity: 0;
+  transition: opacity 900ms var(--motion-easing-luminance);
+}
+
+:global(html[data-monde]) .monde {
+  opacity: 1;
+}
+
+/* Hors de l'accueil, un voile de nuit violette garde le texte lisible : le monde reste visible derrière.
+   Un voile opaque en couleur, jamais de flou ni de verre. */
+.voile {
+  opacity: 0;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-surface-canvas) 78%, transparent),
+    color-mix(in srgb, var(--color-surface-canvas) 62%, transparent) 45%,
+    color-mix(in srgb, var(--color-surface-canvas) 84%, transparent)
+  );
+  transition: opacity 900ms var(--motion-easing-luminance);
+}
+
+:global(html[data-monde][data-page-monde='interieure']) .voile {
+  opacity: 1;
+}
+
+/* La visite a sa propre scène : ce monde s'efface et s'arrête. */
+:global(html[data-page-monde='arret']) .monde {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .monde,
+  .voile {
+    display: none;
+  }
+}
+
+@media print {
+  .monde,
+  .voile {
+    display: none;
+  }
+}

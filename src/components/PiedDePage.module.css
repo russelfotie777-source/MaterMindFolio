@@ -43,3 +43,9 @@
     display: none;
   }
 }
+
+/* Dans l'univers 3D, le pied de page n'interrompt pas le monde : il se pose dessus, sans bandeau opaque. */
+:global(html[data-monde]) .pied {
+  border-block-start-color: color-mix(in srgb, var(--color-violet-wisteria) 30%, transparent);
+  background: linear-gradient(transparent, color-mix(in srgb, var(--color-surface-canvas) 80%, transparent));
+}

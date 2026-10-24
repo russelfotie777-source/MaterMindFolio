@@ -10,10 +10,8 @@ import { lireCopieSite } from '@/lib/copie/site';
 import { lireProfil } from '@/lib/faits/profil';
 import { lireProjets } from '@/lib/faits/projets';
 import { PLATEFORMES, rangSurSix } from '@/lib/libelles';
-import { type IdDerive, lireDerive, lireMediaProjet } from '@/lib/media';
-import { MondeAccueil, type TexturesAccueil } from '@/monde/MondeAccueil';
+import { lireDerive } from '@/lib/media';
 import page from '@/styles/page.module.css';
-import { IDS_CARTES } from '@/visite/corps';
 
 import styles from './accueil.module.css';
 
@@ -21,8 +19,8 @@ export const metadata: Metadata = { alternates: { canonical: '/' } };
 
 const TAILLES_PORTRAIT = '(min-width: 768px) min(52vw, 46rem), 92vw';
 
-// Accueil : un univers 3D dès l'entrée (décision de Russel du 24 octobre 2026). Le monde est un canvas
-// fixe derrière la page ; chaque section de cette page est une étape de son chemin : l'ouverture au-dessus
+// Accueil : un univers 3D dès l'entrée (décision de Russel du 24 octobre 2026). Le monde, monté par la
+// mise en page, est un canvas fixe derrière le site ; chaque section de cette page est une étape de son chemin : l'ouverture au-dessus
 // de la mer de nuages, puis les six îles des projets, puis le final face au Fuji. Le HTML porte tout le
 // contenu et reste complet sans WebGL : décor d'aube, portrait et captures réelles prennent alors le relais.
 export default function Accueil() {
@@ -39,30 +37,8 @@ export default function Accueil() {
     fetchPriority: 'high',
   });
 
-  // Textures du monde : cartes célestes (512 px sur téléphone, 1024 px au-delà) et captures des projets.
-  const paire = (id: IdDerive) => {
-    const fichiers = lireDerive(id).fichiers.webp;
-    return {
-      mobile: fichiers.find((f) => f.largeur === 512)!.chemin,
-      bureau: fichiers.find((f) => f.largeur === 1024)!.chemin,
-    };
-  };
-  const textures: TexturesAccueil = {
-    cartes: Object.fromEntries(
-      IDS_CARTES.map((id) => [id, paire(`${id}-carte`)]),
-    ) as TexturesAccueil['cartes'],
-    ecrans: projets.map((projet) => {
-      const media = lireMediaProjet(projet.slug);
-      const fichiers = media ? lireDerive(media.bureau).fichiers.webp : [];
-      return (fichiers.find((f) => f.largeur === 1080) ?? fichiers[0])?.chemin ?? '';
-    }),
-    liens: projets.map((projet) => `/projets/${projet.slug}`),
-  };
-
   return (
     <>
-      <MondeAccueil textures={textures} />
-
       <section className={styles.ouverture} data-ouverture data-monde-section>
         <div className={styles.fond}>
           <Visuel

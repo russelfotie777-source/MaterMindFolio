@@ -1,4 +1,5 @@
-import { useMemo } from 'react';
+import { useFrame } from '@react-three/fiber';
+import { useMemo, useRef } from 'react';
 import {
   BufferAttribute,
   BufferGeometry,
@@ -108,11 +109,23 @@ function Fuji({ materiau }: { materiau: ShaderMaterial }) {
 
 // Corps célestes du ciel d'accueil : vraies sphères aux cartes sous licence, anneaux de Saturne.
 function Corps({ corps }: { corps: MateriauxMonde['corps'] }) {
+  // Chaque planète tourne lentement sur son axe, chacune à sa vitesse.
+  const spheres = useRef<(Mesh | null)[]>([]);
+  useFrame((_, dt) => {
+    spheres.current.forEach((sphere, i) => {
+      if (sphere) sphere.rotation.y += dt * (0.03 + i * 0.008);
+    });
+  });
   return (
     <group>
       {corps.map(({ materiau, rayon, position, anneau }, i) => (
         <group key={i} position={v(position)} rotation={[0.2, 0, i % 2 ? 0.45 : -0.3]}>
-          <mesh material={materiau}>
+          <mesh
+            material={materiau}
+            ref={(sphere) => {
+              spheres.current[i] = sphere;
+            }}
+          >
             <sphereGeometry args={[rayon, 64, 32]} />
           </mesh>
           {anneau && <Anneau rayon={rayon} materiau={anneau} />}
@@ -160,6 +173,16 @@ export function PierresFlottantes() {
       })),
     [],
   );
+  // Les pierres flottent : une lente respiration verticale et une rotation à peine perceptible.
+  const pierres = useRef<(Mesh | null)[]>([]);
+  useFrame(({ clock }, dt) => {
+    pierres.current.forEach((maillage, i) => {
+      if (!maillage) return;
+      maillage.position.y =
+        PIERRES_OUVERTURE[i]!.position[1] + Math.sin(clock.elapsedTime * 0.5 + i * 1.7) * 0.9;
+      maillage.rotation.y += dt * 0.05 * (i % 2 ? 1 : -1);
+    });
+  });
   return (
     <group>
       {formes.map(({ position, geometrie }, i) => (
@@ -168,7 +191,9 @@ export function PierresFlottantes() {
           geometry={geometrie}
           position={v(position)}
           rotation={[i * 0.7, i * 1.3, i * 0.4]}
-          name="pierre-flottante"
+          ref={(maillage) => {
+            pierres.current[i] = maillage;
+          }}
         >
           <meshStandardMaterial vertexColors roughness={0.95} metalness={0} />
         </mesh>
@@ -320,6 +345,8 @@ export function Univers({ materiaux }: { materiaux: MateriauxMonde }) {
   return (
     <>
       <color attach="background" args={['#0b0718']} />
+      {/* Perspective aérienne : la roche et les îles lointaines se fondent dans le rose de l'horizon. */}
+      <fog attach="fog" args={['#b85fae', 260, 1500]} />
       <hemisphereLight args={['#b98cff', '#2a1050', 1.6]} />
       <directionalLight
         position={DIRECTION_SOLEIL.clone().multiplyScalar(100)}

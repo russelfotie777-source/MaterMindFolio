@@ -18,7 +18,7 @@ const violationsCsp = (page: Page) =>
 test('le monde s’allume dès l’entrée, décoratif et sans violation CSP', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('html')).toHaveAttribute('data-monde', 'actif', { timeout: 30_000 });
-  const canvas = page.locator('canvas');
+  const canvas = page.locator('body > canvas');
   await expect(canvas).toHaveAttribute('aria-hidden', 'true');
   await expect(canvas).toHaveCSS('pointer-events', 'none');
   // Le titre, l'identité et les actions restent du HTML au-dessus du monde.
