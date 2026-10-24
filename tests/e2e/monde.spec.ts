@@ -18,9 +18,11 @@ const violationsCsp = (page: Page) =>
 test('le monde s’allume dès l’entrée, décoratif et sans violation CSP', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('html')).toHaveAttribute('data-monde', 'actif', { timeout: 30_000 });
-  const canvas = page.locator('body > canvas');
-  await expect(canvas).toHaveAttribute('aria-hidden', 'true');
-  await expect(canvas).toHaveCSS('pointer-events', 'none');
+  // Un seul canvas, dans un conteneur masqué aux technologies d'assistance et sans pointeur.
+  const univers = page.locator('body > div[aria-hidden="true"]').filter({ has: page.locator('canvas') });
+  await expect(univers).toHaveCount(1);
+  await expect(univers.locator('canvas')).toHaveCount(1);
+  await expect(univers).toHaveCSS('pointer-events', 'none');
   // Le titre, l'identité et les actions restent du HTML au-dessus du monde.
   await expect(page.getByRole('heading', { level: 1, name: 'MASTERMIND' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Entrer dans le monde' })).toBeVisible();

@@ -31,7 +31,7 @@ function webgl2Disponible(): boolean {
 // elle vole vers le point de vue de la route, derrière un voile qui garde le texte lisible. Le HTML reste
 // le contenu : mouvement réduit, économie de données, WebGL absent ou perdu laissent le site statique.
 export function UniversSite({ textures }: { textures: TexturesUnivers }) {
-  const canvas = useRef<HTMLCanvasElement>(null);
+  const scene = useRef<HTMLDivElement>(null);
   const monde = useRef<Monde | null>(null);
   const [monte, setMonte] = useState(false);
   const chemin = usePathname();
@@ -46,11 +46,11 @@ export function UniversSite({ textures }: { textures: TexturesUnivers }) {
   const actif = !chemin.startsWith('/visite');
 
   useEffect(() => {
-    const element = canvas.current;
+    const conteneur = scene.current;
     if (!actif) return;
     const connexion = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
     if (
-      !element ||
+      !conteneur ||
       matchMedia('(prefers-reduced-motion: reduce)').matches ||
       connexion?.saveData ||
       !webgl2Disponible()
@@ -62,6 +62,10 @@ export function UniversSite({ textures }: { textures: TexturesUnivers }) {
     const cartes = Object.fromEntries(
       Object.entries(textures.cartes).map(([id, paire]) => [id, paire[format]]),
     ) as TexturesMonde['cartes'];
+    // Un canvas neuf à chaque montage : un montage annulé (double effet du mode strict en
+    // développement, retour sur une page) perd son contexte WebGL sans jamais éteindre le suivant.
+    const element = document.createElement('canvas');
+    conteneur.append(element);
     let annule = false;
     const eteindre = () => {
       monde.current?.detruire();
@@ -92,6 +96,7 @@ export function UniversSite({ textures }: { textures: TexturesUnivers }) {
       annule = true;
       element.removeEventListener('webglcontextlost', eteindre);
       eteindre();
+      element.remove();
       setMonte(false);
     };
   }, [textures, actif]);
@@ -109,7 +114,7 @@ export function UniversSite({ textures }: { textures: TexturesUnivers }) {
 
   return (
     <>
-      <canvas ref={canvas} className={styles.monde} aria-hidden="true" />
+      <div ref={scene} className={styles.monde} aria-hidden="true" />
       <div className={styles.voile} aria-hidden="true" />
     </>
   );
