@@ -1,7 +1,7 @@
 {
   "portrait-buste": {
     "registre": "H237-POR-CUT-001",
-    "credit": "Photo fournie par Russel ; fond retiré avec Magnific, visage, main et corps inchangés.",
+    "credit": "Photo fournie par Russel ; fond retiré avec Magnific, étalonnage colorimétrique Codex ; visage, main et corps inchangés.",
     "genere": false,
     "alt": null,
     "largeur": 1859,
@@ -11,60 +11,60 @@
         {
           "largeur": 480,
           "hauteur": 342,
-          "chemin": "/media/approved/portrait-buste-480-efd44961.avif",
-          "octets": 6900,
-          "sha256": "efd4496160985ce40c90151bf3ac9c43aa0f0516f53f344fb20081243c4ecef4"
+          "chemin": "/media/approved/portrait-buste-480-06e8bc7a.avif",
+          "octets": 6820,
+          "sha256": "06e8bc7a496f26dd9fbc50a4fcb31a3d7b585753e0a180d068b4cd797b469be0"
         },
         {
           "largeur": 768,
           "hauteur": 547,
-          "chemin": "/media/approved/portrait-buste-768-d5c21a50.avif",
-          "octets": 12245,
-          "sha256": "d5c21a508716f9b78b79f2ea21e79432d77c2027b5ac8265b83bcb318cfd1b2c"
+          "chemin": "/media/approved/portrait-buste-768-a8c4c2cd.avif",
+          "octets": 12079,
+          "sha256": "a8c4c2cdc4a9fd1122ee8f2e0a68953215ba6671af0bb69fe63a221464059e17"
         },
         {
           "largeur": 1080,
           "hauteur": 770,
-          "chemin": "/media/approved/portrait-buste-1080-1992aac5.avif",
-          "octets": 18828,
-          "sha256": "1992aac5b20e0b95feaf87733bd3726654e60f6d111db8cb3f540f5fe14b3b91"
+          "chemin": "/media/approved/portrait-buste-1080-d2bddc92.avif",
+          "octets": 18668,
+          "sha256": "d2bddc92f3c95fe961237b51324c69d59fe77d3abab5c083a6539f6809dd2196"
         },
         {
           "largeur": 1280,
           "hauteur": 912,
-          "chemin": "/media/approved/portrait-buste-1280-0544be62.avif",
-          "octets": 22929,
-          "sha256": "0544be628876336249a517389bf62abd8b429da73229190bd96d06cfa17955f9"
+          "chemin": "/media/approved/portrait-buste-1280-5dbf919a.avif",
+          "octets": 22738,
+          "sha256": "5dbf919a529dfcc1c631595849ee87189f019c43a1ed761e536c8811bbb08c0f"
         }
       ],
       "webp": [
         {
           "largeur": 480,
           "hauteur": 342,
-          "chemin": "/media/approved/portrait-buste-480-e456a864.webp",
-          "octets": 11684,
-          "sha256": "e456a864c7223de60cb4832fe9b6070b9e6289c2af0b9fe658243defb3f183db"
+          "chemin": "/media/approved/portrait-buste-480-33d2d296.webp",
+          "octets": 11600,
+          "sha256": "33d2d296b2fa8e91dca136f3c93eb29c05c892b7dfa09fd72dd288b2f044a7fc"
         },
         {
           "largeur": 768,
           "hauteur": 547,
-          "chemin": "/media/approved/portrait-buste-768-77ca48b9.webp",
-          "octets": 21064,
-          "sha256": "77ca48b9644c05097bcec53a17587de0acf7cb5a34bcfb47ed5be57913a7c710"
+          "chemin": "/media/approved/portrait-buste-768-bc9146a3.webp",
+          "octets": 21056,
+          "sha256": "bc9146a3fb8a9b1947a58113a77afacce8398d7356f5dec7f18fd232dda97247"
         },
         {
           "largeur": 1080,
           "hauteur": 770,
-          "chemin": "/media/approved/portrait-buste-1080-b0442f0e.webp",
-          "octets": 33374,
-          "sha256": "b0442f0e2882461fc6ca8c12fb0e434badc22020d5e55fe4ce717f05b49dfeb9"
+          "chemin": "/media/approved/portrait-buste-1080-b0583d3a.webp",
+          "octets": 33414,
+          "sha256": "b0583d3ac42085db041b76ced78f55fbefd74e8668d226326f8a8a15a1292a3d"
         },
         {
           "largeur": 1280,
           "hauteur": 912,
-          "chemin": "/media/approved/portrait-buste-1280-bf5815a0.webp",
-          "octets": 41900,
-          "sha256": "bf5815a00014e198cfef2f437c3d274ee627a1b613a65ad6c054131111bfc45e"
+          "chemin": "/media/approved/portrait-buste-1280-4c7c1c27.webp",
+          "octets": 41938,
+          "sha256": "4c7c1c2712512408cdbf3b396b15318c36ef83ca5dfbf14b43ee9cb633cd532d"
         }
       ]
     }

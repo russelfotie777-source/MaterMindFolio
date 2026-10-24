@@ -74,15 +74,17 @@ function carte(id: string, registre: string, fichier: string, sha256: string, ha
   };
 }
 
-// Transformations permises par la DR-1 (05_ACTIFS_DROITS, section 10) : recadrage, réduction, compression.
-// Aucun étalonnage n'est appliqué ici : celui du portrait reste à décider par la direction artistique.
+// Transformations permises par la DR-1 (05_ACTIFS_DROITS, section 10) : étalonnage visé par la direction
+// artistique, recadrage, réduction et compression. Le master étalonné du portrait garde la géométrie et
+// l'alpha du détourage validé ; sa recette reproductible vit dans design/tools/grade-portrait.mjs.
 const SOURCES: Source[] = [
   {
     id: 'portrait',
     registre: 'H237-POR-CUT-001',
-    chemin: 'design/magnific__background__71841.png',
-    sha256: 'a0345f9bfc43bf3eba2efc360da1cb23926faa2b91b5908cf58753973a9a92d4',
-    credit: 'Photo fournie par Russel ; fond retiré avec Magnific, visage, main et corps inchangés.',
+    chemin: 'design/portrait-mastermind-etalon-c3-3.png',
+    sha256: '3b7ef3682f8c519cd536432dfd83f7fcc214cc6d70d0da0a43c5d3ad0092d96e',
+    credit:
+      'Photo fournie par Russel ; fond retiré avec Magnific, étalonnage colorimétrique Codex ; visage, main et corps inchangés.',
     genere: false,
     // Cadre du sujet : la boîte englobante de la couche alpha, sans marge transparente.
     variantes: [
