@@ -3,6 +3,10 @@ import { expect, test } from '@playwright/test';
 
 import { ROUTES } from './routes';
 
+// Le socle vérifie le HTML, l'accessibilité et la CSP de chaque route. Le monde 3D de l'accueil, lourd
+// sans GPU, est écarté par la préférence de mouvement réduit ; il a ses propres tests (monde.spec.ts).
+test.use({ reducedMotion: 'reduce' });
+
 // Relève les violations CSP dès le premier script de la page, avant ceux de Next.js.
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => {
@@ -70,7 +74,7 @@ test('clavier : le lien d’évitement mène au contenu', async ({ page, browser
   await page.keyboard.press('Enter');
   await expect(page.locator('main#contenu')).toBeFocused();
   await page.keyboard.press(suivant);
-  await expect(page.getByRole('link', { name: 'Commencer la visite' })).toBeFocused();
+  await expect(page.getByRole('link', { name: 'Entrer dans le monde' })).toBeFocused();
 });
 
 test('accueil : portrait et décor viennent des dérivés, en cache immuable', async ({ page, request }) => {

@@ -92,7 +92,10 @@ export async function demarrerScene(
   const mobile = matchMedia('(max-width: 767px)').matches;
   const camera = new PerspectiveCamera(50, 1, 0.1, 1000);
   const root = createRoot(canvas);
-  const taille = () => ({ width: canvas.clientWidth, height: canvas.clientHeight, top: 0, left: 0 });
+  // Taille lue sur le conteneur : R3F fixe ensuite la taille du canvas en pixels dans son style, si bien
+  // que le canvas lui-même ne suivrait plus un redimensionnement.
+  const conteneur = canvas.parentElement ?? canvas;
+  const taille = () => ({ width: conteneur.clientWidth, height: conteneur.clientHeight, top: 0, left: 0 });
   // Chaque appel à configure() reprend toute la configuration : un appel sans `camera` ferait créer à
   // R3F une caméra par défaut, à la place de celle que pilote la timeline.
   const configuration = {
@@ -287,7 +290,7 @@ export async function demarrerScene(
   const redimensionner = new ResizeObserver(() => {
     void root.configure({ ...configuration, size: taille() }).then(rendre);
   });
-  redimensionner.observe(canvas);
+  redimensionner.observe(conteneur);
 
   // Une visite immersive qui commence par l'ouverture part de l'image 0 ; sinon, image stable.
   const { chapitre, mouvement } = store.getState();

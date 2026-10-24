@@ -44,7 +44,7 @@ function bruit(x: number, y: number, z: number, sel: number) {
 }
 
 // Somme d'octaves centrée : de -1 à 1 environ.
-function octaves(x: number, y: number, z: number, sel: number, nombre: number) {
+export function octaves(x: number, y: number, z: number, sel: number, nombre: number) {
   let somme = 0;
   let amplitude = 1;
   let total = 0;
@@ -148,7 +148,8 @@ function icosphere(segments: number) {
 }
 
 // `segments` règle la finesse du maillage : plus fin pour la pierre de la Base, vue en gros plan à 3 s.
-export function pierre(rayon: number, depart: number, segments: number) {
+// `couleur` est l'albédo moyen : le basalte C3 par défaut, plus clair dans le monde de l'accueil.
+export function pierre(rayon: number, depart: number, segments: number, couleur: string = BASALTE) {
   const geometrie = icosphere(segments);
   const hasard = graine(depart);
   const sel = Math.floor(hasard() * 1e6);
@@ -165,7 +166,7 @@ export function pierre(rayon: number, depart: number, segments: number) {
   });
   const sommets = geometrie.getAttribute('position');
   const couleurs = new Float32Array(sommets.count * 3);
-  const base = new Color(BASALTE);
+  const base = new Color(couleur);
   for (let i = 0; i < sommets.count; i++) {
     const x = sommets.getX(i);
     const y = sommets.getY(i);

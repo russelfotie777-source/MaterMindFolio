@@ -3,27 +3,34 @@ import Link from 'next/link';
 import { preload } from 'react-dom';
 
 import { Copie } from '@/components/Copie';
+import { MediaProjet } from '@/components/MediaProjet';
 import { Visuel } from '@/components/Visuel';
+import { lireCopieProjet } from '@/lib/copie/projets';
 import { lireCopieSite } from '@/lib/copie/site';
 import { lireProfil } from '@/lib/faits/profil';
-import { lireDerive } from '@/lib/media';
+import { lireProjets } from '@/lib/faits/projets';
+import { PLATEFORMES, rangSurSix } from '@/lib/libelles';
+import { type IdDerive, lireDerive, lireMediaProjet } from '@/lib/media';
+import { MondeAccueil, type TexturesAccueil } from '@/monde/MondeAccueil';
 import page from '@/styles/page.module.css';
+import { IDS_CARTES } from '@/visite/corps';
 
 import styles from './accueil.module.css';
 
 export const metadata: Metadata = { alternates: { canonical: '/' } };
 
-const TAILLES_PORTRAIT = '(min-width: 768px) min(45vw, 36rem), 70vw';
+const TAILLES_PORTRAIT = '(min-width: 768px) min(52vw, 46rem), 92vw';
 
-// Accueil (DR-1, vues A01 et 01_DIRECTION_ARTISTIQUE, section 8) : décor d'aube plein cadre, identité sur
-// plan sombre, portrait détouré à droite. C'est aussi la version sans Canvas : tout est déjà dans le HTML.
-// L'accroche vient de content/copy/fr/site.copy.json, une fois visée par Russel.
+// Accueil : un univers 3D dès l'entrée (décision de Russel du 24 octobre 2026). Le monde est un canvas
+// fixe derrière la page ; chaque section de cette page est une étape de son chemin : l'ouverture au-dessus
+// de la mer de nuages, puis les six îles des projets, puis le final face au Fuji. Le HTML porte tout le
+// contenu et reste complet sans WebGL : décor d'aube, portrait et captures réelles prennent alors le relais.
 export default function Accueil() {
   const profil = lireProfil();
   const { accueil } = lireCopieSite();
+  const projets = lireProjets();
   const portrait = lireDerive('portrait-buste').fichiers.avif;
-  // Unique image préchargée : le portrait, première image utile (contrat, section 6). Le décor, élément
-  // LCP mesuré, est chargé sans délai et en priorité haute, sans second préchargement.
+  // Unique image préchargée : le portrait, première image utile (contrat, section 6).
   preload(portrait[portrait.length - 1]!.chemin, {
     as: 'image',
     type: 'image/avif',
@@ -32,40 +39,124 @@ export default function Accueil() {
     fetchPriority: 'high',
   });
 
+  // Textures du monde : cartes célestes (512 px sur téléphone, 1024 px au-delà) et captures des projets.
+  const paire = (id: IdDerive) => {
+    const fichiers = lireDerive(id).fichiers.webp;
+    return {
+      mobile: fichiers.find((f) => f.largeur === 512)!.chemin,
+      bureau: fichiers.find((f) => f.largeur === 1024)!.chemin,
+    };
+  };
+  const textures: TexturesAccueil = {
+    cartes: Object.fromEntries(
+      IDS_CARTES.map((id) => [id, paire(`${id}-carte`)]),
+    ) as TexturesAccueil['cartes'],
+    ecrans: projets.map((projet) => {
+      const media = lireMediaProjet(projet.slug);
+      const fichiers = media ? lireDerive(media.bureau).fichiers.webp : [];
+      return (fichiers.find((f) => f.largeur === 1080) ?? fichiers[0])?.chemin ?? '';
+    }),
+    liens: projets.map((projet) => `/projets/${projet.slug}`),
+  };
+
   return (
-    <section className={styles.ouverture} data-ouverture>
-      <Visuel
-        className={styles.decor}
-        cadres={[{ derive: 'aube-vertical', media: '(max-width: 767px)' }, { derive: 'aube-paysage' }]}
-        alt=""
-        sizes="100vw"
-        prioritaire
-      />
-      <div className={styles.composition}>
-        <div className={styles.identite}>
-          <p className={page.etiquette}>
-            {profil.intitule} · {profil.base.ville}
-          </p>
-          <h1 className={page.titreDisplay}>{profil.nomPublic}</h1>
-          {accueil && <Copie arbre={accueil} className={`${page.lead} ${styles.accroche}`} />}
-          <p className={page.lead}>{profil.disponibilite}</p>
-          <p className={`${page.actions} ${styles.actions}`}>
-            <Link className={page.boutonClair} href="/visite">
-              Commencer la visite
-            </Link>
-            <Link className={page.bouton} href="/projets">
-              Explorer librement
+    <>
+      <MondeAccueil textures={textures} />
+
+      <section className={styles.ouverture} data-ouverture data-monde-section>
+        <div className={styles.fond}>
+          <Visuel
+            className={styles.decor}
+            cadres={[{ derive: 'aube-vertical', media: '(max-width: 767px)' }, { derive: 'aube-paysage' }]}
+            alt=""
+            sizes="100vw"
+            prioritaire
+          />
+        </div>
+        <p className={styles.surtitre}>
+          {profil.intitule} · {profil.base.ville}, {profil.base.pays}
+        </p>
+        <h1 className={styles.nom}>{profil.nomPublic}</h1>
+        <div className={styles.silhouette}>
+          <Visuel
+            className={styles.portrait}
+            cadres={[{ derive: 'portrait-buste' }]}
+            alt={`Portrait de ${profil.nomPublic}`}
+            sizes={TAILLES_PORTRAIT}
+            prioritaire
+          />
+        </div>
+        <div className={styles.seuil}>
+          {accueil && <Copie arbre={accueil} className={styles.accroche} />}
+          <p className={styles.disponibilite}>{profil.disponibilite}</p>
+          <p className={styles.actions}>
+            <a className={page.bouton} href="#projet-1">
+              Entrer dans le monde
+            </a>
+            <Link className={page.boutonClair} href="/resume-recruteur">
+              Résumé recruteur
             </Link>
           </p>
         </div>
-        <Visuel
-          className={styles.portrait}
-          cadres={[{ derive: 'portrait-buste' }]}
-          alt={`Portrait de ${profil.nomPublic}`}
-          sizes={TAILLES_PORTRAIT}
-          prioritaire
-        />
-      </div>
-    </section>
+        <p className={styles.indice} aria-hidden="true">
+          Défiler
+        </p>
+      </section>
+
+      {projets.map((projet) => {
+        const copie = lireCopieProjet(projet.slug);
+        const [preuve] = projet.preuves;
+        return (
+          <section
+            key={projet.slug}
+            id={`projet-${projet.rang}`}
+            className={styles.station}
+            data-panneau={projet.rang % 2 === 1 ? 'droite' : 'gauche'}
+            data-monde-section
+            aria-labelledby={`titre-${projet.slug}`}
+          >
+            <div className={styles.panneau}>
+              <p className={page.etiquette}>
+                {rangSurSix(projet.rang)} · {projet.plateformes.map((p) => PLATEFORMES[p]).join(' · ')}
+              </p>
+              <h2 id={`titre-${projet.slug}`} className={styles.projet}>
+                {projet.nom}
+              </h2>
+              <p className={page.fort}>{projet.role}</p>
+              {copie.need && <Copie arbre={copie.need} className={page.attenue} />}
+              {preuve && <p className={styles.preuve}>Preuve : {preuve.libelle}</p>}
+              <p>
+                <Link className={page.bouton} href={`/projets/${projet.slug}`}>
+                  Étude de cas<span className="visuellement-cache"> : {projet.nom}</span>
+                </Link>
+              </p>
+            </div>
+            {/* Sans monde 3D, la capture réelle tient la place de l'écran flottant. */}
+            <div className={styles.secours}>
+              <MediaProjet slug={projet.slug} tailles="(min-width: 1280px) 44rem, 90vw" />
+            </div>
+          </section>
+        );
+      })}
+
+      <section className={styles.final} data-monde-section aria-labelledby="titre-final">
+        <p className={page.etiquette}>Base 237 · Douala</p>
+        <h2 id="titre-final" className={styles.projet}>
+          Contact
+        </h2>
+        <p className={styles.disponibilite}>{profil.disponibilite}</p>
+        <p className={styles.actions}>
+          <Link className={page.bouton} href="/contact">
+            Écrire à {profil.nomPublic}
+          </Link>
+          <Link className={page.boutonClair} href="/projets">
+            Les six projets
+          </Link>
+          <Link className={page.boutonClair} href="/parcours">
+            Parcours
+          </Link>
+        </p>
+      </section>
+    </>
   );
 }

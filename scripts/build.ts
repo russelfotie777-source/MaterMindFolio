@@ -115,9 +115,10 @@ console.log(`Faits privés : aucun des ${secrets.length} textes contrôlés n'es
 
 // Budget de l'îlot immersif (contrat, section 7 ; ADR-004, section 4) : 290 Ko en Brotli q5, la
 // compression réaliste d'un CDN, pour les chunks de la scène (Three.js, R3F, GSAP et code du monde).
+// Les scènes de l'accueil et de la visite sont comptées ensemble : c'est une borne haute.
 const BUDGET_ILOT = 290_000;
 const ilot = files('.next/static', '.js').filter((file) =>
-  readFileSync(file, 'utf8').includes('WebGLRenderer'),
+  /WebGLRenderer|monterMonde|demarrerScene/.test(readFileSync(file, 'utf8')),
 );
 const poidsIlot = ilot.reduce(
   (total, file) =>
@@ -132,5 +133,5 @@ if (poidsIlot > BUDGET_ILOT) {
   process.exit(1);
 }
 console.log(
-  `Îlot immersif : ${Math.round(poidsIlot / 1000)} Ko en Brotli q5 sur 290 Ko (${ilot.length} chunk).`,
+  `Îlot immersif : ${Math.round(poidsIlot / 1000)} Ko en Brotli q5 sur 290 Ko (${ilot.length} chunks).`,
 );
