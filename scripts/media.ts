@@ -82,7 +82,7 @@ const SOURCES: Source[] = [
     id: 'portrait',
     registre: 'H237-POR-CUT-001',
     chemin: 'design/portrait-mastermind-etalon-c3-3.png',
-    sha256: '3b7ef3682f8c519cd536432dfd83f7fcc214cc6d70d0da0a43c5d3ad0092d96e',
+    sha256: '0cc35156ffee2be0d2b831a7e3df387050ca61157582f0c65181c2aa0d35bf69',
     credit:
       'Photo fournie par Russel ; fond retiré avec Magnific, étalonnage colorimétrique Codex ; visage, main et corps inchangés.',
     genere: false,

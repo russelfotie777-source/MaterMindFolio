@@ -137,21 +137,25 @@ for (let pixel = 0; pixel < pixels; pixel += 1) {
     }
   }
 
-  // Le tee-shirt reste noir. Ses ombres reçoivent seulement un reflet noir-violet, assez discret pour
-  // donner du volume sans transformer le vêtement ni produire un halo artificiel.
-  if (y > 1840 && x < 1290 && luminance < 82 && !peau) {
-    const ombre = 1 - luminance / 82;
-    r += 1.2 * ombre;
-    g -= 0.8 * ombre;
-    b += 4.5 * ombre;
+  // Le tee-shirt garde une base noire, mais ses plis deviennent franchement noir-violet pour que le
+  // traitement reste lisible dans l'ouverture sombre sans changer le vêtement.
+  if (y > 1840 && luminance < 90 && !peau) {
+    const ombre = 1 - luminance / 90;
+    r = r * 0.92 + 4 * ombre;
+    g *= 0.88;
+    b = b * 1.1 + 10 * ombre;
   }
 
-  // Raccord de scène entièrement interne à la silhouette : violet froid côté ombre, rappel d'aube
-  // presque imperceptible côté opposé. Le fond reste réellement transparent.
-  const bordGauche = 1 - Math.min(alphaA(x - 5, y), alphaA(x - 10, y), alphaA(x, y - 7)) / 255;
-  const bordDroit = 1 - Math.min(alphaA(x + 5, y), alphaA(x + 10, y)) / 255;
-  const poidsViolet = Math.min(0.095, bordGauche * 0.095) * Math.max(0, 1 - x / (info.width * 0.72));
-  const poidsAube = Math.min(0.026, bordDroit * 0.026) * Math.max(0, (x - info.width * 0.48) / (info.width * 0.52));
+  // Raccord de scène entièrement interne à la silhouette : une lumière violette large côté ombre et un
+  // rappel d'aube chaud côté opposé. Le fond reste réellement transparent, sans glow extérieur.
+  const bordGauche =
+    1 - Math.min(alphaA(x - 8, y), alphaA(x - 18, y), alphaA(x - 34, y), alphaA(x, y - 18)) / 255;
+  const bordDroit = 1 - Math.min(alphaA(x + 8, y), alphaA(x + 18, y), alphaA(x + 34, y)) / 255;
+  const coteOmbre = Math.max(0, 1 - x / (info.width * 0.82));
+  const coteAube = Math.max(0, (x - info.width * 0.46) / (info.width * 0.54));
+  const densiteOmbre = 1 - Math.min(1, luminance / 190);
+  const poidsViolet = Math.min(0.2, bordGauche * 0.2) * coteOmbre + coteOmbre * densiteOmbre * 0.07;
+  const poidsAube = Math.min(0.085, bordDroit * 0.085) * coteAube + coteAube * densiteOmbre * 0.028;
 
   r = melange(r, 104, poidsViolet);
   g = melange(g, 43, poidsViolet);
@@ -160,12 +164,12 @@ for (let pixel = 0; pixel < pixels; pixel += 1) {
   g = melange(g, 158, poidsAube);
   b = melange(b, 128, poidsAube);
 
-  // Courbe en S très douce : noirs plus profonds et relief du visage plus lisible, sans effet HDR.
+  // Courbe en S maîtrisée : noirs plus profonds et relief du visage clairement lisible, sans effet HDR.
   const lumiereEtalonnee = 0.2126 * r + 0.7152 * g + 0.0722 * b;
   if (lumiereEtalonnee > 0) {
     const niveau = lumiereEtalonnee / 255;
     const courbe = niveau * niveau * (3 - 2 * niveau);
-    const niveauFinal = niveau * 0.8 + courbe * 0.2;
+    const niveauFinal = niveau * 0.65 + courbe * 0.35;
     const contraste = (niveauFinal * 255) / lumiereEtalonnee;
     r *= contraste;
     g *= contraste;
@@ -173,8 +177,8 @@ for (let pixel = 0; pixel < pixels; pixel += 1) {
   }
 
   if (peau) {
-    r *= 1.012;
-    b *= 0.99;
+    r *= 1.025;
+    b *= 0.975;
   }
 
   data[i] = borne(r);

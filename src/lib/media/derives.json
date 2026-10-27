@@ -11,60 +11,60 @@
         {
           "largeur": 480,
           "hauteur": 342,
-          "chemin": "/media/approved/portrait-buste-480-06e8bc7a.avif",
-          "octets": 6820,
-          "sha256": "06e8bc7a496f26dd9fbc50a4fcb31a3d7b585753e0a180d068b4cd797b469be0"
+          "chemin": "/media/approved/portrait-buste-480-058c8162.avif",
+          "octets": 6924,
+          "sha256": "058c8162988643f4a416d7c885fc9253eec6b4094ccc3cd50c975e3b75ebe922"
         },
         {
           "largeur": 768,
           "hauteur": 547,
-          "chemin": "/media/approved/portrait-buste-768-a8c4c2cd.avif",
-          "octets": 12079,
-          "sha256": "a8c4c2cdc4a9fd1122ee8f2e0a68953215ba6671af0bb69fe63a221464059e17"
+          "chemin": "/media/approved/portrait-buste-768-c3e578b3.avif",
+          "octets": 12198,
+          "sha256": "c3e578b312a3ecc6da838ba50b3f0c009f455c6d8231219f3137dd43238610e1"
         },
         {
           "largeur": 1080,
           "hauteur": 770,
-          "chemin": "/media/approved/portrait-buste-1080-d2bddc92.avif",
-          "octets": 18668,
-          "sha256": "d2bddc92f3c95fe961237b51324c69d59fe77d3abab5c083a6539f6809dd2196"
+          "chemin": "/media/approved/portrait-buste-1080-8e93ffc3.avif",
+          "octets": 18783,
+          "sha256": "8e93ffc354e3b70f0a465bcb5f822d8b3d9154e0557c054c6a65e8bdfb00cfb7"
         },
         {
           "largeur": 1280,
           "hauteur": 912,
-          "chemin": "/media/approved/portrait-buste-1280-5dbf919a.avif",
-          "octets": 22738,
-          "sha256": "5dbf919a529dfcc1c631595849ee87189f019c43a1ed761e536c8811bbb08c0f"
+          "chemin": "/media/approved/portrait-buste-1280-42c2dea9.avif",
+          "octets": 22884,
+          "sha256": "42c2dea91fb875f22f9ac16ca554901b32f9a2c84f8bd2f74e626b3510a32ab2"
         }
       ],
       "webp": [
         {
           "largeur": 480,
           "hauteur": 342,
-          "chemin": "/media/approved/portrait-buste-480-33d2d296.webp",
-          "octets": 11600,
-          "sha256": "33d2d296b2fa8e91dca136f3c93eb29c05c892b7dfa09fd72dd288b2f044a7fc"
+          "chemin": "/media/approved/portrait-buste-480-f26afe54.webp",
+          "octets": 11794,
+          "sha256": "f26afe54fcabbc950876a886205bb92b34299b3b16e3547fd8b3ed5c39af5b83"
         },
         {
           "largeur": 768,
           "hauteur": 547,
-          "chemin": "/media/approved/portrait-buste-768-bc9146a3.webp",
-          "octets": 21056,
-          "sha256": "bc9146a3fb8a9b1947a58113a77afacce8398d7356f5dec7f18fd232dda97247"
+          "chemin": "/media/approved/portrait-buste-768-b48d8855.webp",
+          "octets": 21314,
+          "sha256": "b48d8855ae873f265b7401dfe99c612b2d66228ea88149cd66cd9c5e0ab5e1dd"
         },
         {
           "largeur": 1080,
           "hauteur": 770,
-          "chemin": "/media/approved/portrait-buste-1080-b0583d3a.webp",
-          "octets": 33414,
-          "sha256": "b0583d3ac42085db041b76ced78f55fbefd74e8668d226326f8a8a15a1292a3d"
+          "chemin": "/media/approved/portrait-buste-1080-bc9ceef5.webp",
+          "octets": 33638,
+          "sha256": "bc9ceef512c620cb29108ad93c93791aa139add90678be186dfdb0b6cc8f7e77"
         },
         {
           "largeur": 1280,
           "hauteur": 912,
-          "chemin": "/media/approved/portrait-buste-1280-4c7c1c27.webp",
-          "octets": 41938,
-          "sha256": "4c7c1c2712512408cdbf3b396b15318c36ef83ca5dfbf14b43ee9cb633cd532d"
+          "chemin": "/media/approved/portrait-buste-1280-45a35c90.webp",
+          "octets": 42234,
+          "sha256": "45a35c90da20b60c600d3f3e1c230831c13af647fe9cdc23852c1933c5372e97"
         }
       ]
     }
