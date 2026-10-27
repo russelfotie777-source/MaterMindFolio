@@ -9,6 +9,7 @@ import { execFileSync } from 'node:child_process';
 import { createHash, randomUUID } from 'node:crypto';
 import { mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { brotliCompressSync, constants } from 'node:zlib';
 
 const HASH_FILE = '.next-csp/script-hashes.json';
 const INLINE_SCRIPT = /<script\b(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g;
@@ -31,9 +32,9 @@ function strings(value: Json): string[] {
   return (Array.isArray(value) ? value : Object.values(value)).flatMap(strings);
 }
 
-// Textes des faits privés, sous leurs formes brute, échappée JSON (données RSC) et échappée HTML.
-// Les textes courts sont ignorés : un prénom isolé apparaîtrait ailleurs sans être une fuite.
-function privateTexts(): string[] {
+// Textes des faits privés, sous leurs formes brute, échappée JSON (données RSC) et échappée HTML,
+// cherchés comme mots entiers : un prénom court comme « Iris » est contrôlé sans faux positif dans « Paris ».
+function privateTexts(): { text: string; pattern: RegExp }[] {
   const texts = files('content/facts', '.json').flatMap((file) => {
     const { facts } = JSON.parse(readFileSync(file, 'utf8')) as {
       facts: Record<string, { visibility: string; value: Json }>;
@@ -47,13 +48,11 @@ function privateTexts(): string[] {
       .replaceAll('>', '&gt;')
       .replaceAll("'", '&#x27;')
       .replaceAll('"', '&quot;');
-  return [
-    ...new Set(
-      texts
-        .filter((text) => text.length >= 8)
-        .flatMap((text) => [text, JSON.stringify(text).slice(1, -1), html(text)]),
-    ),
-  ];
+  const escape = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return [...new Set(texts.map((text) => text.trim()).filter((text) => text.length >= 2))].map((text) => {
+    const forms = [...new Set([text, JSON.stringify(text).slice(1, -1), html(text)])].map(escape);
+    return { text, pattern: new RegExp(`(?<![\\p{L}\\p{N}])(?:${forms.join('|')})(?![\\p{L}\\p{N}])`, 'u') };
+  });
 }
 
 function inlineScriptHashes(): string[] {
@@ -106,10 +105,33 @@ const published = [
 ];
 const exposed = published.flatMap((file) => {
   const content = readFileSync(file, 'utf8');
-  return secrets.filter((text) => content.includes(text)).map((text) => `${file} : « ${text} »`);
+  return secrets.filter(({ pattern }) => pattern.test(content)).map(({ text }) => `${file} : « ${text} »`);
 });
 if (exposed.length > 0) {
   console.error(`Fait privé publié :\n${exposed.join('\n')}\nBuild refusé.`);
   process.exit(1);
 }
 console.log(`Faits privés : aucun des ${secrets.length} textes contrôlés n'est publié.`);
+
+// Budget de l'îlot immersif (contrat, section 7 ; ADR-004, section 4) : 290 Ko en Brotli q5, la
+// compression réaliste d'un CDN, pour les chunks de la scène (Three.js, R3F, GSAP et code du monde).
+// Les scènes de l'accueil et de la visite sont comptées ensemble : c'est une borne haute.
+const BUDGET_ILOT = 290_000;
+const ilot = files('.next/static', '.js').filter((file) =>
+  /WebGLRenderer|monterMonde|demarrerScene/.test(readFileSync(file, 'utf8')),
+);
+const poidsIlot = ilot.reduce(
+  (total, file) =>
+    total +
+    brotliCompressSync(readFileSync(file), { params: { [constants.BROTLI_PARAM_QUALITY]: 5 } }).length,
+  0,
+);
+if (poidsIlot > BUDGET_ILOT) {
+  console.error(
+    `Îlot immersif : ${Math.round(poidsIlot / 1000)} Ko en Brotli q5, au-delà de 290 Ko ; build refusé.`,
+  );
+  process.exit(1);
+}
+console.log(
+  `Îlot immersif : ${Math.round(poidsIlot / 1000)} Ko en Brotli q5 sur 290 Ko (${ilot.length} chunks).`,
+);

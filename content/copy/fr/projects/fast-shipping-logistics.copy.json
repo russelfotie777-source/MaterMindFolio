@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "project-copy/1",
+  "slug": "fast-shipping-logistics",
+  "lang": "fr",
+  "sections": {
+    "product-caption": {
+      "file": "content/copy/fr/projects/fast-shipping-logistics/product-caption.md",
+      "author": "chatgpt",
+      "factRefs": ["personalScope", "proofs"],
+      "russelValidatedAt": null
+    }
+  }
+}

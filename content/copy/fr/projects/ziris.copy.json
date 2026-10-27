@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "project-copy/1",
+  "slug": "ziris",
+  "lang": "fr",
+  "sections": {
+    "product-caption": {
+      "file": "content/copy/fr/projects/ziris/product-caption.md",
+      "author": "chatgpt",
+      "factRefs": ["personalScope", "team", "proofs"],
+      "russelValidatedAt": null
+    }
+  }
+}

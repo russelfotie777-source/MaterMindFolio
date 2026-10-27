@@ -13,7 +13,9 @@ export function Entete() {
         Aller au contenu
       </a>
       <header className={styles.entete}>
-        <Link className={styles.site} href="/">
+        {/* Sans préchargement : le RSC de l'accueil porte le preload du portrait, qui serait sinon
+            téléchargé sur chaque page où ce lien est visible. */}
+        <Link className={styles.site} href="/" prefetch={false}>
           {NOM_DU_SITE}
         </Link>
         <nav aria-label="Navigation principale">

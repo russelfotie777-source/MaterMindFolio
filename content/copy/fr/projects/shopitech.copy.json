@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "project-copy/1",
+  "slug": "shopitech",
+  "lang": "fr",
+  "sections": {
+    "product-caption": {
+      "file": "content/copy/fr/projects/shopitech/product-caption.md",
+      "author": "chatgpt",
+      "factRefs": ["personalScope", "proofs", "status"],
+      "russelValidatedAt": null
+    }
+  }
+}

@@ -47,7 +47,7 @@ export default function ResumeRecruteur() {
 
           <section className={page.rubrique}>
             <h2>Contact</h2>
-            <ul className={page.liste}>
+            <ul role="list" className={page.liste}>
               <li>
                 <a className={page.fort} href={`mailto:${profil.email}`}>
                   {profil.email}
@@ -63,7 +63,7 @@ export default function ResumeRecruteur() {
 
           <section className={`${page.rubrique} ${styles.projets}`}>
             <h2>Six produits</h2>
-            <ol className={styles.produits}>
+            <ol role="list" className={styles.produits}>
               {projets.map((projet) => (
                 <li key={projet.slug}>
                   <Link className={page.fort} href={`/projets/${projet.slug}`}>

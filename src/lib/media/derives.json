@@ -1,7 +1,7 @@
 {
   "portrait-buste": {
     "registre": "H237-POR-CUT-001",
-    "credit": "Photo fournie par Russel ; fond retiré avec Magnific, visage, main et corps inchangés.",
+    "credit": "Photo fournie par Russel ; fond retiré avec Magnific, étalonnage colorimétrique Codex ; visage, main et corps inchangés.",
     "genere": false,
     "alt": null,
     "largeur": 1859,
@@ -11,60 +11,60 @@
         {
           "largeur": 480,
           "hauteur": 342,
-          "chemin": "/media/approved/portrait-buste-480-efd44961.avif",
-          "octets": 6900,
-          "sha256": "efd4496160985ce40c90151bf3ac9c43aa0f0516f53f344fb20081243c4ecef4"
+          "chemin": "/media/approved/portrait-buste-480-058c8162.avif",
+          "octets": 6924,
+          "sha256": "058c8162988643f4a416d7c885fc9253eec6b4094ccc3cd50c975e3b75ebe922"
         },
         {
           "largeur": 768,
           "hauteur": 547,
-          "chemin": "/media/approved/portrait-buste-768-d5c21a50.avif",
-          "octets": 12245,
-          "sha256": "d5c21a508716f9b78b79f2ea21e79432d77c2027b5ac8265b83bcb318cfd1b2c"
+          "chemin": "/media/approved/portrait-buste-768-c3e578b3.avif",
+          "octets": 12198,
+          "sha256": "c3e578b312a3ecc6da838ba50b3f0c009f455c6d8231219f3137dd43238610e1"
         },
         {
           "largeur": 1080,
           "hauteur": 770,
-          "chemin": "/media/approved/portrait-buste-1080-1992aac5.avif",
-          "octets": 18828,
-          "sha256": "1992aac5b20e0b95feaf87733bd3726654e60f6d111db8cb3f540f5fe14b3b91"
+          "chemin": "/media/approved/portrait-buste-1080-8e93ffc3.avif",
+          "octets": 18783,
+          "sha256": "8e93ffc354e3b70f0a465bcb5f822d8b3d9154e0557c054c6a65e8bdfb00cfb7"
         },
         {
           "largeur": 1280,
           "hauteur": 912,
-          "chemin": "/media/approved/portrait-buste-1280-0544be62.avif",
-          "octets": 22929,
-          "sha256": "0544be628876336249a517389bf62abd8b429da73229190bd96d06cfa17955f9"
+          "chemin": "/media/approved/portrait-buste-1280-42c2dea9.avif",
+          "octets": 22884,
+          "sha256": "42c2dea91fb875f22f9ac16ca554901b32f9a2c84f8bd2f74e626b3510a32ab2"
         }
       ],
       "webp": [
         {
           "largeur": 480,
           "hauteur": 342,
-          "chemin": "/media/approved/portrait-buste-480-e456a864.webp",
-          "octets": 11684,
-          "sha256": "e456a864c7223de60cb4832fe9b6070b9e6289c2af0b9fe658243defb3f183db"
+          "chemin": "/media/approved/portrait-buste-480-f26afe54.webp",
+          "octets": 11794,
+          "sha256": "f26afe54fcabbc950876a886205bb92b34299b3b16e3547fd8b3ed5c39af5b83"
         },
         {
           "largeur": 768,
           "hauteur": 547,
-          "chemin": "/media/approved/portrait-buste-768-77ca48b9.webp",
-          "octets": 21064,
-          "sha256": "77ca48b9644c05097bcec53a17587de0acf7cb5a34bcfb47ed5be57913a7c710"
+          "chemin": "/media/approved/portrait-buste-768-b48d8855.webp",
+          "octets": 21314,
+          "sha256": "b48d8855ae873f265b7401dfe99c612b2d66228ea88149cd66cd9c5e0ab5e1dd"
         },
         {
           "largeur": 1080,
           "hauteur": 770,
-          "chemin": "/media/approved/portrait-buste-1080-b0442f0e.webp",
-          "octets": 33374,
-          "sha256": "b0442f0e2882461fc6ca8c12fb0e434badc22020d5e55fe4ce717f05b49dfeb9"
+          "chemin": "/media/approved/portrait-buste-1080-bc9ceef5.webp",
+          "octets": 33638,
+          "sha256": "bc9ceef512c620cb29108ad93c93791aa139add90678be186dfdb0b6cc8f7e77"
         },
         {
           "largeur": 1280,
           "hauteur": 912,
-          "chemin": "/media/approved/portrait-buste-1280-bf5815a0.webp",
-          "octets": 41900,
-          "sha256": "bf5815a00014e198cfef2f437c3d274ee627a1b613a65ad6c054131111bfc45e"
+          "chemin": "/media/approved/portrait-buste-1280-45a35c90.webp",
+          "octets": 42234,
+          "sha256": "45a35c90da20b60c600d3f3e1c230831c13af647fe9cdc23852c1933c5372e97"
         }
       ]
     }
@@ -667,6 +667,426 @@
           "chemin": "/media/approved/artvibe-cameroun-mobile-390-a29808b7.webp",
           "octets": 36414,
           "sha256": "a29808b758b6e2a6e7e41c42b6edcb1713bd71b065ca9095b0809e0b722ed8f8"
+        }
+      ]
+    }
+  },
+  "soleil-carte": {
+    "registre": "H237-SPACE-SUN-001",
+    "credit": "Carte : Solar System Scope (solarsystemscope.com), licence CC BY 4.0 (creativecommons.org/licenses/by/4.0) ; réduite et compressée pour HORIZON 237.",
+    "genere": false,
+    "alt": null,
+    "largeur": 2048,
+    "hauteur": 1024,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 512,
+          "hauteur": 256,
+          "chemin": "/media/approved/soleil-carte-512-bfeab744.avif",
+          "octets": 13579,
+          "sha256": "bfeab744348514ef124c1d90016046451ecf5b37a3b8c013eef06b658e31199d"
+        },
+        {
+          "largeur": 1024,
+          "hauteur": 512,
+          "chemin": "/media/approved/soleil-carte-1024-263707aa.avif",
+          "octets": 38568,
+          "sha256": "263707aa0d1c5765905f5d01654065369493d9228bb51342574098694e8d9a8e"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 512,
+          "hauteur": 256,
+          "chemin": "/media/approved/soleil-carte-512-ff906ed4.webp",
+          "octets": 24124,
+          "sha256": "ff906ed47052f75bb5b73b2fe213043361d93dff1d54ab18c9519f235142a815"
+        },
+        {
+          "largeur": 1024,
+          "hauteur": 512,
+          "chemin": "/media/approved/soleil-carte-1024-c0edab51.webp",
+          "octets": 65212,
+          "sha256": "c0edab5101882cd8bd8cd965dff25ec56fc68358327eed78568454fad014a35f"
+        }
+      ]
+    }
+  },
+  "mercure-carte": {
+    "registre": "H237-SPACE-MERCURY-001",
+    "credit": "Carte : Solar System Scope (solarsystemscope.com), licence CC BY 4.0 (creativecommons.org/licenses/by/4.0) ; réduite et compressée pour HORIZON 237.",
+    "genere": false,
+    "alt": null,
+    "largeur": 2048,
+    "hauteur": 1024,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 512,
+          "hauteur": 256,
+          "chemin": "/media/approved/mercure-carte-512-4511924e.avif",
+          "octets": 10229,
+          "sha256": "4511924e286b41bd70e6c6a950953adf79ada117ef4ae797b0ed9a0548f9a83d"
+        },
+        {
+          "largeur": 1024,
+          "hauteur": 512,
+          "chemin": "/media/approved/mercure-carte-1024-483b00a7.avif",
+          "octets": 43616,
+          "sha256": "483b00a78f7c06f9168b6be04bd0978bb77a438c59755a2622d7fb23c0cfc261"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 512,
+          "hauteur": 256,
+          "chemin": "/media/approved/mercure-carte-512-5cb8a882.webp",
+          "octets": 15730,
+          "sha256": "5cb8a882d526a9e8974be651efdd4c3b2f32778d00f386bd8c81c096af04e112"
+        },
+        {
+          "largeur": 1024,
+          "hauteur": 512,
+          "chemin": "/media/approved/mercure-carte-1024-848a72a3.webp",
+          "octets": 68478,
+          "sha256": "848a72a339de4a7f6917af3b66867cc90f5c8925b61a2ab4717dc9840e29892e"
+        }
+      ]
+    }
+  },
+  "venus-carte": {
+    "registre": "H237-SPACE-VENUS-001",
+    "credit": "Carte : Solar System Scope (solarsystemscope.com), licence CC BY 4.0 (creativecommons.org/licenses/by/4.0) ; réduite et compressée pour HORIZON 237.",
+    "genere": false,
+    "alt": null,
+    "largeur": 2048,
+    "hauteur": 1024,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 512,
+          "hauteur": 256,
+          "chemin": "/media/approved/venus-carte-512-6c4b4fa3.avif",
+          "octets": 3174,
+          "sha256": "6c4b4fa3f2109452ae1c278daaa69ea053e0c9082fd164fe8cd024b3dafd8ab4"
+        },
+        {
+          "largeur": 1024,
+          "hauteur": 512,
+          "chemin": "/media/approved/venus-carte-1024-ad75c575.avif",
+          "octets": 7398,
+          "sha256": "ad75c575e6fd0175ab126d936a8ab4a669f0d53d305cea2e63d4a5cfa81a2ac8"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 512,
+          "hauteur": 256,
+          "chemin": "/media/approved/venus-carte-512-797b59dc.webp",
+          "octets": 3888,
+          "sha256": "797b59dcfde549debdedfb9690099326680636cfeafe26f6b65e826be8a12753"
+        },
+        {
+          "largeur": 1024,
+          "hauteur": 512,
+          "chemin": "/media/approved/venus-carte-1024-f92999a2.webp",
+          "octets": 9630,
+          "sha256": "f92999a26a76b08b1738604387a2fb9709bd2fefd3d41f842e01a54a72156c14"
+        }
+      ]
+    }
+  },
+  "lune-carte": {
+    "registre": "H237-SPACE-MOON-001",
+    "credit": "Carte : Solar System Scope (solarsystemscope.com), licence CC BY 4.0 (creativecommons.org/licenses/by/4.0) ; réduite et compressée pour HORIZON 237.",
+    "genere": false,
+    "alt": null,
+    "largeur": 2048,
+    "hauteur": 1024,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 512,
+          "hauteur": 256,
+          "chemin": "/media/approved/lune-carte-512-959a4674.avif",
+          "octets": 13811,
+          "sha256": "959a4674cfb8e44e116d1feae4bfe5c86415d7e6ee901b8c94687457ae648bca"
+        },
+        {
+          "largeur": 1024,
+          "hauteur": 512,
+          "chemin": "/media/approved/lune-carte-1024-4f9ac954.avif",
+          "octets": 57215,
+          "sha256": "4f9ac9541f075b472e3aed01b60d6f5c302e9e78c760dc011b7af2b0cd139a43"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 512,
+          "hauteur": 256,
+          "chemin": "/media/approved/lune-carte-512-60f84c4b.webp",
+          "octets": 23464,
+          "sha256": "60f84c4ba8a408ab0702e56b78df7032f3a89b010d4190a696b80e199a7e4989"
+        },
+        {
+          "largeur": 1024,
+          "hauteur": 512,
+          "chemin": "/media/approved/lune-carte-1024-b62b051e.webp",
+          "octets": 99578,
+          "sha256": "b62b051eecc613c63971c891189489a28e837e21e99bbabd95d4811fc3edb88f"
+        }
+      ]
+    }
+  },
+  "mars-carte": {
+    "registre": "H237-SPACE-MARS-001",
+    "credit": "Carte : Solar System Scope (solarsystemscope.com), licence CC BY 4.0 (creativecommons.org/licenses/by/4.0) ; réduite et compressée pour HORIZON 237.",
+    "genere": false,
+    "alt": null,
+    "largeur": 2048,
+    "hauteur": 1024,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 512,
+          "hauteur": 256,
+          "chemin": "/media/approved/mars-carte-512-6c58e400.avif",
+          "octets": 9519,
+          "sha256": "6c58e4006f48a56158959503ef13a324bf4e7790230bde993c2477be4474752e"
+        },
+        {
+          "largeur": 1024,
+          "hauteur": 512,
+          "chemin": "/media/approved/mars-carte-1024-c14a4155.avif",
+          "octets": 31087,
+          "sha256": "c14a415540866cb46ff01cee63c5dac95633ca6ec31945b96e5a3e3557013f52"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 512,
+          "hauteur": 256,
+          "chemin": "/media/approved/mars-carte-512-f97dd06e.webp",
+          "octets": 13066,
+          "sha256": "f97dd06e17a600fbe8abad535560d88cb62cf10b967fecc01e0b54713705fc56"
+        },
+        {
+          "largeur": 1024,
+          "hauteur": 512,
+          "chemin": "/media/approved/mars-carte-1024-bda0d5ae.webp",
+          "octets": 42372,
+          "sha256": "bda0d5ae1fd35b055ee760cd8d0f526a5c9b1eea652ef821bbb9d1e6ade9755d"
+        }
+      ]
+    }
+  },
+  "jupiter-carte": {
+    "registre": "H237-SPACE-JUPITER-001",
+    "credit": "Carte : Solar System Scope (solarsystemscope.com), licence CC BY 4.0 (creativecommons.org/licenses/by/4.0) ; réduite et compressée pour HORIZON 237.",
+    "genere": false,
+    "alt": null,
+    "largeur": 2048,
+    "hauteur": 1024,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 512,
+          "hauteur": 256,
+          "chemin": "/media/approved/jupiter-carte-512-8ce679a6.avif",
+          "octets": 6713,
+          "sha256": "8ce679a6ff3ac25e0c3f0c5547752ad173a5ce81d9e18dc21f0d2fd7dbd8a252"
+        },
+        {
+          "largeur": 1024,
+          "hauteur": 512,
+          "chemin": "/media/approved/jupiter-carte-1024-c57262d9.avif",
+          "octets": 22702,
+          "sha256": "c57262d9c1cba0227c48b6de9afd0f6135ed3108c8bd703d542da3334784b6aa"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 512,
+          "hauteur": 256,
+          "chemin": "/media/approved/jupiter-carte-512-3cc6af54.webp",
+          "octets": 8826,
+          "sha256": "3cc6af546703eb574c5c58456342d1f18210bd00f93a3093c3ef9dc0ba0f7ebe"
+        },
+        {
+          "largeur": 1024,
+          "hauteur": 512,
+          "chemin": "/media/approved/jupiter-carte-1024-b4c12563.webp",
+          "octets": 28318,
+          "sha256": "b4c125639237f392da2abbd3ad51a84b64e5f46cb5c495bb2163fe3c6b21cec2"
+        }
+      ]
+    }
+  },
+  "saturne-carte": {
+    "registre": "H237-SPACE-SATURN-001",
+    "credit": "Carte : Solar System Scope (solarsystemscope.com), licence CC BY 4.0 (creativecommons.org/licenses/by/4.0) ; réduite et compressée pour HORIZON 237.",
+    "genere": false,
+    "alt": null,
+    "largeur": 2048,
+    "hauteur": 1024,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 512,
+          "hauteur": 256,
+          "chemin": "/media/approved/saturne-carte-512-520f2a21.avif",
+          "octets": 1877,
+          "sha256": "520f2a21b783505b60fbb69891f37116e1914e68200ffb8cd9cf06a3548c3f34"
+        },
+        {
+          "largeur": 1024,
+          "hauteur": 512,
+          "chemin": "/media/approved/saturne-carte-1024-f7f33fff.avif",
+          "octets": 5285,
+          "sha256": "f7f33fffb71be201421348220e0284b9eae4e90148419eddbb4a19bf36379a53"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 512,
+          "hauteur": 256,
+          "chemin": "/media/approved/saturne-carte-512-b4845355.webp",
+          "octets": 2254,
+          "sha256": "b4845355930639aa790f00db841aa9a12c5b90dda90fbe1d66cefaee3731c8a2"
+        },
+        {
+          "largeur": 1024,
+          "hauteur": 512,
+          "chemin": "/media/approved/saturne-carte-1024-fcd46ca9.webp",
+          "octets": 6732,
+          "sha256": "fcd46ca973e6fc77d4e9b4d74bfe3f39d2ef2258cdfdd365c87aba6618466484"
+        }
+      ]
+    }
+  },
+  "anneaux-carte": {
+    "registre": "H237-SPACE-SATURN-RING-001",
+    "credit": "Carte : Solar System Scope (solarsystemscope.com), licence CC BY 4.0 (creativecommons.org/licenses/by/4.0) ; réduite et compressée pour HORIZON 237.",
+    "genere": false,
+    "alt": null,
+    "largeur": 2048,
+    "hauteur": 125,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 512,
+          "hauteur": 31,
+          "chemin": "/media/approved/anneaux-carte-512-caa75d34.avif",
+          "octets": 1101,
+          "sha256": "caa75d3434183e39edd9ec254403c80386830e8a8f5661c096a5aa63c6e89cc2"
+        },
+        {
+          "largeur": 1024,
+          "hauteur": 63,
+          "chemin": "/media/approved/anneaux-carte-1024-831730a3.avif",
+          "octets": 1859,
+          "sha256": "831730a3cba5dab852c8915a0e9f08d9e17f9d40f97ec3102f04a70ce059b966"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 512,
+          "hauteur": 31,
+          "chemin": "/media/approved/anneaux-carte-512-f1a4886e.webp",
+          "octets": 1110,
+          "sha256": "f1a4886e11372dbe9a6e38af4b9d53f8d6086d9a5a2e123d31abec26ae8f1c7c"
+        },
+        {
+          "largeur": 1024,
+          "hauteur": 63,
+          "chemin": "/media/approved/anneaux-carte-1024-1c405d78.webp",
+          "octets": 2152,
+          "sha256": "1c405d78c160ba02a4854b4ecb6bf90c5ca6fc67954cd46a5b764baef38d0a25"
+        }
+      ]
+    }
+  },
+  "uranus-carte": {
+    "registre": "H237-SPACE-URANUS-001",
+    "credit": "Carte : Solar System Scope (solarsystemscope.com), licence CC BY 4.0 (creativecommons.org/licenses/by/4.0) ; réduite et compressée pour HORIZON 237.",
+    "genere": false,
+    "alt": null,
+    "largeur": 2048,
+    "hauteur": 1024,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 512,
+          "hauteur": 256,
+          "chemin": "/media/approved/uranus-carte-512-c5d06348.avif",
+          "octets": 432,
+          "sha256": "c5d06348bd374ee2df87925c5596197c432202bc279e07e5116334f63bc4fcd8"
+        },
+        {
+          "largeur": 1024,
+          "hauteur": 512,
+          "chemin": "/media/approved/uranus-carte-1024-845870c0.avif",
+          "octets": 706,
+          "sha256": "845870c050cccf0ef21421bc95cb4fdfd5a84b4393775807347ce4ca7fb4f5b2"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 512,
+          "hauteur": 256,
+          "chemin": "/media/approved/uranus-carte-512-443e8f01.webp",
+          "octets": 664,
+          "sha256": "443e8f0120ba62afb05a20c61390e9dc3485938ba25b7de73951b00f7b327fea"
+        },
+        {
+          "largeur": 1024,
+          "hauteur": 512,
+          "chemin": "/media/approved/uranus-carte-1024-152e8a26.webp",
+          "octets": 1840,
+          "sha256": "152e8a26445cc9bc2b2502748b8e176432e58e67144810b5ea42005be425d48c"
+        }
+      ]
+    }
+  },
+  "neptune-carte": {
+    "registre": "H237-SPACE-NEPTUNE-001",
+    "credit": "Carte : Solar System Scope (solarsystemscope.com), licence CC BY 4.0 (creativecommons.org/licenses/by/4.0) ; réduite et compressée pour HORIZON 237.",
+    "genere": false,
+    "alt": null,
+    "largeur": 2048,
+    "hauteur": 1024,
+    "fichiers": {
+      "avif": [
+        {
+          "largeur": 512,
+          "hauteur": 256,
+          "chemin": "/media/approved/neptune-carte-512-37843440.avif",
+          "octets": 1254,
+          "sha256": "378434406e1e9b98afef7176edc2439cddd9e5944349e0d2f673af2e08295a40"
+        },
+        {
+          "largeur": 1024,
+          "hauteur": 512,
+          "chemin": "/media/approved/neptune-carte-1024-35de96ca.avif",
+          "octets": 2937,
+          "sha256": "35de96ca92b049432cb61aff32ee3e17fe590a7a14dc7b9e5134fee37d0a7648"
+        }
+      ],
+      "webp": [
+        {
+          "largeur": 512,
+          "hauteur": 256,
+          "chemin": "/media/approved/neptune-carte-512-b8db4757.webp",
+          "octets": 1520,
+          "sha256": "b8db4757077a7493e61b524d8f3711dd793e978677c34516015203b461635cac"
+        },
+        {
+          "largeur": 1024,
+          "hauteur": 512,
+          "chemin": "/media/approved/neptune-carte-1024-db731b6d.webp",
+          "octets": 4232,
+          "sha256": "db731b6d59df8ba975dea8389632f33229e7798f40967077b2ae2559e019ba13"
         }
       ]
     }

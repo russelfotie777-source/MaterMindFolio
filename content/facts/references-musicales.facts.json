@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "music-references/1",
+  "contentRelease": {
+    "id": "CR-1",
+    "status": "draft",
+    "russelVisa": null
+  },
+  "sources": [
+    {
+      "id": "russel-2026-10-19",
+      "kind": "owner-declaration",
+      "label": "Choix des trois morceaux de référence validé par Russel dans la fiche de collecte G1",
+      "checkedAt": "2026-10-19"
+    },
+    {
+      "id": "umj-hisaishi",
+      "kind": "public-check",
+      "label": "Universal Music Japan : clip officiel de « One Summer's Day », publié par la chaîne JoeHisaishiVEVO",
+      "url": "https://www.universal-music.co.jp/hisaishi-joe/?p=177",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "milan-frieren",
+      "kind": "public-check",
+      "label": "Milan Records : bande originale de Frieren par Evan Call ; aucune publication YouTube officielle du titre identifiée",
+      "url": "https://milanrecords.com/pre-order-now-frieren-beyond-journeys-end-on-vinyl/",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "radwimps-officiel",
+      "kind": "public-check",
+      "label": "Site officiel de RADWIMPS ; aucune publication YouTube officielle du titre identifiée",
+      "url": "https://radwimps.jp/",
+      "checkedAt": "2026-10-23"
+    }
+  ],
+  "facts": {
+    "references": {
+      "value": [
+        {
+          "id": "one-summers-day",
+          "title": "One Summer's Day",
+          "composer": "Joe Hisaishi",
+          "work": "Le Voyage de Chihiro",
+          "year": 2001,
+          "publication": {
+            "kind": "youtube",
+            "videoId": "TK1Ij_-mank",
+            "channel": "JoeHisaishiVEVO"
+          }
+        },
+        {
+          "id": "journey-of-a-lifetime",
+          "title": "Journey of a Lifetime ~ Frieren Main Theme",
+          "composer": "Evan Call",
+          "work": "Frieren",
+          "year": 2023,
+          "publication": {
+            "kind": "official-page",
+            "label": "Milan Records",
+            "url": "https://milanrecords.com/pre-order-now-frieren-beyond-journeys-end-on-vinyl/"
+          }
+        },
+        {
+          "id": "kataware-doki",
+          "title": "Kataware Doki",
+          "composer": "RADWIMPS",
+          "work": "Your Name",
+          "year": 2016,
+          "publication": {
+            "kind": "official-page",
+            "label": "Site officiel de RADWIMPS",
+            "url": "https://radwimps.jp/"
+          }
+        }
+      ],
+      "sources": ["russel-2026-10-19", "umj-hisaishi", "milan-frieren", "radwimps-officiel"],
+      "validatedAt": null,
+      "visibility": "public",
+      "rightsOwner": "Ayants droit respectifs des œuvres",
+      "note": "Publications officielles identifiées par Claude le 23 octobre 2026 (ADR-001) ; visa de Russel attendu."
+    }
+  }
+}

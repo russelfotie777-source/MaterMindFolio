@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
+import { classesCartouche, Fleche, NomVivant, Repere } from '@/components/Cartouche';
 import { Copie } from '@/components/Copie';
 import { LienExterne } from '@/components/LienExterne';
 import { MediaProjet } from '@/components/MediaProjet';
@@ -33,6 +34,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 // Étude de cas (DR-1, vue A06), en lecture linéaire et sans JavaScript : média produit sur 7 colonnes,
 // périmètre et preuve sur 5. Sans média, rôle, périmètre et preuve gardent toute la surface.
+// Dans le monde (décision de Russel du 25 octobre 2026), l'en-tête est un cartouche : la caméra se pose
+// face à l'écran 3D du projet, à droite, et un trait relie son cadre au rang du projet.
 export default async function EtudeDeCas({ params }: Props) {
   const projet = lireProjet((await params).slug);
   if (!projet) notFound();
@@ -42,13 +45,30 @@ export default async function EtudeDeCas({ params }: Props) {
   const { organisation, equipe } = projet;
   // Textes de Codex visés par Russel ; une section absente n'affiche rien.
   const copie = lireCopieProjet(projet.slug);
+  const [site] = projet.liens;
 
   return (
     <div className={page.cadre}>
-      <article className={page.plaque}>
-        <p className={page.etiquette}>Étude de cas · {rangSurSix(projet.rang)}</p>
-        <h1 className={page.titrePage}>{projet.nom}</h1>
-        <p className={page.lead}>{projet.role}</p>
+      <article className={page.plaque} data-etude>
+        <header className={styles.entete} data-cartouche>
+          <Repere rang={projet.rang} total={projets.length} />
+          <p className={classesCartouche.meta} data-apparait>
+            Étude de cas · {projet.periode.debut.slice(0, 4)} ·{' '}
+            {projet.plateformes.map((p) => PLATEFORMES[p]).join(' · ')}
+          </p>
+          <NomVivant nom={projet.nom} niveau={1} />
+          <p className={`${page.lead} ${styles.role}`} data-apparait>
+            {projet.role}
+          </p>
+          {site && (
+            <p data-apparait>
+              <LienExterne className={classesCartouche.appel} href={site.url}>
+                <span>{site.libelle}</span>
+                <Fleche vers="dehors" />
+              </LienExterne>
+            </p>
+          )}
+        </header>
 
         {copie.need && (
           <section className={`${page.rubrique} ${styles.besoin}`}>
@@ -61,12 +81,13 @@ export default async function EtudeDeCas({ params }: Props) {
           <MediaProjet
             slug={projet.slug}
             tailles="(min-width: 1280px) 42rem, 55vw"
+            prioritaire
             legende={copie['product-caption'] && <Copie arbre={copie['product-caption']} />}
           />
           <div className={styles.preuves}>
             <section className={page.rubrique}>
               <h2>Périmètre validé</h2>
-              <ul className={`${page.liste} ${styles.perimetre}`}>
+              <ul role="list" className={`${page.liste} ${styles.perimetre}`}>
                 {projet.perimetre.map((element) => (
                   <li key={element}>{element}</li>
                 ))}
@@ -75,7 +96,7 @@ export default async function EtudeDeCas({ params }: Props) {
 
             <section className={page.rubrique}>
               <h2>Preuve publique</h2>
-              <ul className={page.liste}>
+              <ul role="list" className={page.liste}>
                 {projet.preuves.map((preuve) => (
                   <li key={preuve.libelle} className={styles.preuve}>
                     <span className={page.fort}>
@@ -127,7 +148,7 @@ export default async function EtudeDeCas({ params }: Props) {
                 <dd>
                   {formaterPeriode(projet.periode)}
                   {projet.periode.phases.length > 0 && (
-                    <ul className={page.liste}>
+                    <ul role="list" className={page.liste}>
                       {projet.periode.phases.map((phase) => (
                         <li key={phase.libelle} className={page.attenue}>
                           {phase.libelle} :{' '}
@@ -154,7 +175,7 @@ export default async function EtudeDeCas({ params }: Props) {
                     )}
                     {equipe.note && <> · {equipe.note}</>}
                     {equipe.membres.length > 0 && (
-                      <ul className={page.liste}>
+                      <ul role="list" className={page.liste}>
                         {equipe.membres.map((membre) => (
                           <li key={membre.nom}>
                             {membre.nom} : {membre.contribution}
@@ -176,7 +197,7 @@ export default async function EtudeDeCas({ params }: Props) {
               <div>
                 <dt>Liens</dt>
                 <dd>
-                  <ul className={page.liste}>
+                  <ul role="list" className={page.liste}>
                     {projet.liens.map((lien) => (
                       <li key={lien.url}>
                         <LienExterne href={lien.url}>{lien.libelle}</LienExterne>
@@ -191,7 +212,7 @@ export default async function EtudeDeCas({ params }: Props) {
       </article>
 
       <nav aria-label="Autres projets" className={styles.suite}>
-        <ul className={page.liste}>
+        <ul role="list" className={page.liste}>
           {precedent && (
             <li>
               <Link href={`/projets/${precedent.slug}`}>Projet précédent : {precedent.nom}</Link>

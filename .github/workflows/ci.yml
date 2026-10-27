@@ -36,6 +36,8 @@ jobs:
       - run: pnpm typecheck
       - name: Tests unitaires (allowlist de la copy)
         run: pnpm test:unit
+      - name: Tests de composants (pages d'erreur)
+        run: pnpm test:composants
       - run: pnpm lint
       - run: pnpm format
       - run: pnpm tokens:check

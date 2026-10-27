@@ -1,5 +1,5 @@
 /* Composition commune des routes (DR-1, 01_DIRECTION_ARTISTIQUE et vues de contrôle A06, A09, A11).
-   Le texte suit des couleurs de contexte : sur le fond vivant sombre par défaut, sur papier dans .plaque. */
+   Le texte suit des couleurs de contexte : sur le fond vivant sombre à l'écran, sur papier à l'impression. */
 .cadre {
   --texte: var(--color-text-on-dark);
   --texte-attenue: var(--color-text-on-dark-muted);
@@ -24,27 +24,29 @@
   }
 }
 
-/* Plaque papier : coin haut droit coupé, rayons organiques bornés par les jetons. */
+/* Plaque : le contenu d'une page. Plus de papier blanc (décision de Russel du 25 octobre 2026) : le texte
+   vit dans le monde, sur le voile de nuit violette, sans fond ni bord. */
 .plaque {
-  --texte: var(--color-text-on-light);
-  --texte-attenue: var(--color-text-on-light-muted);
-  --etiquette: var(--color-violet-primary);
-
-  padding: var(--space-8) var(--space-5);
-  border-radius: var(--radius-organic-maximum) var(--radius-none) var(--radius-organic-maximum)
-    var(--radius-organic-minimum);
-  background: var(--color-surface-paper);
+  padding-block: var(--space-4) var(--space-8);
   color: var(--texte);
-  clip-path: polygon(0 0, calc(100% - var(--space-8)) 0, 100% var(--space-12), 100% 100%, 0 100%);
 }
 
-.plaque :focus-visible {
-  outline-color: var(--color-state-focus-on-light);
-}
-
+/* Colonne : une page courte reste du côté du texte ; dans le monde, l'autre côté du cadre est la vue. */
 @media (min-width: 768px) {
-  .plaque {
-    padding: var(--space-12) var(--space-12) var(--space-10);
+  .colonne {
+    max-width: min(40rem, 46vw);
+  }
+
+  .colonne .grille {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media print {
+  .cadre {
+    --texte: var(--color-text-on-light);
+    --texte-attenue: var(--color-text-on-light-muted);
+    --etiquette: var(--color-violet-primary);
   }
 }
 
@@ -58,12 +60,24 @@
   text-transform: uppercase;
 }
 
+/* Titres de page : texte vivant, du blanc au rose de la trace et à la glycine, comme le nom de l'accueil. */
 .titreDisplay,
 .titrePage {
   margin-block: var(--space-4) var(--space-6);
   font-family: var(--font-family-brand);
   letter-spacing: -0.03em;
   overflow-wrap: anywhere;
+  background: linear-gradient(180deg, #ffffff 30%, #ffd6ec 72%, #c9a0ff 100%);
+  background-clip: text;
+  color: transparent;
+}
+
+@media print {
+  .titreDisplay,
+  .titrePage {
+    background: none;
+    color: var(--texte);
+  }
 }
 
 .titreDisplay {
@@ -127,6 +141,7 @@
   font-weight: var(--font-weight-interface-strong);
 }
 
+/* Sans puces : Safari retire alors la sémantique de liste, que role="list" rétablit dans le JSX. */
 .liste {
   margin: 0;
   padding: 0;
@@ -161,20 +176,31 @@
   cursor: pointer;
 }
 
+/* Commandes du monde : jamais de pastille pleine. Le bouton est un contour tracé du rose de la trace qui
+   se remplit au survol ; le bouton clair, un texte souligné d'un trait qui s'étire. */
 .bouton {
-  background: var(--color-violet-primary);
+  border: 1.5px solid var(--color-solar-trace);
+  border-radius: 999px;
+  background: transparent;
   color: var(--color-text-on-dark);
-}
-
-.boutonClair {
-  background: var(--color-surface-paper);
-  color: var(--color-text-on-light);
+  transition:
+    background-color 260ms var(--motion-easing-interface),
+    color 260ms var(--motion-easing-interface);
 }
 
 .bouton:hover {
-  background: var(--color-violet-bright);
+  background: var(--color-solar-trace);
+  color: #1a0a33;
 }
 
-.boutonClair:hover {
-  background: var(--color-surface-paper-tint);
+.boutonClair {
+  padding-inline: 0;
+  background: linear-gradient(var(--color-solar-trace), var(--color-solar-trace)) no-repeat 0 78% / 40% 1.5px;
+  color: var(--color-text-on-dark);
+  transition: background-size 320ms var(--motion-easing-interface);
+}
+
+.boutonClair:hover,
+.boutonClair:focus-visible {
+  background-size: 100% 1.5px;
 }

@@ -1,3 +1,39 @@
+/* En-tête cartouche. Avec le monde, il tient tout le premier écran : à gauche sur grand écran, l'écran 3D
+   du projet occupant la droite du cadre ; en bas sur téléphone, sous l'écran 3D. */
+.entete {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+}
+
+.entete p {
+  margin: 0;
+}
+
+.entete > p:last-child {
+  margin-block-start: var(--space-3);
+}
+
+.role {
+  max-width: 34ch;
+}
+
+:global(html[data-monde]) .entete {
+  align-content: end;
+  min-height: 64svh;
+}
+
+@media (min-width: 768px) {
+  .entete {
+    max-width: min(40rem, 46vw);
+  }
+
+  :global(html[data-monde]) .entete {
+    align-content: center;
+    min-height: 72svh;
+  }
+}
+
 /* Belvédère : média 7/12 et preuves 5/12 ; sans média, les preuves prennent toute la largeur. */
 .belvedere {
   display: grid;

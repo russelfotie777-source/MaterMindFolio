@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "project-copy/1",
+  "slug": "mboamarkets",
+  "lang": "fr",
+  "sections": {
+    "product-caption": {
+      "file": "content/copy/fr/projects/mboamarkets/product-caption.md",
+      "author": "chatgpt",
+      "factRefs": ["personalScope", "proofs", "stack"],
+      "russelValidatedAt": null
+    },
+    "decision": {
+      "file": "content/copy/fr/projects/mboamarkets/decision.md",
+      "author": "chatgpt",
+      "factRefs": ["decisions"],
+      "russelValidatedAt": null
+    }
+  }
+}

@@ -1,8 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+import { Copie } from '@/components/Copie';
+import { LecteurReference } from '@/components/LecteurReference';
 import { LienExterne } from '@/components/LienExterne';
+import { lireCopieSite } from '@/lib/copie/site';
 import { formaterJour } from '@/lib/dates';
+import { lireReferencesMusicales } from '@/lib/faits/musique';
 import { lireProjets } from '@/lib/faits/projets';
 import { lireDerives } from '@/lib/media';
 import page from '@/styles/page.module.css';
@@ -20,7 +24,9 @@ const ko = (octets: number) => `${Math.round(octets / 1000)} Ko`;
 // Sources & fabrication (DR-1, vue A13 et 05_ACTIFS_DROITS) : chaque dérivé publié avec son identifiant,
 // son origine, ses formats et son poids ; une image générée est toujours déclarée comme telle.
 export default function Fabrication() {
+  const copieSite = lireCopieSite();
   const projets = lireProjets();
+  const morceaux = lireReferencesMusicales();
   const images = lireDerives().map(([id, derive]) => {
     const fichiers = [...derive.fichiers.avif, ...derive.fichiers.webp];
     const poids = fichiers.map((f) => f.octets);
@@ -31,10 +37,11 @@ export default function Fabrication() {
     <div className={page.cadre}>
       <p className={page.etiquette}>Colophon</p>
       <h1 className={page.titrePage}>Sources &amp; fabrication</h1>
+      {copieSite.fabrication && <Copie arbre={copieSite.fabrication} className={page.lead} />}
 
       <section className={`${page.rubrique} ${styles.bloc}`}>
         <h2>Images</h2>
-        <ul className={`${page.liste} ${styles.images}`}>
+        <ul role="list" className={`${page.liste} ${styles.images}`}>
           {images.map((image) => (
             <li key={image.id}>
               <p className={page.fort}>
@@ -50,6 +57,32 @@ export default function Fabrication() {
           ))}
         </ul>
       </section>
+
+      {morceaux.length > 0 && (
+        <section className={`${page.rubrique} ${styles.bloc}`}>
+          <h2>Morceaux de référence</h2>
+          <p className={page.attenue}>
+            Ils ont inspiré la direction sonore ; ils ne sont ni utilisés ni imités sur le site.
+          </p>
+          <ul role="list" className={`${page.liste} ${styles.morceaux}`}>
+            {morceaux.map((morceau) => (
+              <li key={morceau.id}>
+                <p className={page.fort}>{morceau.titre}</p>
+                <p className={page.attenue}>
+                  {morceau.compositeur} · {morceau.oeuvre} ({morceau.annee})
+                </p>
+                {morceau.publication.genre === 'youtube' ? (
+                  <LecteurReference titre={morceau.titre} videoId={morceau.publication.videoId} />
+                ) : (
+                  <p>
+                    <LienExterne href={morceau.publication.url}>{morceau.publication.libelle}</LienExterne>
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section className={`${page.rubrique} ${styles.bloc}`}>
         <h2>Typographie</h2>
@@ -71,7 +104,7 @@ export default function Fabrication() {
               <h3 className={page.fort}>
                 <Link href={`/projets/${projet.slug}`}>{projet.nom}</Link>
               </h3>
-              <ul className={page.liste}>
+              <ul role="list" className={page.liste}>
                 {projet.sources.map((source) => (
                   <li key={source.libelle}>
                     {source.url ? (

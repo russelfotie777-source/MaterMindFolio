@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "project-copy/1",
+  "slug": "batobaye-market",
+  "lang": "fr",
+  "sections": {
+    "product-caption": {
+      "file": "content/copy/fr/projects/batobaye-market/product-caption.md",
+      "author": "chatgpt",
+      "factRefs": ["personalScope", "proofs"],
+      "russelValidatedAt": null
+    }
+  }
+}

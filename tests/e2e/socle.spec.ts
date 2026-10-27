@@ -3,6 +3,10 @@ import { expect, test } from '@playwright/test';
 
 import { ROUTES } from './routes';
 
+// Le socle vérifie le HTML, l'accessibilité et la CSP de chaque route. Le monde 3D de l'accueil, lourd
+// sans GPU, est écarté par la préférence de mouvement réduit ; il a ses propres tests (monde.spec.ts).
+test.use({ reducedMotion: 'reduce' });
+
 // Relève les violations CSP dès le premier script de la page, avant ceux de Next.js.
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => {
@@ -59,17 +63,18 @@ test.describe('sans JavaScript', () => {
 });
 
 test('clavier : le lien d’évitement mène au contenu', async ({ page, browserName }) => {
-  // WebKit ne place pas les liens dans l'ordre de tabulation par défaut (réglage de macOS).
-  test.skip(browserName === 'webkit', 'Tab ignore les liens par défaut dans WebKit');
+  // Safari (WebKit) ne parcourt les liens au clavier qu'avec Option+Tab, son réglage par défaut :
+  // le test emploie donc la touche que l'utilisateur de Safari emploie réellement.
+  const suivant = browserName === 'webkit' ? 'Alt+Tab' : 'Tab';
   await page.goto('/');
-  await page.keyboard.press('Tab');
+  await page.keyboard.press(suivant);
   const evitement = page.getByRole('link', { name: 'Aller au contenu' });
   await expect(evitement).toBeFocused();
   await expect(evitement).toBeInViewport();
   await page.keyboard.press('Enter');
   await expect(page.locator('main#contenu')).toBeFocused();
-  await page.keyboard.press('Tab');
-  await expect(page.getByRole('link', { name: 'Commencer la visite' })).toBeFocused();
+  await page.keyboard.press(suivant);
+  await expect(page.getByRole('link', { name: 'Entrer dans le monde' })).toBeFocused();
 });
 
 test('accueil : portrait et décor viennent des dérivés, en cache immuable', async ({ page, request }) => {
@@ -94,6 +99,26 @@ test('étude de cas : un seul média visible, décrit par son texte alternatif',
   await expect
     .poll(() => media.evaluate((img: HTMLImageElement) => (img.complete ? img.naturalWidth : 0)))
     .toBeGreaterThan(0);
+});
+
+test('morceaux de référence : aucune requête YouTube avant le clic (ADR-001)', async ({ page }) => {
+  const youtube: string[] = [];
+  page.on('request', (requete) => {
+    if (/youtube|ytimg|googlevideo/.test(new URL(requete.url()).hostname)) youtube.push(requete.url());
+  });
+  await page.goto('/fabrication');
+  await page.waitForLoadState('networkidle');
+  expect(youtube).toEqual([]);
+
+  const ecouter = page.getByRole('link', { name: /^Écouter sur YouTube/ });
+  test.skip((await ecouter.count()) === 0, 'Références musicales en attente du visa de Russel.');
+  await ecouter.first().click();
+  const lecteur = page.locator('iframe[src^="https://www.youtube-nocookie.com/embed/"]');
+  await expect(lecteur).toBeVisible();
+  await expect(lecteur).toBeFocused();
+  const { width, height } = (await lecteur.boundingBox())!;
+  expect(Math.min(width, height)).toBeGreaterThanOrEqual(200);
+  expect(await violationsCsp(page)).toEqual([]);
 });
 
 test('l’îlot « Copier l’adresse » est hydraté et annonce son résultat', async ({ page }) => {

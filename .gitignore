@@ -15,3 +15,8 @@
 /test-results/
 /playwright-report/
 /blob-report/
+/.tests/
+
+# Cartes des corps célestes (Solar System Scope, CC BY 4.0) : masters locaux, empreintes dans
+# assets/registry-g3.json ; seuls leurs dérivés sont publiés.
+/design/releases/DR-1/assets/planetes/
